@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Book, Home, BookOpen, Moon, Sun, Loader2, ChevronRight } from 'lucide-react';
+import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom';
 
 const HomePage = React.lazy(() => Promise.resolve({
   default: () => (
@@ -38,8 +39,11 @@ const StoryDialog = ({ dialogs, darkMode }) => (
   </div>
 );
 
-const StoryReader = () => {
-  const [currentPage, setCurrentPage] = useState('home');
+const StoryReaderContent = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { storyType, storyId, chapterId } = useParams();
+  
   const [darkMode, setDarkMode] = useState(true);
   const [stories, setStories] = useState({
     main: [
@@ -78,7 +82,6 @@ const StoryReader = () => {
   
   const [loading, setLoading] = useState(false);
   const [selectedStory, setSelectedStory] = useState(null);
-  const [selectedChapter, setSelectedChapter] = useState(null);
   const [storyData, setStoryData] = useState(null);
 
   useEffect(() => {
@@ -90,93 +93,92 @@ const StoryReader = () => {
   }, [darkMode]);
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
+    // URL 파라미터에 따라 상태 업데이트
+    if (storyType && storyId) {
+      const story = stories[storyType]?.find(s => s.id === storyId);
+      setSelectedStory(story);
+      
+      if (chapterId) {
+        loadChapterData(chapterId);
+      }
     } else {
-      document.documentElement.classList.remove('dark');
+      setSelectedStory(null);
+      setStoryData(null);
     }
-  }, [darkMode]);
+  }, [storyType, storyId, chapterId]);
 
   useEffect(() => {
-    if (currentPage === 'main' || currentPage === 'side') {
+    if (storyType === 'main' || storyType === 'side') {
       setLoading(true);
-      const calculateWordCounts = async () => {
-        try {
-          const updatedStories = await Promise.all(
-            stories[currentPage].map(async (story) => {
-              // 각 챕터의 글자 수 계산
-              const chapterCounts = await Promise.all(
-                story.chapters.map(async (chapter) => {
-                  try {
-                    // JSON 파일에서 챕터 데이터 로드
-                    const response = await import(`./story/${chapter.id}.json`);
-                    const data = response.default;
-                    
-                    // 대화의 글자 수 합계 계산
-                    const wordCount = data.dialogs.reduce(
-                      (acc, curr) => acc + curr.dialog.length, 
-                      0
-                    );
-                    
-                    return {
-                      ...chapter,
-                      wordCount
-                    };
-                  } catch (error) {
-                    console.error(`챕터 ${chapter.id} 데이터 로드 실패:`, error);
-                    return {
-                      ...chapter,
-                      wordCount: 0
-                    };
-                  }
-                })
-              );
+      calculateWordCounts();
+    }
+  }, [storyType]);
 
-              // 전체 글자 수 계산
-              const totalWordCount = chapterCounts.reduce(
-                (acc, chapter) => acc + chapter.wordCount, 
-                0
-              );
-
-              return {
-                ...story,
-                chapters: chapterCounts,
-                wordCount: totalWordCount
-              };
+  const calculateWordCounts = async () => {
+    try {
+      const updatedStories = await Promise.all(
+        stories[storyType].map(async (story) => {
+          const chapterCounts = await Promise.all(
+            story.chapters.map(async (chapter) => {
+              try {
+                const response = await import(`./story/${chapter.id}.json`);
+                const data = response.default;
+                const wordCount = data.dialogs.reduce(
+                  (acc, curr) => acc + curr.dialog.length, 
+                  0
+                );
+                return { ...chapter, wordCount };
+              } catch (error) {
+                console.error(`챕터 ${chapter.id} 데이터 로드 실패:`, error);
+                return { ...chapter, wordCount: 0 };
+              }
             })
           );
 
-          setStories(prev => ({
-            ...prev,
-            [currentPage]: updatedStories
-          }));
-        } catch (error) {
-          console.error('글자 수 계산 중 오류 발생:', error);
-        } finally {
-          setLoading(false);
-        }
-      };
+          const totalWordCount = chapterCounts.reduce(
+            (acc, chapter) => acc + chapter.wordCount, 
+            0
+          );
 
-      calculateWordCounts();
+          return {
+            ...story,
+            chapters: chapterCounts,
+            wordCount: totalWordCount
+          };
+        })
+      );
+
+      setStories(prev => ({
+        ...prev,
+        [storyType]: updatedStories
+      }));
+    } catch (error) {
+      console.error('글자 수 계산 중 오류 발생:', error);
+    } finally {
+      setLoading(false);
     }
-  }, [currentPage]);
-
-  
-
-  const handleStoryClick = (story) => {
-    setSelectedStory(story);
-    setSelectedChapter(null);
   };
 
-  const handleChapterClick = async (chapterId) => {
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
+  const loadChapterData = async (chapterId) => {
     try {
       const response = await import(`./story/${chapterId}.json`);
       const data = response.default;
       setStoryData(data);
-      setSelectedChapter(chapterId);
     } catch (error) {
       console.error('챕터 데이터를 불러오는데 실패했습니다:', error);
     }
+  };
+
+  const handleStoryClick = (story) => {
+    handleNavigation(`/${storyType}/${story.id}`);
+  };
+
+  const handleChapterClick = (chapterId) => {
+    handleNavigation(`/${storyType}/${selectedStory.id}/${chapterId}`);
   };
 
   return (
@@ -192,9 +194,9 @@ const StoryReader = () => {
               </div>
               <div className="flex space-x-4">
                 <button
-                  onClick={() => { setCurrentPage('home'); setSelectedStory(null); setSelectedChapter(null); }}
+                  onClick={() => handleNavigation('/')}
                   className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                    ${currentPage === 'home' 
+                    ${location.pathname === '/' 
                       ? (darkMode ? 'bg-gray-700 text-white' : 'bg-gray-900 text-white')
                       : (darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-700 hover:bg-gray-200')}`}
                 >
@@ -202,9 +204,9 @@ const StoryReader = () => {
                   홈
                 </button>
                 <button
-                  onClick={() => { setCurrentPage('main'); setSelectedStory(null); setSelectedChapter(null); }}
+                  onClick={() => handleNavigation('/main')}
                   className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                    ${currentPage === 'main'
+                    ${location.pathname.startsWith('/main')
                       ? (darkMode ? 'bg-gray-700 text-white' : 'bg-gray-900 text-white')
                       : (darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-700 hover:bg-gray-200')}`}
                 >
@@ -212,9 +214,9 @@ const StoryReader = () => {
                   메인
                 </button>
                 <button
-                  onClick={() => { setCurrentPage('side'); setSelectedStory(null); setSelectedChapter(null); }}
+                  onClick={() => handleNavigation('/side')}
                   className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                    ${currentPage === 'side'
+                    ${location.pathname.startsWith('/side')
                       ? (darkMode ? 'bg-gray-700 text-white' : 'bg-gray-900 text-white')
                       : (darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-700 hover:bg-gray-200')}`}
                 >
@@ -238,22 +240,22 @@ const StoryReader = () => {
         <Suspense fallback={<LoadingSpinner />}>
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentPage + (selectedStory?.id || '') + (selectedChapter || '')}
+              key={location.pathname}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
               {/* 홈 페이지 */}
-              {currentPage === 'home' && !selectedStory && <HomePage />}
+              {location.pathname === '/' && <HomePage />}
 
               {/* 스토리 목록 */}
-              {(currentPage === 'main' || currentPage === 'side') && !selectedStory && (
+              {(storyType === 'main' || storyType === 'side') && !storyId && (
                 <div className="space-y-6">
                   {loading ? (
                     <LoadingSpinner />
                   ) : (
-                    stories[currentPage].map((story, index) => (
+                    stories[storyType].map((story, index) => (
                       <motion.div
                         key={story.id}
                         initial={{ opacity: 0, y: 20 }}
@@ -288,11 +290,11 @@ const StoryReader = () => {
               )}
 
               {/* 챕터 목록 */}
-              {selectedStory && !selectedChapter && (
+              {selectedStory && !chapterId && (
                 <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} p-6 rounded-lg shadow-lg`}>
                   <div className="flex items-center mb-6">
                     <button
-                      onClick={() => setSelectedStory(null)}
+                      onClick={() => handleNavigation(`/${storyType}`)}
                       className={`px-4 py-2 rounded-md ${
                         darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'
                       }`}
@@ -315,8 +317,8 @@ const StoryReader = () => {
                         } p-4 rounded-lg cursor-pointer transition-colors duration-200`}
                       >
                         <h3 className="text-lg font-semibold">
-                        {chapter.title} {chapter.subtitle && <span className="text-base text-gray-400"> {chapter.subtitle}</span>}
-                          </h3>
+                          {chapter.title} {chapter.subtitle && <span className="text-base text-gray-400"> {chapter.subtitle}</span>}
+                        </h3>
                         {chapter.wordCount !== undefined && (
                           <p className={`mt-2 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                             글자 수: {chapter.wordCount}
@@ -329,11 +331,11 @@ const StoryReader = () => {
               )}
 
               {/* 챕터 내용 */}
-              {selectedChapter && (
+              {chapterId && storyData && (
                 <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} p-6 rounded-lg shadow-lg`}>
                   <div className="flex items-center mb-6">
                     <button
-                      onClick={() => setSelectedChapter(null)}
+                      onClick={() => handleNavigation(`/${storyType}/${selectedStory.id}`)}
                       className={`px-4 py-2 rounded-md ${
                         darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'
                       }`}
@@ -354,6 +356,22 @@ const StoryReader = () => {
         </Suspense>
       </main>
     </div>
+  );
+};
+
+const StoryReader = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<StoryReaderContent />}>
+          <Route path=":storyType" element={<StoryReaderContent />}>
+            <Route path=":storyId" element={<StoryReaderContent />}>
+              <Route path=":chapterId" element={<StoryReaderContent />} />
+            </Route>
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
