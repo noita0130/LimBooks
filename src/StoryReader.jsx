@@ -18,19 +18,19 @@ const LoadingSpinner = () => (
 );
 
 const StoryDialog = ({ dialogs, darkMode }) => (
-  <div className="space-y-0">
+  <div className="space-y-1">
     {dialogs.map((item, index) => (
       <motion.div
         key={index}
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: index * 0.1 }}
+        transition={{ delay: index * 0.01 }}
         className="flex items-start space-x-4"
       >
-        <div className={`w-24 p-3 font-bold text-right ${darkMode ? 'text-gray-100' : 'text-black'}`}>
+        <div className={`w-32 p-3 font-bold text-right ${darkMode ? 'text-gray-100' : 'text-black'}`}>
           {item.speaker}
         </div>
-        <div className={`flex-1 p-3 rounded-lg ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
+        <div className={`flex-1 p-3 rounded-lg ${darkMode ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'}`}>
           {item.dialog}
         </div>
       </motion.div>
@@ -45,12 +45,12 @@ const StoryReader = () => {
     main: [
       { 
         id: "main_1", 
-        title: "1 번째 메인 스토리", 
+        title: "0 - 프롤로그", 
         image: "/api/placeholder/200/200",
         chapters: [
-          { id: "main_1_1", title: "1장: 시작" },
-          { id: "main_1_2", title: "2장: 만남" },
-          { id: "main_1_3", title: "3장: 모험" }
+          { id: "main0_1_a", title: "표범, 사자, 그리고 늑대", subtitle: "0-1 전투 전"},
+          { id: "main0_1_b", title: "표범, 사자, 그리고 늑대", subtitle: "0-1 전투 후"},
+          { id: "main_1_3", title: "0-2 전투 전" }
         ]
       },
       { 
@@ -90,52 +90,78 @@ const StoryReader = () => {
   }, [darkMode]);
 
   useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
     if (currentPage === 'main' || currentPage === 'side') {
       setLoading(true);
       const calculateWordCounts = async () => {
-        const updatedStories = await Promise.all(
-          stories[currentPage].map(async (story) => {
-            try {
-              // 각 챕터의 총 글자 수 계산
+        try {
+          const updatedStories = await Promise.all(
+            stories[currentPage].map(async (story) => {
+              // 각 챕터의 글자 수 계산
               const chapterCounts = await Promise.all(
                 story.chapters.map(async (chapter) => {
                   try {
+                    // JSON 파일에서 챕터 데이터 로드
                     const response = await import(`./story/${chapter.id}.json`);
                     const data = response.default;
-                    return data.dialogs.reduce((acc, curr) => acc + curr.dialog.length, 0);
+                    
+                    // 대화의 글자 수 합계 계산
+                    const wordCount = data.dialogs.reduce(
+                      (acc, curr) => acc + curr.dialog.length, 
+                      0
+                    );
+                    
+                    return {
+                      ...chapter,
+                      wordCount
+                    };
                   } catch (error) {
-                    console.error(`챕터 ${chapter.id} 데이터를 불러오는데 실패했습니다:`, error);
-                    return 0;
+                    console.error(`챕터 ${chapter.id} 데이터 로드 실패:`, error);
+                    return {
+                      ...chapter,
+                      wordCount: 0
+                    };
                   }
                 })
               );
-              
-              const totalWordCount = chapterCounts.reduce((acc, curr) => acc + curr, 0);
-              return { 
-                ...story, 
-                wordCount: totalWordCount,
-                chapters: story.chapters.map((chapter, index) => ({
-                  ...chapter,
-                  wordCount: chapterCounts[index]
-                }))
-              };
-            } catch (error) {
-              console.error(`스토리 ${story.id} 데이터를 불러오는데 실패했습니다:`, error);
-              return { ...story, wordCount: 0 };
-            }
-          })
-        );
 
-        setStories(prev => ({
-          ...prev,
-          [currentPage]: updatedStories
-        }));
-        setLoading(false);
+              // 전체 글자 수 계산
+              const totalWordCount = chapterCounts.reduce(
+                (acc, chapter) => acc + chapter.wordCount, 
+                0
+              );
+
+              return {
+                ...story,
+                chapters: chapterCounts,
+                wordCount: totalWordCount
+              };
+            })
+          );
+
+          setStories(prev => ({
+            ...prev,
+            [currentPage]: updatedStories
+          }));
+        } catch (error) {
+          console.error('글자 수 계산 중 오류 발생:', error);
+        } finally {
+          setLoading(false);
+        }
       };
 
       calculateWordCounts();
     }
   }, [currentPage]);
+
+  
 
   const handleStoryClick = (story) => {
     setSelectedStory(story);
@@ -271,7 +297,7 @@ const StoryReader = () => {
                         darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'
                       }`}
                     >
-                      ← 목록으로
+                      ← 돌아가기
                     </button>
                     <h2 className="ml-4 text-2xl font-bold">{selectedStory.title}</h2>
                   </div>
@@ -288,7 +314,9 @@ const StoryReader = () => {
                           darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'
                         } p-4 rounded-lg cursor-pointer transition-colors duration-200`}
                       >
-                        <h3 className="text-lg font-semibold">{chapter.title}</h3>
+                        <h3 className="text-lg font-semibold">
+                        {chapter.title} {chapter.subtitle && <span className="text-base text-gray-400"> {chapter.subtitle}</span>}
+                          </h3>
                         {chapter.wordCount !== undefined && (
                           <p className={`mt-2 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                             글자 수: {chapter.wordCount}
@@ -310,7 +338,7 @@ const StoryReader = () => {
                         darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300'
                       }`}
                     >
-                      ← 챕터 목록
+                      ← 돌아가기
                     </button>
                     <h2 className="ml-4 text-2xl font-bold">
                       {selectedStory.title} - {storyData?.title || "챕터 내용"}
