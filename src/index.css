@@ -1,1 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 @import "tailwindcss";
+
+
+@theme {
+    --font-dialogs: "Gowun Batang", "sans-serif";
+}
