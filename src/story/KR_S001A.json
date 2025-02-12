@@ -1,9 +1,6 @@
 {
   "dataList" : [
     {
-      "content" : "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Chapter2_before.png"
-    },
-    {
       "id" : 0,
       "place" : "검은 숲",
       "model" : "표범",

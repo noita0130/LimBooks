@@ -1,7 +1,10 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Book, Home, BookOpen, Moon, Sun, Loader2, ChevronRight } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom';
+
+import useScrollRestoration from './useScrollRestoration';
+import storiesData from './storiesData';
 
 //^\s*"id"\s*:\s*\d+\s*,?\n|^\s*"teller"\s*:\s*".*?"\s*,?\n
 
@@ -23,7 +26,7 @@ const LoadingSpinner = () => (
 const StoryDialog = ({ dataList, darkMode }) => {
   // 이미지 URL인지 확인하는 함수
   const isImageUrl = (str) => {
-    return str?.match(/\.(jpeg|jpg|gif|png)$/) != null || str?.startsWith('http');
+    return str?.match(/\.(jpeg|jpg|gif|png)$/) != null;
   };
 
   return (
@@ -40,14 +43,17 @@ const StoryDialog = ({ dataList, darkMode }) => {
             {item.teller || item.model}
           </div>
           <div className={`flex-1 py-2 pr-3 pl-2 rounded-lg ${darkMode ? 'bg-neutral-800 text-neutral-300' : 'bg-white text-neutral-900'}`}>
-            {isImageUrl(item.content) ? (
-              <img 
+            {/* type 필드가 없거나 text인 경우 텍스트로 처리 */}
+            {(!item.type || item.type === 'text') && (
+              item.content
+            )}
+            {/* type 필드가 image이고, content가 이미지 URL인 경우 이미지로 처리 */}
+            {item.type === 'image' && isImageUrl(item.content) && (
+              <img
                 src={item.content}
                 alt="Story content"
                 className="max-w-full h-auto rounded"
               />
-            ) : (
-              item.content
             )}
           </div>
         </motion.div>
@@ -60,185 +66,40 @@ const StoryReaderContent = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { storyType, storyId, chapterId } = useParams();
-  
+  const { saveScrollPosition, restoreScrollposition, scrollToTop } = useScrollRestoration();
+
+
+  useEffect(() => {
+    scrollToTop();
+  }, [location.pathname]);
+
+  //뒤로가기 > 스크롤위치복원
+  useEffect(() => {
+    const handlePopState = () => {
+      const key = location.pathname;
+      restoreScrollposition(key);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [location.pathname, restoreScrollposition]);
+
+  //내용클릭시 스크롤위치저장
+  const handleNavigation = (path) => {
+    saveScrollPosition(location.pathname);
+    navigate(path);
+  };
+
+  // "돌아가기" 버튼 클릭 시 스크롤 위치 저장
+  const handleGoBack = () => {
+    saveScrollPosition(location.pathname); // 현재 페이지의 스크롤 위치 저장
+    navigate(-1); // 뒤로가기
+  };
+
+
+  const [stories, setStories] = useState(storiesData);
   const [darkMode, setDarkMode] = useState(true);
-  const [stories, setStories] = useState({
-    main: [
-      { 
-        id: "main_0", 
-        title: "0 - 어두운 숲", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter0.png",
-        chapters: [
-          { id: "KR_S001B", title: "표범, 사자, 그리고 늑대", subtitle: "0-1 전투 전"},
-          { id: "KR_S001A", title: "표범, 사자, 그리고 늑대", subtitle: "0-1 전투 후"},
-          { id: "KR_S002B", title: "자기소개", subtitle: "0-2 전투 전"},
-          { id: "KR_S003B", title: "여행길", subtitle: "0-3 전투 전"},
-          { id: "KR_S003A", title: "여행길", subtitle: "0-3 전투 후"},
-          { id: "KR_S004B", title: "가능성", subtitle: "0-4 전투 전"},
-          { id: "KR_S004A", title: "가능성", subtitle: "0-4 전투 후"}
-        ]
-      },
-      { 
-        id: "main_1", 
-        title: "1 - 속하지 못하는", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter1.png",
-        chapters: [
-          { id: "KR_S101B", title: "부릉부릉", subtitle: "1-1 전투 전"},
-          { id: "KR_S102B", title: "댄스 타임", subtitle: "1-2 전투 전"},
-          { id: "KR_S103B", title: "전투 전", subtitle: "1-3 전투 전"},
-          { id: "KR_S104B", title: "엔케팔린", subtitle: "1-4 전투 전"},
-          { id: "KR_S105B", title: "유리", subtitle: "1-5 전투 전"},
-          { id: "KR_S106B", title: "지도", subtitle: "1-6 전투 전"},
-          { id: "KR_S107B", title: "삼인방", subtitle: "1-7 전투 전"},
-          { id: "KR_S107A", title: "삼인방", subtitle: "1-7 전투 후"},
-          { id: "KR_S108B", title: "해충", subtitle: "1-8 전투 전"},
-          { id: "KR_S109B", title: "가이드", subtitle: "1-9 전투 전"},
-          { id: "KR_S110B", title: "8급 해결사", subtitle: "1-10 전투 전"},
-          { id: "KR_S111B", title: "D-02 지부", subtitle: "1-11 전투 전"},
-          { id: "KR_1D101A", title: "4구 L사 지부 던전", subtitle: ""},
-          { id: "KR_1D102A", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_1D103A", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_S111B", title: "4구 L사 지부 던전", subtitle: "1-11 전투 전"},
-          { id: "KR_1D306I", title: "4구 L사 지부 던전", subtitle: "보스 1페이즈"},
-          { id: "KR_1D306I2", title: "4구 L사 지부 던전", subtitle: "보스 2페이즈"},
-          { id: "KR_1D306A", title: "4구 L사 지부 던전", subtitle: "던전보스 전투 후"},
-        ]
-      },
-      { 
-        id: "main_2", 
-        title: "2 - 사랑할 수 없는", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Chapter2_before.png",
-        chapters: [
-          { id: "KR_S111B", title: "부릉부릉", subtitle: "1-1 전투 전"},
-          { id: "KR_S111B", title: "댄스 타임", subtitle: "1-2 전투 전"},
-          { id: "KR_S111B", title: "전투 전", subtitle: "1-3 전투 전"},
-          { id: "KR_S111B", title: "엔케팔린", subtitle: "1-4 전투 전"},
-          { id: "KR_S111B", title: "유리", subtitle: "1-5 전투 전"},
-          { id: "KR_S111B", title: "지도", subtitle: "1-6 전투 전"},
-          { id: "KR_S111B", title: "삼인방", subtitle: "1-7 전투 전"},
-          { id: "KR_S111B", title: "삼인방", subtitle: "1-7 전투 후"},
-          { id: "KR_S111B", title: "해충", subtitle: "1-8 전투 전"},
-          { id: "KR_S111B", title: "가이드", subtitle: "1-7 전투 전"},
-          { id: "KR_S111B", title: "8급 해결사", subtitle: "1-10 전투 전"},
-          { id: "KR_S111B", title: "D-02 지부", subtitle: "1-11 전투 전"}
-        ]
-      },
-      { 
-        id: "main_3", 
-        title: "3 - 마주하지 않는", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter3.png",
-        chapters: [
-          { id: "KR_S111B", title: "부릉부릉", subtitle: "1-1 전투 전"},
-        ]
-      },
-      { 
-        id: "main_4", 
-        title: "4 - 변하지 않는", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter4_before_0.png",
-        chapters: [
-          { id: "KR_S111B", title: "부릉부릉", subtitle: "1-1 전투 전"},
-        ]
-      },
-      { 
-        id: "main_5", 
-        title: "5 - 악으로 규정되는", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter5_before.png",
-        chapters: [
-          { id: "KR_S111B", title: "부릉부릉", subtitle: "1-1 전투 전"},
-        ]
-      },
-      { 
-        id: "main_6", 
-        title: "6 - 마음이 어긋나는", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter6_before.png",
-        chapters: [
-          { id: "KR_S111B", title: "부릉부릉", subtitle: "1-1 전투 전"},
-        ]
-      },
-      { 
-        id: "main_7", 
-        title: "7 - 꿈이 끝나는", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter7_before.png",
-        chapters: [
-          { id: "KR_S111B", title: "부릉부릉", subtitle: "1-1 전투 전"},
-        ]
-      },
-      
-      
-    ],
-    side: [
-      { 
-        id: "sub-3_5", 
-        title: "헬스 치킨", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter3.5.png",
-        chapters: [
-          { id: "KR_S111B", title: "1장: 일상" }
-        ]
-      },
-      { 
-        id: "sub-4_1", 
-        title: "우.미.다", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter-umida.png",
-        chapters: [
-          { id: "KR_S111B", title: "1장: 일상" }
-        ]
-      },
-      { 
-        id: "sub-5_5_1", 
-        title: "20번구의 기적", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter5.5_miracle.png",
-        chapters: [
-          { id: "KR_S111B", title: "1장: 일상" }
-        ]
-      },
-      { 
-        id: "sub-5_5_2", 
-        title: "육참골단", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter5.5_ycgd.png",
-        chapters: [
-          { id: "KR_S111B", title: "1장: 일상" }
-        ]
-      },
-      { 
-        id: "sub-6_5_1", 
-        title: "시간살인시간", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter6.5_tkt.png",
-        chapters: [
-          { id: "KR_S111B", title: "1장: 일상" }
-        ]
-      },
-      { 
-        id: "sub-6_5_2", 
-        title: "워프특급 살인사건", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter6.5_mowe.png",
-        chapters: [
-          { id: "KR_S111B", title: "1장: 일상" }
-        ]
-      },
-      { 
-        id: "sub-7_5_1", 
-        title: "LCB 정기검진", 
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapter7.5_LCBCheckUp.png",
-        chapters: [
-          { id: "KR_S111B", title: "1장: 일상" }
-        ]
-      },
-    ]
-  });
-  
   const [loading, setLoading] = useState(false);
   const [selectedStory, setSelectedStory] = useState(null);
   const [storyData, setStoryData] = useState(null);
@@ -256,7 +117,7 @@ const StoryReaderContent = () => {
     if (storyType && storyId) {
       const story = stories[storyType]?.find(s => s.id === storyId);
       setSelectedStory(story);
-      
+
       if (chapterId) {
         loadChapterData(chapterId);
       }
@@ -283,7 +144,7 @@ const StoryReaderContent = () => {
                 const response = await import(`./story/${chapter.id}.json`);
                 const data = response.default;
                 const wordCount = data.dataList.reduce(
-                  (acc, curr) => acc + curr.content.length, 
+                  (acc, curr) => acc + curr.content.length,
                   0
                 );
                 return { ...chapter, wordCount };
@@ -295,7 +156,7 @@ const StoryReaderContent = () => {
           );
 
           const totalWordCount = chapterCounts.reduce(
-            (acc, chapter) => acc + chapter.wordCount, 
+            (acc, chapter) => acc + chapter.wordCount,
             0
           );
 
@@ -316,10 +177,6 @@ const StoryReaderContent = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleNavigation = (path) => {
-    navigate(path);
   };
 
   const loadChapterData = async (chapterId) => {
@@ -355,7 +212,7 @@ const StoryReaderContent = () => {
                 <button
                   onClick={() => handleNavigation('/')}
                   className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                    ${location.pathname === '/' 
+                    ${location.pathname === '/'
                       ? (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white')
                       : (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
                 >
@@ -454,15 +311,14 @@ const StoryReaderContent = () => {
                   <div className="flex items-center mb-6">
                     <button
                       onClick={() => handleNavigation(`/${storyType}`)}
-                      className={`px-4 py-2 rounded-md ${
-                        darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
-                      }`}
+                      className={`px-4 py-2 rounded-md ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                        }`}
                     >
                       ← 돌아가기
                     </button>
                     <h2 className="ml-4 text-2xl font-bold">{selectedStory.title}</h2>
                   </div>
-                  
+
                   <div className="space-y-4">
                     {selectedStory.chapters.map((chapter, index) => (
                       <motion.div
@@ -471,9 +327,8 @@ const StoryReaderContent = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.02 }}
                         onClick={() => handleChapterClick(chapter.id)}
-                        className={`${
-                          darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-100 hover:bg-neutral-200'
-                        } p-4 rounded-lg cursor-pointer transition-colors duration-200`}
+                        className={`${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-100 hover:bg-neutral-200'
+                          } p-4 rounded-lg cursor-pointer transition-colors duration-200`}
                       >
                         <h3 className="text-lg font-semibold">
                           {index + 1}{"."} {chapter.title} {chapter.subtitle && <span className="text-base text-neutral-400"> {chapter.subtitle}</span>}
@@ -495,9 +350,8 @@ const StoryReaderContent = () => {
                   <div className="flex items-center mb-6">
                     <button
                       onClick={() => handleNavigation(`/${storyType}/${selectedStory.id}`)}
-                      className={`px-4 py-2 rounded-md ${
-                        darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
-                      }`}
+                      className={`px-4 py-2 rounded-md ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                        }`}
                     >
                       ← 돌아가기
                     </button>
