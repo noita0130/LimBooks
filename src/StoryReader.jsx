@@ -197,6 +197,8 @@ const StoryReaderContent = () => {
     handleNavigation(`/${storyType}/${selectedStory.id}/${chapterId}`);
   };
 
+  
+
   return (
     <div className={`min-h-screen transition-colors duration-200 
       ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
@@ -368,6 +370,10 @@ const StoryReaderContent = () => {
     </div>
   );
 };
+
+console.log('storyType:', storyType);
+console.log('stories:', stories);
+console.log('loading:', loading);
 
 const StoryReader = () => {
   return (
