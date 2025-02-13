@@ -21,9 +21,9 @@ const StoryList = ({ stories, storyType, darkMode, handleStoryClick, loading }) 
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.03 }}
           onClick={() => handleStoryClick(story)}
-          className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} 
+          className={`${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-300'} 
             rounded-lg shadow-md p-4 flex items-center space-x-8 cursor-pointer
-            hover:shadow-lg transition-shadow duration-200`}
+            hover:shadow-lg  transition-all duration-200 `}
         >
           <img
             src={story.image}

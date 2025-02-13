@@ -9,6 +9,7 @@ import StoryList from '../components/StoryList';
 import ChapterList from '../components/ChapterList';
 import StoryContent from '../components/StoryContent';
 import LoadingSpinner from '../components/LoadingSpinner';
+import ScriptList from '../components/ScriptsList';
 
 const HomePage = React.lazy(() => Promise.resolve({
   default: () => (
@@ -176,6 +177,7 @@ const StoryReaderPage = () => {
               }}
             >
               {location.pathname === '/' && <HomePage />}
+              {location.pathname === '/scripts' && <ScriptList />}
               {(storyType === 'main' || storyType === 'side') && !storyId && (
                 <StoryList
                   stories={stories}
@@ -204,6 +206,7 @@ const StoryReaderPage = () => {
                   selectedStory={selectedStory}
                 />
               )}
+              
             </motion.div>
           </AnimatePresence>
         </Suspense>
@@ -218,7 +221,8 @@ const StoryReaderContent = () => {
       <Route path="/" element={<StoryReaderPage />} />
       <Route path="/:storyType" element={<StoryReaderPage />} />
       <Route path="/:storyType/:storyId" element={<StoryReaderPage />} />
-      <Route path="/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
+      <Route path="/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />4
+      <Route path="/scripts" element={<StoryReaderPage />}/>
     </Routes>
   );
 };

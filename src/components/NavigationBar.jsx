@@ -1,4 +1,4 @@
-import { Home, Book, BookOpen, Moon, Sun } from "lucide-react";
+import { Home, Book, BookOpen, Moon, Sun, MessageCircle } from "lucide-react";
 
 const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location }) => {
     return (
@@ -49,6 +49,19 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
                 >
                   <BookOpen className="w-4 h-4 mr-2" />
                   사이드
+                </button>
+                <button
+                  onClick={() => {
+                    console.log('Navigating to scripts');
+                    handleNavigation('/scripts');
+                  }}
+                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
+                    ${location.pathname.startsWith('/scripts') ? 
+                      (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
+                      (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
+                >
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  대사집
                 </button>
               </div>
             </div>
