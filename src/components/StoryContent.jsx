@@ -1,4 +1,3 @@
-
 import StoryDialog from "./StoryDialog";
 
 const StoryContent = ({ storyData, darkMode, handleGoBack, handleNavigation, storyType, selectedStory }) => {
@@ -13,6 +12,7 @@ const StoryContent = ({ storyData, darkMode, handleGoBack, handleNavigation, sto
                 >
                     ← 돌아가기
                 </button>
+                <span>노무현</span>
             </div>
 
             {/* 챕터 내용 표시 */}

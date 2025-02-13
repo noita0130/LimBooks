@@ -1,18 +1,15 @@
 // pages/StoryReaderContent.jsx
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import useScrollRestoration from '../hooks/useScrollRestoration';
 import useStoryData from '../hooks/useStoryData';
-
 import NavigationBar from '../components/NavigationBar';
 import StoryList from '../components/StoryList';
 import ChapterList from '../components/ChapterList';
 import StoryContent from '../components/StoryContent';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-// HomePage 컴포넌트 정의
 const HomePage = React.lazy(() => Promise.resolve({
   default: () => (
     <div className="text-center">
@@ -22,20 +19,18 @@ const HomePage = React.lazy(() => Promise.resolve({
   )
 }));
 
-
-
-// 실제 컨텐츠를 렌더링하는 컴포넌트
 const StoryReaderPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { storyType, storyId, chapterId } = useParams();
-  
-  const { saveScrollPosition, restoreScrollposition, scrollToTop } = useScrollRestoration();
-  const { stories, loading } = useStoryData(storyType);
-  
+  const scrollRef = useRef(new Map());
+
   const [darkMode, setDarkMode] = useState(true);
   const [selectedStory, setSelectedStory] = useState(null);
   const [storyData, setStoryData] = useState(null);
+  const [shouldRestoreScroll, setShouldRestoreScroll] = useState(false);
+  
+  const { stories, loading } = useStoryData(storyType);
 
   useEffect(() => {
     if (darkMode) {
@@ -46,18 +41,21 @@ const StoryReaderPage = () => {
   }, [darkMode]);
 
   useEffect(() => {
-    if (storyType && storyId) {
-      const story = stories[storyType]?.find(s => s.id === storyId);
+    if (storyType && storyId && stories?.[storyType]) {
+      const story = stories[storyType].find(s => s.id === storyId);
       setSelectedStory(story);
 
       if (chapterId) {
         loadChapterData(chapterId);
+        if (!shouldRestoreScroll) {
+          window.scrollTo(0, 0);
+        }
       }
     } else {
       setSelectedStory(null);
       setStoryData(null);
     }
-  }, [storyType, storyId, chapterId, stories]);
+  }, [storyType, storyId, chapterId, stories, shouldRestoreScroll]);
 
   const loadChapterData = async (chapterId) => {
     try {
@@ -69,24 +67,88 @@ const StoryReaderPage = () => {
     }
   };
 
-  // Navigation handlers
-  const handleNavigation = (path) => {
-    console.log('Navigating to:', path);
-    saveScrollPosition(location.pathname);
-    navigate(path);
+  
+  // 현재 스크롤 위치 저장
+  const saveScrollPosition = (path) => {
+    scrollRef.current.set(path, window.scrollY);
+  };
+
+  // 저장된 스크롤 위치로 복원
+  const restoreScrollPosition = (path) => {
+    const savedPosition = scrollRef.current.get(path);
+    if (savedPosition !== undefined) {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, savedPosition);
+      });
+    }
   };
 
   const handleStoryClick = (story) => {
-    handleNavigation(`/${storyType}/${story.id}`);
+    const currentScroll = window.scrollY;
+    setShouldRestoreScroll(false);
+    navigate(`/${storyType}/${story.id}`);
+    scrollRef.current.set(location.pathname, currentScroll);
   };
 
   const handleChapterClick = (chapterId) => {
-    handleNavigation(`/${storyType}/${selectedStory.id}/${chapterId}`);
+    const currentScroll = window.scrollY;
+    setShouldRestoreScroll(false);
+    navigate(`/${storyType}/${selectedStory.id}/${chapterId}`);
+    scrollRef.current.set(location.pathname, currentScroll);
   };
 
+  // 스크롤 복원 함수
+  const restoreScroll = () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const savedPosition = scrollRef.current.get(location.pathname);
+        if (savedPosition !== undefined) {
+          window.scrollTo(0, savedPosition);
+        }
+      });
+    });
+  };
+
+  // 뒤로가기 처리
   const handleGoBack = () => {
-    saveScrollPosition(location.pathname);
+    const currentScroll = window.scrollY;
+    setShouldRestoreScroll(true);
     navigate(-1);
+    scrollRef.current.set(location.pathname, currentScroll);
+  };
+
+  // URL 변경 감지 및 스크롤 처리
+  useEffect(() => {
+    const handlePopState = () => {
+      const currentScroll = window.scrollY;
+      setShouldRestoreScroll(true);
+      scrollRef.current.set(location.pathname, currentScroll);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    // 페이지 렌더링 후 스크롤 복원
+    if (shouldRestoreScroll) {
+      restoreScroll();
+    }
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [location.pathname, shouldRestoreScroll]);
+
+  // 언마운트 시 스크롤 위치 저장
+  useEffect(() => {
+    return () => {
+      saveScrollPosition(location.pathname);
+    };
+  }, [location.pathname]);
+
+  // 네비게이션 처리
+  const handleNavigation = (path) => {
+    saveScrollPosition(location.pathname);
+    setShouldRestoreScroll(false);
+    navigate(path);
   };
 
   return (
@@ -107,6 +169,11 @@ const StoryReaderPage = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
+              onAnimationComplete={() => {
+                if (shouldRestoreScroll) {
+                  restoreScrollPosition(location.pathname);
+                }
+              }}
             >
               {location.pathname === '/' && <HomePage />}
               {(storyType === 'main' || storyType === 'side') && !storyId && (
@@ -145,7 +212,6 @@ const StoryReaderPage = () => {
   );
 };
 
-// 메인 컴포넌트 - 라우트 설정
 const StoryReaderContent = () => {
   return (
     <Routes>

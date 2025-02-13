@@ -1,30 +1,69 @@
-import { useEffect, useRef } from 'react';
+// hooks/useScrollRestoration.js
+import { useCallback, useEffect, useRef } from 'react';
 
 const useScrollRestoration = () => {
-  const scrollPositions = useRef({});
+  const scrollPositions = useRef(new Map());
+  const isBack = useRef(false);
+  const currentPath = useRef('');
 
-  // 페이지 이동 시 스크롤 위치 저장
-  const saveScrollPosition = (key) => {
-    scrollPositions.current[key] = window.scrollY;
-    sessionStorage.setItem(key, window.scrollY);
-  };
-
-  // 뒤로가기 시 스크롤 위치 복원
-  const restoreScrollPosition = (key) => {
-    const savedPosition = sessionStorage.getItem(key);
-    if (savedPosition) {
-      window.scrollTo(0, parseInt(savedPosition, 10));
-    } else {
-      window.scrollTo(0, 0); // 저장된 위치가 없으면 맨 위로 이동
+  // 스크롤 위치 저장
+  const saveScrollPosition = useCallback((path) => {
+    if (!path || path === currentPath.current) return;
+    
+    const position = window.scrollY;
+    if (position > 0) {
+      scrollPositions.current.set(path, position);
     }
-  };
+    currentPath.current = path;
+  }, []);
 
-  // 페이지 이동 시 스크롤 맨 위로 이동
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
+  // 스크롤 위치 복원
+  const restoreScrollposition = useCallback((path) => {
+    if (!path) return;
 
-  return { saveScrollPosition, restoreScrollPosition, scrollToTop };
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        const savedPosition = scrollPositions.current.get(path);
+        if (savedPosition !== undefined && savedPosition > 0) {
+          window.scrollTo(0, savedPosition);
+          scrollPositions.current.delete(path);
+        }
+      });
+    }, 50);
+  }, []);
+
+  // 맨 위로 스크롤
+  const scrollToTop = useCallback(() => {
+    if (!isBack.current) {
+      window.scrollTo(0, 0);
+    }
+    isBack.current = false;
+  }, []);
+
+  // 페이지 이동 감지 및 처리
+  const handlePathChange = useCallback((path) => {
+    if (isBack.current) {
+      restoreScrollposition(path);
+    } else {
+      scrollToTop();
+    }
+  }, [restoreScrollposition, scrollToTop]);
+
+  // 브라우저 뒤로가기/앞으로가기 감지
+  useEffect(() => {
+    const handlePopState = () => {
+      isBack.current = true;
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  return {
+    saveScrollPosition,
+    handlePathChange,
+    scrollToTop
+  };
 };
 
 export default useScrollRestoration;

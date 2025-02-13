@@ -29,7 +29,11 @@ const ChapterList = ({ selectedStory, darkMode, handleChapterClick, handleNaviga
                         } p-4 rounded-lg cursor-pointer transition-colors duration-200`}
                     >
                         <h3 className="text-lg font-semibold">
-                            {index + 1}{"."} {chapter.title} {chapter.subtitle && <span className="text-base text-neutral-400"> {chapter.subtitle}</span>}
+                            {index + 1}{"."} {chapter.title} {chapter.subtitle &&
+                            <span className={`${darkMode ? 'text-neutral-400' : ' text-neutral-500'} text-base ml-2`}
+                            >
+                                {chapter.subtitle}
+                            </span>}
                         </h3>
                     </motion.div>
                 ))}
