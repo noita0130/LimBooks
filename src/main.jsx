@@ -1,10 +1,15 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import StoryReader from './StoryReader'
+import StoryReaderContent from './pages/StoryReaderContent'
+import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <StoryReader />
+    <BrowserRouter>
+      <StoryReaderContent />
+    </BrowserRouter>
   </StrictMode>,
+
+  
 )
