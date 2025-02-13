@@ -22,7 +22,7 @@ const ChapterList = ({ selectedStory, darkMode, handleChapterClick, handleNaviga
                         key={chapter.id}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.02 }}
+                        transition={{ delay: index * 0.01 }}
                         onClick={() => handleChapterClick(chapter.id)}
                         className={`${
                             darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-100 hover:bg-neutral-200'

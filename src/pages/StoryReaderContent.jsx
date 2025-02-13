@@ -160,7 +160,7 @@ const StoryReaderPage = () => {
         handleNavigation={handleNavigation}
         location={location}
       />
-      <main className="max-w-6xl mx-auto px-4 py-8 font-dialogs">
+      <main className="max-w-6xl mx-auto px-4 py-8 font-NotoSerifKR">
         <Suspense fallback={<LoadingSpinner />}>
           <AnimatePresence mode="wait">
             <motion.div

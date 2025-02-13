@@ -12,7 +12,7 @@ const StoryContent = ({ storyData, darkMode, handleGoBack, handleNavigation, sto
                 >
                     ← 돌아가기
                 </button>
-                <span>노무현</span>
+                <span></span>
             </div>
 
             {/* 챕터 내용 표시 */}
