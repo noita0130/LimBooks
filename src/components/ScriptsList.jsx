@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const ScriptList = () => {
+const ScriptList = (darkMode) => {
     const characters = [
         { image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/10101_normal_info.png", name: "이상" },
         { image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/10201_normal_info.png", name: "파우스트" },
@@ -50,26 +50,29 @@ const ScriptList = () => {
             
         >
             <motion.div
-                className="grid max-w-[800px] grid-cols-6 grid-rows-2 gap-x-6 gap-y-12"
+                className="grid max-w-[800px] grid-cols-6 grid-rows-2 gap-x-4 gap-y-8 "
             >
                 {characters.map((character, index) => (
                     <motion.div
                         key={index}
-                        className="flex flex-col items-center"
+                        className={`flex flex-col ${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-300'} 
+            rounded-lg shadow-md p-1 items-center cursor-pointer hover:shadow-lg  transition-all duration-200 `}
+
+
                         variants={itemVariants}
                         whileHover={{
                             scale: 1.05,
                             transition: { duration: 0.2 }
                         }}
                     >
-                        <div className="relative w-full aspect-[2/3] overflow-hidden rounded-lg mb-1 bg-gray-100">
+                        <div className="relative w-full aspect-[2/3] overflow-hidden  rounded-lg mb-1">
                             <img
                                 src={character.image}
                                 alt={character.name}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full rounded-lg object-cover"
                             />
                         </div>
-                        <span className="`mt-2 text-center font-medium ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`">
+                        <span className="`mt-2 text-center font-medium mb-1 ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`">
                             {character.name}
                         </span>
                     </motion.div>

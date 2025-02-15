@@ -48,7 +48,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
 
     // 내레이션 스타일 (model/teller가 없는 경우)
     const getNarrationStyle = (darkMode) =>
-        `flex-1 py-2 ml-38 italic ${darkMode
+        `flex-1 py-2 ml-36 italic ${darkMode
             ? 'text-neutral-400'
             : 'text-neutral-600'
         }`;
@@ -76,7 +76,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
     };
 
     return (
-        <div className="space-y-1 font-medium font-dialogs">
+        <div className="space-y-1 font-medium font-dialogs mb-6 pr-10">
             {dataList?.map((item, index) => (
                 <React.Fragment key={index}>
                     {/* place 정보가 있고, 이전 아이템과 다르거나 첫 아이템일 때만 표시 */}
@@ -84,7 +84,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
                         <motion.div
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className={`my-4 pt-3 pb-2 ml-26 mr-26 ${darkMode
+                            className={`my-4 pt-3 pb-2 ml-36 mr-4 max-w-[600px] ${darkMode
                                     ? 'text-neutral-400 border-b border-neutral-700'
                                     : 'text-neutral-600 border-b border-neutral-200'
                                 }`}

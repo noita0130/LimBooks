@@ -134,6 +134,24 @@ const storiesData = {
             ]
         },
         {
+            id: "sub_3_5",
+            title: "3.5 - 헬스 치킨",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter3.5.png",
+            chapters: [
+                { id: "KR_E301B", title: "치킨 어택", subtitle: "3.5-1 전투 전" },
+                { id: "KR_E301A", title: "치킨 어택", subtitle: "3.5-1 전투 후" },
+                { id: "KR_E302B", title: "헬스 치킨", subtitle: "3.5-2 전투 전" },
+                { id: "KR_E302A", title: "헬스 치킨", subtitle: "3.5-2 전투 후" },
+                { id: "KR_E303B", title: "닭요리를 부탁해", subtitle: "3.5-3 전투 전" },
+                { id: "KR_E303A", title: "닭요리를 부탁해", subtitle: "3.5-3 전투 후" },
+                { id: "KR_E304B", title: "마스터 치킨 셰프", subtitle: "3.5-7 전투 전" },
+                { id: "KR_E304A", title: "마스터 치킨 셰프", subtitle: "3.5-7 전투 후" },
+                { id: "KR_E305A", title: "사장님의 순한맛 심도", subtitle: "스토리 던전 내부" },
+                { id: "KR_E306B", title: "사장님의 순한맛 심도", subtitle: "던전 보스 전투 전" },
+                { id: "KR_E306A", title: "사장님의 순한맛 심도", subtitle: "던전 보스 전투 후" }
+            ]
+        },
+        {
             id: "main_4",
             title: "4 - 변하지 않는",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter4_before_0.png",
@@ -195,6 +213,23 @@ const storiesData = {
                 { id: "KR_4D305I", title: "기억 속 자아심도", subtitle: "던전 보스 전투 1" },
                 { id: "KR_4D305I2", title: "기억 속 자아심도", subtitle: "던전 보스 전투 2" },
                 { id: "KR_4D305A", title: "기억 속 자아심도", subtitle: "던전 보스 전투 후" }
+            ]
+        },
+        {
+            id: "sub_4_1",
+            title: "4.5 - 우.미.다",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter-umida.png",
+            chapters: [
+                { id: "KR_E401B", title: "바다다!", subtitle: "4.5-1 전투 전" },
+                { id: "KR_E402B", title: "폐품 갯벌", subtitle: "4.5-2 전투 전" },
+                { id: "KR_E402A", title: "크랲게?", subtitle: "4.5-3 전투 후" },
+                { id: "KR_E403B", title: "보트 센터 사람들", subtitle: "4.5-4 전투 전" },
+                { id: "KR_E404B", title: "잡동사니 버스개조", subtitle: "4.5-6 전투 전" },
+                { id: "KR_E405B", title: "비치...발리볼?", subtitle: "4.5-7 전투 전" },
+                { id: "KR_E405A", title: "와해", subtitle: "4.5-8 전투 후" },
+                { id: "KR_E406B", title: "불편한 시간", subtitle: "4.5-10 전투 전" },
+                { id: "KR_E407B", title: "마지막 조각", subtitle: "4.5-11 전투 전" },
+                { id: "KR_E407A", title: "마지막 조각", subtitle: "4.5-1 전투 후" }
             ]
         },
         {
@@ -275,6 +310,48 @@ const storiesData = {
             ]
         },
         {
+            id: "sub_5_5_1",
+            title: "5.5 - 20번구의 기적",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter5.5_miracle.png",
+            chapters: [
+                { id: "KR_E501B", title: "무료", subtitle: "5.5-1 전투 전" },
+                { id: "KR_E502B", title: "솔깃한 제안", subtitle: "5.5-2 전투 전" },
+                { id: "KR_E503B", title: "뜻밖의 여정", subtitle: "5.5-3 전투 전" },
+                { id: "KR_E503A", title: "뜻밖의 여정", subtitle: "5.5-3 전투 후" },
+                { id: "KR_E504B", title: "괴물들의 선물", subtitle: "5.5-4 전투 전" },
+                { id: "KR_E505B", title: "감동의 재회", subtitle: "5.5-5 전투 전" },
+                { id: "KR_E505A", title: "감동의 재회", subtitle: "5.5-5 전투 전" },
+                { id: "KR_E506B", title: "누구를 위하여 선물은 만들어지는가", subtitle: "5.5-8 전투 전" },
+                { id: "KR_E506A", title: "누구를 위하여 선물은 만들어지는가", subtitle: "5.5-8 전투 후" },
+                { id: "KR_E507B", title: "증오를 찍어낸 선물", subtitle: "5.5-10 전투 전" },
+                { id: "KR_E507A", title: "증오를 찍어낸 선물", subtitle: "5.5-10 전투 후" },
+                { id: "KR_E508A", title: "선물을 배달하는 거인", subtitle: "5.5-11 전투 후" },
+                { id: "KR_E509B", title: "여정의 끝", subtitle: "5.5-12 전투 전" }
+            ]
+        },
+        {
+            id: "sub_5_5_2",
+            title: "5.5 - 육참골단",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter5.5_ycgd.png",
+            chapters: [
+                { id: "KR_E510B", title: "20구의 뒷골목", subtitle: "5.5-13 전투 전" },
+                { id: "KR_E511B", title: "항쟁", subtitle: "5.5-14 전투 전" },
+                { id: "KR_E511A", title: "항쟁", subtitle: "5.5-14 전투 후" },
+                { id: "KR_E512B", title: "검을 다루는 계", subtitle: "5.5-15 전투 전" },
+                { id: "KR_E512A", title: "초대하진 않았던 자", subtitle: "5.5-16 전투 후" },
+                { id: "KR_E513B", title: "용진 빌딩을 향해 2", subtitle: "5.5-18 전투 전" },
+                { id: "KR_E513A", title: "용진 빌딩을 향해 2", subtitle: "5.5-18 전투 후" },
+                { id: "KR_E514B", title: "김삿갓과 친우들", subtitle: "5.5-19 전투 전" },
+                { id: "KR_E515A", title: "죄의 근원", subtitle: "5.5-21 전투 후" },
+                { id: "KR_E516B", title: "검은 구름", subtitle: "5.5-22 전투 전" },
+                { id: "KR_E516A", title: "검은 구름", subtitle: "5.5-22 전투 후" },
+                { id: "KR_E517B", title: "김삿갓", subtitle: "5.5-23 전투 전" },
+                { id: "KR_E518B", title: "검귀의 심상", subtitle: "스토리 던전 내부" },
+                { id: "KR_E519B", title: "검귀의 심상", subtitle: "던전 보스 전투 전" },
+                { id: "KR_E519A", title: "검귀의 심상", subtitle: "던전 보스 전투 후" }
+            ]
+        },
+        {
             id: "main_6",
             title: "6 - 마음이 어긋나는",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter6_before.png",
@@ -343,6 +420,54 @@ const storiesData = {
                 { id: "KR_S648I3", title: "모든 세계", subtitle: "6-48 전투 중 3" },
                 { id: "KR_S648I4", title: "모든 세계", subtitle: "6-48 전투 중 4" },
                 { id: "KR_S648A", title: "모든 세계", subtitle: "6-48 전투 후" },
+            ]
+        },
+        {
+            id: "sub_6_5_1",
+            title: "6.5 - 시간살인시간",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter6.5_tkt.png",
+            chapters: [
+                { id: "KR_E601B", title: "시간세 스캔들", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E602A", title: "시간 관리국의 직원", subtitle: "6.5-2 전투 후" },
+                { id: "KR_E603B", title: "교수대의 정체", subtitle: "6.5-3 전투 전" },
+                { id: "KR_E604B", title: "세 명의 탐정", subtitle: "6.5-4 전투 전" },
+                { id: "KR_E605B", title: "시간살인의 수수께끼", subtitle: "6.5-5 전투 전" },
+                { id: "KR_E606B", title: "하얀 스카프 연맹", subtitle: "6.5-6 전투 전" },
+                { id: "KR_E607B", title: "되감기 시계", subtitle: "6.5-7 전투 전" },
+                { id: "KR_E609B", title: "빈사의 탐정", subtitle: "6.5-9 전투 전" },
+                { id: "KR_E610A", title: "유로지비의 비밀", subtitle: "6.5-10 전투 후" },
+                { id: "KR_E611B", title: "묘한 감상평", subtitle: "6.5-11 전투 전" },
+                { id: "KR_E612B", title: "시간 살인마", subtitle: "6.5-12 전투 전" },
+                { id: "KR_E613B", title: "삐뚤어진 시간", subtitle: "6.5-13 전투 전" },
+                { id: "KR_E614B", title: "공포의 시계탑", subtitle: "6.5-14 전투 전" },
+                { id: "KR_E614A", title: "공포의 시계탑", subtitle: "6.5-14 전투 후" },
+                { id: "KR_E615B", title: "마지막 사건", subtitle: "6.5-15 전투 전" },
+                { id: "KR_E615I", title: "마지막 사건", subtitle: "던전 보스 전투 1" },
+                { id: "KR_E615I2", title: "마지막 사건", subtitle: "던전 보스 전투 2" },
+                { id: "KR_E615I3", title: "마지막 사건", subtitle: "던전 보스 전투 3" },
+                { id: "KR_E615A", title: "마지막 사건", subtitle: "스토리 던전 내부" },
+            ]
+        },
+        {
+            id: "sub_6_5_2",
+            title: "6.5 - 워프특급 살인사건",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter6.5_mowe.png",
+            chapters: [
+                { id: "KR_E616B", title: "일등석", subtitle: "6.5-16 전투 전" },
+                { id: "KR_E617B", title: "북부 해결사", subtitle: "6.5-17 전투 전" },
+                { id: "KR_E618B", title: "사라진 승객", subtitle: "6.5-18 전투 전" },
+                { id: "KR_E619B", title: "열람 불가", subtitle: "6.5-19 전투 전" },
+                { id: "KR_E619A", title: "열람 불가", subtitle: "6.5-19 전투 후" },
+                { id: "KR_E620B", title: "멀티크랙 사무소", subtitle: "6.5-20 전투 전" },
+                { id: "KR_E621A", title: "지옥도 2", subtitle: "6.5-22 전투 전" },
+                { id: "KR_E622B", title: "혈귀", subtitle: "6.5-23 전투 전" },
+                { id: "KR_E623A", title: "정리 요원", subtitle: "6.5-24 전투 후" },
+                { id: "KR_E624A", title: "의체 해결사", subtitle: "6.5-27 전투 후" },
+                { id: "KR_E625B", title: "거느리는 자", subtitle: "6.5-28 전투 전" },
+                { id: "KR_E625I", title: "거느리는 자", subtitle: "6.5-28 전투 중" },
+                { id: "KR_E625A", title: "거느리는 자", subtitle: "6.5-28 전투 후" },
+                { id: "KR_E626B", title: "협상", subtitle: "6.5-29 전투 전" },
+                { id: "KR_E627B", title: "불확실성", subtitle: "6.5-30 전투 전" }
             ]
         },
         {
@@ -417,164 +542,49 @@ const storiesData = {
                 { id: "KR_7D112I5", title: "", subtitle: "" },
                 { id: "KR_7D112A", title: "", subtitle: "" }
             ]
+        },
+        {
+            id: "sub_7_5_1",
+            title: "7.5 - LCB 정기검진",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter7.5_LCBCheckUp.png",
+            chapters: [
+                { id: "KR_E701B", title: "데이터 수집", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E701A", title: "데이터 수집", subtitle: "6.5-1 전투 후" },
+                { id: "KR_E702B", title: "건강검진", subtitle: "6.5-2 전투 전" },
+                { id: "KR_E703B", title: "이동 장치", subtitle: "6.5-3 전투 전" },
+                { id: "KR_E704B", title: "호엔하임", subtitle: "6.5-4 전투 전" },
+                { id: "KR_E704A", title: "호엔하임", subtitle: "6.5-4 전투 후" },
+                { id: "KR_E705B", title: "조수", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E706B", title: "의미 없는 분노", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E707B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E708B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E709B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E710B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E711B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E711A", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E711I", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E712B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E713B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E714B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E715B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E716B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E716A", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E717B", title: "", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E717A", title: "", subtitle: "6.5-1 전투 전" }
+            ]
         }
     ],
     side: [
         {
-            id: "sub-3_5",
-            title: "헬스 치킨",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter3.5.png",
-            chapters: [
-                { id: "KR_E301B", title: "치킨 어택", subtitle: "3.5-1 전투 전" },
-                { id: "KR_E301A", title: "치킨 어택", subtitle: "3.5-1 전투 후" },
-                { id: "KR_E302B", title: "헬스 치킨", subtitle: "3.5-2 전투 전" },
-                { id: "KR_E302A", title: "헬스 치킨", subtitle: "3.5-2 전투 후" },
-                { id: "KR_E303B", title: "닭요리를 부탁해", subtitle: "3.5-3 전투 전" },
-                { id: "KR_E303A", title: "닭요리를 부탁해", subtitle: "3.5-3 전투 후" },
-                { id: "KR_E304B", title: "마스터 치킨 셰프", subtitle: "3.5-7 전투 전" },
-                { id: "KR_E304A", title: "마스터 치킨 셰프", subtitle: "3.5-7 전투 후" },
-                { id: "KR_E305A", title: "사장님의 순한맛 심도", subtitle: "스토리 던전 내부" },
-                { id: "KR_E306B", title: "사장님의 순한맛 심도", subtitle: "던전 보스 전투 전" },
-                { id: "KR_E306A", title: "사장님의 순한맛 심도", subtitle: "던전 보스 전투 후" }
-            ]
-        },
-        {
-            id: "sub-4_1",
-            title: "우.미.다",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter-umida.png",
-            chapters: [
-                { id: "KR_E401B", title: "바다다!", subtitle: "4.5-1 전투 전" },
-                { id: "KR_E402B", title: "폐품 갯벌", subtitle: "4.5-2 전투 전" },
-                { id: "KR_E402A", title: "크랲게?", subtitle: "4.5-3 전투 후" },
-                { id: "KR_E403B", title: "보트 센터 사람들", subtitle: "4.5-4 전투 전" },
-                { id: "KR_E404B", title: "잡동사니 버스개조", subtitle: "4.5-6 전투 전" },
-                { id: "KR_E405B", title: "비치...발리볼?", subtitle: "4.5-7 전투 전" },
-                { id: "KR_E405A", title: "와해", subtitle: "4.5-8 전투 후" },
-                { id: "KR_E406B", title: "불편한 시간", subtitle: "4.5-10 전투 전" },
-                { id: "KR_E407B", title: "마지막 조각", subtitle: "4.5-11 전투 전" },
-                { id: "KR_E407A", title: "마지막 조각", subtitle: "4.5-1 전투 후" }
-            ]
-        },
-        {
-            id: "sub-5_5_1",
-            title: "20번구의 기적",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter5.5_miracle.png",
-            chapters: [
-                { id: "KR_E501B", title: "무료", subtitle: "5.5-1 전투 전" },
-                { id: "KR_E502B", title: "솔깃한 제안", subtitle: "5.5-2 전투 전" },
-                { id: "KR_E503B", title: "뜻밖의 여정", subtitle: "5.5-3 전투 전" },
-                { id: "KR_E503A", title: "뜻밖의 여정", subtitle: "5.5-3 전투 후" },
-                { id: "KR_E504B", title: "괴물들의 선물", subtitle: "5.5-4 전투 전" },
-                { id: "KR_E505B", title: "감동의 재회", subtitle: "5.5-5 전투 전" },
-                { id: "KR_E505A", title: "감동의 재회", subtitle: "5.5-5 전투 전" },
-                { id: "KR_E506B", title: "누구를 위하여 선물은 만들어지는가", subtitle: "5.5-8 전투 전" },
-                { id: "KR_E506A", title: "누구를 위하여 선물은 만들어지는가", subtitle: "5.5-8 전투 후" },
-                { id: "KR_E507B", title: "증오를 찍어낸 선물", subtitle: "5.5-10 전투 전" },
-                { id: "KR_E507A", title: "증오를 찍어낸 선물", subtitle: "5.5-10 전투 후" },
-                { id: "KR_E508A", title: "선물을 배달하는 거인", subtitle: "5.5-11 전투 후" },
-                { id: "KR_E509B", title: "여정의 끝", subtitle: "5.5-12 전투 전" }
-            ]
-        },
-        {
-            id: "sub-5_5_2",
-            title: "육참골단",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter5.5_ycgd.png",
-            chapters: [
-                { id: "KR_E510B", title: "20구의 뒷골목", subtitle: "5.5-13 전투 전" },
-                { id: "KR_E511B", title: "항쟁", subtitle: "5.5-14 전투 전" },
-                { id: "KR_E511A", title: "항쟁", subtitle: "5.5-14 전투 후" },
-                { id: "KR_E512B", title: "검을 다루는 계", subtitle: "5.5-15 전투 전" },
-                { id: "KR_E512A", title: "초대하진 않았던 자", subtitle: "5.5-16 전투 후" },
-                { id: "KR_E513B", title: "용진 빌딩을 향해 2", subtitle: "5.5-18 전투 전" },
-                { id: "KR_E513A", title: "용진 빌딩을 향해 2", subtitle: "5.5-18 전투 후" },
-                { id: "KR_E514B", title: "김삿갓과 친우들", subtitle: "5.5-19 전투 전" },
-                { id: "KR_E515A", title: "죄의 근원", subtitle: "5.5-21 전투 후" },
-                { id: "KR_E516B", title: "검은 구름", subtitle: "5.5-22 전투 전" },
-                { id: "KR_E516A", title: "검은 구름", subtitle: "5.5-22 전투 후" },
-                { id: "KR_E517B", title: "김삿갓", subtitle: "5.5-23 전투 전" },
-                { id: "KR_E518B", title: "검귀의 심상", subtitle: "스토리 던전 내부" },
-                { id: "KR_E519B", title: "검귀의 심상", subtitle: "던전 보스 전투 전" },
-                { id: "KR_E519A", title: "검귀의 심상", subtitle: "던전 보스 전투 후" }
-            ]
-        },
-        {
-            id: "sub-6_5_1",
-            title: "시간살인시간",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter6.5_tkt.png",
-            chapters: [
-                { id: "KR_E601B", title: "시간세 스캔들", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E602A", title: "시간 관리국의 직원", subtitle: "6.5-2 전투 후" },
-                { id: "KR_E603B", title: "교수대의 정체", subtitle: "6.5-3 전투 전" },
-                { id: "KR_E604B", title: "세 명의 탐정", subtitle: "6.5-4 전투 전" },
-                { id: "KR_E605B", title: "시간살인의 수수께끼", subtitle: "6.5-5 전투 전" },
-                { id: "KR_E606B", title: "하얀 스카프 연맹", subtitle: "6.5-6 전투 전" },
-                { id: "KR_E607B", title: "되감기 시계", subtitle: "6.5-7 전투 전" },
-                { id: "KR_E609B", title: "빈사의 탐정", subtitle: "6.5-9 전투 전" },
-                { id: "KR_E610A", title: "유로지비의 비밀", subtitle: "6.5-10 전투 후" },
-                { id: "KR_E611B", title: "묘한 감상평", subtitle: "6.5-11 전투 전" },
-                { id: "KR_E612B", title: "시간 살인마", subtitle: "6.5-12 전투 전" },
-                { id: "KR_E613B", title: "삐뚤어진 시간", subtitle: "6.5-13 전투 전" },
-                { id: "KR_E614B", title: "공포의 시계탑", subtitle: "6.5-14 전투 전" },
-                { id: "KR_E614A", title: "공포의 시계탑", subtitle: "6.5-14 전투 후" },
-                { id: "KR_E615B", title: "마지막 사건", subtitle: "6.5-15 전투 전" },
-                { id: "KR_E615I", title: "마지막 사건", subtitle: "던전 보스 전투 1" },
-                { id: "KR_E615I2", title: "마지막 사건", subtitle: "던전 보스 전투 2" },
-                { id: "KR_E615I3", title: "마지막 사건", subtitle: "던전 보스 전투 3" },
-                { id: "KR_E615A", title: "마지막 사건", subtitle: "스토리 던전 내부" },
-            ]
-        },
-        {
-            id: "sub-6_5_2",
-            title: "워프특급 살인사건",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter6.5_mowe.png",
-            chapters: [
-                { id: "KR_E616B", title: "일등석", subtitle: "6.5-16 전투 전" },
-                { id: "KR_E617B", title: "북부 해결사", subtitle: "6.5-17 전투 전" },
-                { id: "KR_E618B", title: "사라진 승객", subtitle: "6.5-18 전투 전" },
-                { id: "KR_E619B", title: "열람 불가", subtitle: "6.5-19 전투 전" },
-                { id: "KR_E619A", title: "열람 불가", subtitle: "6.5-19 전투 후" },
-                { id: "KR_E620B", title: "멀티크랙 사무소", subtitle: "6.5-20 전투 전" },
-                { id: "KR_E621A", title: "지옥도 2", subtitle: "6.5-22 전투 전" },
-                { id: "KR_E622B", title: "혈귀", subtitle: "6.5-23 전투 전" },
-                { id: "KR_E623A", title: "정리 요원", subtitle: "6.5-24 전투 후" },
-                { id: "KR_E624A", title: "의체 해결사", subtitle: "6.5-27 전투 후" },
-                { id: "KR_E625B", title: "거느리는 자", subtitle: "6.5-28 전투 전" },
-                { id: "KR_E625I", title: "거느리는 자", subtitle: "6.5-28 전투 중" },
-                { id: "KR_E625A", title: "거느리는 자", subtitle: "6.5-28 전투 후" },
-                { id: "KR_E626B", title: "협상", subtitle: "6.5-29 전투 전" },
-                { id: "KR_E627B", title: "불확실성", subtitle: "6.5-30 전투 전" }
-            ]
-        },
-        {
-            id: "sub-7_5_1",
-            title: "LCB 정기검진",
+            id: "sub_7_5_1",
+            title: "7.5 - LCB 정기검진",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter7.5_LCBCheckUp.png",
             chapters: [
-                { id: "KR_E701B", title: "", subtitle: "" },
-                { id: "KR_E701A", title: "", subtitle: "" },
-                { id: "KR_E702B", title: "", subtitle: "" },
-                { id: "KR_E703B", title: "", subtitle: "" },
-                { id: "KR_E704B", title: "", subtitle: "" },
-                { id: "KR_E704A", title: "", subtitle: "" },
-                { id: "KR_E705B", title: "", subtitle: "" },
-                { id: "KR_E706B", title: "", subtitle: "" },
-                { id: "KR_E707B", title: "", subtitle: "" },
-                { id: "KR_E708B", title: "", subtitle: "" },
-                { id: "KR_E709B", title: "", subtitle: "" },
-                { id: "KR_E710B", title: "", subtitle: "" },
-                { id: "KR_E711B", title: "", subtitle: "" },
-                { id: "KR_E711A", title: "", subtitle: "" },
-                { id: "KR_E711I", title: "", subtitle: "" },
-                { id: "KR_E712B", title: "", subtitle: "" },
-                { id: "KR_E713B", title: "", subtitle: "" },
-                { id: "KR_E714B", title: "", subtitle: "" },
-                { id: "KR_E715B", title: "", subtitle: "" },
-                { id: "KR_E716B", title: "", subtitle: "" },
-                { id: "KR_E716A", title: "", subtitle: "" },
-                { id: "KR_E717B", title: "", subtitle: "" },
-                { id: "KR_E717A", title: "", subtitle: "" }
+                { id: "KR_E701B", title: "데이터 수집", subtitle: "6.5-1 전투 전" },
             ]
+            
         }
+        
     ]
 };
 
