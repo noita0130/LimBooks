@@ -39,11 +39,11 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
                 </button>
                 <button
                   onClick={() => {
-                    console.log('Navigating to side stories');
-                    handleNavigation('/side');
+                    console.log('Navigating to mini stories');
+                    handleNavigation('/mini');
                   }}
                   className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                    ${location.pathname.startsWith('/side') ? 
+                    ${location.pathname.startsWith('/mini') ? 
                       (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                       (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
                 >

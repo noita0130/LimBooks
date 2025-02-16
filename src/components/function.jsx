@@ -37,11 +37,12 @@ export const loadChapterData = async (chapterId) => {
   export const handleStoryClick = (story, storyType, navigate, location, scrollRef, setShouldRestoreScroll) => {
     const currentScroll = window.scrollY;
     setShouldRestoreScroll(false);
+    window.scrollTo(0,0);
+    // 메인 스토리는 챕터 목록으로 이동
     if (storyType === 'main') {
-        // 메인 스토리는 챕터 목록으로 이동
         navigate(`/${storyType}/${story.id}`);
+    // 사이드 스토리는 바로 첫 번째 챕터로 이동
       } else if (storyType === 'side') {
-        // 사이드 스토리는 바로 첫 번째 챕터로 이동
         navigate(`/${storyType}/${story.id}/${story.chapters[0].id}`);
       }
     scrollRef.current.set(location.pathname, currentScroll);
@@ -50,6 +51,7 @@ export const loadChapterData = async (chapterId) => {
   export const handleChapterClick = (chapterId, storyType, selectedStory, navigate, location, scrollRef, setShouldRestoreScroll) => {
     const currentScroll = window.scrollY;
     setShouldRestoreScroll(false);
+    window.scrollTo(0,0);
     navigate(`/${storyType}/${selectedStory.id}/${chapterId}`);
     scrollRef.current.set(location.pathname, currentScroll);
   };

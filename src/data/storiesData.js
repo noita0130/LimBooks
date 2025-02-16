@@ -576,14 +576,116 @@ const storiesData = {
     ],
     side: [
         {
-            id: "sub_7_5_1",
-            title: "7.5 - LCB 정기검진",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter7.5_LCBCheckUp.png",
+            id: "mini_3_1",
+            title: "단테의 기록",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E010X.png",
             chapters: [
-                { id: "KR_E701B", title: "데이터 수집", subtitle: "6.5-1 전투 전" },
+                { id: "KR_E010X", title: "단테의 기록", subtitle: "mini 3-1" },
             ]
-            
-        }
+        },
+        {
+            id: "mini_3_2",
+            title: "버스의 뒷문",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E020X.png",
+            chapters: [
+                { id: "KR_E020X", title: "버스의 뒷문", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_3_2",
+            title: "버스 복도 너머",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E030X.png",
+            chapters: [
+                { id: "KR_E030X", title: "버스 복도 너머", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_4_1",
+            title: "뒷문의 방들에 대하여",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E041X.png",
+            chapters: [
+                { id: "KR_E041X", title: "뒷문의 방들에 대하여", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_4_2",
+            title: "제1회 발푸르기스의 밤",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E042X.png",
+            chapters: [
+                { id: "KR_E042X", title: "제1회 발푸르기스의 밤", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_5_1",
+            title: "유의미한 변화",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E050X.png",
+            chapters: [
+                { id: "KR_E050X", title: "유의미한 변화", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_5_2",
+            title: "제2회 발푸르기스의 밤",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E050X.png",
+            chapters: [
+                { id: "KR_E051X", title: "제2회 발푸르기스의 밤", subtitle: "mini 3-1" },
+                { id: "KR_E052X", title: "제2회 발푸르기스의 밤", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_5_3",
+            title: "다시, 버스로",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E053X.png",
+            chapters: [
+                { id: "KR_E053X", title: "다시, 버스로", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_5_4",
+            title: "위험등급과 일련번호",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E053X.png",
+            chapters: [
+                { id: "KR_E054X", title: "위험등급과 일련번호", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_6_1",
+            title: "제3회 발푸르기스의 밤",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E061X.png",
+            chapters: [
+                { id: "KR_E061X", title: "제3회 발푸르기스의 밤", subtitle: "mini 3-1" },
+                { id: "KR_E062X", title: "제3회 발푸르기스의 밤", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_6_2",
+            title: "익숙한 알람",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E063X.png",
+            chapters: [
+                { id: "KR_E063X", title: "익숙한 알람", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_6_3",
+            title: "제4회 발푸르기스의 밤",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E064X.png",
+            chapters: [
+                { id: "KR_E064X", title: "제4회 발푸르기스의 밤", subtitle: "mini 3-1" },
+                { id: "KR_E065X", title: "제4회 발푸르기스의 밤", subtitle: "mini 3-1" },
+            ]
+        },
+        {
+            id: "mini_7_1",
+            title: "제5회 발푸르기스의 밤",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E071X.png",
+            chapters: [
+                { id: "KR_E070X", title: "제5회 발푸르기스의 밤", subtitle: "mini 3-1" },
+                { id: "KR_E071X", title: "제5회 발푸르기스의 밤", subtitle: "mini 3-1" },
+            ]
+        },
+        
+        
+        
         
     ]
 };

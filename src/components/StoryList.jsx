@@ -28,7 +28,7 @@ const StoryList = ({ stories, storyType, darkMode, handleStoryClick, loading }) 
           <img
             src={story.image}
             alt={story.title}
-            className="w-60 h-28 object-cover rounded-lg"
+            className="w-60 h-20 object-cover rounded-lg "
           />
           <div className="flex-1">
             <h2 className="text-xl font-semibold mb-2">{story.title}</h2>
