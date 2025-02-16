@@ -9,6 +9,23 @@ import StoryList from '../components/StoryList';
 import ChapterList from '../components/ChapterList';
 import StoryContent from '../components/StoryContent';
 import LoadingSpinner from '../components/LoadingSpinner';
+import ScriptList from '../components/ScriptsList';
+
+import {
+  loadChapterData,
+  saveScrollPosition,
+  restoreScrollPosition,
+  restoreScroll,
+  handleStoryClick,
+  handleChapterClick,
+  handleGoBack,
+  handleNavigation,
+  handlePopState,
+  navigateToNextStory,
+  navigateToPreviousStory,
+  navigateToNextChapter,
+  navigateToPreviousChapter
+} from '../components/function';
 
 const HomePage = React.lazy(() => Promise.resolve({
   default: () => (
@@ -29,7 +46,7 @@ const StoryReaderPage = () => {
   const [selectedStory, setSelectedStory] = useState(null);
   const [storyData, setStoryData] = useState(null);
   const [shouldRestoreScroll, setShouldRestoreScroll] = useState(false);
-  
+
   const { stories, loading } = useStoryData(storyType);
 
   useEffect(() => {
@@ -46,7 +63,12 @@ const StoryReaderPage = () => {
       setSelectedStory(story);
 
       if (chapterId) {
-        loadChapterData(chapterId);
+        const fetchData = async () => {
+          const data = await loadChapterData(chapterId);
+          setStoryData(data);
+        };
+        fetchData();
+
         if (!shouldRestoreScroll) {
           window.scrollTo(0, 0);
         }
@@ -57,99 +79,26 @@ const StoryReaderPage = () => {
     }
   }, [storyType, storyId, chapterId, stories, shouldRestoreScroll]);
 
-  const loadChapterData = async (chapterId) => {
-    try {
-      const response = await import(`../story/${chapterId}.json`);
-      const data = response.default;
-      setStoryData(data);
-    } catch (error) {
-      console.error('챕터 데이터를 불러오는데 실패했습니다:', error);
-    }
-  };
-
-  
-  // 현재 스크롤 위치 저장
-  const saveScrollPosition = (path) => {
-    scrollRef.current.set(path, window.scrollY);
-  };
-
-  // 저장된 스크롤 위치로 복원
-  const restoreScrollPosition = (path) => {
-    const savedPosition = scrollRef.current.get(path);
-    if (savedPosition !== undefined) {
-      requestAnimationFrame(() => {
-        window.scrollTo(0, savedPosition);
-      });
-    }
-  };
-
-  const handleStoryClick = (story) => {
-    const currentScroll = window.scrollY;
-    setShouldRestoreScroll(false);
-    navigate(`/${storyType}/${story.id}`);
-    scrollRef.current.set(location.pathname, currentScroll);
-  };
-
-  const handleChapterClick = (chapterId) => {
-    const currentScroll = window.scrollY;
-    setShouldRestoreScroll(false);
-    navigate(`/${storyType}/${selectedStory.id}/${chapterId}`);
-    scrollRef.current.set(location.pathname, currentScroll);
-  };
-
-  // 스크롤 복원 함수
-  const restoreScroll = () => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const savedPosition = scrollRef.current.get(location.pathname);
-        if (savedPosition !== undefined) {
-          window.scrollTo(0, savedPosition);
-        }
-      });
-    });
-  };
-
-  // 뒤로가기 처리
-  const handleGoBack = () => {
-    const currentScroll = window.scrollY;
-    setShouldRestoreScroll(true);
-    navigate(-1);
-    scrollRef.current.set(location.pathname, currentScroll);
-  };
-
   // URL 변경 감지 및 스크롤 처리
   useEffect(() => {
-    const handlePopState = () => {
-      const currentScroll = window.scrollY;
-      setShouldRestoreScroll(true);
-      scrollRef.current.set(location.pathname, currentScroll);
-    };
+    const popStateHandler = () => handlePopState(location, scrollRef, setShouldRestoreScroll);
+    window.addEventListener('popstate', popStateHandler);
 
-    window.addEventListener('popstate', handlePopState);
-
-    // 페이지 렌더링 후 스크롤 복원
     if (shouldRestoreScroll) {
-      restoreScroll();
+      restoreScroll(scrollRef, location.pathname);
     }
 
     return () => {
-      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('popstate', popStateHandler);
     };
   }, [location.pathname, shouldRestoreScroll]);
 
   // 언마운트 시 스크롤 위치 저장
   useEffect(() => {
     return () => {
-      saveScrollPosition(location.pathname);
+      saveScrollPosition(scrollRef, location.pathname);
     };
   }, [location.pathname]);
-
-  // 네비게이션 처리
-  const handleNavigation = (path) => {
-    saveScrollPosition(location.pathname);
-    setShouldRestoreScroll(false);
-    navigate(path);
-  };
 
   return (
     <div className={`min-h-screen transition-colors duration-200 
@@ -157,10 +106,10 @@ const StoryReaderPage = () => {
       <NavigationBar
         darkMode={darkMode}
         toggleDarkMode={() => setDarkMode(!darkMode)}
-        handleNavigation={handleNavigation}
+        handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
         location={location}
       />
-      <main className="max-w-6xl mx-auto px-4 py-8 font-dialogs">
+      <main className="max-w-6xl mx-auto px-4 py-8 font-NotoSerifKR">
         <Suspense fallback={<LoadingSpinner />}>
           <AnimatePresence mode="wait">
             <motion.div
@@ -171,26 +120,28 @@ const StoryReaderPage = () => {
               transition={{ duration: 0.3 }}
               onAnimationComplete={() => {
                 if (shouldRestoreScroll) {
-                  restoreScrollPosition(location.pathname);
+                  restoreScrollPosition(scrollRef, location.pathname);
                 }
               }}
             >
               {location.pathname === '/' && <HomePage />}
+              {location.pathname === '/scripts' && <ScriptList />}
               {(storyType === 'main' || storyType === 'side') && !storyId && (
                 <StoryList
                   stories={stories}
                   storyType={storyType}
                   darkMode={darkMode}
-                  handleStoryClick={handleStoryClick}
+                  handleStoryClick={(story) => handleStoryClick(story, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
                   loading={loading}
                 />
               )}
-              {selectedStory && !chapterId && (
+              {/* main 스토리일 때만 ChapterList를 보여줌*/}
+              {selectedStory && !chapterId && storyType === 'main' && (
                 <ChapterList
                   selectedStory={selectedStory}
                   darkMode={darkMode}
-                  handleChapterClick={handleChapterClick}
-                  handleNavigation={handleNavigation}
+                  handleChapterClick={(chapterId) => handleChapterClick(chapterId, storyType, selectedStory, navigate, location, scrollRef, setShouldRestoreScroll)}
+                  handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
                   storyType={storyType}
                 />
               )}
@@ -198,8 +149,12 @@ const StoryReaderPage = () => {
                 <StoryContent
                   storyData={storyData}
                   darkMode={darkMode}
-                  handleGoBack={handleGoBack}
-                  handleNavigation={handleNavigation}
+                  handleGoBack={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll)}
+                  handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
+                  handleNextStory={() => navigateToNextStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
+                  handlePreviousStory={() => navigateToPreviousStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
+                  handleNextChapter={() => navigateToNextChapter(selectedStory, chapterId, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
+                  handlePreviousChapter={() => navigateToPreviousChapter(selectedStory, chapterId, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
                   storyType={storyType}
                   selectedStory={selectedStory}
                 />
@@ -219,6 +174,7 @@ const StoryReaderContent = () => {
       <Route path="/:storyType" element={<StoryReaderPage />} />
       <Route path="/:storyType/:storyId" element={<StoryReaderPage />} />
       <Route path="/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
+      <Route path="/scripts" element={<StoryReaderPage />} />
     </Routes>
   );
 };
