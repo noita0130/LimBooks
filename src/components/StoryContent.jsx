@@ -11,10 +11,14 @@ const StoryContent = ({
     handlePreviousChapter
 }) => {
 
+
+
     // 현재 챕터의 인덱스를 찾습니다
     const currentChapterIndex = selectedStory?.chapters.findIndex(
         chapter => chapter.id === storyData.id
     );
+    const currentChapter = selectedStory?.chapters[currentChapterIndex];
+
     // 이전/다음 챕터가 있는지 확인합니다
     const isFirstChapter = currentChapterIndex === 0;
     const isLastChapter = currentChapterIndex === selectedStory?.chapters.length - 1;
@@ -27,7 +31,7 @@ const StoryContent = ({
                 className={`px-4 py-2 ${darkMode ? 'hover:bg-neutral-600' : 'hover:bg-neutral-300'}
                     ${isFirstChapter ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
-                ← 이전 화
+                ←
             </button>
             <div className="flex items-center">
                 <div className={`h-6 w-[1px] ${darkMode ? 'bg-neutral-600' : 'bg-neutral-300'}`}></div>
@@ -38,16 +42,19 @@ const StoryContent = ({
                 className={`px-4 py-2 ${darkMode ? 'hover:bg-neutral-600' : 'hover:bg-neutral-300'}
                     ${isLastChapter ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
-                다음 화→
+                →
             </button>
         </div>
     );
-
-    const currentChapterSubtitle = storyData?.subtitle || "제목 없음";
+    console.log('Current Chapter Index:', currentChapterIndex);
+    console.log('Selected Story:', selectedStory);
+    console.log('Story Data:', storyData);
+    console.log('Current Chapter:', currentChapter);
 
     return (
+        
         <div className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} p-6 rounded-lg shadow-lg`}>
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-10">
                 <button
                     onClick={handleGoBack}  // handleGoBack 사용
                     className={`px-4 py-2 rounded-md ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
@@ -55,7 +62,14 @@ const StoryContent = ({
                 >
                     ← 돌아가기
                 </button>
-                {currentChapterSubtitle}
+                <div className="flex-1 text-center">
+                    <span className="font-semibold">{currentChapter?.title}</span>
+                    {currentChapter?.subtitle && (
+                        <span className={`ml-2 ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                            {currentChapter.subtitle}
+                        </span>
+                    )}
+                </div>
 
                 
                 <ChapterNavigationButtons />

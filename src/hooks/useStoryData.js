@@ -6,7 +6,7 @@ const useStoryData = (storyType) => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (storyType && (storyType === 'main' || storyType === 'side')) {
+        if (storyType && (storyType === 'main' || storyType === 'mini')) {
             setLoading(true);
             calculateWordCounts();
         }

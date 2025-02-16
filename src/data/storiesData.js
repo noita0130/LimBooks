@@ -574,7 +574,7 @@ const storiesData = {
             ]
         }
     ],
-    side: [
+    mini: [
         {
             id: "mini_3_1",
             title: "단테의 기록",

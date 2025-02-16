@@ -84,7 +84,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
                         <motion.div
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className={`my-4 pt-3 pb-2 ml-36 mr-4 max-w-[600px] ${darkMode
+                            className={`mb-4 ml-36 mr-4 pt-3 pb-2  max-w-[600px] ${darkMode
                                     ? 'text-neutral-400 border-b border-neutral-700'
                                     : 'text-neutral-600 border-b border-neutral-200'
                                 }`}

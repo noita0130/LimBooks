@@ -126,7 +126,7 @@ const StoryReaderPage = () => {
             >
               {location.pathname === '/' && <HomePage />}
               {location.pathname === '/scripts' && <ScriptList />}
-              {(storyType === 'main' || storyType === 'side') && !storyId && (
+              {(storyType === 'main' || storyType === 'mini') && !storyId && (
                 <StoryList
                   stories={stories}
                   storyType={storyType}
@@ -136,7 +136,7 @@ const StoryReaderPage = () => {
                 />
               )}
               {/* main 스토리일 때만 ChapterList를 보여줌*/}
-              {selectedStory && !chapterId && storyType === 'main' && (
+              {selectedStory && !chapterId && selectedStory.chapters.length >= 2 && (
                 <ChapterList
                   selectedStory={selectedStory}
                   darkMode={darkMode}

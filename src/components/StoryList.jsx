@@ -25,6 +25,7 @@ const StoryList = ({ stories, storyType, darkMode, handleStoryClick, loading }) 
             rounded-lg shadow-md p-4 flex items-center space-x-8 cursor-pointer
             hover:shadow-lg  transition-all duration-200 `}
         >
+          
           <img
             src={story.image}
             alt={story.title}
