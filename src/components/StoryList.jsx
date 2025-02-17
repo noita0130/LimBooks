@@ -30,7 +30,7 @@ const StoryList = ({ stories, storyType, darkMode, handleStoryClick, loading }) 
             src={story.image}
             alt={story.title}
             className={'w-56 h-20 object-cover rounded-lg'}
-            style={{objectPosition: storyType==='main' ? 'center' : '75% center'}}
+            style={{objectPosition: storyType==='main' ? 'center' : '65% center'}}
               
           />
           <div className="flex-1">
