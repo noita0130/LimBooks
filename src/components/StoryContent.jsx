@@ -15,12 +15,11 @@ const StoryContent = ({
     const pathSegments = window.location.pathname.split('/');
     const currentChapterId = pathSegments[pathSegments.length - 1];
 
-    // 현재 챕터의 인덱스를 찾습니다
    // 현재 챕터의 인덱스를 찾습니다
     const currentChapterIndex = selectedStory?.chapters?.findIndex(chapter => {
         console.log('Comparing chapter id:', chapter.id);
         console.log('with storyData id:', storyData.id);
-        return chapter.id === storyData.id;
+        return chapter.id === currentChapterId;
     });
 
     console.log('Current Chapter ID:', currentChapterId);
