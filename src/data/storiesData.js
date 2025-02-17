@@ -136,7 +136,7 @@ const storiesData = {
         {
             id: "sub_3_5",
             title: "3.5 - 헬스 치킨",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter3.5.png",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/hells-chicken.png",
             chapters: [
                 { id: "KR_E301B", title: "치킨 어택", subtitle: "3.5-1 전투 전" },
                 { id: "KR_E301A", title: "치킨 어택", subtitle: "3.5-1 전투 후" },
@@ -626,7 +626,7 @@ const storiesData = {
         {
             id: "mini_5_2",
             title: "제2회 발푸르기스의 밤",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E050X.png",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/stage-id_E051X.png",
             chapters: [
                 { id: "KR_E051X", title: "제2회 발푸르기스의 밤", subtitle: "mini 3-1" },
                 { id: "KR_E052X", title: "제2회 발푸르기스의 밤", subtitle: "mini 3-1" },

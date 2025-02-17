@@ -149,7 +149,7 @@ const StoryReaderPage = () => {
                 <StoryContent
                   storyData={storyData}
                   darkMode={darkMode}
-                  handleGoBack={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll)}
+                  handleGoBack={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll, storyType, stories)}
                   handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
                   handleNextStory={() => navigateToNextStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
                   handlePreviousStory={() => navigateToPreviousStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}

@@ -25,11 +25,13 @@ const StoryList = ({ stories, storyType, darkMode, handleStoryClick, loading }) 
             rounded-lg shadow-md p-4 flex items-center space-x-8 cursor-pointer
             hover:shadow-lg  transition-all duration-200 `}
         >
-          
+
           <img
             src={story.image}
             alt={story.title}
-            className="w-60 h-20 object-cover rounded-lg "
+            className={'w-56 h-20 object-cover rounded-lg'}
+            style={{objectPosition: storyType==='main' ? 'center' : '75% center'}}
+              
           />
           <div className="flex-1">
             <h2 className="text-xl font-semibold mb-2">{story.title}</h2>

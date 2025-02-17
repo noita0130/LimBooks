@@ -48,7 +48,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
 
     // 내레이션 스타일 (model/teller가 없는 경우)
     const getNarrationStyle = (darkMode) =>
-        `flex-1 py-2 ml-36 italic ${darkMode
+        `flex-1 py-2 ml-44 italic ${darkMode
             ? 'text-neutral-400'
             : 'text-neutral-600'
         }`;
@@ -84,7 +84,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
                         <motion.div
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className={`mb-4 ml-36 mr-4 pt-3 pb-2  max-w-[600px] ${darkMode
+                            className={`my-4 ml-44 mr-4 pt-3 pb-2  max-w-[600px] ${darkMode
                                     ? 'text-neutral-400 border-b border-neutral-700'
                                     : 'text-neutral-600 border-b border-neutral-200'
                                 }`}
@@ -101,7 +101,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
                     >
                         {/* model이나 teller가 있는 경우에만 화자 정보 표시 */}
                         {(item.model || item.teller) && (
-                            <div className={`w-32 pl-3 text-right ${item.teller
+                            <div className={`w-40 pl-3 text-right ${item.teller
                                     ? (item.teller.length > 6 ? 'text-sm py-1.5' : 'text-base py-1')
                                     : (item.model.length > 6 ? 'text-sm py-1.5' : 'text-base py-1')
                                 } ${darkMode ? 'text-neutral-400' : 'text-black'}`}>

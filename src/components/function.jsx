@@ -61,28 +61,36 @@ export const handleGoBack = (navigate, location, scrollRef, setShouldRestoreScro
     setShouldRestoreScroll(true);
 
     const pathSegments = location.pathname.split('/').filter(segment => segment);
-    let targetPath; // let으로 변수 선언
+    let targetPath;
 
     // 현재 위치에 따른 다른 처리
     switch (pathSegments.length) {
         case 3: // chapter level: /storyType/storyId/chapterId
-            // 스토리의 챕터 수에 따라 다르게 처리
-            const story = stories?.[pathSegments[0]]?.find(s => s.id === pathSegments[1]);
+            // 현재 storyType의 stories 배열에서 해당 story 찾기
+            const currentStoryType = pathSegments[0]; // 'main' 또는 'mini'
+            const currentStoryId = pathSegments[1];
+            
+            // stories[storyType] 배열에서 현재 스토리 찾기
+            const story = stories[currentStoryType]?.find(s => s.id === currentStoryId);
+            
             if (story) {
-                // 챕터가 2개 이상인 경우에만 스토리 상세 페이지로 이동
+                // 챕터가 2개 이상인 경우에는 챕터 목록으로, 1개인 경우에는 스토리 목록으로
                 targetPath = story.chapters.length >= 2 
-                    ? `/${pathSegments[0]}/${pathSegments[1]}` 
-                    : `/${pathSegments[0]}`; // 챕터가 1개면 스토리 목록으로
+                    ? `/${currentStoryType}/${currentStoryId}`  // 챕터 목록으로
+                    : `/${currentStoryType}`;  // 스토리 목록으로
             } else {
-                targetPath = `/${pathSegments[0]}`; // 스토리를 찾을 수 없는 경우 스토리 목록으로
+                targetPath = `/${currentStoryType}`;  // 스토리를 찾을 수 없는 경우
             }
             break;
+
         case 2: // story level: /storyType/storyId
             targetPath = `/${pathSegments[0]}`; // 스토리 목록으로
             break;
+
         case 1: // storyType level: /storyType
             targetPath = '/'; // 홈으로
             break;
+
         default:
             targetPath = '/';
     }

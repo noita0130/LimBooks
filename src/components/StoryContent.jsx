@@ -11,13 +11,26 @@ const StoryContent = ({
     handlePreviousChapter
 }) => {
 
-
+    // pathSegments를 사용하여 현재 chapterId 가져오기
+    const pathSegments = window.location.pathname.split('/');
+    const currentChapterId = pathSegments[pathSegments.length - 1];
 
     // 현재 챕터의 인덱스를 찾습니다
-    const currentChapterIndex = selectedStory?.chapters.findIndex(
-        chapter => chapter.id === storyData.id
-    );
-    const currentChapter = selectedStory?.chapters[currentChapterIndex];
+   // 현재 챕터의 인덱스를 찾습니다
+    const currentChapterIndex = selectedStory?.chapters?.findIndex(chapter => {
+        console.log('Comparing chapter id:', chapter.id);
+        console.log('with storyData id:', storyData.id);
+        return chapter.id === storyData.id;
+    });
+
+    console.log('Current Chapter ID:', currentChapterId);
+    console.log('Current Chapter Index:', currentChapterIndex);
+
+    // 현재 챕터 정보 가져오기
+    const currentChapter = currentChapterIndex !== -1 
+        ? selectedStory?.chapters[currentChapterIndex] 
+        : selectedStory?.chapters[0];  // fallback to first chapter if not found
+
 
     // 이전/다음 챕터가 있는지 확인합니다
     const isFirstChapter = currentChapterIndex === 0;
@@ -46,10 +59,6 @@ const StoryContent = ({
             </button>
         </div>
     );
-    console.log('Current Chapter Index:', currentChapterIndex);
-    console.log('Selected Story:', selectedStory);
-    console.log('Story Data:', storyData);
-    console.log('Current Chapter:', currentChapter);
 
     return (
         
