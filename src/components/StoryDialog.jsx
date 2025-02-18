@@ -82,8 +82,9 @@ const StoryDialog = ({ dataList, darkMode }) => {
                     {/* place 정보가 있고, 이전 아이템과 다르거나 첫 아이템일 때만 표시 */}
                     {item.place && (index === 0 || item.place !== dataList[index - 1]?.place) && (
                         <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.01 }}
                             className={`my-4 ml-44 mr-4 pt-3 pb-2  max-w-[600px] ${darkMode
                                     ? 'text-neutral-400 border-b border-neutral-700'
                                     : 'text-neutral-600 border-b border-neutral-200'
@@ -102,8 +103,8 @@ const StoryDialog = ({ dataList, darkMode }) => {
                         {/* model이나 teller가 있는 경우에만 화자 정보 표시 */}
                         {(item.model || item.teller) && (
                             <div className={`w-40 pl-3 text-right ${item.teller
-                                    ? (item.teller.length > 6 ? 'text-sm py-1.5' : 'text-base py-1')
-                                    : (item.model.length > 6 ? 'text-sm py-1.5' : 'text-base py-1')
+                                    ? (item.teller.length > 8 ? 'text-sm py-1.5' : 'text-base py-1')
+                                    : (item.model.length > 8 ? 'text-sm py-1.5' : 'text-base py-1')
                                 } ${darkMode ? 'text-neutral-400' : 'text-black'}`}>
                                 {item.teller || item.model}
                             </div>
