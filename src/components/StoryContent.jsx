@@ -85,7 +85,7 @@ const StoryContent = ({
             <div className="flex justify-between items-center mb-10">
                 <button
                     onClick={handleGoBack}
-                    className={`px-4 py-2 rounded-md ${
+                    className={`px-4 py-2 rounded-md w-[120px] ${
                         darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
                     }`}
                 >
@@ -93,7 +93,7 @@ const StoryContent = ({
                 </button>
 
                 <TitleSection />
-                <div className="w-[100px] flex justify-end">
+                <div className="w-[120px] flex justify-end">
                     <ChapterNavigationButtons />
                 </div>
                 

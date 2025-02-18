@@ -8,7 +8,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
             <div className="flex items-center ml-4 space-x-8">
               <div className="flex-shrink-0 font-bold text-xl">
                 <span className="text-red-400">Lim</span>
-                <span className={`${darkMode ? 'text-white' : 'text-gray-900'}`}>Books</span>
+                <span className={`${darkMode ? 'text-white' : 'text-gray-900'}`}>Books (Beta)</span>
               </div>
               <div className="flex space-x-4">
                 <button

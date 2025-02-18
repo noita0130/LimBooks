@@ -3,6 +3,7 @@ import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import Homepage from '../components/Homepage';
 import useStoryData from '../hooks/useStoryData';
 import NavigationBar from '../components/NavigationBar';
 import StoryList from '../components/StoryList';
@@ -126,7 +127,7 @@ const StoryReaderPage = () => {
                 }
               }}
             >
-              {location.pathname === '/' && <HomePage />}
+              {location.pathname === '/' && <Homepage darkMode={darkMode} />}
               {location.pathname === '/scripts' && <ScriptList />}
               {(storyType === 'main' || storyType === 'mini') && !storyId && (
                 <StoryList
