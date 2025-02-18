@@ -592,7 +592,7 @@ const storiesData = {
             ]
         },
         {
-            id: "mini_3_2",
+            id: "mini_3_3",
             title: "버스 복도 너머",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E030X.png",
             chapters: [
