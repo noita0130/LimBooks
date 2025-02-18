@@ -93,7 +93,10 @@ const StoryContent = ({
                 </button>
 
                 <TitleSection />
-                <ChapterNavigationButtons />
+                <div className="w-[100px] flex justify-end">
+                    <ChapterNavigationButtons />
+                </div>
+                
             </div>
 
             <StoryDialog
