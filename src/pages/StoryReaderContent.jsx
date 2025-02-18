@@ -11,7 +11,9 @@ import StoryContent from '../components/StoryContent';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ScriptList from '../components/ScriptsList';
 import handleGoBack from '../utill/handleGoBack';
+import ScrollContainer from '../utill/ScrollContainer'
 import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
+
 import {
   loadChapterData,
   saveScrollPosition,
@@ -99,7 +101,9 @@ const StoryReaderPage = () => {
   }, [location.pathname]);
 
   return (
-    <div className={`min-h-screen transition-colors duration-200 
+<ScrollContainer darkMode={darkMode}>
+
+    <div className={`min-h-screen 
       ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
       <NavigationBar
         darkMode={darkMode}
@@ -162,6 +166,7 @@ const StoryReaderPage = () => {
         </Suspense>
       </main>
     </div>
+    </ScrollContainer>
   );
 };
 

@@ -53,8 +53,8 @@ const ChapterList = ({ selectedStory, darkMode, handleChapterClick, handleNaviga
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.01 }}
                         onClick={() => handleChapterClick(chapter.id)}
-                        className={`${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-100 hover:bg-neutral-200'
-                            } p-4 rounded-lg cursor-pointer transition-colors duration-200`}
+                        className={`${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                            } p-4 rounded-lg cursor-pointer `}
                     >
                         <h3 className="text-lg font-semibold">
                             {index + 1}{"."} {chapter.title} {chapter.subtitle &&

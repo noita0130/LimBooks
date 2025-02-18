@@ -23,7 +23,7 @@ const StoryList = ({ stories, storyType, darkMode, handleStoryClick, loading }) 
           onClick={() => handleStoryClick(story)}
           className={`${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-300'} 
             rounded-lg shadow-md p-4 flex items-center space-x-8 cursor-pointer
-            hover:shadow-lg  transition-all duration-200 `}
+            hover:shadow-lg  `}
         >
 
           <img

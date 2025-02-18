@@ -2,7 +2,7 @@ import { Home, Book, BookOpen, Moon, Sun, MessageCircle } from "lucide-react";
 
 const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location }) => {
     return (
-      <nav className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-lg`}>
+      <nav className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-lg transition-200`}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center ml-4 space-x-8">

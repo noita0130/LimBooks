@@ -48,7 +48,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
 
     // 내레이션 스타일 (model/teller가 없는 경우)
     const getNarrationStyle = (darkMode) =>
-        `flex-1 py-2 ml-44 italic ${darkMode
+        `flex-1 py-1 ml-44 italic ${darkMode
             ? 'text-neutral-400'
             : 'text-neutral-600'
         }`;
@@ -87,7 +87,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
                             transition={{ delay: index * 0.01 }}
                             className={`my-4 ml-44 mr-4 pt-3 pb-2  max-w-[600px] ${darkMode
                                     ? 'text-neutral-400 border-b border-neutral-700'
-                                    : 'text-neutral-600 border-b border-neutral-200'
+                                    : 'text-neutral-700 border-b border-neutral-300'
                                 }`}
                         >
                             장소 : {item.place}
