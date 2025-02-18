@@ -28,14 +28,6 @@ import {
   navigateToPreviousChapter
 } from '../components/function';
 
-const HomePage = React.lazy(() => Promise.resolve({
-  default: () => (
-    <div className="text-center">
-      <h1 className="text-4xl font-bold mb-4">환영합니다</h1>
-      <p className="text-neutral-600 dark:text-neutral-400">스토리리더에서 다양한 이야기를 만나보세요.</p>
-    </div>
-  )
-}));
 
 const StoryReaderPage = () => {
   const navigate = useNavigate();
@@ -49,6 +41,28 @@ const StoryReaderPage = () => {
   const [shouldRestoreScroll, setShouldRestoreScroll] = useState(false);
 
   const { stories, loading } = useStoryData(storyType);
+
+  const MainPage = React.lazy(() => Promise.resolve({
+    default: ({darkMode}) => (
+      <div>
+        <div className={`my-10 py-4 `}>
+          <h1 className="text-center text-4xl font-bold mb-4">환영합니다</h1>
+          <p className={`text-center }`}>
+            LimBooks에서 다양한 이야기를 만나보세요.
+            </p>
+        </div>
+        <div className={`my-10 py-4 `}>
+          <h1 className="text-center text-2xl font-bold mb-4">제작중인 사항</h1>
+          <p className="text-center ">
+            1. 수감자 대사집 <br />
+            2. 스토리 화자 수정
+            
+          </p>
+        </div>
+      </div>
+  
+    )
+  }));
 
   useEffect(() => {
     if (darkMode) {
@@ -127,7 +141,7 @@ const StoryReaderPage = () => {
                 }
               }}
             >
-              {location.pathname === '/' && <Homepage darkMode={darkMode} />}
+              {location.pathname === '/' && <MainPage darkMode={darkMode} />}
               {location.pathname === '/scripts' && <ScriptList />}
               {(storyType === 'main' || storyType === 'mini') && !storyId && (
                 <StoryList
@@ -174,6 +188,10 @@ const StoryReaderPage = () => {
 const StoryReaderContent = () => {
   return (
     <Routes>
+      {/* /LimBooks/ 경로에 대한 라우트 추가 */}
+      <Route path="/LimBooks/" element={<Homepage />} />
+      
+      {/* 기존 라우트들 */}
       <Route path="/" element={<StoryReaderPage />} />
       <Route path="/:storyType" element={<StoryReaderPage />} />
       <Route path="/:storyType/:storyId" element={<StoryReaderPage />} />
