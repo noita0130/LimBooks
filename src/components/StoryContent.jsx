@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import StoryDialog from "./StoryDialog";
 
 const StoryContent = ({
@@ -10,25 +11,30 @@ const StoryContent = ({
     handleNextChapter,
     handlePreviousChapter
 }) => {
+    // location이 변경되어도 마지막 값을 유지하기 위해 useRef 사용
+    const storyRef = useRef(selectedStory);
+    const locationRef = useRef(window.location.pathname);
 
-    // pathSegments를 사용하여 현재 chapterId 가져오기
-    const pathSegments = window.location.pathname.split('/');
+    // 컴포넌트가 처음 마운트될 때만 값을 설정
+    useEffect(() => {
+        storyRef.current = selectedStory;
+        locationRef.current = window.location.pathname;
+    }, []);
+
+    // 이전 값들을 사용하여 상태 계산
+    const pathSegments = locationRef.current.split('/');
     const currentChapterId = pathSegments[pathSegments.length - 1];
+    
+    const currentChapterIndex = storyRef.current?.chapters?.findIndex(chapter => 
+        chapter.id === currentChapterId
+    );
 
-    // 현재 챕터의 인덱스를 찾습니다
-    const currentChapterIndex = selectedStory?.chapters?.findIndex(chapter => {
-        return chapter.id === currentChapterId;
-    });
-
-    // 현재 챕터 정보 가져오기
     const currentChapter = currentChapterIndex !== -1
-        ? selectedStory?.chapters[currentChapterIndex]
-        : null;  // fallback to first chapter if not found
+        ? storyRef.current?.chapters[currentChapterIndex]
+        : null;
 
-
-    // 이전/다음 챕터가 있는지 확인합니다
     const isFirstChapter = currentChapterIndex === 0;
-    const isLastChapter = currentChapterIndex === selectedStory?.chapters.length - 1;
+    const isLastChapter = currentChapterIndex === storyRef.current?.chapters.length - 1;
 
     const ChapterNavigationButtons = () => (
         <div className={`rounded-lg overflow-hidden flex ${darkMode ? 'bg-neutral-700' : 'bg-neutral-200'}`}>
@@ -42,13 +48,11 @@ const StoryContent = ({
                     ←
                 </button>
             )}
-            {(!isFirstChapter && !isLastChapter) &&  (
+            {(!isFirstChapter && !isLastChapter) && (
                 <div className="flex items-center">
                     <div className={`h-6 w-[1px] ${darkMode ? 'bg-neutral-600' : 'bg-neutral-300'}`}></div>
                 </div>
             )}
-
-
             {!isLastChapter && (
                 <button
                     onClick={handleNextChapter}
@@ -63,7 +67,7 @@ const StoryContent = ({
     );
 
     const TitleSection = () => {
-        if (!currentChapter || !selectedStory) return null;
+        if (!currentChapter || !storyRef.current) return null;
         return (
             <div className="flex-1 text-center">
                 <span className="font-semibold">{currentChapter?.title}</span>
@@ -73,43 +77,40 @@ const StoryContent = ({
                     </span>
                 )}
             </div>
-        )}
+        );
+    }
 
     return (
-
         <div className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} p-6 rounded-lg shadow-lg`}>
             <div className="flex justify-between items-center mb-10">
                 <button
-                    onClick={handleGoBack}  // handleGoBack 사용
-                    className={`px-4 py-2 rounded-md ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
-                        }`}
+                    onClick={handleGoBack}
+                    className={`px-4 py-2 rounded-md ${
+                        darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                    }`}
                 >
                     ← 돌아가기
                 </button>
 
-
                 <TitleSection />
                 <ChapterNavigationButtons />
-
             </div>
 
-            {/* 챕터 내용 표시 */}
             <StoryDialog
                 dataList={storyData?.dataList || []}
                 darkMode={darkMode}
-
             />
 
             <div className="flex justify-between items-center">
                 <button
-                    onClick={handleGoBack}  // handleGoBack 사용
-                    className={`px-4 py-2 rounded-md ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
-                        }`}
+                    onClick={handleGoBack}
+                    className={`px-4 py-2 rounded-md ${
+                        darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                    }`}
                 >
                     ← 돌아가기
                 </button>
                 <ChapterNavigationButtons />
-
             </div>
         </div>
     );

@@ -10,7 +10,8 @@ import ChapterList from '../components/ChapterList';
 import StoryContent from '../components/StoryContent';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ScriptList from '../components/ScriptsList';
-
+import handleGoBack from '../utill/handleGoBack';
+import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
 import {
   loadChapterData,
   saveScrollPosition,
@@ -18,11 +19,8 @@ import {
   restoreScroll,
   handleStoryClick,
   handleChapterClick,
-  handleGoBack,
   handleNavigation,
   handlePopState,
-  navigateToNextStory,
-  navigateToPreviousStory,
   navigateToNextChapter,
   navigateToPreviousChapter
 } from '../components/function';
@@ -149,7 +147,7 @@ const StoryReaderPage = () => {
                 <StoryContent
                   storyData={storyData}
                   darkMode={darkMode}
-                  handleGoBack={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll, storyType, stories)}
+                  handleGoBack={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll, storyType, stories, setStoryData, setSelectedStory)}
                   handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
                   handleNextStory={() => navigateToNextStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
                   handlePreviousStory={() => navigateToPreviousStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}

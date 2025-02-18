@@ -56,48 +56,7 @@ export const handleChapterClick = (chapterId, storyType, selectedStory, navigate
     scrollRef.current.set(location.pathname, currentScroll);
 };
 
-export const handleGoBack = (navigate, location, scrollRef, setShouldRestoreScroll, storyType, stories) => {
-    const currentScroll = window.scrollY;
-    setShouldRestoreScroll(true);
 
-    const pathSegments = location.pathname.split('/').filter(segment => segment);
-    let targetPath;
-
-    // 현재 위치에 따른 다른 처리
-    switch (pathSegments.length) {
-        case 3: // chapter level: /storyType/storyId/chapterId
-            // 현재 storyType의 stories 배열에서 해당 story 찾기
-            const currentStoryType = pathSegments[0]; // 'main' 또는 'mini'
-            const currentStoryId = pathSegments[1];
-            
-            // stories[storyType] 배열에서 현재 스토리 찾기
-            const story = stories[currentStoryType]?.find(s => s.id === currentStoryId);
-            
-            if (story) {
-                // 챕터가 2개 이상인 경우에는 챕터 목록으로, 1개인 경우에는 스토리 목록으로
-                targetPath = story.chapters.length >= 2 
-                    ? `/${currentStoryType}/${currentStoryId}`  // 챕터 목록으로
-                    : `/${currentStoryType}`;  // 스토리 목록으로
-            } else {
-                targetPath = `/${currentStoryType}`;  // 스토리를 찾을 수 없는 경우
-            }
-            break;
-
-        case 2: // story level: /storyType/storyId
-            targetPath = `/${pathSegments[0]}`; // 스토리 목록으로
-            break;
-
-        case 1: // storyType level: /storyType
-            targetPath = '/'; // 홈으로
-            break;
-
-        default:
-            targetPath = '/';
-    }
-
-    navigate(targetPath);
-    scrollRef.current.set(location.pathname, currentScroll);
-};
 
 export const handleNavigation = (path, location, scrollRef, setShouldRestoreScroll, navigate) => {
     saveScrollPosition(scrollRef, location.pathname);
@@ -111,52 +70,6 @@ export const handlePopState = (location, scrollRef, setShouldRestoreScroll) => {
     scrollRef.current.set(location.pathname, currentScroll);
 };
 
-
-export const navigateToNextStory = (
-    stories,
-    currentStoryId,
-    storyType,
-    navigate,
-    location,
-    scrollRef,
-    setShouldRestoreScroll
-) => {
-    if (!stories || !stories[storyType]) return;
-
-    const currentIndex = stories[storyType].findIndex(story => story.id === currentStoryId);
-    if (currentIndex === -1 || currentIndex === stories[storyType].length - 1) return;
-
-    const nextStory = stories[storyType][currentIndex + 1];
-    if (nextStory) {
-        const currentScroll = window.scrollY;
-        setShouldRestoreScroll(false);
-        navigate(`/${storyType}/${nextStory.id}`);
-        scrollRef.current.set(location.pathname, currentScroll);
-    }
-};
-
-export const navigateToPreviousStory = (
-    stories,
-    currentStoryId,
-    storyType,
-    navigate,
-    location,
-    scrollRef,
-    setShouldRestoreScroll
-) => {
-    if (!stories || !stories[storyType]) return;
-
-    const currentIndex = stories[storyType].findIndex(story => story.id === currentStoryId);
-    if (currentIndex === -1 || currentIndex === 0) return;
-
-    const previousStory = stories[storyType][currentIndex - 1];
-    if (previousStory) {
-        const currentScroll = window.scrollY;
-        setShouldRestoreScroll(false);
-        navigate(`/${storyType}/${previousStory.id}`);
-        scrollRef.current.set(location.pathname, currentScroll);
-    }
-};
 
 export const navigateToNextChapter = (
     selectedStory,
