@@ -1,4 +1,6 @@
 // functions.jsx
+export const BASE_PATH = '/LimBooks'
+
 export const loadChapterData = async (chapterId) => {
     try {
         const response = await import(`../story/${chapterId}.json`);
@@ -40,29 +42,29 @@ export const handleStoryClick = (story, storyType, navigate, location, scrollRef
     window.scrollTo(0, 0);
     // 메인 스토리는 챕터 목록으로 이동
     if (story.chapters.length >= 2) {
-        navigate(`/${storyType}/${story.id}`);
-        // 사이드 스토리는 바로 첫 번째 챕터로 이동
+      navigate(`${BASE_PATH}/${storyType}/${story.id}`);
+      // 사이드 스토리는 바로 첫 번째 챕터로 이동
     } else {
-        navigate(`/${storyType}/${story.id}/${story.chapters[0].id}`);
+      navigate(`${BASE_PATH}/${storyType}/${story.id}/${story.chapters[0].id}`);
     }
     scrollRef.current.set(location.pathname, currentScroll);
-};
+  };
 
-export const handleChapterClick = (chapterId, storyType, selectedStory, navigate, location, scrollRef, setShouldRestoreScroll) => {
+  export const handleChapterClick = (chapterId, storyType, selectedStory, navigate, location, scrollRef, setShouldRestoreScroll) => {
     const currentScroll = window.scrollY;
     setShouldRestoreScroll(false);
     window.scrollTo(0, 0);
-    navigate(`/${storyType}/${selectedStory.id}/${chapterId}`);
+    navigate(`${BASE_PATH}/${storyType}/${selectedStory.id}/${chapterId}`);
     scrollRef.current.set(location.pathname, currentScroll);
-};
+  };
 
 
 
 export const handleNavigation = (path, location, scrollRef, setShouldRestoreScroll, navigate) => {
     saveScrollPosition(scrollRef, location.pathname);
     setShouldRestoreScroll(false);
-    navigate(path);
-};
+    navigate(`${BASE_PATH}${path}`);
+  };
 
 export const handlePopState = (location, scrollRef, setShouldRestoreScroll) => {
     const currentScroll = window.scrollY;
@@ -79,22 +81,22 @@ export const navigateToNextChapter = (
     location,
     scrollRef,
     setShouldRestoreScroll
-) => {
+  ) => {
     if (!selectedStory || !selectedStory.chapters) return;
-
+  
     const currentIndex = selectedStory.chapters.findIndex(chapter => chapter.id === currentChapterId);
     if (currentIndex === -1 || currentIndex === selectedStory.chapters.length - 1) return;
-
+  
     const nextChapter = selectedStory.chapters[currentIndex + 1];
     if (nextChapter) {
-        const currentScroll = window.scrollY;
-        setShouldRestoreScroll(false);
-        navigate(`/${storyType}/${selectedStory.id}/${nextChapter.id}`);
-        scrollRef.current.set(location.pathname, currentScroll);
+      const currentScroll = window.scrollY;
+      setShouldRestoreScroll(false);
+      navigate(`${BASE_PATH}/${storyType}/${selectedStory.id}/${nextChapter.id}`);
+      scrollRef.current.set(location.pathname, currentScroll);
     }
-};
+  };
 
-export const navigateToPreviousChapter = (
+  export const navigateToPreviousChapter = (
     selectedStory,
     currentChapterId,
     storyType,
@@ -102,17 +104,17 @@ export const navigateToPreviousChapter = (
     location,
     scrollRef,
     setShouldRestoreScroll
-) => {
+  ) => {
     if (!selectedStory || !selectedStory.chapters) return;
-
+  
     const currentIndex = selectedStory.chapters.findIndex(chapter => chapter.id === currentChapterId);
     if (currentIndex === -1 || currentIndex === 0) return;
-
+  
     const previousChapter = selectedStory.chapters[currentIndex - 1];
     if (previousChapter) {
-        const currentScroll = window.scrollY;
-        setShouldRestoreScroll(false);
-        navigate(`/${storyType}/${selectedStory.id}/${previousChapter.id}`);
-        scrollRef.current.set(location.pathname, currentScroll);
+      const currentScroll = window.scrollY;
+      setShouldRestoreScroll(false);
+      navigate(`${BASE_PATH}/${storyType}/${selectedStory.id}/${previousChapter.id}`);
+      scrollRef.current.set(location.pathname, currentScroll);
     }
-}
+  };

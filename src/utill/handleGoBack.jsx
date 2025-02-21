@@ -2,7 +2,14 @@ const handleGoBack = (navigate, location, scrollRef, setShouldRestoreScroll, sto
     const currentScroll = window.scrollY;
     setShouldRestoreScroll(true);
 
-    const pathSegments = location.pathname.split('/').filter(segment => segment);
+    // BASE_PATH 상수 임포트 필요
+    const BASE_PATH = '/LimBooks';
+    
+    // 경로 세그먼트에서 빈 문자열 제거 및 BASE_PATH 첫 부분 제거
+    const pathSegments = location.pathname.split('/')
+        .filter(segment => segment)
+        .filter((segment, index) => index !== 0 || segment !== 'LimBooks');
+    
     let targetPath;
 
     switch (pathSegments.length) {
@@ -13,10 +20,10 @@ const handleGoBack = (navigate, location, scrollRef, setShouldRestoreScroll, sto
             
             if (story) {
                 targetPath = story.chapters.length >= 2 
-                    ? `/${currentStoryType}/${currentStoryId}`
-                    : `/${currentStoryType}`;
+                    ? `${BASE_PATH}/${currentStoryType}/${currentStoryId}`
+                    : `${BASE_PATH}/${currentStoryType}`;
             } else {
-                targetPath = `/${currentStoryType}`;
+                targetPath = `${BASE_PATH}/${currentStoryType}`;
             }
             
             // 애니메이션이 완료된 후에 상태 초기화
@@ -26,18 +33,18 @@ const handleGoBack = (navigate, location, scrollRef, setShouldRestoreScroll, sto
             break;
 
         case 2:
-            targetPath = `/${pathSegments[0]}`;
+            targetPath = `${BASE_PATH}/${pathSegments[0]}`;
             setTimeout(() => {
                 setSelectedStory(null);
             }, 300);
             break;
 
         case 1:
-            targetPath = '/';
+            targetPath = `${BASE_PATH}`;
             break;
 
         default:
-            targetPath = '/';
+            targetPath = `${BASE_PATH}`;
     }
 
     navigate(targetPath);

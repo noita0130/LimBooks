@@ -1,6 +1,6 @@
 // pages/StoryReaderContent.jsx
 import React, { useState, useEffect, Suspense, useRef } from 'react';
-import { Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom';
+import { Routes, Route, useNavigate, useParams, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Homepage from '../components/Homepage';
@@ -44,24 +44,24 @@ const StoryReaderPage = () => {
   const { stories, loading } = useStoryData(storyType);
 
   const MainPage = React.lazy(() => Promise.resolve({
-    default: ({darkMode}) => (
+    default: ({ darkMode }) => (
       <div>
         <div className={`my-10 py-4 `}>
           <h1 className="text-center text-4xl font-bold mb-4">환영합니다</h1>
           <p className={`text-center }`}>
             LimBooks에서 다양한 이야기를 만나보세요.
-            </p>
+          </p>
         </div>
         <div className={`my-10 py-4 `}>
           <h1 className="text-center text-2xl font-bold mb-4">제작중인 사항</h1>
           <p className="text-center ">
             1. 수감자 대사집 <br />
             2. 스토리 화자 수정
-            
+
           </p>
         </div>
       </div>
-  
+
     )
   }));
 
@@ -117,71 +117,71 @@ const StoryReaderPage = () => {
   }, [location.pathname]);
 
   return (
-<ScrollContainer darkMode={darkMode}>
+    <ScrollContainer darkMode={darkMode}>
 
-    <div className={`min-h-screen 
+      <div className={`min-h-screen 
       ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
-      <NavigationBar
-        darkMode={darkMode}
-        toggleDarkMode={() => setDarkMode(!darkMode)}
-        handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
-        location={location}
-      />
-      <main className="max-w-6xl mx-auto px-4 py-8 font-NotoSerifKR">
-        <Suspense fallback={<LoadingSpinner />}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={location.pathname}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              onAnimationComplete={() => {
-                if (shouldRestoreScroll) {
-                  restoreScrollPosition(scrollRef, location.pathname);
-                }
-              }}
-            >
-              {location.pathname === '/' && <MainPage darkMode={darkMode} />}
-              {location.pathname === '/scripts' && <ScriptList />}
-              {(storyType === 'main' || storyType === 'mini') && !storyId && (
-                <StoryList
-                  stories={stories}
-                  storyType={storyType}
-                  darkMode={darkMode}
-                  handleStoryClick={(story) => handleStoryClick(story, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
-                  loading={loading}
-                />
-              )}
-              {/* main 스토리일 때만 ChapterList를 보여줌*/}
-              {selectedStory && !chapterId && selectedStory.chapters.length >= 2 && (
-                <ChapterList
-                  selectedStory={selectedStory}
-                  darkMode={darkMode}
-                  handleChapterClick={(chapterId) => handleChapterClick(chapterId, storyType, selectedStory, navigate, location, scrollRef, setShouldRestoreScroll)}
-                  handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
-                  storyType={storyType}
-                />
-              )}
-              {chapterId && storyData && (
-                <StoryContent
-                  storyData={storyData}
-                  darkMode={darkMode}
-                  handleGoBack={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll, storyType, stories, setStoryData, setSelectedStory)}
-                  handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
-                  handleNextStory={() => navigateToNextStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
-                  handlePreviousStory={() => navigateToPreviousStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
-                  handleNextChapter={() => navigateToNextChapter(selectedStory, chapterId, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
-                  handlePreviousChapter={() => navigateToPreviousChapter(selectedStory, chapterId, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
-                  storyType={storyType}
-                  selectedStory={selectedStory}
-                />
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </Suspense>
-      </main>
-    </div>
+        <NavigationBar
+          darkMode={darkMode}
+          toggleDarkMode={() => setDarkMode(!darkMode)}
+          handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
+          location={location}
+        />
+        <main className="max-w-6xl mx-auto px-4 py-8 font-NotoSerifKR">
+          <Suspense fallback={<LoadingSpinner />}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={location.pathname}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                onAnimationComplete={() => {
+                  if (shouldRestoreScroll) {
+                    restoreScrollPosition(scrollRef, location.pathname);
+                  }
+                }}
+              >
+                {(location.pathname === '/LimBooks' || location.pathname === '/LimBooks/') && <MainPage darkMode={darkMode} />}
+                {location.pathname === '/scripts' && <ScriptList />}
+                {(storyType === 'main' || storyType === 'mini') && !storyId && (
+                  <StoryList
+                    stories={stories}
+                    storyType={storyType}
+                    darkMode={darkMode}
+                    handleStoryClick={(story) => handleStoryClick(story, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
+                    loading={loading}
+                  />
+                )}
+                {/* main 스토리일 때만 ChapterList를 보여줌*/}
+                {selectedStory && !chapterId && selectedStory.chapters.length >= 2 && (
+                  <ChapterList
+                    selectedStory={selectedStory}
+                    darkMode={darkMode}
+                    handleChapterClick={(chapterId) => handleChapterClick(chapterId, storyType, selectedStory, navigate, location, scrollRef, setShouldRestoreScroll)}
+                    handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
+                    storyType={storyType}
+                  />
+                )}
+                {chapterId && storyData && (
+                  <StoryContent
+                    storyData={storyData}
+                    darkMode={darkMode}
+                    handleGoBack={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll, storyType, stories, setStoryData, setSelectedStory)}
+                    handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
+                    handleNextStory={() => navigateToNextStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
+                    handlePreviousStory={() => navigateToPreviousStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
+                    handleNextChapter={() => navigateToNextChapter(selectedStory, chapterId, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
+                    handlePreviousChapter={() => navigateToPreviousChapter(selectedStory, chapterId, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
+                    storyType={storyType}
+                    selectedStory={selectedStory}
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </Suspense>
+        </main>
+      </div>
     </ScrollContainer>
   );
 };
@@ -189,15 +189,15 @@ const StoryReaderPage = () => {
 const StoryReaderContent = () => {
   return (
     <Routes>
-      {/* /LimBooks/ 경로에 대한 라우트 추가 */}
-      <Route path="/LimBooks/" element={<Homepage />} />
-      
-      {/* 기존 라우트들 */}
-      <Route path="/" element={<StoryReaderPage />} />
-      <Route path="/:storyType" element={<StoryReaderPage />} />
-      <Route path="/:storyType/:storyId" element={<StoryReaderPage />} />
-      <Route path="/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
-      <Route path="/scripts" element={<StoryReaderPage />} />
+      <Route path="/" element={<Navigate to="/LimBooks" replace />} />
+
+      {/* 홈페이지 루트 경로 */}
+      <Route path="/LimBooks" element={<StoryReaderPage />} />
+      <Route path="/LimBooks/" element={<StoryReaderPage />} />
+      <Route path="/LimBooks/:storyType" element={<StoryReaderPage />} />
+      <Route path="/LimBooks/:storyType/:storyId" element={<StoryReaderPage />} />
+      <Route path="/LimBooks/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
+      <Route path="/LimBooks/scripts" element={<StoryReaderPage />} />
     </Routes>
   );
 };
