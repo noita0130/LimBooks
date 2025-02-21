@@ -142,7 +142,7 @@ const StoryReaderPage = () => {
                   }
                 }}
               >
-                {(location.pathname === '/' || location.pathname === '') && <MainPage darkMode={darkMode} />}
+                {(location.pathname === '/' || location.pathname === '' || location.pathname === '/LimBooks' || location.pathname === '/LimBooks/') && <MainPage darkMode={darkMode} />}
                 {location.pathname === '/scripts' && <ScriptList />}
                 {(storyType === 'main' || storyType === 'mini') && !storyId && (
                   <StoryList

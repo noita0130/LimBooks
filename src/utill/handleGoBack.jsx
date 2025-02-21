@@ -3,7 +3,7 @@ const handleGoBack = (navigate, location, scrollRef, setShouldRestoreScroll, sto
     setShouldRestoreScroll(true);
 
     // BASE_PATH 상수 임포트 필요
-    const BASE_PATH = '/LimBooks';
+    const BASE_PATH = '';
     
     // 경로 세그먼트에서 빈 문자열 제거 및 BASE_PATH 첫 부분 제거
     const pathSegments = location.pathname.split('/')
