@@ -30,6 +30,7 @@ import {
 
 
 const StoryReaderPage = () => {
+  const BASE_PATH = '/LimBooks';
   const navigate = useNavigate();
   const location = useLocation();
   const { storyType, storyId, chapterId } = useParams();
