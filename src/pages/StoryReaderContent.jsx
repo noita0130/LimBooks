@@ -189,7 +189,6 @@ const StoryReaderPage = () => {
 const StoryReaderContent = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/LimBooks" replace />} />
 
       {/* 홈페이지 루트 경로 */}
       <Route path="/" element={<StoryReaderPage />} />
