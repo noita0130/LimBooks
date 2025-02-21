@@ -14,13 +14,13 @@ const Homepage = React.lazy(() => Promise.resolve({
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
-            to="/LimBooks/main"
+            to="/main"
             className="px-6 py-3 bg-red-400 text-white rounded-lg hover:bg-red-500 transition-colors"
           >
             메인 스토리
           </Link>
           <Link
-            to="/LimBooks/mini"
+            to="/mini"
             className="px-6 py-3 bg-neutral-700 text-white rounded-lg hover:bg-neutral-900 transition-colors"
           >
             미니 스토리

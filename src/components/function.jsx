@@ -1,5 +1,5 @@
 // functions.jsx
-export const BASE_PATH = '/LimBooks'
+export const BASE_PATH = ''
 
 export const loadChapterData = async (chapterId) => {
     try {

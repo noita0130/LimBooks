@@ -142,7 +142,7 @@ const StoryReaderPage = () => {
                   }
                 }}
               >
-                {(location.pathname === '/LimBooks' || location.pathname === '/LimBooks/') && <MainPage darkMode={darkMode} />}
+                {(location.pathname === '/' || location.pathname === '') && <MainPage darkMode={darkMode} />}
                 {location.pathname === '/scripts' && <ScriptList />}
                 {(storyType === 'main' || storyType === 'mini') && !storyId && (
                   <StoryList
@@ -192,12 +192,11 @@ const StoryReaderContent = () => {
       <Route path="/" element={<Navigate to="/LimBooks" replace />} />
 
       {/* 홈페이지 루트 경로 */}
-      <Route path="/LimBooks" element={<StoryReaderPage />} />
-      <Route path="/LimBooks/" element={<StoryReaderPage />} />
-      <Route path="/LimBooks/:storyType" element={<StoryReaderPage />} />
-      <Route path="/LimBooks/:storyType/:storyId" element={<StoryReaderPage />} />
-      <Route path="/LimBooks/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
-      <Route path="/LimBooks/scripts" element={<StoryReaderPage />} />
+      <Route path="/" element={<StoryReaderPage />} />
+      <Route path="/:storyType" element={<StoryReaderPage />} />
+      <Route path="/:storyType/:storyId" element={<StoryReaderPage />} />
+      <Route path="/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
+      <Route path="/scripts" element={<StoryReaderPage />} />
     </Routes>
   );
 };
