@@ -130,7 +130,7 @@ const StoryReaderPage = () => {
         <meta property="og:title" content="LimBooks" />
         <meta property="og:description" content="LimBooks에서 다양한 이야기를 만나보세요" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://[username].github.io/LimBooks/" />
+        <meta property="og:url" content="https://noita0130.github.io/LimBooks/" />
       </Helmet>
 
       <div className={`min-h-screen 
