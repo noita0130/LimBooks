@@ -4,5 +4,16 @@
     <loc>https://noita0130.github.io/LimBooks/</loc>
     <lastmod>2024-02-24</lastmod>
   </url>
-  <!-- 추가 페이지가 있다면 여기에 url 태그를 더 추가하세요 -->
+  <url>
+    <loc>https://noita0130.github.io/LimBooks/main</loc>
+    <lastmod>2024-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://noita0130.github.io/LimBooks/mini</loc>
+    <lastmod>2024-02-24</lastmod>
+  </url>
+  <url>
+    <loc>https://noita0130.github.io/LimBooks/scripts</loc>
+    <lastmod>2024-02-24</lastmod>
+  </url>
 </urlset>
