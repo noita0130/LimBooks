@@ -7,17 +7,22 @@ const StoryDialog = ({ dataList, darkMode }) => {
         return str?.match(/\.(jpeg|jpg|gif|png)$/) != null;
     };
 
-    // color 태그 파싱 함수
+    // color 태그 파싱 함수 - 수정 부분
     const parseColorTags = (text) => {
         if (!text) return [{ text: '', color: null }];
 
-        // <color=#hexcode>text</color> 패턴 매칭
-        const colorRegex = /<color=(#[0-9A-Fa-f]{6})>(.*?)<\/color>/g;
+        // <color=#hexcode>text</color> 패턴 매칭 - 정규식 수정
+        const colorRegex = /<color=(#[0-9A-Fa-f]{6})>([\s\S]*?)<\/color>/g;
         const parts = [];
         let lastIndex = 0;
         let match;
 
+        // 매칭 결과 디버깅
+        console.log("Parsing text:", text);
+        
         while ((match = colorRegex.exec(text)) !== null) {
+            console.log("Found match:", match);
+            
             // 태그 이전 텍스트 추가
             if (match.index > lastIndex) {
                 parts.push({
@@ -43,12 +48,13 @@ const StoryDialog = ({ dataList, darkMode }) => {
             });
         }
 
+        console.log("Parsed parts:", parts);
         return parts.length > 0 ? parts : [{ text, color: null }];
     };
 
     // 내레이션 스타일 (model/teller가 없는 경우)
     const getNarrationStyle = (darkMode) =>
-        `flex-1 py-2 ml-36 italic ${darkMode
+        `flex-1 py-1 ml-44 italic ${darkMode
             ? 'text-neutral-400'
             : 'text-neutral-600'
         }`;
@@ -69,6 +75,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
             <span
                 key={index}
                 style={part.color ? { color: part.color } : undefined}
+                className="whitespace-pre-wrap"
             >
                 {part.text}
             </span>
@@ -82,11 +89,12 @@ const StoryDialog = ({ dataList, darkMode }) => {
                     {/* place 정보가 있고, 이전 아이템과 다르거나 첫 아이템일 때만 표시 */}
                     {item.place && (index === 0 || item.place !== dataList[index - 1]?.place) && (
                         <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className={`my-4 pt-3 pb-2 ml-36 mr-4 max-w-[600px] ${darkMode
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.01 }}
+                            className={`my-4 ml-44 mr-4 pt-3 pb-2  max-w-[600px] ${darkMode
                                     ? 'text-neutral-400 border-b border-neutral-700'
-                                    : 'text-neutral-600 border-b border-neutral-200'
+                                    : 'text-neutral-700 border-b border-neutral-300'
                                 }`}
                         >
                             장소 : {item.place}
@@ -101,9 +109,9 @@ const StoryDialog = ({ dataList, darkMode }) => {
                     >
                         {/* model이나 teller가 있는 경우에만 화자 정보 표시 */}
                         {(item.model || item.teller) && (
-                            <div className={`w-32 pl-3 text-right ${item.teller
-                                    ? (item.teller.length > 6 ? 'text-sm py-1.5' : 'text-base py-1')
-                                    : (item.model.length > 6 ? 'text-sm py-1.5' : 'text-base py-1')
+                            <div className={`w-40 pl-3 text-right ${item.teller
+                                    ? (item.teller.length > 8 ? 'text-sm py-1.5' : 'text-base py-1')
+                                    : (item.model.length > 8 ? 'text-sm py-1.5' : 'text-base py-1')
                                 } ${darkMode ? 'text-neutral-400' : 'text-black'}`}>
                                 {item.teller || item.model}
                             </div>

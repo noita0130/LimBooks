@@ -136,7 +136,7 @@ const storiesData = {
         {
             id: "sub_3_5",
             title: "3.5 - 헬스 치킨",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter3.5.png",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/hells-chicken.png",
             chapters: [
                 { id: "KR_E301B", title: "치킨 어택", subtitle: "3.5-1 전투 전" },
                 { id: "KR_E301A", title: "치킨 어택", subtitle: "3.5-1 전투 후" },
@@ -475,72 +475,72 @@ const storiesData = {
             title: "7 - 꿈이 끝나는",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter7_before.png",
             chapters: [
-                { id: "KR_S701B", title: "", subtitle: "7-1 전투 전" },
-                { id: "KR_S702B", title: "", subtitle: "7-2 전투 전" },
-                { id: "KR_S703B", title: "", subtitle: "7-3 전투 전" },
-                { id: "KR_S704A", title: "", subtitle: "7-4 전투 후" },
-                { id: "KR_S705B", title: "", subtitle: "7-5 전투 전" },
-                { id: "KR_S706B", title: "", subtitle: "7-6 전투 전" },
-                { id: "KR_S706A", title: "", subtitle: "7-6 전투 후" },
-                { id: "KR_S707B", title: "", subtitle: "7-7 전투 전" },
-                { id: "KR_S708B", title: "", subtitle: "7-8 전투 전" },
-                { id: "KR_S709B", title: "", subtitle: "7-9 전투 전" },
-                { id: "KR_S709A", title: "", subtitle: "7-9 전투 후" },
-                { id: "KR_S710B", title: "", subtitle: "7-10 전투 전" },
-                { id: "KR_S712B", title: "", subtitle: "7-12 전투 전" },
-                { id: "KR_S712A", title: "", subtitle: "7-12 전투 후" },
-                { id: "KR_S713B", title: "", subtitle: "7-13 전투 전" },
-                { id: "KR_S713A", title: "", subtitle: "7-13 전투 후" },
-                { id: "KR_S714B", title: "", subtitle: "7-14 전투 전" },
-                { id: "KR_S715B", title: "", subtitle: "7-15 전투 전" },
-                { id: "KR_S715A", title: "", subtitle: "7-15 전투 후" },
-                { id: "KR_S716B", title: "", subtitle: "7-16 전투 전" },
-                { id: "KR_S716A", title: "", subtitle: "7-16 전투 후" },
-                { id: "KR_S717B", title: "", subtitle: "7-17 전투 전" },
-                { id: "KR_S717A", title: "", subtitle: "7-17 전투 후" },
-                { id: "KR_S718B", title: "", subtitle: "7-18 전투 전" },
-                { id: "KR_S718A", title: "", subtitle: "7-18 전투 후" },
-                { id: "KR_S719B", title: "", subtitle: "7-19 전투 전" },
-                { id: "KR_S720B", title: "", subtitle: "7-20 전투 전" },
-                { id: "KR_S721B", title: "", subtitle: "7-21 전투 전" },
-                { id: "KR_S722B", title: "", subtitle: "7-22 전투 전" },
-                { id: "KR_S723B", title: "", subtitle: "7-23 전투 전" },
-                { id: "KR_S724B", title: "", subtitle: "7-24 전투 전" },
-                { id: "KR_S724A", title: "", subtitle: "7-24 전투 후" },
-                { id: "KR_S725B", title: "", subtitle: "7-25 전투 전" },
-                { id: "KR_S726B", title: "", subtitle: "7-26 전투 전" },
-                { id: "KR_S727A", title: "", subtitle: "7-27 전투 후" },
-                { id: "KR_S728B", title: "", subtitle: "7-28 전투 전" },
-                { id: "KR_S729B", title: "", subtitle: "7-29 전투 전" },
-                { id: "KR_S730B", title: "", subtitle: "7-30 전투 전" },
-                { id: "KR_S731B", title: "", subtitle: "7-31 전투 전" },
-                { id: "KR_S733B", title: "", subtitle: "7-33 전투 전" },
-                { id: "KR_S735B", title: "", subtitle: "7-35 전투 전" },
-                { id: "KR_S736B", title: "", subtitle: "7-36 전투 전" },
-                { id: "KR_S737B", title: "", subtitle: "7-37 전투 전" },
-                { id: "KR_7D101B", title: "", subtitle: "" },
-                { id: "KR_7D102B", title: "", subtitle: "" },
-                { id: "KR_7D102A", title: "", subtitle: "" },
-                { id: "KR_7D103B", title: "", subtitle: "" },
-                { id: "KR_7D103A", title: "", subtitle: "" },
-                { id: "KR_7D104B", title: "", subtitle: "" },
-                { id: "KR_7D105B", title: "", subtitle: "" },
-                { id: "KR_7D106B", title: "", subtitle: "" },
-                { id: "KR_7D107B", title: "", subtitle: "" },
-                { id: "KR_7D108B", title: "", subtitle: "" },
-                { id: "KR_7D109B", title: "", subtitle: "" },
-                { id: "KR_7D110B", title: "", subtitle: "" },
-                { id: "KR_7D111B", title: "", subtitle: "" },
-                { id: "KR_7D111I", title: "", subtitle: "" },
-                { id: "KR_7D111I2", title: "", subtitle: "" },
-                { id: "KR_7D111I3", title: "", subtitle: "" },
-                { id: "KR_7D111A", title: "", subtitle: "" },
-                { id: "KR_7D112I", title: "", subtitle: "" },
-                { id: "KR_7D112I2", title: "", subtitle: "" },
-                { id: "KR_7D112I3", title: "", subtitle: "" },
-                { id: "KR_7D112I4", title: "", subtitle: "" },
-                { id: "KR_7D112I5", title: "", subtitle: "" },
-                { id: "KR_7D112A", title: "", subtitle: "" }
+                { id: "KR_S701B", title: "유명하진 않지만 용감한 돈키호테의 일상과 의뢰에 대하여", subtitle: "7-1 전투 전" },
+                { id: "KR_S702B", title: "림버스컴퍼니가 처음은 아니지만 날개와 협력하는 것에 대하여", subtitle: "7-2 전투 전" },
+                { id: "KR_S703B", title: "수감자들이 도시의 방법으로 해결사에게 인정받는 것에 대하여", subtitle: "7-3 전투 전" },
+                { id: "KR_S704A", title: "붉은시선 품에서 벗어난 우리에게 일어난 일들에 대하여", subtitle: "7-4 전투 후" },
+                { id: "KR_S705B", title: "여기에서는 우리의 도련님이 겪어온 이야기가 밝혀진다", subtitle: "7-5 전투 전" },
+                { id: "KR_S706B", title: "섕크가 우리의 해결사에게 행한 어마어마한 결투에 대하여", subtitle: "7-6 전투 전" },
+                { id: "KR_S706A", title: "섕크가 우리의 해결사에게 행한 어마어마한 결투에 대하여", subtitle: "7-6 전투 후" },
+                { id: "KR_S707B", title: "우리의 훌륭한 정보원 LCD부서의 두번째 연락에 대하여", subtitle: "7-7 전투 전" },
+                { id: "KR_S708B", title: "버스 기사의 놀이공원과 관리자의 유쾌한 약속에 대하여", subtitle: "7-8 전투 전" },
+                { id: "KR_S709B", title: "여기에서는 용감무쌍한 해결사들의 토벌에 결말이 난다", subtitle: "7-9 전투 전" },
+                { id: "KR_S709A", title: "여기에서는 용감무쌍한 해결사들의 토벌에 결말이 난다", subtitle: "7-9 전투 후" },
+                { id: "KR_S710B", title: "라만차랜드의 사건과 혈귀와의 만남에서 생긴 위험에 대하여", subtitle: "7-10 전투 전" },
+                { id: "KR_S712B", title: "쓰러진 혈귀들이 들려주려다 실패한 이야기에 대하여", subtitle: "7-12 전투 전" },
+                { id: "KR_S712A", title: "쓰러진 혈귀들이 들려주려다 실패한 이야기에 대하여", subtitle: "7-12 전투 후" },
+                { id: "KR_S713B", title: "여기에서는 어트랙션의 내레이션과 퀴즈가 이어진다", subtitle: "7-13 전투 전" },
+                { id: "KR_S713A", title: "여기에서는 어트랙션의 내레이션과 퀴즈가 이어진다", subtitle: "7-13 전투 후" },
+                { id: "KR_S714B", title: "여기에서는 혈귀와 관련된 뜻밖의 사실들을 이야기한다", subtitle: "7-14 전투 전" },
+                { id: "KR_S715B", title: "여기에서는 라만차랜드에 대한 수감자의 감상을 이야기한다", subtitle: "7-15 전투 전" },
+                { id: "KR_S715A", title: "여기에서는 라만차랜드에 대한 수감자의 감상을 이야기한다", subtitle: "7-15 전투 후" },
+                { id: "KR_S716B", title: "해결사 돈키호테가 동료라고 믿은 사람이 벌인 일에 대하여", subtitle: "7-16 전투 전" },
+                { id: "KR_S716A", title: "해결사 돈키호테가 동료라고 믿은 사람이 벌인 일에 대하여", subtitle: "7-16 전투 후" },
+                { id: "KR_S717B", title: "여기에서는 돈키호테가 과거에 겪은 수많은 모험담이 계속된다", subtitle: "7-17 전투 전" },
+                { id: "KR_S717A", title: "여기에서는 돈키호테가 과거에 겪은 수많은 모험담이 계속된다", subtitle: "7-17 전투 후" },
+                { id: "KR_S718B", title: "맘브리노 투구를 탈취한 모험과 주어진 배역들에 대하여", subtitle: "7-18 전투 전" },
+                { id: "KR_S718A", title: "맘브리노 투구를 탈취한 모험과 주어진 배역들에 대하여", subtitle: "7-18 전투 후" },
+                { id: "KR_S719B", title: "관리자와 나눈 분별 있는 이야기와 마술사에 대하여", subtitle: "7-19 전투 전" },
+                { id: "KR_S720B", title: "여기에서는 유령의 집에 대한 수감자들의 감상이 이어진다", subtitle: "7-20 전투 전" },
+                { id: "KR_S721B", title: "'헌티드 블러디 메리' 유령의 집인지 혈귀의 집인지와 맞닥뜨린 수감자들의 모험에 대하여", subtitle: "7-21 전투 전" },
+                { id: "KR_S722B", title: "숨어있던 혈귀들과 앞서 지나간 해결사들에 대하여", subtitle: "7-22 전투 전" },
+                { id: "KR_S723B", title: "여기에서는 <쓸쓸했던 왕과 행복했던 가족> 을 들려준다", subtitle: "7-23 전투 전" },
+                { id: "KR_S724B", title: "회개하는 혈귀들과 기이한 설문조사에 대하여", subtitle: "7-24 전투 전" },
+                { id: "KR_S724A", title: "회개하는 혈귀들과 기이한 설문조사에 대하여", subtitle: "7-24 전투 후" },
+                { id: "KR_S725B", title: "만일 주의 깊게 본다면 알게 될 사실을 산손이 미리 말하는 일에 대하여", subtitle: "7-25 전투 전" },
+                { id: "KR_S726B", title: "하얀 달의 기사와 용감한 돈키호테의 치열한 전투에 대하여", subtitle: "7-26 전투 전" },
+                { id: "KR_S727A", title: "하얀 달의 기사와 용감한 돈키호테의 치열한 전투에 대하여", subtitle: "7-26 전투 후" },
+                { id: "KR_S728B", title: "산손의 연극에 다가온 뻔한 결말에 대하여", subtitle: "7-27 전투 전" },
+                { id: "KR_S729B", title: "가시춘의 의문과 질문에 대한 수감자들의 그냥저냥한 대답에 대하여", subtitle: "7-28 전투 전" },
+                { id: "KR_S730B", title: "에밀 싱클레어의 걱정과 톤키호테의 착각에 대하여", subtitle: "7-29 전투 전" },
+                { id: "KR_S731B", title: "여기에서는 춤추는 혈귀들과 화려한 퍼레이드에 대해 이야기한다", subtitle: "7-30 전투 전" },
+                { id: "KR_S733B", title: "여기에서는 카세티의 패륜과 비참한 노랫말에 대해 이야기한다", subtitle: "7-32 전투 전" },
+                { id: "KR_S735B", title: "아름다운 돌시네아와 돈키호테에게 일어난 일에 대하여", subtitle: "7-34 전투 전" },
+                { id: "KR_S736B", title: "이어서, 이 모험담을 분명히 하기 위해 꼭 필요한 기억에 대하여", subtitle: "7-35 전투 전" },
+                { id: "KR_S737B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "7-36 전투 전" },
+                { id: "KR_7D101B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D102B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D102A", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D103B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D103A", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D104B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D105B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D106B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D107B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D108B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D109B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D110B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "스토리 던전 내부" },
+                { id: "KR_7D111B", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "중간보스 전투 전" },
+                { id: "KR_7D111I", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "중간보스 전투 1" },
+                { id: "KR_7D111I2", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "중간보스 전투 2" },
+                { id: "KR_7D111I3", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "중간보스 전투 3" },
+                { id: "KR_7D111A", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "중간보스 전투 후" },
+                { id: "KR_7D112I", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "던전보스 전투 1" },
+                { id: "KR_7D112I2", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "던전보스 전투 2" },
+                { id: "KR_7D112I3", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "던전보스 전투 3" },
+                { id: "KR_7D112I4", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "던전보스 전투 4" },
+                { id: "KR_7D112I5", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "던전보스 전투 5" },
+                { id: "KR_7D112A", title: "꿈에 닿으려 했던 위대한 해결사에 대한 이야기", subtitle: "던전보스 전투 후" }
             ]
         },
         {
@@ -548,39 +548,39 @@ const storiesData = {
             title: "7.5 - LCB 정기검진",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter7.5_LCBCheckUp.png",
             chapters: [
-                { id: "KR_E701B", title: "데이터 수집", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E701A", title: "데이터 수집", subtitle: "6.5-1 전투 후" },
-                { id: "KR_E702B", title: "건강검진", subtitle: "6.5-2 전투 전" },
-                { id: "KR_E703B", title: "이동 장치", subtitle: "6.5-3 전투 전" },
-                { id: "KR_E704B", title: "호엔하임", subtitle: "6.5-4 전투 전" },
-                { id: "KR_E704A", title: "호엔하임", subtitle: "6.5-4 전투 후" },
-                { id: "KR_E705B", title: "조수", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E706B", title: "의미 없는 분노", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E707B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E708B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E709B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E710B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E711B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E711A", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E711I", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E712B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E713B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E714B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E715B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E716B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E716A", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E717B", title: "", subtitle: "6.5-1 전투 전" },
-                { id: "KR_E717A", title: "", subtitle: "6.5-1 전투 전" }
+                { id: "KR_E701B", title: "데이터 수집", subtitle: "7.5-1 전투 전" },
+                { id: "KR_E701A", title: "데이터 수집", subtitle: "7.5-1 전투 후" },
+                { id: "KR_E702B", title: "건강검진", subtitle: "7.5-2 전투 전" },
+                { id: "KR_E703B", title: "이동 장치", subtitle: "7.5-3 전투 전" },
+                { id: "KR_E704B", title: "호엔하임", subtitle: "7.5-4 전투 전" },
+                { id: "KR_E704A", title: "호엔하임", subtitle: "7.5-4 전투 후" },
+                { id: "KR_E705B", title: "조수", subtitle: "7.5-5 전투 전" },
+                { id: "KR_E706B", title: "의미 없는 분노", subtitle: "7.5-6 전투 전" },
+                { id: "KR_E707B", title: "방향 잃은 나태", subtitle: "7.5-7 전투 전" },
+                { id: "KR_E708B", title: "스스로 가라앉는", subtitle: "7.5-8 전투 전" },
+                { id: "KR_E709B", title: "무뎌진 작살", subtitle: "7.5-9 전투 전" },
+                { id: "KR_E710B", title: "따끔따끔", subtitle: "7.5-10 전투 전" },
+                { id: "KR_E711B", title: "호기심의 대가", subtitle: "7.5-11 전투 전" },
+                { id: "KR_E711I", title: "호기심의 대가", subtitle: "7.5-11 전투 중" },
+                { id: "KR_E711A", title: "호기심의 대가", subtitle: "7.5-11 전투 후" },
+                { id: "KR_E712B", title: "서열", subtitle: "7.5-12 전투 전" },
+                { id: "KR_E713B", title: "새로운 일련번호", subtitle: "7.5-13 전투 전" },
+                { id: "KR_E714B", title: "", subtitle: "7.5-1 전투 전" },
+                { id: "KR_E715B", title: "", subtitle: "7.5-1 전투 전" },
+                { id: "KR_E716B", title: "", subtitle: "7.5-1 전투 전" },
+                { id: "KR_E716A", title: "", subtitle: "7.5-1 전투 전" },
+                { id: "KR_E717B", title: "", subtitle: "7.5-1 전투 전" },
+                { id: "KR_E717A", title: "", subtitle: "7.5-1 전투 전" }
             ]
         }
     ],
-    side: [
+    mini: [
         {
             id: "mini_3_1",
             title: "단테의 기록",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E010X.png",
             chapters: [
-                { id: "KR_E010X", title: "단테의 기록", subtitle: "mini 3-1" },
+                { id: "KR_E010X", title: "단테의 기록", subtitle: "mini 1" },
             ]
         },
         {
@@ -588,15 +588,15 @@ const storiesData = {
             title: "버스의 뒷문",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E020X.png",
             chapters: [
-                { id: "KR_E020X", title: "버스의 뒷문", subtitle: "mini 3-1" },
+                { id: "KR_E020X", title: "버스의 뒷문", subtitle: "mini 2" },
             ]
         },
         {
-            id: "mini_3_2",
+            id: "mini_3_3",
             title: "버스 복도 너머",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E030X.png",
             chapters: [
-                { id: "KR_E030X", title: "버스 복도 너머", subtitle: "mini 3-1" },
+                { id: "KR_E030X", title: "버스 복도 너머", subtitle: "mini 3" },
             ]
         },
         {
@@ -604,7 +604,7 @@ const storiesData = {
             title: "뒷문의 방들에 대하여",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E041X.png",
             chapters: [
-                { id: "KR_E041X", title: "뒷문의 방들에 대하여", subtitle: "mini 3-1" },
+                { id: "KR_E041X", title: "뒷문의 방들에 대하여", subtitle: "mini 4-1" },
             ]
         },
         {
@@ -612,7 +612,7 @@ const storiesData = {
             title: "제1회 발푸르기스의 밤",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E042X.png",
             chapters: [
-                { id: "KR_E042X", title: "제1회 발푸르기스의 밤", subtitle: "mini 3-1" },
+                { id: "KR_E042X", title: "제1회 발푸르기스의 밤", subtitle: "mini 4-2" },
             ]
         },
         {
@@ -620,16 +620,16 @@ const storiesData = {
             title: "유의미한 변화",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E050X.png",
             chapters: [
-                { id: "KR_E050X", title: "유의미한 변화", subtitle: "mini 3-1" },
+                { id: "KR_E050X", title: "유의미한 변화", subtitle: "mini 5-1" },
             ]
         },
         {
             id: "mini_5_2",
             title: "제2회 발푸르기스의 밤",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E050X.png",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/stage-id_E051X.png",
             chapters: [
-                { id: "KR_E051X", title: "제2회 발푸르기스의 밤", subtitle: "mini 3-1" },
-                { id: "KR_E052X", title: "제2회 발푸르기스의 밤", subtitle: "mini 3-1" },
+                { id: "KR_E051X", title: "제2회 발푸르기스의 밤", subtitle: "전투 전" },
+                { id: "KR_E052X", title: "제2회 발푸르기스의 밤", subtitle: "전투 후" },
             ]
         },
         {
@@ -637,7 +637,7 @@ const storiesData = {
             title: "다시, 버스로",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E053X.png",
             chapters: [
-                { id: "KR_E053X", title: "다시, 버스로", subtitle: "mini 3-1" },
+                { id: "KR_E053X", title: "다시, 버스로", subtitle: "mini 5-3" },
             ]
         },
         {
@@ -645,7 +645,7 @@ const storiesData = {
             title: "위험등급과 일련번호",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E053X.png",
             chapters: [
-                { id: "KR_E054X", title: "위험등급과 일련번호", subtitle: "mini 3-1" },
+                { id: "KR_E054X", title: "위험등급과 일련번호", subtitle: "mini 5-4" },
             ]
         },
         {
@@ -653,8 +653,8 @@ const storiesData = {
             title: "제3회 발푸르기스의 밤",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E061X.png",
             chapters: [
-                { id: "KR_E061X", title: "제3회 발푸르기스의 밤", subtitle: "mini 3-1" },
-                { id: "KR_E062X", title: "제3회 발푸르기스의 밤", subtitle: "mini 3-1" },
+                { id: "KR_E061X", title: "제3회 발푸르기스의 밤", subtitle: "전투 전" },
+                { id: "KR_E062X", title: "제3회 발푸르기스의 밤", subtitle: "전투 후" },
             ]
         },
         {
@@ -662,7 +662,7 @@ const storiesData = {
             title: "익숙한 알람",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E063X.png",
             chapters: [
-                { id: "KR_E063X", title: "익숙한 알람", subtitle: "mini 3-1" },
+                { id: "KR_E063X", title: "익숙한 알람", subtitle: "mini 6-2" },
             ]
         },
         {
@@ -670,8 +670,8 @@ const storiesData = {
             title: "제4회 발푸르기스의 밤",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E064X.png",
             chapters: [
-                { id: "KR_E064X", title: "제4회 발푸르기스의 밤", subtitle: "mini 3-1" },
-                { id: "KR_E065X", title: "제4회 발푸르기스의 밤", subtitle: "mini 3-1" },
+                { id: "KR_E064X", title: "제4회 발푸르기스의 밤", subtitle: "전투 전" },
+                { id: "KR_E065X", title: "제4회 발푸르기스의 밤", subtitle: "전투 후" },
             ]
         },
         {
@@ -679,8 +679,8 @@ const storiesData = {
             title: "제5회 발푸르기스의 밤",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E071X.png",
             chapters: [
-                { id: "KR_E070X", title: "제5회 발푸르기스의 밤", subtitle: "mini 3-1" },
-                { id: "KR_E071X", title: "제5회 발푸르기스의 밤", subtitle: "mini 3-1" },
+                { id: "KR_E070X", title: "제5회 발푸르기스의 밤", subtitle: "전투 전" },
+                { id: "KR_E071X", title: "제5회 발푸르기스의 밤", subtitle: "전투 후" },
             ]
         },
         

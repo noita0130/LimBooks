@@ -5,6 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LimBooks</title>
+
+    <script>
+      // 리다이렉트 처리
+      (function() {
+        const redirect = sessionStorage.getItem('redirect');
+        if (redirect && redirect !== '/LimBooks') {
+          sessionStorage.removeItem('redirect');
+          // 경로 정규화
+          const path = redirect.startsWith('/LimBooks') ? 
+            redirect.substring('/LimBooks'.length) : redirect;
+          
+          // history API로 URL 업데이트
+          window.history.replaceState(null, null, '/LimBooks' + path);
+        }
+      })();
+    </script>
+
   </head>
   <body>
     <div id="root"></div>
