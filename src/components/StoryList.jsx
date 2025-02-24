@@ -22,14 +22,14 @@ const StoryList = ({ stories, storyType, darkMode, handleStoryClick, loading }) 
           transition={{ delay: index * 0.03 }}
           onClick={() => handleStoryClick(story)}
           className={`${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-300'} 
-            rounded-lg shadow-md p-4 flex items-center space-x-8 cursor-pointer
+            rounded-lg shadow-md p-3 flex items-center space-x-8 cursor-pointer
             hover:shadow-lg  `}
         >
 
           <img
             src={story.image}
             alt={story.title}
-            className={'w-56 h-20 object-cover rounded-lg'}
+            className={'w-60 h-26 object-cover rounded-lg'}
             style={{objectPosition: storyType==='main' ? 'center' : '65% center'}}
               
           />
