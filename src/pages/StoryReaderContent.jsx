@@ -121,7 +121,7 @@ const StoryReaderPage = () => {
     <ScrollContainer darkMode={darkMode}>
       
       <Helmet>
-        <meta name="google-site-verification" content="your-verification-code" />
+      <meta name="google-site-verification" content="Sx2a79nNCfoTBZTrBoUBsDlFjGlRQoA2u_AqN2QSreI" />
         <title>LimBooks - 림버스 스토리 리더</title>
         <meta name="description" content="LimBooks에서 간단히 림버스를." />
         <meta name="keywords" content="LimBooks, 림버스, 스토리리더" />
