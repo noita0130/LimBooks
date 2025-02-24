@@ -7,17 +7,22 @@ const StoryDialog = ({ dataList, darkMode }) => {
         return str?.match(/\.(jpeg|jpg|gif|png)$/) != null;
     };
 
-    // color 태그 파싱 함수
+    // color 태그 파싱 함수 - 수정 부분
     const parseColorTags = (text) => {
         if (!text) return [{ text: '', color: null }];
 
-        // <color=#hexcode>text</color> 패턴 매칭
-        const colorRegex = /<color=(#[0-9A-Fa-f]{6})>(.*?)<\/color>/g;
+        // <color=#hexcode>text</color> 패턴 매칭 - 정규식 수정
+        const colorRegex = /<color=(#[0-9A-Fa-f]{6})>([\s\S]*?)<\/color>/g;
         const parts = [];
         let lastIndex = 0;
         let match;
 
+        // 매칭 결과 디버깅
+        console.log("Parsing text:", text);
+        
         while ((match = colorRegex.exec(text)) !== null) {
+            console.log("Found match:", match);
+            
             // 태그 이전 텍스트 추가
             if (match.index > lastIndex) {
                 parts.push({
@@ -43,6 +48,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
             });
         }
 
+        console.log("Parsed parts:", parts);
         return parts.length > 0 ? parts : [{ text, color: null }];
     };
 
@@ -69,6 +75,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
             <span
                 key={index}
                 style={part.color ? { color: part.color } : undefined}
+                className="whitespace-pre-wrap"
             >
                 {part.text}
             </span>

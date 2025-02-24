@@ -14,6 +14,7 @@ import ScriptList from '../components/ScriptsList';
 import handleGoBack from '../utill/handleGoBack';
 import ScrollContainer from '../utill/ScrollContainer'
 import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
+import { Helmet } from 'react-helmet';
 
 import {
   loadChapterData,
@@ -118,6 +119,19 @@ const StoryReaderPage = () => {
 
   return (
     <ScrollContainer darkMode={darkMode}>
+      
+      <Helmet>
+        <meta name="google-site-verification" content="your-verification-code" />
+        <title>LimBooks - 림버스 스토리 리더</title>
+        <meta name="description" content="LimBooks에서 간단히 림버스를." />
+        <meta name="keywords" content="LimBooks, 림버스, 스토리리더" />
+        
+        {/* Open Graph 태그 */}
+        <meta property="og:title" content="LimBooks" />
+        <meta property="og:description" content="LimBooks에서 다양한 이야기를 만나보세요" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://[username].github.io/LimBooks/" />
+      </Helmet>
 
       <div className={`min-h-screen 
       ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
