@@ -1,6 +1,7 @@
 // functions.jsx
 export const BASE_PATH = ''
 
+/*
 export const loadChapterData = async (chapterId) => {
     try {
         const response = await import(`../story/${chapterId}.json`);
@@ -10,7 +11,7 @@ export const loadChapterData = async (chapterId) => {
         console.error('챕터 데이터를 불러오는데 실패했습니다:', error);
         return null;
     }
-};
+};*/
 
 export const saveScrollPosition = (scrollRef, path) => {
     scrollRef.current.set(path, window.scrollY);

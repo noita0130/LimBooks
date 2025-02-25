@@ -15,7 +15,6 @@ const StoryContent = ({
     const storyRef = useRef(selectedStory);
     const locationRef = useRef(window.location.pathname);
 
-    // 컴포넌트가 처음 마운트될 때만 값을 설정
     useEffect(() => {
         storyRef.current = selectedStory;
         locationRef.current = window.location.pathname;

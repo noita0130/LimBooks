@@ -134,7 +134,7 @@ const storiesData = {
             ]
         },
         {
-            id: "sub_3_5",
+            id: "sub_3.5.1",
             title: "3.5 - 헬스 치킨",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/hells-chicken.png",
             chapters: [
@@ -216,7 +216,7 @@ const storiesData = {
             ]
         },
         {
-            id: "sub_4_1",
+            id: "sub_4.5.1",
             title: "4.5 - 우.미.다",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter-umida.png",
             chapters: [
@@ -310,7 +310,7 @@ const storiesData = {
             ]
         },
         {
-            id: "sub_5_5_1",
+            id: "sub_5.5.1",
             title: "5.5 - 20번구의 기적",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter5.5_miracle.png",
             chapters: [
@@ -330,7 +330,7 @@ const storiesData = {
             ]
         },
         {
-            id: "sub_5_5_2",
+            id: "sub_5.5.2",
             title: "5.5 - 육참골단",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter5.5_ycgd.png",
             chapters: [
@@ -423,7 +423,7 @@ const storiesData = {
             ]
         },
         {
-            id: "sub_6_5_1",
+            id: "sub_6.5.1",
             title: "6.5 - 시간살인시간",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter6.5_tkt.png",
             chapters: [
@@ -449,7 +449,7 @@ const storiesData = {
             ]
         },
         {
-            id: "sub_6_5_2",
+            id: "sub_6.5.2",
             title: "6.5 - 워프특급 살인사건",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter6.5_mowe.png",
             chapters: [
@@ -545,7 +545,7 @@ const storiesData = {
             ]
         },
         {
-            id: "sub_7_5_1",
+            id: "sub_7.5.1",
             title: "7.5 - LCB 정기검진",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter7.5_LCBCheckUp.png",
             chapters: [

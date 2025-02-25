@@ -15,9 +15,9 @@ import handleGoBack from '../utill/handleGoBack';
 import ScrollContainer from '../utill/ScrollContainer'
 import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
 import { Helmet } from 'react-helmet';
+import loadChapterData from './loadChapterData';
 
 import {
-  loadChapterData,
   saveScrollPosition,
   restoreScrollPosition,
   restoreScroll,
@@ -83,7 +83,8 @@ const StoryReaderPage = () => {
 
       if (chapterId) {
         const fetchData = async () => {
-          const data = await loadChapterData(chapterId);
+          // storyId, chapterId와 함께 storyType도 전달
+          const data = await loadChapterData(storyId, chapterId, storyType);
           setStoryData(data);
         };
         fetchData();
