@@ -18,7 +18,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
         let match;
 
         // 매칭 결과 디버깅
-        console.log("Parsing text:", text);
+        //console.log("Parsing text:", text);
         
         while ((match = colorRegex.exec(text)) !== null) {
             console.log("Found match:", match);
@@ -48,7 +48,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
             });
         }
 
-        console.log("Parsed parts:", parts);
+        //console.log("Parsed parts:", parts);
         return parts.length > 0 ? parts : [{ text, color: null }];
     };
 
@@ -65,6 +65,8 @@ const StoryDialog = ({ dataList, darkMode }) => {
             ? 'bg-neutral-800 text-neutral-300'
             : 'bg-white text-neutral-900'
         }`;
+
+    
 
     // 컨텐츠 렌더링 함수
     const renderContent = (content) => {
@@ -108,8 +110,8 @@ const StoryDialog = ({ dataList, darkMode }) => {
                         className={`flex items-start ${!item.model && !item.teller ? '' : 'space-x-2'}`}
                     >
                         {/* model이나 teller가 있는 경우에만 화자 정보 표시 */}
-                        {(item.model || item.teller) && (
-                            <div className={`w-40 pl-3 text-right ${item.teller
+                        {(item.model || item.teller) && ( // 이거줄바꿈왜안됨
+                            <div className={`w-40 pl-3 text-right whitespace-pre-wrap ${item.teller
                                     ? (item.teller.length > 8 ? 'text-sm py-1.5' : 'text-base py-1')
                                     : (item.model.length > 8 ? 'text-sm py-1.5' : 'text-base py-1')
                                 } ${darkMode ? 'text-neutral-400' : 'text-black'}`}>

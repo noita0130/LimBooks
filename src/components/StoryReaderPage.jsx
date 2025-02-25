@@ -57,7 +57,9 @@ const StoryReaderPage = () => {
           <h1 className="text-center text-2xl font-bold mb-4">제작중인 사항</h1>
           <p className="text-center ">
             1. 수감자 대사집 <br />
-            2. 스토리 화자 수정
+            2. 인격스토리 (미정)<br />
+            3. 스토리 화자 수정 <br />
+            3-1. 1~3장 수정 완료
 
           </p>
         </div>
