@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const ScriptList = (darkMode) => {
+const ScriptPage = (darkMode) => {
     const characters = [
         { image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/10101_normal_info.png", name: "이상" },
         { image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/10201_normal_info.png", name: "파우스트" },
@@ -82,4 +82,4 @@ const ScriptList = (darkMode) => {
     );
 };
 
-export default ScriptList;
+export default ScriptPage;
