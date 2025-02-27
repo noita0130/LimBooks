@@ -1,80 +1,142 @@
-import { Home, Book, BookOpen, Moon, Sun, MessageCircle } from "lucide-react";
+import { Home, Book, BookOpen, Moon, Sun, MessageCircle, ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location }) => {
-    return (
-      <nav className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-lg transition-200`}>
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center ml-4 space-x-8">
-              <div className="flex-shrink-0 font-bold text-xl">
-                <span className="text-red-400">Lim</span>
-                <span className={`${darkMode ? 'text-white' : 'text-gray-900'}`}>Books (Beta)</span>
-              </div>
-              <div className="flex space-x-4">
+  const [isStoryMenuOpen, setIsStoryMenuOpen] = useState(false);
+  const [closeTimeout, setCloseTimeout] = useState(null);
+
+  const handleStoryHover = () => {
+    if (closeTimeout) {
+      clearTimeout(closeTimeout);
+      setCloseTimeout(null);
+    }
+    setIsStoryMenuOpen(true);
+  };
+
+  const handleStoryLeave = () => {
+    const timeout = setTimeout(() => {
+      setIsStoryMenuOpen(false);
+    }, 150); // 150ms 딜레이로 실수로 닫히는 것 방지
+    setCloseTimeout(timeout);
+  };
+  
+  // 컴포넌트 언마운트 시 타임아웃 정리
+  useEffect(() => {
+    return () => {
+      if (closeTimeout) {
+        clearTimeout(closeTimeout);
+      }
+    };
+  }, [closeTimeout]);
+
+  return (
+    <nav className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-lg transition-200`}>
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center ml-4 space-x-8">
+            <div className="flex-shrink-0 font-bold text-xl">
+              <span className="text-red-400">Lim</span>
+              <span className={`${darkMode ? 'text-white' : 'text-gray-900'}`}>Books (Beta)</span>
+            </div>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => {
+                  console.log('Navigating to home');
+                  handleNavigation('/');
+                }}
+                className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
+                  ${location.pathname === '/' ? 
+                    (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
+                    (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
+              >
+                <Home className="w-4 h-4 mr-2" />
+                홈
+              </button>
+              
+              {/* Combined Story dropdown button */}
+              <div 
+                className="relative"
+                onMouseEnter={handleStoryHover}
+                onMouseLeave={handleStoryLeave}
+              >
                 <button
-                  onClick={() => {
-                    console.log('Navigating to home');
-                    handleNavigation('/');
-                  }}
                   className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                    ${location.pathname === '/' ? 
-                      (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
-                      (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
-                >
-                  <Home className="w-4 h-4 mr-2" />
-                  홈
-                </button>
-                <button
-                  onClick={() => {
-                    console.log('Navigating to main stories');
-                    handleNavigation('/main');
-                  }}
-                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                    ${location.pathname.startsWith('/main') ? 
+                    ${(location.pathname.startsWith('/main') || location.pathname.startsWith('/mini')) ? 
                       (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                       (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
                 >
                   <Book className="w-4 h-4 mr-2" />
-                  메인
+                  스토리
+                  <ChevronDown className="w-3 h-3 ml-1" />
                 </button>
-                <button
-                  onClick={() => {
-                    console.log('Navigating to mini stories');
-                    handleNavigation('/mini');
-                  }}
-                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                    ${location.pathname.startsWith('/mini') ? 
-                      (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
-                      (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
-                >
-                  <BookOpen className="w-4 h-4 mr-2" />
-                  미니
-                </button>
-                <button
-                  onClick={() => {
-                    console.log('Navigating to scripts');
-                    handleNavigation('/scripts');
-                  }}
-                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                    ${location.pathname.startsWith('/scripts') ? 
-                      (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
-                      (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
-                >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  대사집(WIP)
-                </button>
+                
+                {/* Dropdown menu */}
+                {isStoryMenuOpen && (
+                  <div className={`absolute left-0 top-full mt-1 w-[106px] rounded-md shadow-lg z-10 overflow-hidden
+                    ${darkMode ? 'bg-neutral-700' : 'bg-white'} `}>
+                    <div /*className="py-1"*/>
+                      <button
+                        onClick={() => {
+                          console.log('Navigating to main stories');
+                          handleNavigation('/main');
+                          setIsStoryMenuOpen(false);
+                        }}
+                        className={`block w-full text-left px-4 py-2 text-sm
+                          ${location.pathname.startsWith('/main') ? 
+                            (darkMode ? 'bg-neutral-600 text-white' : 'bg-neutral-200 text-neutral-900') :
+                            (darkMode ? 'text-neutral-200 hover:bg-neutral-600' : 'text-neutral-700 hover:bg-neutral-100')}`}
+                      >
+                        <div className="flex items-center">
+                          <Book className="w-4 h-4 mr-2" />
+                          메인
+                        </div>
+                      </button>
+                      <button
+                        onClick={() => {
+                          console.log('Navigating to mini stories');
+                          handleNavigation('/mini');
+                          setIsStoryMenuOpen(false);
+                        }}
+                        className={`block w-full text-left px-4 py-2 text-sm
+                          ${location.pathname.startsWith('/mini') ? 
+                            (darkMode ? 'bg-neutral-600 text-white' : 'bg-neutral-200 text-neutral-900') :
+                            (darkMode ? 'text-neutral-200 hover:bg-neutral-600' : 'text-neutral-700 hover:bg-neutral-100')}`}
+                      >
+                        <div className="flex items-center">
+                          <BookOpen className="w-4 h-4 mr-2" />
+                          미니
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
+              
+              <button
+                onClick={() => {
+                  console.log('Navigating to scripts');
+                  handleNavigation('/scripts');
+                }}
+                className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
+                  ${location.pathname.startsWith('/scripts') ? 
+                    (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
+                    (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
+              >
+                <MessageCircle className="w-4 h-4 mr-2" />
+                대사집(WIP)
+              </button>
             </div>
-            <button
-              onClick={toggleDarkMode}
-              className={`p-2 rounded-md ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}
-            >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
           </div>
+          <button
+            onClick={toggleDarkMode}
+            className={`p-2 rounded-md ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}
+          >
+            {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
         </div>
-      </nav>
-    );
-  };
-  
-  export default NavigationBar;
+      </div>
+    </nav>
+  );
+};
+
+export default NavigationBar;

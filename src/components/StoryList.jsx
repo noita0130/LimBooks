@@ -1,7 +1,7 @@
 // components/StoryList.jsx
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from '../utill/LoadingSpinner';
 
 const StoryList = ({ stories, storyType, darkMode, handleStoryClick, loading }) => {
   if (loading) {

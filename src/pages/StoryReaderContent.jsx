@@ -11,6 +11,8 @@ const StoryReaderContent = () => {
       <Route path="/:storyType/:storyId" element={<StoryReaderPage />} />
       <Route path="/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
       <Route path="/scripts" element={<StoryReaderPage />} />
+      <Route path="/scripts/:personalityId" element={<StoryReaderPage />} />
+      <Route path="/scripts/:personalityId/:storyId" element={<StoryReaderPage />} />
     </Routes>
   );
 };

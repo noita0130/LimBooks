@@ -9,13 +9,14 @@ import NavigationBar from './NavigationBar';
 import StoryList from './StoryList';
 import ChapterList from './ChapterList';
 import StoryContent from './StoryContent';
-import LoadingSpinner from './LoadingSpinner';
-import ScriptPage from '../pages/ScriptsPage';
+import LoadingSpinner from '../utill/LoadingSpinner';
+import PersonalityPage from '../pages/PersonalityPage';
+import PersonalityStoryList from '../pages/PersonalityStoryList';
 import handleGoBack from '../utill/handleGoBack';
 import ScrollContainer from '../utill/ScrollContainer'
 import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
 import { Helmet } from 'react-helmet';
-import loadChapterData from './loadChapterData';
+import loadChapterData from '../utill/loadChapterData';
 
 import {
   saveScrollPosition,
@@ -27,7 +28,7 @@ import {
   handlePopState,
   navigateToNextChapter,
   navigateToPreviousChapter
-} from './function';
+} from '../utill/function';
 
 
 const StoryReaderPage = () => {
@@ -36,13 +37,26 @@ const StoryReaderPage = () => {
   const location = useLocation();
   const { storyType, storyId, chapterId } = useParams();
   const scrollRef = useRef(new Map());
-
-  const [darkMode, setDarkMode] = useState(true);
   const [selectedStory, setSelectedStory] = useState(null);
   const [storyData, setStoryData] = useState(null);
   const [shouldRestoreScroll, setShouldRestoreScroll] = useState(false);
-
   const { stories, loading } = useStoryData(storyType);
+
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    
+    // 저장된 값이 있으면 그 값을 사용, 없으면 기본값 true 사용
+    return savedDarkMode !== null ? JSON.parse(savedDarkMode) : true;
+  });
+
+  const toggleDarkMode = () => {
+    setDarkMode(prevMode => {
+      const newMode = !prevMode;
+      localStorage.setItem('darkMode', JSON.stringify(newMode));
+      return newMode;
+    });
+  };
+
 
   const MainPage = React.lazy(() => Promise.resolve({
     default: ({ darkMode }) => (
@@ -99,27 +113,6 @@ const StoryReaderPage = () => {
     }
   }, [storyType, storyId, chapterId, stories, shouldRestoreScroll]);
 
-  // URL 변경 감지 및 스크롤 처리
-  useEffect(() => {
-    const popStateHandler = () => handlePopState(location, scrollRef, setShouldRestoreScroll);
-    window.addEventListener('popstate', popStateHandler);
-
-    if (shouldRestoreScroll) {
-      restoreScroll(scrollRef, location.pathname);
-    }
-
-    return () => {
-      window.removeEventListener('popstate', popStateHandler);
-    };
-  }, [location.pathname, shouldRestoreScroll]);
-
-  // 언마운트 시 스크롤 위치 저장
-  useEffect(() => {
-    return () => {
-      saveScrollPosition(scrollRef, location.pathname);
-    };
-  }, [location.pathname]);
-
   return (
     <ScrollContainer darkMode={darkMode}>
       
@@ -140,7 +133,7 @@ const StoryReaderPage = () => {
       ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
         <NavigationBar
           darkMode={darkMode}
-          toggleDarkMode={() => setDarkMode(!darkMode)}
+          toggleDarkMode={toggleDarkMode}
           handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
           location={location}
         />
@@ -160,7 +153,17 @@ const StoryReaderPage = () => {
                 }}
               >
                 {(location.pathname === '/' || location.pathname === '' || location.pathname === '/LimBooks' || location.pathname === '/LimBooks/') && <MainPage darkMode={darkMode} />}
-                {location.pathname === '/scripts' && <ScriptPage />}
+                {location.pathname === '/scripts' && (
+                  <PersonalityPage
+                    darkMode={darkMode}/>
+                )}
+                {location.pathname.includes('/scripts/') && location.pathname.split('/').length === 3 && (
+                  <PersonalityStoryList
+                    darkMode={darkMode}
+                    personalityId={location.pathname.split('/')[2]}
+
+                  />
+                )}
                 {(storyType === 'main' || storyType === 'mini') && !storyId && (
                   <StoryList
                     stories={stories}
