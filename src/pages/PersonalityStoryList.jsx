@@ -52,7 +52,7 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
   }
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
+    <div className={`min-h-screen rounded-lg ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center mb-8">
           <button
@@ -85,23 +85,26 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                 </div>
                 <div className="p-4">
                   <h2 className="text-xl font-semibold mb-3">{story.title}</h2>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-center">
                     <button
                       onClick={() => handleStoryClick(story.id)}
-                      className={`px-4 py-2 rounded-md flex
-                      ${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-300'} text-white`
-                    }
+                      className={`px-4 py-2 w-20 rounded-md flex justify-center
+                      ${darkMode
+                          ? 'bg-neutral-800 hover:bg-neutral-700 text-white'
+                          : 'bg-white hover:bg-neutral-300 text-neutral-900'} `
+                      }
                     >
-                      <BookOpen className="w-4 h-4 mr-2" />
-                      스토리
+                      <BookOpen className="hover:" />
                     </button>
                     <button
                       onClick={() => handleQuotesClick(story.id)}
-                      className={`px-4 py-2 rounded-md flex
-                      ${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-300'} text-white`
-                    }
+                      className={`px-4 py-2 w-20 rounded-md flex justify-center
+                        ${darkMode
+                          ? 'bg-neutral-800 hover:bg-neutral-700 text-white'
+                          : 'bg-white hover:bg-neutral-300 text-neutral-900'} `
+                      }
                     >
-                      대사집
+                      <MessageCircle className="" />
                     </button>
                   </div>
                 </div>

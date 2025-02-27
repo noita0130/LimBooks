@@ -123,7 +123,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
                     (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
-                대사집(WIP)
+                인격(WIP)
               </button>
             </div>
           </div>
