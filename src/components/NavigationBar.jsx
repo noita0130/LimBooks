@@ -49,16 +49,15 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
     <nav className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-lg transition-200`}>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <div className="flex-shrink-0 font-bold text-xl">
-              <span className="text-red-400">Lim</span>
-              <span className={`${darkMode ? 'text-white' : 'text-gray-900'}`}>Books</span>
-              <span className="text-xs ml-1 text-neutral-500">(Beta)</span>
-            </div>
+          {/* 로고 */}
+          <div className="flex-shrink-0 font-bold text-xl">
+            <span className="text-red-400">Lim</span>
+            <span className={`${darkMode ? 'text-white' : 'text-gray-900'}`}>Books</span>
+            <span className="text-xs ml-1 text-neutral-500">(Beta)</span>
           </div>
 
-          {/* 데스크탑 메뉴 */}
-          <div className="hidden md:flex md:space-x-4 md:items-center">
+          {/* 데스크탑 메뉴 - 왼쪽 정렬 */}
+          <div className="hidden md:flex md:flex-1 md:space-x-4 md:items-center md:ml-8">
             <button
               onClick={() => handleNavigation('/')}
               className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
@@ -131,26 +130,21 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
               <MessageCircle className="w-4 h-4 mr-2" />
               인격(WIP)
             </button>
-
-            <button
-              onClick={toggleDarkMode}
-              className={`p-2 rounded-md ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}
-            >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
           </div>
 
-          {/* 모바일 컨트롤 버튼 */}
-          <div className="flex items-center md:hidden">
+          {/* 다크모드 버튼 */}
+          <div className="flex items-center">
             <button
               onClick={toggleDarkMode}
-              className={`p-2 mr-2 rounded-md ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}
+              className={`p-2 rounded-md ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}
             >
               {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
+            
+            {/* 모바일 햄버거 버튼 - 오른쪽 정렬 */}
             <button
               onClick={toggleMobileMenu}
-              className={`p-2 rounded-md ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}
+              className={`md:hidden ml-2 p-2 rounded-md ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
