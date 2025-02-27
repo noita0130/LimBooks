@@ -16,7 +16,7 @@ const personalityList = [
     },
     {
         id: "Ryoshu",
-        name: "로슈",
+        name: "료슈",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/vertical/10401_normal_info.png"
     },
     {

@@ -7,18 +7,15 @@ const StoryDialog = ({ dataList, darkMode }) => {
         return str?.match(/\.(jpeg|jpg|gif|png)$/) != null;
     };
 
-    // color 태그 파싱 함수 - 수정 부분
+    // color 태그 파싱 함수
     const parseColorTags = (text) => {
         if (!text) return [{ text: '', color: null }];
 
-        // <color=#hexcode>text</color> 패턴 매칭 - 정규식 수정
+        // <color=#hexcode>text</color> 패턴 매칭
         const colorRegex = /<color=(#[0-9A-Fa-f]{6})>([\s\S]*?)<\/color>/g;
         const parts = [];
         let lastIndex = 0;
         let match;
-
-        // 매칭 결과 디버깅
-        //console.log("Parsing text:", text);
         
         while ((match = colorRegex.exec(text)) !== null) {
             console.log("Found match:", match);
@@ -48,13 +45,12 @@ const StoryDialog = ({ dataList, darkMode }) => {
             });
         }
 
-        //console.log("Parsed parts:", parts);
         return parts.length > 0 ? parts : [{ text, color: null }];
     };
 
     // 내레이션 스타일 (model/teller가 없는 경우)
     const getNarrationStyle = (darkMode) =>
-        `flex-1 py-1 ml-44 italic ${darkMode
+        `flex-1 py-1 ml-0 md:ml-4 lg:ml-44 italic ${darkMode
             ? 'text-neutral-400'
             : 'text-neutral-600'
         }`;
@@ -65,8 +61,6 @@ const StoryDialog = ({ dataList, darkMode }) => {
             ? 'bg-neutral-800 text-neutral-300'
             : 'bg-white text-neutral-900'
         }`;
-
-    
 
     // 컨텐츠 렌더링 함수
     const renderContent = (content) => {
@@ -85,7 +79,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
     };
 
     return (
-        <div className="space-y-1 font-medium font-dialogs mb-6 pr-10">
+        <div className="space-y-1 font-medium font-dialogs mb-6 pr-2 md:pr-6 lg:pr-10">
             {dataList?.map((item, index) => (
                 <React.Fragment key={index}>
                     {/* place 정보가 있고, 이전 아이템과 다르거나 첫 아이템일 때만 표시 */}
@@ -94,7 +88,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.01 }}
-                            className={`my-4 ml-44 mr-4 pt-3 pb-2  max-w-[600px] ${darkMode
+                            className={`my-4 ml-2 md:ml-44 mr-2 md:mr-4 pt-3 pb-2 max-w-full md:max-w-[600px] ${darkMode
                                     ? 'text-neutral-400 border-b border-neutral-700'
                                     : 'text-neutral-700 border-b border-neutral-300'
                                 }`}
@@ -107,15 +101,16 @@ const StoryDialog = ({ dataList, darkMode }) => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.01 }}
-                        className={`flex items-start ${!item.model && !item.teller ? '' : 'space-x-2'}`}
+                        className="flex flex-col md:flex-row items-start md:space-x-2"
                     >
                         {/* model이나 teller가 있는 경우에만 화자 정보 표시 */}
-                        {(item.model || item.teller) && ( // 이거줄바꿈왜안됨
-                            <div className={`w-40 pl-3 text-right whitespace-pre-wrap ${item.teller
-                                    ? (item.teller.length > 8 ? 'text-sm py-1.5' : 'text-base py-1')
-                                    : (item.model.length > 8 ? 'text-sm py-1.5' : 'text-base py-1')
-                                } ${darkMode ? 'text-neutral-400' : 'text-black'}`}>
-                                {item.teller || item.model}
+                        {(item.model || item.teller) && (
+                            <div className={`w-full md:w-auto md:min-w-[80px] lg:w-40 pl-0 md:pl-3 text-left md:text-right whitespace-normal md:whitespace-pre-wrap mb-1 md:mb-0 ${
+                                    item.teller
+                                    ? (item.teller.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
+                                    : (item.model.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
+                                } ${darkMode ? 'text-neutral-400' : 'text-black'} font-bold md:font-normal`}>
+                                {item.teller || item.model}:
                             </div>
                         )}
 

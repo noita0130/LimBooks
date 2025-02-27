@@ -11,6 +11,9 @@ const PersonalityPage = ({ darkMode }) => {
 
     return (
         <div className="w-full flex flex-col items-center justify-center p-12">
+            <div className='py-2 text-3xl font-semibold'>
+          인격 스토리 / 대사집
+        </div>
             <div className="grid max-w-[800px] grid-cols-6 grid-rows-2 gap-x-4 gap-y-8 ">
                 {personalityList.map((character, index) => (
                     <button
