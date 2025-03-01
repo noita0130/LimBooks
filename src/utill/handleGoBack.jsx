@@ -1,3 +1,5 @@
+import {  } from "lucide-react";
+
 const handleGoBack = (navigate, location, scrollRef, setShouldRestoreScroll, storyType, stories, setStoryData, setSelectedStory) => {
     // 현재 스크롤 위치 저장
     const currentScroll = window.scrollY || document.documentElement.scrollTop;

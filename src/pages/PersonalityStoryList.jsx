@@ -74,7 +74,7 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
             {stories.map((story, index) => (
               <div
                 key={index}
-                className={`w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.3%-1rem)] lg:w-[calc(25%-1.5rem)] ${darkMode ? 'bg-neutral-800' : 'bg-white'} rounded-lg shadow-md overflow-hidden`}
+                className={`w-[calc(50%-0.75rem)] sm:w-[calc(50%-0.75rem)] md:w-[calc(33.3%-1rem)] lg:w-[calc(25%-1.5rem)] ${darkMode ? 'bg-neutral-800' : 'bg-white'} rounded-lg shadow-md overflow-hidden`}
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
@@ -84,11 +84,11 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                   />
                 </div>
                 <div className="p-4">
-                  <h2 className="text-xl font-semibold mb-3">{story.title}</h2>
+                  <h2 className="text-sm md:text-xl lg:text-xl font-semibold mb-3">{story.title}</h2>
                   <div className="flex flex-wrap gap-2 justify-center">
                     <button
                       onClick={() => handleStoryClick(story.id)}
-                      className={`px-4 py-2 w-20 rounded-md flex justify-center
+                      className={`px-4 py-2 w-auto rounded-md flex justify-center
                       ${darkMode
                           ? 'bg-neutral-800 hover:bg-neutral-700 text-white'
                           : 'bg-white hover:bg-neutral-300 text-neutral-900'} `
@@ -98,7 +98,7 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                     </button>
                     <button
                       onClick={() => handleQuotesClick(story.id)}
-                      className={`px-4 py-2 w-20 rounded-md flex justify-center
+                      className={`px-4 py-2 w-auto rounded-md flex justify-center
                         ${darkMode
                           ? 'bg-neutral-800 hover:bg-neutral-700 text-white'
                           : 'bg-white hover:bg-neutral-300 text-neutral-900'} `

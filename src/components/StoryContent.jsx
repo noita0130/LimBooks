@@ -1,5 +1,7 @@
 import { useRef, useEffect } from "react";
 import StoryDialog from "./StoryDialog";
+import { ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
+
 
 const StoryContent = ({
     storyData,
@@ -44,7 +46,7 @@ const StoryContent = ({
                     className={`px-3 md:px-4 py-2 ${darkMode ? 'hover:bg-neutral-600' : 'hover:bg-neutral-300'}
                     ${isFirstChapter ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                    ←
+                    <ChevronLeft />
                 </button>
             )}
             {(!isFirstChapter && !isLastChapter) && (
@@ -59,7 +61,7 @@ const StoryContent = ({
                     className={`px-3 md:px-4 py-2 ${darkMode ? 'hover:bg-neutral-600' : 'hover:bg-neutral-300'}
                     ${isLastChapter ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                    →
+                    <ChevronRight />
                 </button>
             )}
         </div>
@@ -79,19 +81,25 @@ const StoryContent = ({
         );
     }
 
-    // 모바일 상단 헤더
+    // 수정된 모바일 헤더
     const MobileHeader = () => (
         <div className="flex flex-col space-y-3 mb-6 md:hidden">
-            <button
-                onClick={handleGoBack}
-                className={`px-4 py-2 rounded-md ${
-                    darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
-                }`}
-            >
-                ← 돌아가기
-            </button>
-            <div className="flex justify-between items-center mt-2">
-                <div className="flex-1 text-center">
+            {/* 첫 번째 줄: 돌아가기 버튼과 이전/다음 버튼 */}
+            <div className="flex justify-between items-center">
+                <button
+                    onClick={handleGoBack}
+                    className={`px-4 py-2 rounded-md ${
+                        darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                    }`}
+                >
+                    <Undo2 />
+                </button>
+                <ChapterNavigationButtons />
+            </div>
+            
+            {/* 두 번째 줄: 제목 */}
+            <div className="flex justify-center mt-2">
+                <div className="text-center">
                     <span className="font-semibold">{currentChapter?.title}</span>
                     {currentChapter?.subtitle && (
                         <div className={`${darkMode ? 'text-neutral-400' : 'text-neutral-600'} text-xs`}>
@@ -99,9 +107,6 @@ const StoryContent = ({
                         </div>
                     )}
                 </div>
-            </div>
-            <div className="flex justify-center">
-                <ChapterNavigationButtons />
             </div>
         </div>
     );
@@ -119,7 +124,7 @@ const StoryContent = ({
                         darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
                     }`}
                 >
-                    ← 돌아가기
+                    <Undo2 />
                 </button>
 
                 <TitleSection />
@@ -133,17 +138,20 @@ const StoryContent = ({
                 darkMode={darkMode}
             />
 
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0 mt-6">
-                <button
-                    onClick={handleGoBack}
-                    className={`w-full md:w-auto px-4 py-2 rounded-md ${
-                        darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
-                    }`}
-                >
-                    ← 돌아가기
-                </button>
-                <div className="flex justify-center w-full md:w-auto">
-                    <ChapterNavigationButtons />
+            <div className="flex md:flex-row justify-between items-center mt-6">
+                {/* 모바일 & 데스크탑 공통 하단 네비게이션 */}
+                <div className="flex justify-between items-center w-full">
+                    <button
+                        onClick={handleGoBack}
+                        className={`px-4 py-2 rounded-md ${
+                            darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                        }`}
+                    >
+                        <Undo2 />
+                    </button>
+                    <div>
+                        <ChapterNavigationButtons />
+                    </div>
                 </div>
             </div>
         </div>

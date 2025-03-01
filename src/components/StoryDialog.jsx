@@ -50,14 +50,16 @@ const StoryDialog = ({ dataList, darkMode }) => {
 
   // 내레이션 스타일 (model/teller가 없는 경우)
   const getNarrationStyle = (darkMode) =>
-    `flex-1 py-1 mx-4 sm:my-1 md:ml-22 lg:ml-44 italic ${darkMode
+    `flex-1 py-1 mx-4 sm:my-1 md:ml-30 lg:ml-44 italic ${darkMode
       ? 'text-neutral-400'
       : 'text-neutral-600'
     }`;
 
-  // 대화 스타일
+  // 대화 스타일 - font-base를 font-normal로 수정하고 닫는 중괄호 문제 해결
   const getDialogStyle = (darkMode) =>
-    `flex-1 py-1 pr-3 pl-2 rounded-lg
+    `flex-1 py-1 pr-3 pl-2 rounded-lg font-normal ${darkMode
+      ? 'text-neutral-200'
+      : 'text-neutral-800'
     }`;
 
   // 대화 컨테이너 배경 스타일 (모바일 전용)
@@ -84,7 +86,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
   };
 
   return (
-    <div className="space-y-1 font-medium font-dialogs mb-6 px-3 md:pr-6 lg:pr-10">
+    <div className="space-y-1 font-NotoSerifKR mb-6 px-3 md:pr-6 lg:pr-10">
       {dataList?.map((item, index) => (
         <React.Fragment key={index}>
           {/* place 정보가 있고, 이전 아이템과 다르거나 첫 아이템일 때만 표시 */}
@@ -93,7 +95,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.01 }}
-              className={`my-4 mx-3 md:ml-44 md:mr-4 pt-3 pb-2 max-w-full md:max-w-[600px] ${darkMode
+              className={`my-4 mx-3 md:ml-22 lg:ml-44 md:mr-4 pt-3 pb-2 max-w-full md:max-w-[600px] ${darkMode
                 ? 'text-neutral-400 border-b border-neutral-700'
                 : 'text-neutral-700 border-b border-neutral-300'
                 }`}
@@ -106,14 +108,15 @@ const StoryDialog = ({ dataList, darkMode }) => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.01 }}
-            className={`flex flex-col md:flex-row items-start md:space-x-2 mb-3 md:mb-1 ${(item.model || item.teller) ? getMobileContainerStyle(darkMode) : ''}`}
+            className={`flex flex-col md:flex-row items-start md:space-x-2 mb-3 md:mb-1
+              ${(item.model || item.teller) ? getMobileContainerStyle(darkMode) : ''}`}
           >
             {/* model이나 teller가 있는 경우에만 화자 정보 표시 */}
             {(item.model || item.teller) && (
-              <div className={`w-full md:w-auto md:min-w-[80px] lg:w-40 px-2 md:pl-3 md:pr-0 text-left md:text-right whitespace-normal md:whitespace-pre-wrap mb-1 md:mb-0 ${item.teller
+              <div className={`w-full md:w-22 md:min-w-[80px] lg:w-40 px-2 md:pl-3 md:pr-0 text-left md:text-right whitespace-normal md:whitespace-pre-wrap mb-1 md:mb-0 ${item.teller
                   ? (item.teller.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
                   : (item.model.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
-                } ${darkMode ? 'text-neutral-400' : 'text-black'} font-bold md:font-normal`}>
+                } ${darkMode ? 'text-neutral-400' : 'text-neutral-700'} font-semibold md:font-normal`}>
                 {item.teller || item.model}
               </div>
             )}
