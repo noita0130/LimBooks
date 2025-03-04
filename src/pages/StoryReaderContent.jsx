@@ -10,9 +10,9 @@ const StoryReaderContent = () => {
       <Route path="/:storyType" element={<StoryReaderPage />} />
       <Route path="/:storyType/:storyId" element={<StoryReaderPage />} />
       <Route path="/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
-      <Route path="/scripts" element={<StoryReaderPage />} />
-      <Route path="/scripts/:personalityId" element={<StoryReaderPage />} />
-      <Route path="/scripts/:personalityId/:storyId" element={<StoryReaderPage />} />
+      <Route path="/personality" element={<StoryReaderPage />} />
+      <Route path="/personality/:personalityId" element={<StoryReaderPage />} />
+      <Route path="/personality/:personalityId/:storyId" element={<StoryReaderPage />} />
     </Routes>
   );
 };

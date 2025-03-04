@@ -153,11 +153,11 @@ const StoryReaderPage = () => {
                 }}
               >
                 {(location.pathname === '/' || location.pathname === '' || location.pathname === '/LimBooks' || location.pathname === '/LimBooks/') && <MainPage darkMode={darkMode} />}
-                {location.pathname === '/scripts' && (
+                {location.pathname === '/personality' && (
                   <PersonalityPage
                     darkMode={darkMode}/>
                 )}
-                {location.pathname.includes('/scripts/') && location.pathname.split('/').length === 3 && (
+                {location.pathname.includes('/personality/') && location.pathname.split('/').length === 3 && (
                   <PersonalityStoryList
                     darkMode={darkMode}
                     personalityId={location.pathname.split('/')[2]}

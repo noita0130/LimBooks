@@ -14,9 +14,9 @@ const handleGoBack = (navigate, location, scrollRef, setShouldRestoreScroll, sto
     
     let targetPath;
 
-    // 특수 케이스: /scripts/:personalityId
-    if (pathSegments[0] === 'scripts' && pathSegments.length === 2) {
-        targetPath = `${BASE_PATH}/scripts`;
+    // 특수 케이스: /personality/:personalityId
+    if (pathSegments[0] === 'personality' && pathSegments.length === 2) {
+        targetPath = `${BASE_PATH}/personality`;
         navigate(targetPath);
         if (scrollRef && scrollRef.current) {
             scrollRef.current.set(location.pathname, currentScroll);
