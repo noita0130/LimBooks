@@ -35,13 +35,13 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
   };
 
   const handleStoryClick = (storyId) => {
-    // 스토리 상세 페이지로 이동
-    navigate(`/personality/${personalityId}/${storyId}`);
+    // 스토리 상세 페이지로 이동 - /personality/:personalityId/story/:storyId 경로 사용
+    navigate(`/personality/${personalityId}/story/${storyId}`);
   };
 
   const handleQuotesClick = (storyId) => {
-    // 대사집 페이지로 이동
-    navigate(`/personality/${personalityId}/${storyId}`);
+    // 대사집 페이지로 이동 - /personality/:personalityId/voice/:storyId 경로 사용
+    navigate(`/personality/${personalityId}/voice/${storyId}`);
   };
 
   if (!characterInfo) {

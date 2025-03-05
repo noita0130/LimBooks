@@ -1,31 +1,34 @@
-// pages/StoryReaderContent.jsx
 import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { Routes, Route, useNavigate, useParams, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Homepage from '../pages/Homepage';
+import MainPage from '../pages/MainPage';
 import useStoryData from '../hooks/useStoryData';
 import NavigationBar from './NavigationBar';
 import StoryList from './StoryList';
 import ChapterList from './ChapterList';
 import StoryContent from './StoryContent';
+import StoryDialog from './StoryDialog';
 import LoadingSpinner from '../utill/LoadingSpinner';
 import PersonalityPage from '../pages/PersonalityPage';
 import PersonalityStoryList from '../pages/PersonalityStoryList';
 import handleGoBack from '../utill/handleGoBack';
-import ScrollContainer from '../utill/ScrollContainer'
+import ScrollContainer from '../utill/ScrollContainer';
 import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
 import { Helmet } from 'react-helmet';
 import loadChapterData from '../utill/loadChapterData';
+import { Undo2 } from 'lucide-react';
+
+// 새로운 함수 import
+import LoadPersonalityStory from '../utill/LoadPersonalityStory';
+import LoadPersonalityVoice from '../utill/LoadPersonalityVoice';
 
 import {
-  saveScrollPosition,
   restoreScrollPosition,
-  restoreScroll,
   handleStoryClick,
   handleChapterClick,
   handleNavigation,
-  handlePopState,
   navigateToNextChapter,
   navigateToPreviousChapter
 } from '../utill/function';
@@ -35,12 +38,14 @@ const StoryReaderPage = () => {
   const BASE_PATH = '/LimBooks';
   const navigate = useNavigate();
   const location = useLocation();
-  const { storyType, storyId, chapterId } = useParams();
+  const { storyType, storyId, chapterId, personalityId, contentType } = useParams();
   const scrollRef = useRef(new Map());
   const [selectedStory, setSelectedStory] = useState(null);
   const [storyData, setStoryData] = useState(null);
   const [shouldRestoreScroll, setShouldRestoreScroll] = useState(false);
   const { stories, loading } = useStoryData(storyType);
+  const [personalityContent, setPersonalityContent] = useState(null);
+  const [personalityStoryData, setPersonalityStoryData] = useState(null);
 
   const [darkMode, setDarkMode] = useState(() => {
     const savedDarkMode = localStorage.getItem('darkMode');
@@ -57,31 +62,6 @@ const StoryReaderPage = () => {
     });
   };
 
-
-  const MainPage = React.lazy(() => Promise.resolve({
-    default: ({ darkMode }) => (
-      <div>
-        <div className={`my-10 py-4 `}>
-          <h1 className="text-center text-4xl font-bold mb-4">환영합니다</h1>
-          <p className={`text-center }`}>
-            LimBooks에서 다양한 이야기를 만나보세요.
-          </p>
-        </div>
-        <div className={`my-10 py-4 `}>
-          <h1 className="text-center text-2xl font-bold mb-4">제작중인 사항</h1>
-          <p className="text-center ">
-            1. 수감자 대사집 <br />
-            2. 인격스토리 (미정)<br />
-            3. 스토리 화자 수정 <br />
-            3-1. 1~3장 수정 완료
-
-          </p>
-        </div>
-      </div>
-
-    )
-  }));
-
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -90,6 +70,7 @@ const StoryReaderPage = () => {
     }
   }, [darkMode]);
 
+  // 일반 스토리 로딩 로직
   useEffect(() => {
     if (storyType && storyId && stories?.[storyType]) {
       const story = stories[storyType].find(s => s.id === storyId);
@@ -113,11 +94,118 @@ const StoryReaderPage = () => {
     }
   }, [storyType, storyId, chapterId, stories, shouldRestoreScroll]);
 
+  // 인격 스토리/대사집 로딩 로직 추가
+useEffect(() => {
+  // personalityId와 contentType(story 또는 voice)가 있는 경우
+  if (personalityId && contentType && storyId) {
+    const fetchPersonalityContent = async () => {
+      try {
+        if (contentType === 'story') {
+          // 스토리 데이터 로드
+          const data = await LoadPersonalityStory(personalityId, storyId);
+          setPersonalityContent(data);
+          
+          // StoryDialog 컴포넌트와 호환되도록 데이터 설정
+          // dataList 형태인 경우 직접 사용 가능
+          if (data.dataList) {
+            setPersonalityStoryData({
+              id: storyId,
+              title: data.title || '제목 없음',
+              dataList: data.dataList
+            });
+          }
+          // dialogues 형태인 경우 변환 필요
+          else if (data.dialogues) {
+            setPersonalityStoryData({
+              id: storyId,
+              title: data.title || '제목 없음',
+              dataList: data.dialogues?.map(dialogue => ({
+                model: dialogue.speaker || null,
+                teller: dialogue.narrator || null,
+                content: dialogue.text || '',
+                place: dialogue.location || null,
+                type: dialogue.type || 'text'
+              })) || []
+            });
+          }
+        } else if (contentType === 'voice') {
+          // 대사집 데이터 로드
+          const data = await LoadPersonalityVoice(personalityId, storyId);
+          setPersonalityContent(data);
+        }
+      } catch (error) {
+        console.error('인격 데이터 로딩 오류:', error);
+      }
+      
+      if (!shouldRestoreScroll) {
+        window.scrollTo(0, 0);
+      }
+    };
+    
+    fetchPersonalityContent();
+  } else {
+    setPersonalityContent(null);
+    setPersonalityStoryData(null);
+  }
+}, [personalityId, contentType, storyId, shouldRestoreScroll]);
+
+  // URL 패턴 감지 및 경로 설정 함수
+  const isPersonalityStoryRoute = () => {
+    // /personality/:personalityId/story/:storyId 형태의 URL 패턴 확인
+    return location.pathname.match(/\/personality\/[^\/]+\/story\/[^\/]+/);
+  };
+
+  const isPersonalityVoiceRoute = () => {
+    // /personality/:personalityId/voice/:storyId 형태의 URL 패턴 확인
+    return location.pathname.match(/\/personality\/[^\/]+\/voice\/[^\/]+/);
+  };
+
+  // 인격 스토리 렌더링 함수
+  const renderPersonalityStoryContent = () => {
+    if (!personalityStoryData) return <LoadingSpinner />;
+
+    return (
+      <div className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} p-3 md:p-6 rounded-lg shadow-lg`}>
+        {/* 헤더 */}
+        <div className="flex justify-between items-center mb-6">
+          <button
+            onClick={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll)}
+            className={`px-4 py-2 rounded-md ${
+              darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+            }`}
+          >
+            <Undo2 />
+          </button>
+          <h1 className="text-xl md:text-2xl font-bold text-center flex-1">{personalityStoryData.title}</h1>
+          <div className="w-[48px]"></div> {/* 균형을 위한 빈 공간 */}
+        </div>
+
+        {/* 스토리 내용 - StoryDialog 컴포넌트 사용 */}
+        <StoryDialog
+          dataList={personalityStoryData.dataList}
+          darkMode={darkMode}
+        />
+
+        {/* 하단 네비게이션 */}
+        <div className="flex justify-start items-center mt-6">
+          <button
+            onClick={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll)}
+            className={`px-4 py-2 rounded-md ${
+              darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+            }`}
+          >
+            <Undo2 />
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <ScrollContainer darkMode={darkMode}>
       
       <Helmet>
-      <meta name="google-site-verification" content="Sx2a79nNCfoTBZTrBoUBsDlFjGlRQoA2u_AqN2QSreI" />
+        <meta name="google-site-verification" content="Sx2a79nNCfoTBZTrBoUBsDlFjGlRQoA2u_AqN2QSreI" />
         <title>LimBooks - 림버스 스토리 리더</title>
         <meta name="description" content="LimBooks에서 간단히 림버스를." />
         <meta name="keywords" content="LimBooks, 림버스, 스토리리더" />
@@ -153,17 +241,95 @@ const StoryReaderPage = () => {
                 }}
               >
                 {(location.pathname === '/' || location.pathname === '' || location.pathname === '/LimBooks' || location.pathname === '/LimBooks/') && <MainPage darkMode={darkMode} />}
+                
+                {/* 인격 페이지 */}
                 {location.pathname === '/personality' && (
-                  <PersonalityPage
-                    darkMode={darkMode}/>
+                  <PersonalityPage darkMode={darkMode}/>
                 )}
+                
+                {/* 인격 목록 페이지 */}
                 {location.pathname.includes('/personality/') && location.pathname.split('/').length === 3 && (
                   <PersonalityStoryList
                     darkMode={darkMode}
                     personalityId={location.pathname.split('/')[2]}
-
                   />
                 )}
+                
+                {/* 인격 스토리 콘텐츠 - StoryDialog 컴포넌트 사용 */}
+                {isPersonalityStoryRoute() && personalityStoryData && renderPersonalityStoryContent()}
+                
+                {/* 인격 대사집 콘텐츠 */}
+                {isPersonalityVoiceRoute() && personalityContent && (
+                  <div className={`p-6 rounded-lg ${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-md`}>
+                    <div className="flex justify-between items-center mb-6">
+                      <button
+                        onClick={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll)}
+                        className={`px-4 py-2 rounded-md ${
+                          darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                        }`}
+                      >
+                        <Undo2 />
+                      </button>
+                      <h1 className="text-xl md:text-2xl font-bold text-center flex-1">{personalityContent.title} 대사집</h1>
+                      <div className="w-[48px]"></div> {/* 균형을 위한 빈 공간 */}
+                    </div>
+                    
+                    {/* 카테고리별로 대사집 그룹화하여 표시 */}
+                    <div className="space-y-6">
+                      {Object.entries(personalityContent.quotes.reduce((acc, quote) => {
+                        const category = quote.category || '기타';
+                        if (!acc[category]) {
+                          acc[category] = [];
+                        }
+                        acc[category].push(quote);
+                        return acc;
+                      }, {})).map(([category, quotes]) => (
+                        <div key={category} className="mb-8">
+                          <h2 className={`text-xl font-semibold mb-4 pb-2 ${
+                            darkMode ? 'border-b border-neutral-700' : 'border-b border-neutral-300'
+                          }`}>
+                            {category}
+                          </h2>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {quotes.map((quote, index) => (
+                              <div 
+                                key={index} 
+                                className={`p-4 rounded-lg transition-all hover:shadow-md ${
+                                  darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-100 hover:bg-neutral-200'
+                                }`}
+                              >
+                                <div className="flex flex-col">
+                                  <p className="font-bold mb-2">{quote.situation}</p>
+                                  <p className="italic">{quote.text}</p>
+                                  {quote.condition && (
+                                    <p className={`mt-2 text-sm ${
+                                      darkMode ? 'text-neutral-400' : 'text-neutral-600'
+                                    }`}>
+                                      조건: {quote.condition}
+                                    </p>
+                                  )}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="flex justify-start items-center mt-6">
+                      <button
+                        onClick={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll)}
+                        className={`px-4 py-2 rounded-md ${
+                          darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                        }`}
+                      >
+                        <Undo2 />
+                      </button>
+                    </div>
+                  </div>
+                )}
+                
+                {/* 기존 메인/미니 스토리 리스트 */}
                 {(storyType === 'main' || storyType === 'mini') && !storyId && (
                   <StoryList
                     stories={stories}
@@ -173,7 +339,8 @@ const StoryReaderPage = () => {
                     loading={loading}
                   />
                 )}
-                {/* main 스토리일 때만 ChapterList를 보여줌*/}
+                
+                {/* 챕터 리스트 */}
                 {selectedStory && !chapterId && selectedStory.chapters.length >= 2 && (
                   <ChapterList
                     selectedStory={selectedStory}
@@ -183,6 +350,8 @@ const StoryReaderPage = () => {
                     storyType={storyType}
                   />
                 )}
+                
+                {/* 기존 스토리 컨텐츠 */}
                 {chapterId && storyData && (
                   <StoryContent
                     storyData={storyData}
