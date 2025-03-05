@@ -44,6 +44,11 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
     navigate(`/personality/${personalityId}/voice/${storyId}`);
   };
 
+  // 특정 상황에서 Book 버튼 비활성화 여부 확인 함수
+  const isBookButtonDisabled = (story, index) => {
+    return index === 0 || story.title === "LCB 수감자";
+  };
+
   if (!characterInfo) {
     return (
       <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
@@ -92,10 +97,13 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                     <div className="flex w-full mt-4">
                       <button
                         onClick={() => handleStoryClick(story.id)}
+                        disabled={isBookButtonDisabled(story, index)}
                         className={`flex-1 mr-1 px-2 py-2 rounded-md flex justify-center
-                        ${darkMode
-                            ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
-                            : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
+                        ${isBookButtonDisabled(story, index)
+                            ? 'bg-neutral-400 text-neutral-600 opacity-50'
+                            : darkMode
+                              ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
+                              : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
                         }
                       >
                         <BookOpen />
@@ -128,10 +136,13 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                     <div className="flex flex-col sm:flex-row w-full mt-4">
                       <button
                         onClick={() => handleStoryClick(story.id)}
+                        disabled={isBookButtonDisabled(story, index)}
                         className={`flex-1 mb-2 sm:mb-0 sm:mr-2 px-5 py-2 rounded-md flex items-center justify-center whitespace-nowrap
-                        ${darkMode
-                            ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
-                            : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
+                        ${isBookButtonDisabled(story, index)
+                            ? 'bg-neutral-400 text-neutral-600 opacity-50'
+                            : darkMode
+                              ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
+                              : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
                         }
                       >
                         <BookOpen className="mr-2" />

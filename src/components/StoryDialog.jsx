@@ -64,7 +64,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
 
   // 대화 컨테이너 배경 스타일 (모바일 전용)
   const getMobileContainerStyle = (darkMode) =>
-    `md:bg-transparent rounded-lg p-2 ${darkMode
+    `md:bg-transparent rounded-lg p-2 md:p-0 ${darkMode
       ? 'bg-neutral-700'
       : 'bg-neutral-200'
     }`;

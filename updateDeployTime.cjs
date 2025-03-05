@@ -1,11 +1,6 @@
-// src/utill/updateDeployTime.js
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-// ES 모듈에서 __dirname 획득
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// 이 파일은 프로젝트 루트 폴더에 저장하세요 (package.json과 같은 위치)
+const fs = require('fs');
+const path = require('path');
 
 // 현재 시간을 가져옵니다
 const now = new Date();
@@ -25,8 +20,8 @@ const deployTimeContent = `// 이 파일은 자동 생성됩니다. 수정하지
 export const DEPLOY_TIME = "${deployTime}";
 `;
 
-// 상대 경로를 계산합니다. src/utill에서 dist로 가기 위해 ../../dist로 이동합니다.
-const filePath = path.resolve(__dirname, '../../dist/deployTime.js');
+// dist 폴더에 파일 생성
+const filePath = path.resolve(__dirname, './dist/deployTime.js');
 fs.writeFileSync(filePath, deployTimeContent);
 
 console.log(`배포 시간 업데이트 완료: ${deployTime}`);

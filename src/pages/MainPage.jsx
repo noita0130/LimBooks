@@ -6,7 +6,7 @@ const MainPage = React.lazy(() => Promise.resolve({
 
     useEffect(() => {
       // 배포 시간 정보를 동적으로 불러옵니다
-      import('../utill/updateTime.js')
+      import('../../updateDeployTime.cjs')
         .then(module => {
           setDeployTime(module.DEPLOY_TIME);
         })
@@ -24,23 +24,27 @@ const MainPage = React.lazy(() => Promise.resolve({
             림버스 컴퍼니의 스토리 리더 입니다<br />
             <br />
             최근 업데이트<br />
-            {deployTime}
+            2025.03.06.
+            {/*deployTime*/}
           </p>
         </div>
         <div className={`my-10 py-4`}>
           <div className="flex flex-col md:flex-row justify-center w-full gap-6">
             <div className="w-full md:w-1/2 p-4">
-              <h1 className="text-center text-2xl font-bold mb-4">업데이트 목록</h1>
+              <h1 className="text-center text-2xl font-bold mb-4">✅업데이트 목록</h1>
               <p className="text-center">
-                1. 인격 스토리 추가
+                1. 인격 스토리 추가<br />
+                2. 대사집 추가<br />
+                3. 3장까지의 스토리 화자 수정완료
+                
               </p>
             </div>
             <div className="w-full md:w-1/2 p-4">
-              <h1 className="text-center text-2xl font-bold mb-4">제작중인 사항</h1>
+              <h1 className="text-center text-2xl font-bold mb-4">🔨제작중인 사항</h1>
               <p className="text-center">
-                1. 수감자 대사집 <br />
-                2. 스토리 화자 수정 <br />
-                2-1. 1~3장 수정 완료
+                1. 수감자 대사 음성재생기능 <br />
+                2. 4장 이후 스토리 화자 수정 <br />
+                
               </p>
             </div>
           </div>

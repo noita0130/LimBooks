@@ -120,7 +120,7 @@ const StoryContent = ({
             <div className="hidden md:flex justify-between items-center mb-10">
                 <button
                     onClick={handleGoBack}
-                    className={`px-4 py-2 rounded-md w-[120px] ${
+                    className={`px-4 py-2 rounded-md ${
                         darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
                     }`}
                 >
