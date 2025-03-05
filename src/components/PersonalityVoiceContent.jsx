@@ -1,15 +1,15 @@
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
-import { Undo2 } from 'lucide-react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Undo2, Play, Pause } from 'lucide-react';
 import loadPersonalityVoiceData from '../utill/loadPersonalityVoiceData';
+import { motion } from "framer-motion";
 
 const PersonalityVoiceContent = ({ darkMode }) => {
   const { personalityId, storyId } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
-  const scrollRef = useRef(new Map());
   const [voiceData, setVoiceData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [playingId, setPlayingId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +35,17 @@ const PersonalityVoiceContent = ({ darkMode }) => {
     navigate(`/personality/${personalityId}`);
   };
 
+  const handlePlayAudio = (id) => {
+    // 현재 재생 중인 오디오가 있으면 중지
+    if (playingId === id) {
+      // 오디오 중지 로직 (나중에 구현)
+      setPlayingId(null);
+    } else {
+      // 오디오 재생 로직 (나중에 구현)
+      setPlayingId(id);
+    }
+  };
+
   if (loading) {
     return (
       <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
@@ -43,17 +54,8 @@ const PersonalityVoiceContent = ({ darkMode }) => {
     );
   }
 
-  // 대사집을 카테고리별로 그룹화
-  const groupedQuotes = voiceData?.quotes?.reduce((acc, quote) => {
-    if (!acc[quote.category]) {
-      acc[quote.category] = [];
-    }
-    acc[quote.category].push(quote);
-    return acc;
-  }, {}) || {};
-
   return (
-    <div className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} p-3 md:p-6 rounded-lg shadow-lg`}>
+    <div className={`${darkMode ? 'bg-neutral-800 text-neutral-200' : 'bg-white text-neutral-800'} p-3 md:p-6 rounded-lg shadow-lg`}>
       {/* 헤더 */}
       <div className="flex justify-between items-center mb-6">
         <button
@@ -69,37 +71,51 @@ const PersonalityVoiceContent = ({ darkMode }) => {
       </div>
 
       {/* 대사집 내용 */}
-      <div className="space-y-6">
-        {Object.entries(groupedQuotes).map(([category, quotes]) => (
-          <div key={category} className="mb-8">
-            <h2 className={`text-xl font-semibold mb-4 pb-2 ${
-              darkMode ? 'border-b border-neutral-700' : 'border-b border-neutral-300'
+      <div className="space-y-6 font-NotoSerifKR">
+        {voiceData?.quotes?.map((quote, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.05 }}
+            className="mb-3"
+          >
+            {/* 대사 설명 */}
+            <div className={`mb-2 px-2 py-1 ${
+              darkMode ? 'text-neutral-400 border-b border-neutral-700' : 'text-neutral-700 border-b border-neutral-300'
             }`}>
-              {category}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {quotes.map((quote, index) => (
-                <div 
-                  key={index} 
-                  className={`p-4 rounded-lg transition-all hover:shadow-md ${
-                    darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-100 hover:bg-neutral-200'
-                  }`}
-                >
-                  <div className="flex flex-col">
-                    <p className="font-bold mb-2">{quote.situation}</p>
-                    <p className="italic">{quote.text}</p>
-                    {quote.condition && (
-                      <p className={`mt-2 text-sm ${
-                        darkMode ? 'text-neutral-400' : 'text-neutral-600'
-                      }`}>
-                        조건: {quote.condition}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
+              {quote.situation}
             </div>
-          </div>
+            
+            {/* 대사 컨테이너 - 모바일에서만 배경색 적용 */}
+            <div className={`md:bg-transparent rounded-lg p-2 ${
+              darkMode ? 'bg-neutral-700 md:bg-transparent' : 'bg-neutral-200 md:bg-transparent'
+            }`}>
+              {/* 대사 내용 */}
+              <div className="flex flex-row items-start space-x-3">
+                {/* 재생 버튼 */}
+                <div className="w-8 md:w-10 flex-shrink-0">
+                  <button
+                    onClick={() => handlePlayAudio(quote.id)}
+                    className={`p-2 rounded-full ${
+                      darkMode 
+                        ? 'bg-neutral-600 hover:bg-neutral-500' 
+                        : 'bg-neutral-200 hover:bg-neutral-300'
+                    } transition-colors`}
+                  >
+                    {playingId === quote.id ? <Pause size={16} /> : <Play size={16} />}
+                  </button>
+                </div>
+                
+                {/* 대사 텍스트 */}
+                <div className={`flex-1 py-1 ${
+                  darkMode ? 'text-neutral-200' : 'text-neutral-800'
+                }`}>
+                  <p className="whitespace-pre-wrap">{quote.text}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         ))}
       </div>
 

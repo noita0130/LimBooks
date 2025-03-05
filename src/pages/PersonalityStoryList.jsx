@@ -78,7 +78,7 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                 key={index}
                 className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} rounded-lg shadow-md overflow-hidden h-full`}
               >
-                {/* 모바일 뷰 (기존 디자인 유지) - md 미만에서만 표시 */}
+                {/* 모바일 뷰 */}
                 <div className="flex flex-col md:hidden h-full">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
@@ -114,7 +114,7 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                   </div>
                 </div>
                 
-                {/* PC 뷰 (새 디자인) - md 이상에서만 표시 */}
+                {/* PC 뷰 */}
                 <div className="hidden md:flex h-full">
                   <div className="w-1/3 overflow-hidden">
                     <img
