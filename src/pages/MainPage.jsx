@@ -44,6 +44,7 @@ const MainPage = React.lazy(() => Promise.resolve({
               <p className="text-center">
                 1. 수감자 대사 음성재생기능 <br />
                 2. 4장 이후 스토리 화자 수정 <br />
+                3. 육참골단Bokgak 이후 인격 추가예정
                 
               </p>
             </div>

@@ -50,12 +50,12 @@ const StoryDialog = ({ dataList, darkMode }) => {
 
   // 내레이션 스타일 (model/teller가 없는 경우)
   const getNarrationStyle = (darkMode) =>
-    `flex-1 py-1 mx-4 sm:my-1 md:ml-30 lg:ml-44 italic ${darkMode
+    `flex-1 py-1 mx-4 sm:my-1 md:my-0 md:ml-29 lg:ml-46 italic ${darkMode
       ? 'text-neutral-400'
       : 'text-neutral-600'
     }`;
 
-  // 대화 스타일 - font-base를 font-normal로 수정하고 닫는 중괄호 문제 해결
+  // 대화 스타일
   const getDialogStyle = (darkMode) =>
     `flex-1 py-1 pr-3 pl-2 rounded-lg font-normal ${darkMode
       ? 'text-neutral-200'
@@ -78,7 +78,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
       <span
         key={index}
         style={part.color ? { color: part.color } : undefined}
-        className="whitespace-pre-wrap"
+        className="whitespace-pre-wrap break-keep"
       >
         {part.text}
       </span>
@@ -113,10 +113,11 @@ const StoryDialog = ({ dataList, darkMode }) => {
           >
             {/* model이나 teller가 있는 경우에만 화자 정보 표시 */}
             {(item.model || item.teller) && (
-              <div className={`w-full md:w-22 md:min-w-[80px] lg:w-40 px-2 md:pl-3 md:pr-0 text-left md:text-right whitespace-normal md:whitespace-pre-wrap mb-1 md:mb-0 ${item.teller
+              <div className={`w-full md:w-25 md:min-w-[100px] lg:w-40 px-2 md:pl-3 md:pr-0 text-left md:text-right whitespace-normal md:whitespace-pre-wrap mb-1 md:mb-0
+                ${item.teller
                   ? (item.teller.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
                   : (item.model.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
-                } ${darkMode ? 'text-neutral-400' : 'text-neutral-700'} font-semibold md:font-normal`}>
+                } ${darkMode ? 'text-neutral-400' : 'text-neutral-700'} font-semibold md:font-normal break-keep`}>
                 {item.teller || item.model}
               </div>
             )}

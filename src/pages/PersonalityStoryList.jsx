@@ -77,53 +77,14 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
             <p>이 캐릭터의 인격 데이터가 없습니다.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {stories.map((story, index) => (
               <div
                 key={index}
                 className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} rounded-lg shadow-md overflow-hidden h-full`}
               >
-                {/* 모바일 뷰 */}
-                <div className="flex flex-col md:hidden h-full">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img
-                      src={story.image}
-                      alt={story.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-5 flex flex-col flex-grow">
-                    <h2 className="text-sm font-semibold mb-auto">{story.title}</h2>
-                    <div className="flex w-full mt-4">
-                      <button
-                        onClick={() => handleStoryClick(story.id)}
-                        disabled={isBookButtonDisabled(story, index)}
-                        className={`flex-1 mr-1 px-2 py-2 rounded-md flex justify-center
-                        ${isBookButtonDisabled(story, index)
-                            ? 'bg-neutral-400 text-neutral-600 opacity-50'
-                            : darkMode
-                              ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
-                              : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
-                        }
-                      >
-                        <BookOpen />
-                      </button>
-                      <button
-                        onClick={() => handleQuotesClick(story.id)}
-                        className={`flex-1 px-2 py-2 rounded-md flex justify-center
-                          ${darkMode
-                            ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
-                            : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
-                        }
-                      >
-                        <MessageCircle />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* PC 뷰 */}
-                <div className="hidden md:flex h-full">
+                {/* 모바일과 PC 뷰 통합 (동일한 레이아웃) */}
+                <div className="flex h-full">
                   <div className="w-1/3 overflow-hidden">
                     <img
                       src={story.image}
@@ -131,34 +92,39 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="w-2/3 p-6 flex flex-col h-full">
-                    <h2 className="text-xl font-semibold mb-auto">{story.title}</h2>
-                    <div className="flex flex-col sm:flex-row w-full mt-4">
-                      <button
-                        onClick={() => handleStoryClick(story.id)}
-                        disabled={isBookButtonDisabled(story, index)}
-                        className={`flex-1 mb-2 sm:mb-0 sm:mr-2 px-5 py-2 rounded-md flex items-center justify-center whitespace-nowrap
-                        ${isBookButtonDisabled(story, index)
-                            ? 'bg-neutral-400 text-neutral-600 opacity-50'
-                            : darkMode
+                  <div className="w-2/3 p-4 md:p-6 flex flex-col h-full">
+                    {/* 카드 내용을 두 부분으로 명확하게 나눔 */}
+                    <div className="flex flex-col h-1/2">
+                      <h2 className="text-sm md:text-base lg:text-xl font-semibold">{story.title}</h2>
+                    </div>
+                    <div className="flex flex-col h-1/2 justify-end">
+                      <div className="flex w-full">
+                        <button
+                          onClick={() => handleStoryClick(story.id)}
+                          disabled={isBookButtonDisabled(story, index)}
+                          className={`flex-1 mr-2 px-2 py-2 md:py-3 rounded-md flex items-center justify-center
+                          ${isBookButtonDisabled(story, index)
+                              ? 'bg-neutral-400 text-neutral-600 opacity-50'
+                              : darkMode
+                                ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
+                                : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
+                          }
+                        >
+                          <BookOpen className="w-3 h-3 md:w-5 md:h-5 mr-1" />
+                          <span className="text-xs md:text-sm">스토리</span>
+                        </button>
+                        <button
+                          onClick={() => handleQuotesClick(story.id)}
+                          className={`flex-1 px-2 py-2 md:py-3 rounded-md flex items-center justify-center
+                            ${darkMode
                               ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
                               : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
-                        }
-                      >
-                        <BookOpen className="mr-2" />
-                        <span className="hidden sm:inline">스토리</span>
-                      </button>
-                      <button
-                        onClick={() => handleQuotesClick(story.id)}
-                        className={`flex-1 px-5 py-2 rounded-md flex items-center justify-center whitespace-nowrap
-                          ${darkMode
-                            ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
-                            : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
-                        }
-                      >
-                        <MessageCircle className="mr-2" />
-                        <span className="hidden sm:inline">대사집</span>
-                      </button>
+                          }
+                        >
+                          <MessageCircle className="w-3 h-3 md:w-5 md:h-5 mr-1" />
+                          <span className="text-xs md:text-sm">대사</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
