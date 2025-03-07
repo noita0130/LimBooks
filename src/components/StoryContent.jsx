@@ -1,5 +1,7 @@
 import { useRef, useEffect } from "react";
 import StoryDialog from "./StoryDialog";
+import { ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
+
 
 const StoryContent = ({
     storyData,
@@ -15,7 +17,6 @@ const StoryContent = ({
     const storyRef = useRef(selectedStory);
     const locationRef = useRef(window.location.pathname);
 
-    // 컴포넌트가 처음 마운트될 때만 값을 설정
     useEffect(() => {
         storyRef.current = selectedStory;
         locationRef.current = window.location.pathname;
@@ -42,10 +43,10 @@ const StoryContent = ({
                 <button
                     onClick={handlePreviousChapter}
                     disabled={isFirstChapter}
-                    className={`px-4 py-2 ${darkMode ? 'hover:bg-neutral-600' : 'hover:bg-neutral-300'}
+                    className={`px-3 md:px-4 py-2 ${darkMode ? 'hover:bg-neutral-600' : 'hover:bg-neutral-300'}
                     ${isFirstChapter ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                    ←
+                    <ChevronLeft />
                 </button>
             )}
             {(!isFirstChapter && !isLastChapter) && (
@@ -57,10 +58,10 @@ const StoryContent = ({
                 <button
                     onClick={handleNextChapter}
                     disabled={isLastChapter}
-                    className={`px-4 py-2 ${darkMode ? 'hover:bg-neutral-600' : 'hover:bg-neutral-300'}
+                    className={`px-3 md:px-4 py-2 ${darkMode ? 'hover:bg-neutral-600' : 'hover:bg-neutral-300'}
                     ${isLastChapter ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                    →
+                    <ChevronRight />
                 </button>
             )}
         </div>
@@ -69,10 +70,10 @@ const StoryContent = ({
     const TitleSection = () => {
         if (!currentChapter || !storyRef.current) return null;
         return (
-            <div className="flex-1 text-center">
-                <span className="font-semibold">{currentChapter?.title}</span>
+            <div className="flex-1 text-center mx-2">
+                <span className="font-semibold text-sm md:text-base">{currentChapter?.title}</span>
                 {currentChapter?.subtitle && (
-                    <span className={`ml-2 ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                    <span className={`ml-1 md:ml-2 text-xs md:text-sm ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
                         {currentChapter.subtitle}
                     </span>
                 )}
@@ -80,30 +81,10 @@ const StoryContent = ({
         );
     }
 
-    return (
-        <div className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} p-6 rounded-lg shadow-lg`}>
-            <div className="flex justify-between items-center mb-10">
-                <button
-                    onClick={handleGoBack}
-                    className={`px-4 py-2 rounded-md w-[120px] ${
-                        darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
-                    }`}
-                >
-                    ← 돌아가기
-                </button>
-
-                <TitleSection />
-                <div className="w-[120px] flex justify-end">
-                    <ChapterNavigationButtons />
-                </div>
-                
-            </div>
-
-            <StoryDialog
-                dataList={storyData?.dataList || []}
-                darkMode={darkMode}
-            />
-
+    // 수정된 모바일 헤더
+    const MobileHeader = () => (
+        <div className="flex flex-col space-y-3 mb-6 md:hidden">
+            {/* 첫 번째 줄: 돌아가기 버튼과 이전/다음 버튼 */}
             <div className="flex justify-between items-center">
                 <button
                     onClick={handleGoBack}
@@ -111,9 +92,67 @@ const StoryContent = ({
                         darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
                     }`}
                 >
-                    ← 돌아가기
+                    <Undo2 />
                 </button>
                 <ChapterNavigationButtons />
+            </div>
+            
+            {/* 두 번째 줄: 제목 */}
+            <div className="flex justify-center mt-2">
+                <div className="text-center">
+                    <span className="font-semibold">{currentChapter?.title}</span>
+                    {currentChapter?.subtitle && (
+                        <div className={`${darkMode ? 'text-neutral-400' : 'text-neutral-600'} text-xs`}>
+                            {currentChapter.subtitle}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+
+    return (
+        <div className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} p-3 md:p-6 rounded-lg shadow-lg`}>
+            {/* 모바일 헤더 */}
+            <MobileHeader />
+
+            {/* 데스크탑 헤더 */}
+            <div className="hidden md:flex justify-between items-center mb-10">
+                <button
+                    onClick={handleGoBack}
+                    className={`px-4 py-2 rounded-md ${
+                        darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                    }`}
+                >
+                    <Undo2 />
+                </button>
+
+                <TitleSection />
+                <div className="w-[120px] flex justify-end">
+                    <ChapterNavigationButtons />
+                </div>
+            </div>
+
+            <StoryDialog
+                dataList={storyData?.dataList || []}
+                darkMode={darkMode}
+            />
+
+            <div className="flex md:flex-row justify-between items-center mt-6">
+                {/* 모바일 & 데스크탑 공통 하단 네비게이션 */}
+                <div className="flex justify-between items-center w-full">
+                    <button
+                        onClick={handleGoBack}
+                        className={`px-4 py-2 rounded-md ${
+                            darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+                        }`}
+                    >
+                        <Undo2 />
+                    </button>
+                    <div>
+                        <ChapterNavigationButtons />
+                    </div>
+                </div>
             </div>
         </div>
     );

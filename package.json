@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npx gh-pages -d dist"
+    "deploy": "node updateDeployTime.cjs && npx gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.5",
