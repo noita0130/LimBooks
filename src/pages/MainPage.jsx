@@ -33,9 +33,7 @@ const MainPage = React.lazy(() => Promise.resolve({
             <div className="w-full md:w-1/2 p-4">
               <h1 className="text-center text-2xl font-bold mb-4">✅업데이트 목록</h1>
               <p className="text-center">
-                1. 인격 스토리 추가<br />
-                2. 대사집 추가<br />
-                3. 3장까지의 스토리 화자 수정완료
+                리우 이상, 불주먹 그렉, 동섕돈 스토리추가<br />
                 
               </p>
             </div>
@@ -44,8 +42,7 @@ const MainPage = React.lazy(() => Promise.resolve({
               <p className="text-center">
                 1. 수감자 대사 음성재생기능 <br />
                 2. 4장 이후 스토리 화자 수정 <br />
-                3. 육참골단Bokgak 이후 인격 추가예정
-                
+                3. 아나운서 들어보기
               </p>
             </div>
           </div>

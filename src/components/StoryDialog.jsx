@@ -7,45 +7,112 @@ const StoryDialog = ({ dataList, darkMode }) => {
     return str?.match(/\.(jpeg|jpg|gif|png)$/) != null;
   };
 
-  // color 태그 파싱 함수
-  const parseColorTags = (text) => {
-    if (!text) return [{ text: '', color: null }];
+  // 향상된 태그 파싱 함수
+  const parseRichTextTags = (text) => {
+    if (!text) return [{ text: '', styles: {} }];
 
-    // <color=#hexcode>text</color> 패턴 매칭
-    const colorRegex = /<color=(#[0-9A-Fa-f]{6})>([\s\S]*?)<\/color>/g;
+    // 텍스트 정리 - 지원하지 않는 태그 제거
+    // <size=XX> 태그 제거
+    text = text.replace(/<size=[^>]*>([\s\S]*?)<\/size>/g, '$1');
+    
+    // 최종 파싱할 텍스트 준비
     const parts = [];
+    let currentText = text;
     let lastIndex = 0;
-    let match;
 
-    while ((match = colorRegex.exec(text)) !== null) {
-      console.log("Found match:", match);
+    // 컬러 태그 처리
+    const colorRegex = /<color=(#[0-9A-Fa-f]{6})>([\s\S]*?)<\/color>/g;
+    let colorMatch;
+    let tempText = text;
 
+    while ((colorMatch = colorRegex.exec(tempText)) !== null) {
       // 태그 이전 텍스트 추가
-      if (match.index > lastIndex) {
+      if (colorMatch.index > lastIndex) {
         parts.push({
-          text: text.substring(lastIndex, match.index),
-          color: null
+          text: tempText.substring(lastIndex, colorMatch.index),
+          styles: {}
         });
       }
 
       // 컬러 태그 내용 추가
       parts.push({
-        text: match[2],
-        color: match[1]
+        text: colorMatch[2],
+        styles: { color: colorMatch[1] }
       });
 
-      lastIndex = match.index + match[0].length;
+      lastIndex = colorMatch.index + colorMatch[0].length;
     }
 
     // 남은 텍스트 추가
-    if (lastIndex < text.length) {
+    if (lastIndex < tempText.length) {
       parts.push({
-        text: text.substring(lastIndex),
-        color: null
+        text: tempText.substring(lastIndex),
+        styles: {}
       });
     }
 
-    return parts.length > 0 ? parts : [{ text, color: null }];
+    // 이탤릭 태그 처리
+    const processedParts = [];
+    parts.forEach(part => {
+      const italicRegex = /<i>([\s\S]*?)<\/i>/g;
+      let italicMatch;
+      let italicText = part.text;
+      let italicLastIndex = 0;
+      let hasItalicMatches = false;
+
+      while ((italicMatch = italicRegex.exec(italicText)) !== null) {
+        hasItalicMatches = true;
+        // 이탤릭 태그 이전 텍스트 추가
+        if (italicMatch.index > italicLastIndex) {
+          processedParts.push({
+            text: italicText.substring(italicLastIndex, italicMatch.index),
+            styles: { ...part.styles }
+          });
+        }
+
+        // 이탤릭 스타일 적용 텍스트 추가
+        processedParts.push({
+          text: italicMatch[1],
+          styles: { ...part.styles, fontStyle: 'italic' }
+        });
+
+        italicLastIndex = italicMatch.index + italicMatch[0].length;
+      }
+
+      // 처리된 이탤릭이 없거나 남은 텍스트가 있는 경우
+      if (!hasItalicMatches || italicLastIndex < italicText.length) {
+        if (!hasItalicMatches) {
+          processedParts.push(part);
+        } else if (italicLastIndex < italicText.length) {
+          processedParts.push({
+            text: italicText.substring(italicLastIndex),
+            styles: { ...part.styles }
+          });
+        }
+      }
+    });
+
+    return processedParts.length > 0 ? processedParts : [{ text, styles: {} }];
+  };
+
+  // 리치 텍스트 렌더링 함수
+  const renderRichText = (content) => {
+    if (!content) return null;
+
+    // 미지원 태그 정리 (파싱 전에 먼저 처리)
+    const cleanedContent = content
+      .replace(/<size=[^>]*>([\s\S]*?)<\/size>/g, '$1');  // <size> 태그 제거
+
+    const parts = parseRichTextTags(cleanedContent);
+    return parts.map((part, index) => (
+      <span
+        key={index}
+        style={part.styles}
+        className="whitespace-pre-wrap break-keep"
+      >
+        {part.text}
+      </span>
+    ));
   };
 
   // 내레이션 스타일 (model/teller가 없는 경우)
@@ -69,22 +136,6 @@ const StoryDialog = ({ dataList, darkMode }) => {
       : 'bg-neutral-200'
     }`;
 
-  // 컨텐츠 렌더링 함수
-  const renderContent = (content) => {
-    if (!content) return null;
-
-    const parts = parseColorTags(content);
-    return parts.map((part, index) => (
-      <span
-        key={index}
-        style={part.color ? { color: part.color } : undefined}
-        className="whitespace-pre-wrap break-keep"
-      >
-        {part.text}
-      </span>
-    ));
-  };
-
   return (
     <div className="space-y-1 font-NotoSerifKR mb-6 px-3 md:pr-6 lg:pr-10">
       {dataList?.map((item, index) => (
@@ -100,7 +151,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
                 : 'text-neutral-700 border-b border-neutral-300'
                 }`}
             >
-              장소 : {item.place}
+              장소 : {renderRichText(item.place)}
             </motion.div>
           )}
 
@@ -118,13 +169,13 @@ const StoryDialog = ({ dataList, darkMode }) => {
                   ? (item.teller.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
                   : (item.model.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
                 } ${darkMode ? 'text-neutral-400' : 'text-neutral-700'} font-semibold md:font-normal break-keep`}>
-                {item.teller || item.model}
+                {renderRichText(item.teller || item.model)}
               </div>
             )}
 
             {/* 내용 표시 */}
             <div className={`lg:mx-2 md:mx-0 ${item.model || item.teller ? getDialogStyle(darkMode) : getNarrationStyle(darkMode)}`}>
-              {(!item.type || item.type === 'text') && renderContent(item.content)}
+              {(!item.type || item.type === 'text') && renderRichText(item.content)}
               {item.type === 'image' && isImageUrl(item.content) && (
                 <img
                   src={item.content}
