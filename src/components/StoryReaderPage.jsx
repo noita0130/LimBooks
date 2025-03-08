@@ -127,7 +127,7 @@ const StoryReaderPage = () => {
           handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
           location={location}
         />
-        <main className="max-w-6xl mx-auto px-4 py-8 font-NotoSerifKR">
+        <main className="max-w-6xl min-h-screen mx-auto px-4 py-8 font-NotoSerifKR">
           <Suspense fallback={<LoadingSpinner />}>
             <AnimatePresence mode="wait">
               <motion.div

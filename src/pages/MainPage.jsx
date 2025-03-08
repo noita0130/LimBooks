@@ -42,7 +42,9 @@ const MainPage = React.lazy(() => Promise.resolve({
               <h1 className="text-center text-2xl font-bold mb-4">🔨제작중인 사항</h1>
               <p className="text-center">
                 1. 4장 이후 스토리 화자 수정 <br />
-                2. 아나운서 들어보기
+                2. 아나운서 들어보기<br />
+                3. 와히스 6장 전/후 대사변경<br />
+                4. 제뱌찌 플루드니차 대사추가<br />
               </p>
             </div>
           </div>
