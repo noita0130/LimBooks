@@ -34,10 +34,10 @@ export const loadChapterData = async (storyId, chapterId, storyType) => {
         // 실패 시 기존 경로 시도
         try {
             const fallbackResponse = await import(`../story/${chapterId}.json`);
-            console.log('기존 경로에서 데이터를 불러왔습니다.');
+            //console.log('기존 경로에서 데이터를 불러왔습니다.');
             return fallbackResponse.default;
         } catch (fallbackError) {
-            console.error('모든 경로에서 데이터 로드 실패');
+            //console.error('모든 경로에서 데이터 로드 실패');
             return null;
         }
     }

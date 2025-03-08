@@ -18,7 +18,7 @@ import ScrollContainer from '../utill/ScrollContainer';
 import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
 import { Helmet } from 'react-helmet';
 import loadChapterData from '../utill/loadChapterData';
-import { Undo2 } from 'lucide-react';
+import Footer from './footer';
 
 // 만들어 둔 컴포넌트 import
 import PersonalityStoryContent from './PersonalityStoryContent';
@@ -208,6 +208,7 @@ const StoryReaderPage = () => {
             </AnimatePresence>
           </Suspense>
         </main>
+        <Footer darkMode={darkMode} />
       </div>
     </ScrollContainer>
   );

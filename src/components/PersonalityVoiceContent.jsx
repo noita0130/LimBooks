@@ -110,11 +110,11 @@ const PersonalityVoiceContent = ({ darkMode }) => {
     // 오디오 URL - id를 기반으로 URL 구성
     const audioUrl = `https://cdn.jsdelivr.net/gh/noita0130/LimbusVoice@master/personalityVoice/${id}.wav`;
     
-    console.log('재생 시도:', audioUrl);
+    //console.log('재생 시도:', audioUrl);
     
     // 캐시에서 오디오 확인
     if (audioCache.current[id]) {
-      console.log('캐시된 오디오 사용:', id);
+      //console.log('캐시된 오디오 사용:', id);
       const cachedAudio = audioCache.current[id];
       
       // 오디오 위치 초기화 및 재생

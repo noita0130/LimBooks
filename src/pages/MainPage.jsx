@@ -24,7 +24,7 @@ const MainPage = React.lazy(() => Promise.resolve({
             림버스 컴퍼니의 스토리 리더 입니다<br />
             <br />
             최근 업데이트<br />
-            2025.03.06.
+            2025.03.08.
             {/*deployTime*/}
           </p>
         </div>
@@ -33,16 +33,16 @@ const MainPage = React.lazy(() => Promise.resolve({
             <div className="w-full md:w-1/2 p-4">
               <h1 className="text-center text-2xl font-bold mb-4">✅업데이트 목록</h1>
               <p className="text-center">
-                리우 이상, 불주먹 그렉, 동섕돈 스토리추가<br />
+                1. 리우 이상, 불주먹 그렉, 동섕돈 스토리추가<br />
+                2. 수감자 대사 음성재생기능 추가
                 
               </p>
             </div>
             <div className="w-full md:w-1/2 p-4">
               <h1 className="text-center text-2xl font-bold mb-4">🔨제작중인 사항</h1>
               <p className="text-center">
-                1. 수감자 대사 음성재생기능 <br />
-                2. 4장 이후 스토리 화자 수정 <br />
-                3. 아나운서 들어보기
+                1. 4장 이후 스토리 화자 수정 <br />
+                2. 아나운서 들어보기
               </p>
             </div>
           </div>
