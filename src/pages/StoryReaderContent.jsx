@@ -1,6 +1,6 @@
 import StoryReaderPage from "../components/StoryReaderPage";
 import { Routes, Route } from 'react-router-dom';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 const StoryReaderContent = () => {
   return (
     <>
@@ -16,6 +16,9 @@ const StoryReaderContent = () => {
           <Route path="/personality/:personalityId" element={<StoryReaderPage />} />
           <Route path="/personality/:personalityId/:storyId" element={<StoryReaderPage />} />
           <Route path="/personality/:personalityId/:contentType/:storyId" element={<StoryReaderPage />} />
+
+          <Route path="/announcers" element={<StoryReaderPage />} />
+          <Route path="/announcers/:announderId" element={<StoryReaderPage />} />
         </Routes>
       </div>
     </>

@@ -1,6 +1,6 @@
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { MessageCircle, BookOpen } from "lucide-react";
+import { MessageCircle, BookOpen, ArrowUp, ArrowDown } from "lucide-react";
 import personalityData from '../data/personalityData';
 import personalityList from '../data/personalityList';
 import handleGoBack from '../utill/handleGoBack';
@@ -15,6 +15,7 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
   const [characterInfo, setCharacterInfo] = useState(null);
   const [storyData, setStoryData] = useState(null);
   const [selectedStory, setSelectedStory] = useState(null);
+  const [sortType, setSortType] = useState('idAsc'); // 기본 정렬은 출시순(idAsc)으로 설정
 
   useEffect(() => {
     // 캐릭터 정보 가져오기
@@ -25,8 +26,58 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
 
     // 해당 인격의 스토리 목록 가져오기
     const personalityStories = personalityData[personalityId] || [];
-    setStories(personalityStories);
+    
+    // 기본 출시순으로 정렬 (ID 문자열에서 숫자 부분 추출)
+    const sortedStories = [...personalityStories].sort((a, b) => {
+      const numA = parseInt(a.id.replace('KR_P', ''));
+      const numB = parseInt(b.id.replace('KR_P', ''));
+      return numA - numB;
+    });
+    
+    setStories(sortedStories);
   }, [personalityId]);
+
+  // 정렬 함수 추가 - 토글 방식으로 변경
+  const handleSort = (type) => {
+    let newSortType;
+    let sortedStories = [...stories];
+    
+    // 현재 정렬 타입에 따라 다음 정렬 타입 결정
+    if (type === 'id') {
+      newSortType = sortType === 'idAsc' ? 'idDesc' : 'idAsc';
+    } else if (type === 'name') {
+      newSortType = sortType === 'nameAsc' ? 'nameDesc' : 'nameAsc';
+    }
+    
+    // 새로운 정렬 타입에 따라 정렬
+    switch(newSortType) {
+      case 'nameAsc':
+        sortedStories.sort((a, b) => a.title.localeCompare(b.title, 'ko'));
+        break;
+      case 'nameDesc':
+        sortedStories.sort((a, b) => b.title.localeCompare(a.title, 'ko'));
+        break;
+      case 'idAsc': // 출시순 (ID 문자열 비교)
+        sortedStories.sort((a, b) => {
+          // ID가 "KR_P숫자" 형식이므로 숫자 부분을 추출하여 정렬
+          const numA = parseInt(a.id.replace('KR_P', ''));
+          const numB = parseInt(b.id.replace('KR_P', ''));
+          return numA - numB;
+        });
+        break;
+      case 'idDesc': // 출시 역순 (ID 문자열 비교)
+        sortedStories.sort((a, b) => {
+          // ID가 "KR_P숫자" 형식이므로 숫자 부분을 추출하여 정렬
+          const numA = parseInt(a.id.replace('KR_P', ''));
+          const numB = parseInt(b.id.replace('KR_P', ''));
+          return numB - numA;
+        });
+        break;
+    }
+    
+    setStories(sortedStories);
+    setSortType(newSortType);
+  };
 
   // 수정된 handleBack 함수
   const handleBack = () => {
@@ -60,7 +111,7 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
   return (
     <div className={`min-h-screen rounded-lg ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-center mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center mb-4">
           <button
             onClick={handleBack}
             className={`px-4 py-2 rounded-md inline-flex items-center justify-center mb-4 w- sm:mb-0
@@ -70,6 +121,44 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
             <Undo2 />
           </button>
           <h1 className="text-xl sm:text-2xl font-bold sm:ml-4">{characterInfo.name}의 인격 목록</h1>
+        </div>
+
+        {/* 정렬 버튼 그룹 추가 - 두 개의 토글 버튼으로 변경 */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          <button
+            onClick={() => handleSort('id')}
+            className={`px-3 py-2 rounded-md inline-flex items-center text-xs
+              ${sortType === 'idAsc' || sortType === 'idDesc'
+                ? (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white') 
+                : (darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300')
+              }`}
+          >
+            <span className="mr-1">출시순</span>
+            {sortType === 'idAsc' ? (
+              <ArrowDown className="w-3 h-3" />
+            ) : sortType === 'idDesc' ? (
+              <ArrowUp className="w-3 h-3" />
+            ) : (
+              <ArrowDown className="w-3 h-3" />
+            )}
+          </button>
+          <button
+            onClick={() => handleSort('name')}
+            className={`px-3 py-2 rounded-md inline-flex items-center text-xs
+              ${sortType === 'nameAsc' || sortType === 'nameDesc'
+                ? (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white') 
+                : (darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300')
+              }`}
+          >
+            <span className="mr-1">이름순</span>
+            {sortType === 'nameAsc' ? (
+              <ArrowDown className="w-3 h-3" />
+            ) : sortType === 'nameDesc' ? (
+              <ArrowUp className="w-3 h-3" />
+            ) : (
+              <ArrowDown className="w-3 h-3" />
+            )}
+          </button>
         </div>
 
         {stories.length === 0 ? (

@@ -132,7 +132,18 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
                   (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
             >
               <MessageCircle className="w-4 h-4 mr-2" />
-              인격(WIP)
+              인격
+            </button>
+
+            <button
+              onClick={() => handleNavigation('/announcers')}
+              className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
+                ${location.pathname.startsWith('/announcers') ? 
+                  (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
+                  (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
+            >
+              <MessageCircle className="w-4 h-4 mr-2" />
+              아나운서
             </button>
           </div>
 
@@ -226,6 +237,19 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
             <div className="flex items-center">
               <MessageCircle className="w-5 h-5 mr-3" />
               인격
+            </div>
+          </button>
+
+          <button
+            onClick={() => handleMobileNavigation('/announcers')}
+            className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium
+              ${location.pathname.startsWith('/announcers') ? 
+                (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
+                (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
+          >
+            <div className="flex items-center">
+              <MessageCircle className="w-5 h-5 mr-3" />
+              아나운서
             </div>
           </button>
         </div>

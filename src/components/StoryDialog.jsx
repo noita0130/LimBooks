@@ -166,8 +166,8 @@ const StoryDialog = ({ dataList, darkMode }) => {
             {(item.model || item.teller) && (
               <div className={`w-full md:w-25 md:min-w-[100px] lg:w-40 px-2 md:pl-3 md:pr-0 text-left md:text-right whitespace-normal md:whitespace-pre-wrap mb-1 md:mb-0
                 ${item.teller
-                  ? (item.teller.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
-                  : (item.model.length > 8 ? 'text-sm py-1 md:py-1.5' : 'text-base py-0.5 md:py-1')
+                  ? (item.teller.length > 8 ? 'md:text-sm py-1 md:py-1.5' : 'md:text-base py-0.5 md:py-1')
+                  : (item.model.length > 8 ? 'md:text-sm py-1 md:py-1.5' : 'md:text-base py-0.5 md:py-1')
                 } ${darkMode ? 'text-neutral-400' : 'text-neutral-700'} font-semibold md:font-normal break-keep`}>
                 {renderRichText(item.teller || item.model)}
               </div>
