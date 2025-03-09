@@ -225,7 +225,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
           >
             <div className="flex items-center">
               <MessageCircle className="w-5 h-5 mr-3" />
-              인격(WIP)
+              인격
             </div>
           </button>
         </div>

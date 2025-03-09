@@ -45,6 +45,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 2. 아나운서 들어보기<br />
                 3. 와히스 6장 전/후 대사변경<br />
                 4. 제뱌찌 플루드니차 대사추가<br />
+                5. 특수대사 (실장돈키, 선장마엘, 츠이스 등) 추가
               </p>
             </div>
           </div>
