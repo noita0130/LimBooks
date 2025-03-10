@@ -2,7 +2,6 @@
   "dataList": [
     {
       "id": 0,
-      "place": -1,
       "content": "<color=#cc2424>아니, 그렇게 우습다는 듯이 놀리지 말아라.</color>"
     },
     {
@@ -364,7 +363,6 @@
     },
     {
       "id": 75,
-      "place": -1,
       "content": "<color=#cc2424>가족이나 형제는 없었던 거니?</color>"
     },
     {

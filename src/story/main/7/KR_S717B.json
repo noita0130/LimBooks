@@ -19,7 +19,6 @@
     },
     {
       "id": 3,
-      "place": -1,
       "content": "<color=#3e7fed>[EP 1] - '돈키호테와 그 끝내주는 모험들에 대하여'</color>"
     },
     {
@@ -291,7 +290,6 @@
     },
     {
       "id": 54,
-      "place": -1,
       "content": "<color=#3e7fed>[EP 2] - '돈키호테와 도적 떼들'</color>"
     },
     {

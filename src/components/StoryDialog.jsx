@@ -36,16 +36,30 @@ const StoryDialog = ({ dataList, darkMode }) => {
 
       // 컬러 태그 내용 추가 - 색상이 적용된 텍스트에 그림자 효과 추가
       const textColor = colorMatch[1];
-      // 밝은 색상 텍스트에는 어두운 그림자를, 어두운 색상 텍스트에는 밝은 그림자를 적용
+      // 밝은 색상 텍스트에는 어두운 윤곽선을, 어두운 색상 텍스트에는 밝은 윤곽선을 적용
       const isLightColor = isLightColorHex(textColor);
-      const shadowColor = isLightColor ? 'black' : 'white';
-      const textShadow = `-1px 0 ${shadowColor}, 0 1px ${shadowColor}, 1px 0 ${shadowColor}, 0 -1px ${shadowColor}`;
-
+      // Tailwind neutral 색상 값을 직접 사용
+      const outlineColor = isLightColor ? '#404040' : '#d4d4d4'; // neutral-900과 neutral-100에 해당
+      
+      // 다중 그림자로 모든 방향에 윤곽선 적용 - 더 자연스럽고 선명한 방식
+      const textShadow = `
+        -1px -1px 1px ${outlineColor},  
+        1px -1px 1px ${outlineColor},
+        -1px 1px 1px ${outlineColor},
+        1px 1px 1px ${outlineColor},
+        -1px 0 1px ${outlineColor},
+        1px 0 1px ${outlineColor},
+        0 -1px 1px ${outlineColor},
+        0 1px 1px ${outlineColor}`;
+      
       parts.push({
         text: colorMatch[2],
         styles: { 
           color: textColor,
-          textShadow: textShadow
+          textShadow: textShadow,
+          // 추가 선명도를 위한 독립 픽셀 렌더링 설정
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale'
         }
       });
 
@@ -122,8 +136,17 @@ const StoryDialog = ({ dataList, darkMode }) => {
   };
 
   // 리치 텍스트 렌더링 함수
-  const renderRichText = (content) => {
+  const renderRichText = (content, field = '알 수 없음') => {
     if (!content) return null;
+    
+    // content가 문자열인지 확인 (이 부분이 추가됨)
+    if (typeof content !== 'string') {
+      console.log(`문자열이 아닌 내용이 '${field}' 필드에서 전달됨:`, content);
+      console.log('타입:', typeof content);
+      // 호출 스택 출력하여 어디서 호출되었는지 확인
+      console.trace('호출 위치 추적');
+      return String(content); // 문자열이 아닌 경우 문자열로 변환 시도
+    }
 
     // 미지원 태그 정리 (파싱 전에 먼저 처리)
     const cleanedContent = content
@@ -177,7 +200,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
                 : 'text-neutral-700 border-b border-neutral-300'
                 }`}
             >
-              장소 : {renderRichText(item.place)}
+              장소 : {renderRichText(item.place, 'place')}
             </motion.div>
           )}
 
@@ -195,13 +218,13 @@ const StoryDialog = ({ dataList, darkMode }) => {
                   ? (item.teller.length > 8 ? 'md:text-sm py-1 md:py-1.5' : 'md:text-base py-0.5 md:py-1')
                   : (item.model.length > 8 ? 'md:text-sm py-1 md:py-1.5' : 'md:text-base py-0.5 md:py-1')
                 } ${darkMode ? 'text-neutral-400' : 'text-neutral-700'} font-semibold md:font-normal break-keep`}>
-                {renderRichText(item.teller || item.model)}
+                {renderRichText(item.teller || item.model, item.teller ? 'teller' : 'model')}
               </div>
             )}
 
             {/* 내용 표시 */}
             <div className={`lg:mx-2 md:mx-0 ${item.model || item.teller ? getDialogStyle(darkMode) : getNarrationStyle(darkMode)}`}>
-              {(!item.type || item.type === 'text') && renderRichText(item.content)}
+              {(!item.type || item.type === 'text') && renderRichText(item.content, 'content')}
               {item.type === 'image' && isImageUrl(item.content) && (
                 <img
                   src={item.content}
