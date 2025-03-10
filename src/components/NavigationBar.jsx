@@ -46,7 +46,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
   }, [closeTimeout]);
 
   return (
-    <nav className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-lg transition-200`}>
+    <nav className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-lg `}>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* 로고 */}
@@ -143,7 +143,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
                   (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
             >
               <MessageCircle className="w-4 h-4 mr-2" />
-              아나운서
+              아나운서(작업중)
             </button>
           </div>
 
@@ -171,10 +171,15 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
       </div>
 
       {/* 모바일 메뉴 */}
-      <div 
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${darkMode ? 'bg-neutral-800' : 'bg-white'} border-t ${darkMode ? 'border-neutral-700' : 'border-neutral-200'} 
-          ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-      >
+      {/* 모바일 메뉴 */}
+<div 
+  className={`md:hidden overflow-hidden ${darkMode ? 'bg-neutral-800' : 'bg-white'} border-t ${darkMode ? 'border-neutral-700' : 'border-neutral-200'}`}
+  style={{
+    maxHeight: isMobileMenuOpen ? '24rem' : '0', // 96px = 24rem (max-h-96)
+    opacity: isMobileMenuOpen ? '1' : '0',
+    transition: 'max-height 300ms ease-in-out, opacity 300ms ease-in-out'
+  }}
+>
         <div className="px-2 pt-2 pb-3 space-y-1">
           <button
             onClick={() => handleMobileNavigation('/')}
@@ -249,7 +254,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
           >
             <div className="flex items-center">
               <MessageCircle className="w-5 h-5 mr-3" />
-              아나운서
+              아나운서(작업중)
             </div>
           </button>
         </div>

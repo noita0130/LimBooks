@@ -566,12 +566,12 @@ const storiesData = {
                 { id: "KR_E711A", title: "호기심의 대가", subtitle: "7.5-11 전투 후" },
                 { id: "KR_E712B", title: "서열", subtitle: "7.5-12 전투 전" },
                 { id: "KR_E713B", title: "새로운 일련번호", subtitle: "7.5-13 전투 전" },
-                { id: "KR_E714B", title: "", subtitle: "7.5-1 전투 전" },
-                { id: "KR_E715B", title: "", subtitle: "7.5-1 전투 전" },
-                { id: "KR_E716B", title: "", subtitle: "7.5-1 전투 전" },
-                { id: "KR_E716A", title: "", subtitle: "7.5-1 전투 전" },
-                { id: "KR_E717B", title: "", subtitle: "7.5-1 전투 전" },
-                { id: "KR_E717A", title: "", subtitle: "7.5-1 전투 전" }
+                { id: "KR_E714B", title: "어느 연구원의 심상", subtitle: "스토리 던전 내부 전투1 전" },
+                { id: "KR_E715B", title: "어느 연구원의 심상", subtitle: "스토리 던전 내부 전투2 전" },
+                { id: "KR_E716B", title: "어느 연구원의 심상", subtitle: "스토리 던전 내부 전투3 전" },
+                { id: "KR_E716A", title: "어느 연구원의 심상", subtitle: "스토리 던전 내부 전투3 후" },
+                { id: "KR_E717B", title: "어느 연구원의 심상", subtitle: "던전보스 전투 전" },
+                { id: "KR_E717A", title: "어느 연구원의 심상", subtitle: "던전보스 전투 후" }
             ]
         }
     ],
