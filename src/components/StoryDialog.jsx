@@ -34,10 +34,19 @@ const StoryDialog = ({ dataList, darkMode }) => {
         });
       }
 
-      // 컬러 태그 내용 추가
+      // 컬러 태그 내용 추가 - 색상이 적용된 텍스트에 그림자 효과 추가
+      const textColor = colorMatch[1];
+      // 밝은 색상 텍스트에는 어두운 그림자를, 어두운 색상 텍스트에는 밝은 그림자를 적용
+      const isLightColor = isLightColorHex(textColor);
+      const shadowColor = isLightColor ? 'black' : 'white';
+      const textShadow = `-1px 0 ${shadowColor}, 0 1px ${shadowColor}, 1px 0 ${shadowColor}, 0 -1px ${shadowColor}`;
+
       parts.push({
         text: colorMatch[2],
-        styles: { color: colorMatch[1] }
+        styles: { 
+          color: textColor,
+          textShadow: textShadow
+        }
       });
 
       lastIndex = colorMatch.index + colorMatch[0].length;
@@ -95,6 +104,23 @@ const StoryDialog = ({ dataList, darkMode }) => {
     return processedParts.length > 0 ? processedParts : [{ text, styles: {} }];
   };
 
+  // 색상이 밝은지 어두운지 판단하는 함수
+  const isLightColorHex = (color) => {
+    // '#'으로 시작하면 제거
+    const hex = color.charAt(0) === '#' ? color.substring(1) : color;
+    
+    // RGB 값으로 변환
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    
+    // 밝기 계산 (YIQ 방식 사용)
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    
+    // 밝기가 128보다 크면 밝은 색, 작으면 어두운 색으로 판단
+    return brightness > 128;
+  };
+
   // 리치 텍스트 렌더링 함수
   const renderRichText = (content) => {
     if (!content) return null;
@@ -146,7 +172,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.01 }}
-              className={`my-4 mx-3 md:ml-22 lg:ml-44 md:mr-4 pt-3 pb-2 max-w-full md:max-w-[600px] ${darkMode
+              className={`my-4 mx-3 md:ml-29 lg:ml-46 md:mr-4 pt-3 pb-2 max-w-full md:max-w-[600px] ${darkMode
                 ? 'text-neutral-400 border-b border-neutral-700'
                 : 'text-neutral-700 border-b border-neutral-300'
                 }`}

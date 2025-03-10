@@ -26,14 +26,14 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
 
     // 해당 인격의 스토리 목록 가져오기
     const personalityStories = personalityData[personalityId] || [];
-    
-    // 기본 출시순으로 정렬 (ID 문자열에서 숫자 부분 추출)
+
+    // 기본 출시순으로 정렬 (a-b 음수반환 > a가 b보다 앞으로)
     const sortedStories = [...personalityStories].sort((a, b) => {
       const numA = parseInt(a.id.replace('KR_P', ''));
       const numB = parseInt(b.id.replace('KR_P', ''));
       return numA - numB;
     });
-    
+
     setStories(sortedStories);
   }, [personalityId]);
 
@@ -41,16 +41,16 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
   const handleSort = (type) => {
     let newSortType;
     let sortedStories = [...stories];
-    
+
     // 현재 정렬 타입에 따라 다음 정렬 타입 결정
     if (type === 'id') {
       newSortType = sortType === 'idAsc' ? 'idDesc' : 'idAsc';
     } else if (type === 'name') {
       newSortType = sortType === 'nameAsc' ? 'nameDesc' : 'nameAsc';
     }
-    
+
     // 새로운 정렬 타입에 따라 정렬
-    switch(newSortType) {
+    switch (newSortType) {
       case 'nameAsc':
         sortedStories.sort((a, b) => a.title.localeCompare(b.title, 'ko'));
         break;
@@ -74,7 +74,7 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
         });
         break;
     }
-    
+
     setStories(sortedStories);
     setSortType(newSortType);
   };
@@ -111,56 +111,55 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
   return (
     <div className={`min-h-screen rounded-lg ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-center mb-4">
-          <button
-            onClick={handleBack}
-            className={`px-4 py-2 rounded-md inline-flex items-center justify-center mb-4 w- sm:mb-0
-              ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
-              }`}
-          >
-            <Undo2 />
-          </button>
-          <h1 className="text-xl sm:text-2xl font-bold sm:ml-4">{characterInfo.name}의 인격 목록</h1>
+        <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between mb-6">
+          {/* 왼쪽 그룹 */}
+          <div className="flex items-center">
+            <button
+              onClick={handleBack}
+              className={`px-4 py-2 rounded-md inline-flex items-center w-fit
+          ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'}`}
+            >
+              <Undo2 />
+            </button>
+            <h1 className="text-xl font-bold ml-3">{characterInfo.name}의 인격 목록</h1>
+          </div>
+
+          {/* 오른쪽 그룹*/}
+          <div className="flex gap-2">
+            <button
+              onClick={() => handleSort('id')}
+              className={`px-3 py-2 rounded-md inline-flex items-center text-xs md:text-sm border-2
+          ${darkMode ? "bg-neutral-700 hover:bg-neutral-600" : "bg-neutral-200 hover:bg-neutral-300"}
+          ${sortType === 'idAsc' || sortType === 'idDesc' ? "" : "border-transparent"}`}
+            >
+              <span className="mr-1">출시순</span>
+              {sortType === 'idAsc' ? (
+                <ArrowDown className="w-3 h-3" />
+              ) : sortType === 'idDesc' ? (
+                <ArrowUp className="w-3 h-3" />
+              ) : (
+                <ArrowDown className="w-3 h-3" />
+              )}
+            </button>
+            <button
+              onClick={() => handleSort('name')}
+              className={`px-3 py-2 rounded-md inline-flex items-center text-xs md:text-sm border-2
+          ${darkMode ? "bg-neutral-700 hover:bg-neutral-600" : "bg-neutral-200 hover:bg-neutral-300"}
+          ${sortType === 'nameAsc' || sortType === 'nameDesc' ? "" : "border-transparent"}`}
+            >
+              <span className="mr-1">이름순</span>
+              {sortType === 'nameAsc' ? (
+                <ArrowDown className="w-3 h-3" />
+              ) : sortType === 'nameDesc' ? (
+                <ArrowUp className="w-3 h-3" />
+              ) : (
+                <ArrowDown className="w-3 h-3" />
+              )}
+            </button>
+          </div>
         </div>
 
-        {/* 정렬 버튼 그룹 추가 - 두 개의 토글 버튼으로 변경 */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          <button
-            onClick={() => handleSort('id')}
-            className={`px-3 py-2 rounded-md inline-flex items-center text-xs
-              ${sortType === 'idAsc' || sortType === 'idDesc'
-                ? (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white') 
-                : (darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300')
-              }`}
-          >
-            <span className="mr-1">출시순</span>
-            {sortType === 'idAsc' ? (
-              <ArrowDown className="w-3 h-3" />
-            ) : sortType === 'idDesc' ? (
-              <ArrowUp className="w-3 h-3" />
-            ) : (
-              <ArrowDown className="w-3 h-3" />
-            )}
-          </button>
-          <button
-            onClick={() => handleSort('name')}
-            className={`px-3 py-2 rounded-md inline-flex items-center text-xs
-              ${sortType === 'nameAsc' || sortType === 'nameDesc'
-                ? (darkMode ? 'bg-blue-600' : 'bg-blue-500 text-white') 
-                : (darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300')
-              }`}
-          >
-            <span className="mr-1">이름순</span>
-            {sortType === 'nameAsc' ? (
-              <ArrowDown className="w-3 h-3" />
-            ) : sortType === 'nameDesc' ? (
-              <ArrowUp className="w-3 h-3" />
-            ) : (
-              <ArrowDown className="w-3 h-3" />
-            )}
-          </button>
-        </div>
-
+        {/* 스토리 목록 컨텐츠 */}
         {stories.length === 0 ? (
           <div className={`p-6 rounded-lg ${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-md`}>
             <p>이 캐릭터의 인격 데이터가 없습니다.</p>
@@ -172,7 +171,6 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                 key={index}
                 className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} rounded-lg shadow-md overflow-hidden h-full`}
               >
-                {/* 모바일과 PC 뷰 통합 (동일한 레이아웃) */}
                 <div className="flex h-full">
                   <div className="w-1/3 overflow-hidden">
                     <img
@@ -182,7 +180,6 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
                     />
                   </div>
                   <div className="w-2/3 p-4 md:p-6 flex flex-col h-full">
-                    {/* 카드 내용을 두 부분으로 명확하게 나눔 */}
                     <div className="flex flex-col h-1/2">
                       <h2 className="text-sm md:text-base lg:text-xl font-semibold">{story.title}</h2>
                     </div>
