@@ -1,6 +1,7 @@
 import StoryReaderPage from "../components/StoryReaderPage";
 import { Routes, Route } from 'react-router-dom';
 import Footer from '../components/footer';
+
 const StoryReaderContent = () => {
   return (
     <>
@@ -12,13 +13,14 @@ const StoryReaderContent = () => {
           <Route path="/:storyType/:storyId" element={<StoryReaderPage />} />
           <Route path="/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
 
+          {/* 인격 관련 경로 */}
           <Route path="/personality" element={<StoryReaderPage />} />
           <Route path="/personality/:personalityId" element={<StoryReaderPage />} />
-          <Route path="/personality/:personalityId/:storyId" element={<StoryReaderPage />} />
           <Route path="/personality/:personalityId/:contentType/:storyId" element={<StoryReaderPage />} />
 
+          {/* 아나운서 관련 경로 */}
           <Route path="/announcers" element={<StoryReaderPage />} />
-          <Route path="/announcers/:announderId" element={<StoryReaderPage />} />
+          <Route path="/announcers/:announcerId" element={<StoryReaderPage />} />
         </Routes>
       </div>
     </>

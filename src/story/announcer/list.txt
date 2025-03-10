@@ -27,4 +27,3 @@ KR_Announcer_Vergilius_28.json
 KR_Announcer_Yesod_16.json
 KR_Announcer_Yisang_6.json
 KR_Announcer_Yuri_9.json
-list.txt

@@ -23,6 +23,9 @@ import Footer from './footer';
 // 만들어 둔 컴포넌트 import
 import PersonalityStoryContent from './PersonalityStoryContent';
 import PersonalityVoiceContent from './PersonalityVoiceContent';
+import AnnouncerContent from './AnnouncerContent';
+import AnnouncerPage from '../pages/AnnouncerPage';
+
 
 import {
   restoreScrollPosition,
@@ -38,7 +41,7 @@ const StoryReaderPage = () => {
   const BASE_PATH = '/LimBooks';
   const navigate = useNavigate();
   const location = useLocation();
-  const { storyType, storyId, chapterId, personalityId, contentType } = useParams();
+  const { storyType, storyId, chapterId, personalityId, contentType, announcerId } = useParams();
   const scrollRef = useRef(new Map());
   const [selectedStory, setSelectedStory] = useState(null);
   const [storyData, setStoryData] = useState(null);
@@ -103,6 +106,11 @@ const StoryReaderPage = () => {
     return location.pathname.match(/\/personality\/[^\/]+\/voice\/[^\/]+/);
   };
 
+  const isAnnouncerRoute = () => {
+    // /announcers/:announcerId 형태의 URL 패턴 확인
+    return location.pathname.match(/\/announcers\/[^\/]+$/);
+  };
+
   return (
     <ScrollContainer darkMode={darkMode}>
       
@@ -165,6 +173,16 @@ const StoryReaderPage = () => {
                 {/* 인격 대사집 콘텐츠 - PersonalityVoiceContent 컴포넌트 사용 */}
                 {isPersonalityVoiceRoute() && (
                   <PersonalityVoiceContent darkMode={darkMode} />
+                )}
+
+                {/* 아나운서 페이지 */}
+                {location.pathname === '/announcers' && (
+                  <AnnouncerPage darkMode={darkMode} />
+                )}
+                
+                {/* 아나운서 대사 페이지 */}
+                {isAnnouncerRoute() && (
+                  <AnnouncerContent darkMode={darkMode} />
                 )}
                 
                 {/* 기존 메인/미니 스토리 리스트 */}
