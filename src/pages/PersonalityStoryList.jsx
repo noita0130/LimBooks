@@ -109,7 +109,8 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
   }
 
   return (
-    <div className={`min-h-screen rounded-lg ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
+    <div className={`min-h-screen rounded-lg p-2 md:p-6
+    ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} `}>
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between mb-6">
           {/* 왼쪽 그룹 */}

@@ -272,7 +272,8 @@ const PersonalityVoiceContent = ({ darkMode }) => {
                 <div className="w-8 md:w-10 flex-shrink-0 self-start">
                   <button
                     onClick={() => playingId === quote.id ? handleStopAudio() : handlePlayAudio(quote.id)}
-                    className={`p-2 rounded-full ${darkMode
+                    className={`p-2 rounded-full
+                      ${darkMode
                         ? 'bg-neutral-600 hover:bg-neutral-500'
                         : 'bg-neutral-300 hover:bg-neutral-400 md:bg-neutral-200 md:hover:bg-neutral-300'
                       } `}
