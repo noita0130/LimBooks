@@ -199,19 +199,21 @@ const AnnouncerContent = ({ darkMode }) => {
       <div className="flex justify-between items-center mb-10">
         <button
           onClick={handleGoBack}
-          className={`px-4 py-2 rounded-md ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+          className={`px-4 py-2 w-14 h-10 rounded-md
+            ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
             }`}
         >
           <Undo2 />
         </button>
-        <h1 className="text-xl md:text-2xl font-bold text-center flex-1">{titleText} 아나운서 대사</h1>
+        <h1 className="text-base md:text-2xl font-bold text-center flex-1">{titleText}</h1>
         <div className="relative">
           <button
             onClick={toggleVolumeSlider}
-            className={`px-4 py-2 rounded-md ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
+            className={`px-4 py-2 w-14 h-10 rounded-md
+              ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'
               }`}
           >
-            <Volume2 size={20} />
+            <Volume2 />
           </button>
           
           {/* 볼륨 슬라이더 */}
@@ -253,7 +255,8 @@ const AnnouncerContent = ({ darkMode }) => {
               }`}
           >
             {/* 대사 설명 - 배경색 제거 */}
-            <div className={`mb-2 px-3 py-2 font-medium ${darkMode
+            <div className={`mb-2 px-3 py-2 font-medium text-sm md:text-base
+            ${darkMode
                 ? 'text-neutral-300 md:text-neutral-400 border-b border-neutral-500 md:border-neutral-700'
                 : 'text-neutral-800 md:text-neutral-700 border-b border-neutral-400 md:border-neutral-300'
               }`}>
@@ -286,7 +289,7 @@ const AnnouncerContent = ({ darkMode }) => {
 
                 {/* 대사 텍스트 */}
                 <div className="flex-1 flex items-center">
-                  <p className={`whitespace-pre-wrap text-base leading-relaxed
+                  <p className={`whitespace-pre-wrap text-sm md:text-base leading-relaxed
                   ${darkMode ? 'text-neutral-100 md:text-neutral-200' : 'text-neutral-800'
                     }`}>
                     {renderRichText(quote.text, 'text')}
