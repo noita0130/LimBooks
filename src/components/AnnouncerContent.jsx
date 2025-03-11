@@ -4,7 +4,7 @@ import { Undo2, Play, Square, Loader, Volume2 } from 'lucide-react';
 import LoadAnnouncer from '../utill/LoadAnnouncer';
 import announcerData from '../data/announcerData';
 import { motion } from "framer-motion";
-import parseRichTextTags from '../utill/parseRichTextTags';
+import { renderRichText } from '../utill/textUtills';
 
 const AnnouncerContent = ({ darkMode }) => {
   const { announcerId } = useParams();
@@ -185,26 +185,6 @@ const AnnouncerContent = ({ darkMode }) => {
     }
   };
 
-  // 리치 텍스트 렌더링 함수
-  const renderRichText = (content) => {
-    if (!content) return null;
-
-    // 미지원 태그 정리 (파싱 전에 먼저 처리)
-    const cleanedContent = content
-      .replace(/<size=[^>]*>([\s\S]*?)<\/size>/g, '$1');  // <size> 태그 제거
-
-    const parts = parseRichTextTags(cleanedContent);
-    return parts.map((part, index) => (
-      <span
-        key={index}
-        style={part.styles}
-        className="whitespace-pre-wrap break-keep"
-      >
-        {part.text}
-      </span>
-    ));
-  };
-
   if (loading) {
     return (
       <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
@@ -277,7 +257,7 @@ const AnnouncerContent = ({ darkMode }) => {
                 ? 'text-neutral-300 md:text-neutral-400 border-b border-neutral-500 md:border-neutral-700'
                 : 'text-neutral-800 md:text-neutral-700 border-b border-neutral-400 md:border-neutral-300'
               }`}>
-              {renderRichText(quote.situation)}
+              {renderRichText(quote.situation, 'situation')}
             </div>
 
             {/* 대사 컨테이너 - 배경색 제거, 패딩 유지 */}
@@ -309,7 +289,7 @@ const AnnouncerContent = ({ darkMode }) => {
                   <p className={`whitespace-pre-wrap text-base leading-relaxed
                   ${darkMode ? 'text-neutral-100 md:text-neutral-200' : 'text-neutral-800'
                     }`}>
-                    {renderRichText(quote.text)}
+                    {renderRichText(quote.text, 'text')}
                   </p>
                 </div>
               </div>
