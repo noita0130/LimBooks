@@ -113,19 +113,6 @@ const StoryReaderPage = () => {
 
   return (
     <ScrollContainer darkMode={darkMode}>
-      
-      <Helmet>
-        <meta name="google-site-verification" content="Sx2a79nNCfoTBZTrBoUBsDlFjGlRQoA2u_AqN2QSreI" />
-        <title>LimBooks - 림버스 스토리 아카이브</title>
-        <meta name="description" content="LimBooks에서 림버스컴퍼니의 스토리를." />
-        <meta name="keywords" content="LimBooks, 림버스, 스토리리더" />
-        
-        {/* Open Graph 태그 */}
-        <meta property="og:title" content="LimBooks" />
-        <meta property="og:description" content="LimBooks에서 다양한 이야기를 만나보세요" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://noita0130.github.io/LimBooks/" />
-      </Helmet>
 
       <div className={`min-h-screen 
       ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
