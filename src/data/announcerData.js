@@ -139,6 +139,12 @@ const announcerData = [
         name: "베르길리우스",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Vergilius_announcer_0.png"
     }
+    ,
+    {
+        id: "KR_Announcer_brother_29",
+        name: "리카르도",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Ricardo_announcer_0.png"
+    }
 ];
 
 export default announcerData;

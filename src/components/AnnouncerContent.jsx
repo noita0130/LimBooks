@@ -246,9 +246,9 @@ const AnnouncerContent = ({ darkMode }) => {
         {voiceData?.quotes?.map((quote, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.05 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.02 }}
             className={`mb-3 px-2 py-2 md:py-0 rounded-lg ${darkMode
                 ? 'bg-neutral-700 md:bg-transparent'
                 : 'bg-neutral-200 md:bg-transparent'
@@ -263,7 +263,7 @@ const AnnouncerContent = ({ darkMode }) => {
               {renderRichText(quote.situation, 'situation')}
             </div>
 
-            {/* 대사 컨테이너 - 배경색 제거, 패딩 유지 */}
+            {/* 대사 컨테이너*/}
             <div className="rounded-lg overflow-hidden p-3">
               {/* 대사 내용 */}
               <div className="flex flex-row space-x-3">

@@ -225,6 +225,11 @@ const personalityData = {
             id: "KR_P10410",
             title: "로보토미 E.G.O::적안·참회",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10410_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10411",
+            title: "흑수",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10411_gacksung_profile.png",
         }
     ],
     Meursault: [
@@ -629,7 +634,13 @@ const personalityData = {
             id: "KR_P11111",
             title: "라만차랜드 이발사",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11111_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11112",
+            title: "흑수",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11112_gacksung_profile.png",
         }
+        
     ],
     Gregor: [
         {

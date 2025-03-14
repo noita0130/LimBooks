@@ -1,20 +1,21 @@
 import React from "react";
 
-// 색상이 밝은지 어두운지 판단하는 함수
 export const isLightColorHex = (color) => {
   // '#'으로 시작하면 제거
   const hex = color.charAt(0) === '#' ? color.substring(1) : color;
   
   // RGB 값으로 변환
-  const r = parseInt(hex.substr(0, 2), 16);
-  const g = parseInt(hex.substr(2, 2), 16);
-  const b = parseInt(hex.substr(4, 2), 16);
+  const r = parseInt(hex.substr(0, 2), 16) / 255;
+  const g = parseInt(hex.substr(2, 2), 16) / 255;
+  const b = parseInt(hex.substr(4, 2), 16) / 255;
   
-  // 밝기 계산 (YIQ 방식 사용)
-  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+  // RGB를 HSL로 변환하여 명도(Lightness) 계산
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const l = (max + min) / 2; // 명도
   
-  // 밝기가 128보다 크면 밝은 색, 작으면 어두운 색으로 판단
-  return brightness > 128;
+  // 명도가 0.5(50%)보다 크면 밝은 색, 작으면 어두운 색으로 판단
+  return l > 0.5;
 };
 
 // 이미지 URL인지 확인하는 함수
@@ -22,7 +23,7 @@ export const isImageUrl = (str) => {
   return str?.match(/\.(jpeg|jpg|gif|png)$/) != null;
 };
 
-// 향상된 태그 파싱 함수
+// 태그 파싱 함수
 export const parseRichTextTags = (text) => {
   if (!text) return [{ text: '', styles: {} }];
 
@@ -51,12 +52,10 @@ export const parseRichTextTags = (text) => {
 
     // 컬러 태그 내용 추가 - 색상이 적용된 텍스트에 그림자 효과 추가
     const textColor = colorMatch[1];
-    // 밝은 색상 텍스트에는 어두운 윤곽선을, 어두운 색상 텍스트에는 밝은 윤곽선을 적용
     const isLightColor = isLightColorHex(textColor);
-    // Tailwind neutral 색상 값을 직접 사용
-    const outlineColor = isLightColor ? '#404040' : '#d4d4d4'; // neutral-900과 neutral-100에 해당
+    const outlineColor = isLightColor ? '#404040' : '#d4d4d4'; // neutral-700과 neutral-400에
     
-    // 다중 그림자로 모든 방향에 윤곽선 적용 - 더 자연스럽고 선명한 방식
+    // 다중 그림자
     const textShadow = `
       -1px -1px 1px ${outlineColor},  
       1px -1px 1px ${outlineColor},
@@ -155,7 +154,7 @@ export const renderRichText = (content, field = '알 수 없음') => {
     <span
       key={index}
       style={part.styles}
-      className="whitespace-pre-wrap break-keep"
+      className="whitespace-pre-wrap "
     >
       {part.text}
     </span>

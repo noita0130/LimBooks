@@ -46,7 +46,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.01 }}
+            transition={{ delay: index * 0.02 }}
             className={`flex flex-col md:flex-row items-start md:space-x-2 mb-3 md:mb-1
               ${(item.model || item.teller) ? getMobileContainerStyle(darkMode) : ''}`}
           >
@@ -56,7 +56,7 @@ const StoryDialog = ({ dataList, darkMode }) => {
                 ${item.teller
                   ? (item.teller.length > 8 ? 'md:text-sm py-1 md:py-1.5' : 'md:text-base py-0.5 md:py-1')
                   : (item.model.length > 8 ? 'md:text-sm py-1 md:py-1.5' : 'md:text-base py-0.5 md:py-1')
-                } ${darkMode ? 'text-neutral-400' : 'text-neutral-700'} font-semibold md:font-normal break-keep`}>
+                } ${darkMode ? 'text-neutral-400' : 'text-neutral-700'} font-semibold md:font-normal `}>
                 {renderRichText(item.teller || item.model, item.teller ? 'teller' : 'model')}
               </div>
             )}

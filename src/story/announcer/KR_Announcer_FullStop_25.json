@@ -147,21 +147,21 @@
     },
     {
       "id": "announcer_special_25_1",
-      "desc": "특수 상황",
+      "desc": "특수 상황 1",
       "dlg": "교단 놈들이 곧 몰려들 거야… 정신머리 똑바로 차리고, 무기부터 확인해!",
       "imgStr" : "Stephan_announcer",
       "isHide" : true
     },
     {
       "id": "announcer_special_25_2",
-      "desc": "특수 상황",
+      "desc": "특수 상황 2",
       "dlg": "끝도 없이 몰려드네… 대가리엔 이상한 톱니바퀴나 박고… 총알 안 떨어지게 잘 관리하라고.",
       "imgStr" : "Stephan_announcer",
       "isHide" : true
     },
     {
       "id": "announcer_special_25_3",
-      "desc": "특수 상황",
+      "desc": "특수 상황 3",
       "dlg": "저 녀석이 마지막인 것 같은데… 심상치 않은 분위기야. 조심해가면서 싸워.",
       "imgStr" : "Stephan_announcer",
       "isHide" : true
