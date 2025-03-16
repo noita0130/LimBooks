@@ -24,7 +24,7 @@ const MainPage = React.lazy(() => Promise.resolve({
             림버스 컴퍼니의 스토리 리더 입니다<br />
             <br />
             최근 업데이트<br />
-            2025.03.14.
+            2025.03.16.
             {/*deployTime*/}
           </p>
         </div>
@@ -36,6 +36,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 1. 수감자 대사 음성재생기능 추가<br />
                 2. 메인스토리 검수 90%완료<br />
                 3. 아나운서 추가<br />
+                4. 다인 아나운서 색 추가 (노움제외)
                 
               </p>
             </div>
