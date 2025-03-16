@@ -18,11 +18,14 @@ import ScrollContainer from '../utill/ScrollContainer';
 import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
 import { Helmet } from 'react-helmet';
 import loadChapterData from '../utill/loadChapterData';
-import { Undo2 } from 'lucide-react';
+import Footer from './footer';
 
 // 만들어 둔 컴포넌트 import
 import PersonalityStoryContent from './PersonalityStoryContent';
 import PersonalityVoiceContent from './PersonalityVoiceContent';
+import AnnouncerContent from './AnnouncerContent';
+import AnnouncerPage from '../pages/AnnouncerPage';
+
 
 import {
   restoreScrollPosition,
@@ -38,7 +41,7 @@ const StoryReaderPage = () => {
   const BASE_PATH = '/LimBooks';
   const navigate = useNavigate();
   const location = useLocation();
-  const { storyType, storyId, chapterId, personalityId, contentType } = useParams();
+  const { storyType, storyId, chapterId, personalityId, contentType, announcerId } = useParams();
   const scrollRef = useRef(new Map());
   const [selectedStory, setSelectedStory] = useState(null);
   const [storyData, setStoryData] = useState(null);
@@ -103,21 +106,13 @@ const StoryReaderPage = () => {
     return location.pathname.match(/\/personality\/[^\/]+\/voice\/[^\/]+/);
   };
 
+  const isAnnouncerRoute = () => {
+    // /announcers/:announcerId 형태의 URL 패턴 확인
+    return location.pathname.match(/\/announcers\/[^\/]+$/);
+  };
+
   return (
     <ScrollContainer darkMode={darkMode}>
-      
-      <Helmet>
-        <meta name="google-site-verification" content="Sx2a79nNCfoTBZTrBoUBsDlFjGlRQoA2u_AqN2QSreI" />
-        <title>LimBooks - 림버스 스토리 리더</title>
-        <meta name="description" content="LimBooks에서 간단히 림버스를." />
-        <meta name="keywords" content="LimBooks, 림버스, 스토리리더" />
-        
-        {/* Open Graph 태그 */}
-        <meta property="og:title" content="LimBooks" />
-        <meta property="og:description" content="LimBooks에서 다양한 이야기를 만나보세요" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://noita0130.github.io/LimBooks/" />
-      </Helmet>
 
       <div className={`min-h-screen 
       ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
@@ -127,7 +122,7 @@ const StoryReaderPage = () => {
           handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
           location={location}
         />
-        <main className="max-w-6xl mx-auto px-4 py-8 font-NotoSerifKR">
+        <main className="max-w-6xl min-h-screen mx-auto px-4 py-8 font-NotoSerifKR">
           <Suspense fallback={<LoadingSpinner />}>
             <AnimatePresence mode="wait">
               <motion.div
@@ -166,6 +161,18 @@ const StoryReaderPage = () => {
                 {isPersonalityVoiceRoute() && (
                   <PersonalityVoiceContent darkMode={darkMode} />
                 )}
+
+                {/* 아나운서 페이지 */}
+                {location.pathname === '/announcers' && (
+                  <AnnouncerPage darkMode={darkMode} />
+                )}
+                
+                {/* 아나운서 대사 페이지 */}
+                {isAnnouncerRoute() && (
+                  <AnnouncerContent darkMode={darkMode} />
+                )}
+
+                
                 
                 {/* 기존 메인/미니 스토리 리스트 */}
                 {(storyType === 'main' || storyType === 'mini') && !storyId && (
@@ -208,6 +215,7 @@ const StoryReaderPage = () => {
             </AnimatePresence>
           </Suspense>
         </main>
+        <Footer darkMode={darkMode} />
       </div>
     </ScrollContainer>
   );

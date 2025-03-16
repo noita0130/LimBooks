@@ -6,22 +6,22 @@
  */
 const LoadPersonalityStory = async (personalityId, storyId) => {
   try {
-    console.log("인격 스토리 로드 요청:", personalityId, storyId);
+    //console.log("인격 스토리 로드 요청:", personalityId, storyId);
     
     // 동적 import 사용 (loadChapterData와 유사한 방식)
     let response;
     
     try {
       response = await import(`../story/personality/story/${storyId}.json`);
-      console.log("스토리 데이터 임포트 성공");
+      //console.log("스토리 데이터 임포트 성공");
     } catch (importError) {
-      console.error("임포트 오류:", importError);
+      //console.error("임포트 오류:", importError);
       throw new Error(`스토리 데이터 파일을 임포트할 수 없습니다: ${storyId}`);
     }
     
     // import 결과에서 default 속성으로 데이터에 접근
     const data = response.default;
-    console.log("스토리 데이터 확인:", data ? "데이터 있음" : "데이터 없음");
+    //console.log("스토리 데이터 확인:", data ? "데이터 있음" : "데이터 없음");
     
     // dataList 형태인 경우 (제공된 KR_P10102.json 형식)
     if (data.dataList) {

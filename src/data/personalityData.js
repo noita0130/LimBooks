@@ -54,6 +54,11 @@ const personalityData = {
             id: "KR_P10111",
             title: "LCE E.G.O::초롱",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10111_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10112",
+            title: "남부 리우 협회 3과",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10112_gacksung_profile.png",
         }
     ],
     Faust: [
@@ -163,6 +168,11 @@ const personalityData = {
             id: "KR_P10310",
             title: "라만차랜드 실장",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10310_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10311",
+            title: "동부 섕크 협회 3과",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10311_gacksung_profile.png",
         }
     ],
     Ryoshu: [
@@ -215,6 +225,11 @@ const personalityData = {
             id: "KR_P10410",
             title: "로보토미 E.G.O::적안·참회",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10410_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10411",
+            title: "흑수",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10411_gacksung_profile.png",
         }
     ],
     Meursault: [
@@ -619,7 +634,13 @@ const personalityData = {
             id: "KR_P11111",
             title: "라만차랜드 이발사",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11111_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11112",
+            title: "흑수",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11112_gacksung_profile.png",
         }
+        
     ],
     Gregor: [
         {
@@ -671,6 +692,11 @@ const personalityData = {
             id: "KR_P11210",
             title: "라만차랜드 신부",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11210_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11211",
+            title: "불주먹 사무소 생존자",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11211_gacksung_profile.png",
         }
     ]
 };

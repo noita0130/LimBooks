@@ -24,7 +24,7 @@ const MainPage = React.lazy(() => Promise.resolve({
             림버스 컴퍼니의 스토리 리더 입니다<br />
             <br />
             최근 업데이트<br />
-            2025.03.06.
+            2025.03.16.
             {/*deployTime*/}
           </p>
         </div>
@@ -33,18 +33,21 @@ const MainPage = React.lazy(() => Promise.resolve({
             <div className="w-full md:w-1/2 p-4">
               <h1 className="text-center text-2xl font-bold mb-4">✅업데이트 목록</h1>
               <p className="text-center">
-                1. 인격 스토리 추가<br />
-                2. 대사집 추가<br />
-                3. 3장까지의 스토리 화자 수정완료
+                1. 수감자 대사 음성재생기능 추가<br />
+                2. 메인스토리 검수 90%완료<br />
+                3. 아나운서 추가<br />
+                4. 다인 아나운서 색 추가 (노움제외)
                 
               </p>
             </div>
             <div className="w-full md:w-1/2 p-4">
-              <h1 className="text-center text-2xl font-bold mb-4">🔨제작중인 사항</h1>
+              <h1 className="text-center text-2xl font-bold mb-4">🔨작업중인 사항</h1>
               <p className="text-center">
-                1. 수감자 대사 음성재생기능 <br />
-                2. 4장 이후 스토리 화자 수정 <br />
-                
+                1. 와히스 6장 전/후 대사변경<br />
+                2. 제뱌찌 플루드니차 대사추가<br />
+                3. 특수대사 (실장돈키, 선장마엘, 츠이스 등) 추가
+                4. 인격, 아나운서 수정
+                5. E.G.O. 대사 추가
               </p>
             </div>
           </div>

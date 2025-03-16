@@ -71,7 +71,7 @@ const PersonalityStoryContent = ({ darkMode }) => {
         >
           <Undo2 />
         </button>
-        <h1 className="text-xl md:text-2xl font-bold text-center flex-1">{titleText}</h1>
+        <h1 className="text-base md:text-2xl font-bold text-center flex-1">{titleText}</h1>
         <div className="w-[48px]"></div> {/* 헤더 균형을 위한 빈 공간 */}
       </div>
 

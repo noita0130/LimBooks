@@ -65,10 +65,10 @@ const useStoryData = (storyType) => {
                                         (acc, curr) => acc + (curr.content?.length || 0),
                                         0
                                     );
-                                    console.log(`기존 경로에서 ${chapter.id} 데이터를 불러왔습니다.`);
+                                    //console.log(`기존 경로에서 ${chapter.id} 데이터를 불러왔습니다.`);
                                     return { ...chapter, wordCount };
                                 } catch (fallbackError) {
-                                    console.error(`모든 경로에서 ${chapter.id} 로드 실패`);
+                                    //console.error(`모든 경로에서 ${chapter.id} 로드 실패`);
                                     return { ...chapter, wordCount: 0 };
                                 }
                             }
