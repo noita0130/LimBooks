@@ -26,7 +26,6 @@ import PersonalityVoiceContent from './PersonalityVoiceContent';
 import AnnouncerContent from './AnnouncerContent';
 import AnnouncerPage from '../pages/AnnouncerPage';
 
-
 import {
   restoreScrollPosition,
   handleStoryClick,
@@ -152,12 +151,14 @@ const StoryReaderPage = () => {
                   />
                 )}
                 
-                {/* 인격 스토리 콘텐츠 - PersonalityStoryContent 컴포넌트 사용 */}
+                {/* 인격 스토리 콘텐츠 - PersonalityStoryContent*/}
                 {isPersonalityStoryRoute() && (
-                  <PersonalityStoryContent darkMode={darkMode} />
+                  <PersonalityStoryContent 
+                    darkMode={darkMode} 
+                  />
                 )}
                 
-                {/* 인격 대사집 콘텐츠 - PersonalityVoiceContent 컴포넌트 사용 */}
+                {/* 인격 대사집 콘텐츠 - PersonalityVoiceContent*/}
                 {isPersonalityVoiceRoute() && (
                   <PersonalityVoiceContent darkMode={darkMode} />
                 )}
