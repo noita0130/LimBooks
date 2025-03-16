@@ -171,7 +171,6 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
       </div>
 
       {/* 모바일 메뉴 */}
-      {/* 모바일 메뉴 */}
 <div 
   className={`md:hidden overflow-hidden ${darkMode ? 'bg-neutral-800' : 'bg-white'} border-t ${darkMode ? 'border-neutral-700' : 'border-neutral-200'}`}
   style={{

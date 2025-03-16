@@ -171,6 +171,8 @@ const StoryReaderPage = () => {
                 {isAnnouncerRoute() && (
                   <AnnouncerContent darkMode={darkMode} />
                 )}
+
+                
                 
                 {/* 기존 메인/미니 스토리 리스트 */}
                 {(storyType === 'main' || storyType === 'mini') && !storyId && (
