@@ -5,8 +5,10 @@ import LoadAnnouncer from '../utill/LoadAnnouncer';
 import announcerData from '../data/announcerData';
 import { motion } from "framer-motion";
 import { renderRichText } from '../utill/textUtills';
+import useDarkMode from '../hooks/useDarkmode';
 
-const AnnouncerContent = ({ darkMode }) => {
+const AnnouncerContent = () => {
+  const { darkMode } = useDarkMode();
   const { announcerId } = useParams();
   const navigate = useNavigate();
   const [voiceData, setVoiceData] = useState(null);

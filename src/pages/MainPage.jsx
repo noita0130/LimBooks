@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import useDarkMode from '../hooks/useDarkmode';
 
 const MainPage = React.lazy(() => Promise.resolve({
-  default: ({ darkMode }) => {
+  default: () => {
+    const { darkMode } = useDarkMode();
     const [deployTime, setDeployTime] = useState("로딩 중...");
 
     useEffect(() => {

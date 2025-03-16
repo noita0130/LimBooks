@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import announcerData from '../data/announcerData';
+import useDarkMode from '../hooks/useDarkmode';
 
-const AnnouncerPage = ({ darkMode }) => {
+const AnnouncerPage = () => {
+    const { darkMode } = useDarkMode();
     const navigate = useNavigate();
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 

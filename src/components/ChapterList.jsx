@@ -1,9 +1,10 @@
 // components/ChapterList.jsx
 import { motion } from 'framer-motion';
 import { Undo2 } from 'lucide-react';
+import useDarkMode from '../hooks/useDarkmode';
 
-const ChapterList = ({ selectedStory, darkMode, handleChapterClick, handleNavigation, storyType }) => {
-
+const ChapterList = ({ selectedStory, handleChapterClick, handleNavigation, storyType }) => {
+    const { darkMode } = useDarkMode();
     const StoryNavigationButtons = () => (
         <div className={`rounded-lg font-normal overflow-hidden flex ${darkMode ? 'bg-neutral-700' : 'bg-neutral-200'}`}>
             <button

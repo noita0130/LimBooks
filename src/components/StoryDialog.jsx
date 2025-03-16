@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { isImageUrl, renderRichText } from "../utill/textUtills";
+import useDarkMode from '../hooks/useDarkmode';
 
-const StoryDialog = ({ dataList, darkMode }) => {
+const StoryDialog = ({ dataList }) => {
+  const { darkMode } = useDarkMode();
   // 내레이션 스타일 (model/teller가 없는 경우)
   const getNarrationStyle = (darkMode) =>
     `flex-1 py-1 mx-4 sm:my-1 md:my-0 md:ml-29 lg:ml-46 text-sm md:text-base italic ${darkMode

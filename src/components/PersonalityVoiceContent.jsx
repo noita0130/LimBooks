@@ -5,8 +5,10 @@ import LoadPersonalityVoice from '../utill/LoadPersonalityVoice';
 import personalityData from '../data/personalityData';
 import { motion } from "framer-motion";
 import { renderRichText } from '../utill/textUtills';
+import useDarkMode from '../hooks/useDarkmode';
 
-const PersonalityVoiceContent = ({ darkMode }) => {
+const PersonalityVoiceContent = () => {
+  const { darkMode } = useDarkMode();
   const { personalityId, storyId } = useParams();
   const navigate = useNavigate();
   const [voiceData, setVoiceData] = useState(null);
@@ -206,7 +208,7 @@ const PersonalityVoiceContent = ({ darkMode }) => {
         >
           <Undo2 />
         </button>
-        <h1 className="text-base md:text-2xl font-bold text-center flex-1">{titleText} 대사</h1>
+        <h1 className="text-base md:text-2xl font-bold text-center flex-1">{titleText}</h1>
         <div className="relative">
           <button
             onClick={toggleVolumeSlider}

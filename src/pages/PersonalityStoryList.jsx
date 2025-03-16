@@ -7,8 +7,10 @@ import handleGoBack from '../utill/handleGoBack';
 import { Undo2 } from 'lucide-react';
 import { isSpecialStoryId, getSpecialStoryInfo } from '../data/specialStoriesMap';
 import StorySelector from '../utill/StorySelector';
+import useDarkMode from '../hooks/useDarkmode';
 
-const PersonalityStoryList = ({ darkMode, personalityId }) => {
+const PersonalityStoryList = ({ personalityId }) => {
+  const { darkMode } = useDarkMode();
   const navigate = useNavigate();
   const location = useLocation();
   const scrollRef = useRef(new Map());

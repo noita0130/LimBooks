@@ -5,15 +5,16 @@ import StoryDialog from '../components/StoryDialog';
 import LoadPersonalityStory from '../utill/LoadPersonalityStory';
 import personalityData from '../data/personalityData';
 import StorySelector from '../utill/StorySelector';
+import useDarkMode from '../hooks/useDarkmode';
 import {
   isSpecialStoryId,
   getSpecialStoryInfo,
   getSpecialStoryMainTitle,
   getSpecialStorySubTitle
 } from '../data/specialStoriesMap';
-// AnimatePresence와 motion 라이브러리를 사용하지 않는 방식으로 구현
 
-const PersonalityStoryContent = ({ darkMode }) => {
+const PersonalityStoryContent = () => {
+  const { darkMode } = useDarkMode();
   const { personalityId, storyId } = useParams();
   const navigate = useNavigate();
 

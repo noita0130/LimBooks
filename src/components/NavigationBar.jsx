@@ -1,7 +1,9 @@
 import { Home, Book, BookOpen, Moon, Sun, MessageCircle, ChevronDown, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import useDarkMode from '../hooks/useDarkmode';
 
-const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location }) => {
+const NavigationBar = ({ handleNavigation, location }) => {
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const [isStoryMenuOpen, setIsStoryMenuOpen] = useState(false);
   const [closeTimeout, setCloseTimeout] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
