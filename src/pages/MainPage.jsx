@@ -35,7 +35,7 @@ const MainPage = React.lazy(() => Promise.resolve({
             <div className="w-full md:w-1/2 p-4">
               <h1 className="text-center text-2xl font-bold mb-4">✅업데이트 목록</h1>
               <p className="text-center">
-                1. 수감자 대사 음성재생기능 추가<br />
+                1. 와히스 6장 전/후 대사변경<br />
                 2. 메인스토리 검수 90%완료<br />
                 3. 아나운서 추가<br />
                 4. 다인 아나운서 색 추가 (노움제외)
@@ -45,11 +45,9 @@ const MainPage = React.lazy(() => Promise.resolve({
             <div className="w-full md:w-1/2 p-4">
               <h1 className="text-center text-2xl font-bold mb-4">🔨작업중인 사항</h1>
               <p className="text-center">
-                1. 와히스 6장 전/후 대사변경<br />
-                2. 제뱌찌 플루드니차 대사추가<br />
-                3. 특수대사 (실장돈키, 선장마엘, 츠이스 등) 추가
-                4. 인격, 아나운서 수정
-                5. E.G.O. 대사 추가
+                1. 제뱌찌 플루드니차 대사추가<br />
+                2. 특수대사 (실장돈키, 선장마엘, 츠이스 등) 추가<br />
+                3. E.G.O. 대사 추가<br />
               </p>
             </div>
           </div>

@@ -6,36 +6,37 @@
  */
 const LoadPersonalityStory = async (personalityId, storyId) => {
   try {
-    //console.log("인격 스토리 로드 요청:", personalityId, storyId);
-    
     // 특별한 스토리 ID 처리 (예: KR_P10710_1 같은 경우 기본 ID로 변환)
     const baseStoryId = storyId.includes('_') && storyId.split('_').length > 3 
       ? storyId.substring(0, storyId.lastIndexOf('_')) 
       : storyId;
     
+    const storyFiles = import.meta.glob('../story/personality/story/*.json');
+    
     // 동적 import
     let response;
-    let specificStoryPath = '';
     
     try {
-      // 먼저 특별 스토리 경로가 있는지 확인
-      try {
-        specificStoryPath = `../story/personality/story/${storyId}.json`;
-        response = await import(specificStoryPath);
-        //console.log("특별 스토리 데이터 임포트 성공:", specificStoryPath);
-      } catch (specificError) {
-        // 특별 스토리가 없으면 기본 스토리 로드
-        response = await import(`../story/personality/story/${baseStoryId}.json`);
-        //console.log("기본 스토리 데이터 임포트 성공");
+      const specificStoryPath = `../story/personality/story/${storyId}.json`;
+      const baseStoryPath = `../story/personality/story/${baseStoryId}.json`;
+
+      if (storyFiles[specificStoryPath]) {
+        response = await storyFiles[specificStoryPath]();
+      } 
+      // 특별 스토리가 없으면 기본 스토리 로드
+      else if (storyFiles[baseStoryPath]) {
+        response = await storyFiles[baseStoryPath]();
+      } 
+      // 둘 다 없는 경우
+      else {
+        throw new Error(`스토리 파일을 찾을 수 없습니다: ${storyId}`);
       }
     } catch (importError) {
-      //console.error("임포트 오류:", importError);
       throw new Error(`스토리 데이터 파일을 임포트할 수 없습니다: ${storyId}`);
     }
     
     // import 결과에서 default 속성으로 데이터에 접근
     const data = response.default;
-    //console.log("스토리 데이터 확인:", data ? "데이터 있음" : "데이터 없음");
     
     // dataList 형태인 경우 (제공된 KR_P10102.json 형식)
     if (data.dataList) {

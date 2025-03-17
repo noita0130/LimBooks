@@ -21,7 +21,6 @@ import loadChapterData from '../utill/loadChapterData';
 import useDarkMode from '../hooks/useDarkmode';
 import Footer from './footer';
 
-// 만들어 둔 컴포넌트 import
 import PersonalityStoryContent from './PersonalityStoryContent';
 import PersonalityVoiceContent from './PersonalityVoiceContent';
 import AnnouncerContent from './AnnouncerContent';
@@ -41,7 +40,7 @@ const StoryReaderPage = () => {
   const BASE_PATH = '/LimBooks';
   const navigate = useNavigate();
   const location = useLocation();
-  const { storyType, storyId, chapterId, personalityId, contentType, announcerId } = useParams();
+  const { storyType, storyId, chapterId} = useParams();
   const scrollRef = useRef(new Map());
   const [selectedStory, setSelectedStory] = useState(null);
   const [storyData, setStoryData] = useState(null);
