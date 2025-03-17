@@ -228,7 +228,7 @@ const personalityData = {
         },
         {
             id: "KR_P10411",
-            title: "흑수",
+            title: "흑수 - 묘",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10411_gacksung_profile.png",
         }
     ],
@@ -637,7 +637,7 @@ const personalityData = {
         },
         {
             id: "KR_P11112",
-            title: "흑수",
+            title: "흑수 - 묘",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11112_gacksung_profile.png",
         }
         
