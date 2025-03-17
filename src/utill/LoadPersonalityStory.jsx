@@ -8,12 +8,26 @@ const LoadPersonalityStory = async (personalityId, storyId) => {
   try {
     //console.log("인격 스토리 로드 요청:", personalityId, storyId);
     
-    // 동적 import 사용 (loadChapterData와 유사한 방식)
+    // 특별한 스토리 ID 처리 (예: KR_P10710_1 같은 경우 기본 ID로 변환)
+    const baseStoryId = storyId.includes('_') && storyId.split('_').length > 3 
+      ? storyId.substring(0, storyId.lastIndexOf('_')) 
+      : storyId;
+    
+    // 동적 import
     let response;
+    let specificStoryPath = '';
     
     try {
-      response = await import(`../story/personality/story/${storyId}.json`);
-      //console.log("스토리 데이터 임포트 성공");
+      // 먼저 특별 스토리 경로가 있는지 확인
+      try {
+        specificStoryPath = `../story/personality/story/${storyId}.json`;
+        response = await import(specificStoryPath);
+        //console.log("특별 스토리 데이터 임포트 성공:", specificStoryPath);
+      } catch (specificError) {
+        // 특별 스토리가 없으면 기본 스토리 로드
+        response = await import(`../story/personality/story/${baseStoryId}.json`);
+        //console.log("기본 스토리 데이터 임포트 성공");
+      }
     } catch (importError) {
       //console.error("임포트 오류:", importError);
       throw new Error(`스토리 데이터 파일을 임포트할 수 없습니다: ${storyId}`);
@@ -34,7 +48,6 @@ const LoadPersonalityStory = async (personalityId, storyId) => {
       return {
         id: storyId,
         title: title,
-        // dataList를 dialogues 형태로 변환할 필요 없음 (이미 호환됨)
         dataList: data.dataList,
         personalityId: personalityId
       };

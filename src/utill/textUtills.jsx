@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import useDarkMode from "../hooks/useDarkmode";
 
 export const isLightColorHex = (color) => {
   // '#'으로 시작하면 제거
@@ -24,7 +25,7 @@ export const isImageUrl = (str) => {
 };
 
 // 태그 파싱 함수
-export const parseRichTextTags = (text) => {
+export const parseRichTextTags = (text, isDarkMode, isMdScreen) => {
   if (!text) return [{ text: '', styles: {} }];
 
   // 텍스트 정리 - 지원하지 않는 태그 제거
@@ -53,18 +54,36 @@ export const parseRichTextTags = (text) => {
     // 컬러 태그 내용 추가 - 색상이 적용된 텍스트에 그림자 효과 추가
     const textColor = colorMatch[1];
     const isLightColor = isLightColorHex(textColor);
-    const outlineColor = isLightColor ? '#404040' : '#d4d4d4'; // neutral-700과 neutral-400에
+    
+    // 다크모드와 화면 너비에 따라 그림자 색상 변경
+    let outlineColor;
+    
+    if (isMdScreen) {
+      // md 이상
+      if (isDarkMode) {
+        outlineColor = isLightColor ? '#262626' : '#a3a3a3'; 
+      } else {
+        outlineColor = isLightColor ? '#000000' : '#d4d4d4'; // 기존 neutral-700과 neutral-400
+      }
+    } else {
+      // 모바일
+      if (isDarkMode) {
+        outlineColor = isLightColor ? '#404040' : '#a3a3a3'; 
+      } else {
+        outlineColor = isLightColor ? '#303030' : '#e0e0e0'; 
+      }
+    }
     
     // 다중 그림자
     const textShadow = `
-      -1px -1px 1px ${outlineColor},  
-      1px -1px 1px ${outlineColor},
-      -1px 1px 1px ${outlineColor},
-      1px 1px 1px ${outlineColor},
-      -1px 0 1px ${outlineColor},
-      1px 0 1px ${outlineColor},
-      0 -1px 1px ${outlineColor},
-      0 1px 1px ${outlineColor}`;
+      -0.5px -0.5px 2px ${outlineColor},  
+      0.5px -0.5px 2px ${outlineColor},
+      -0.5px 0.5px 2px ${outlineColor},
+      0.5px 0.5px 2px ${outlineColor},
+      -0.5px 0 2px ${outlineColor},
+      0.5px 0 2px ${outlineColor},
+      0 -0.5px 2px ${outlineColor},
+      0 0.5px 2px ${outlineColor}`;
     
     parts.push({
       text: colorMatch[2],
@@ -132,15 +151,62 @@ export const parseRichTextTags = (text) => {
   return processedParts.length > 0 ? processedParts : [{ text, styles: {} }];
 };
 
-// 리치 텍스트 렌더링 함수
-export const renderRichText = (content, field = '알 수 없음') => {
+// 화면 크기를 감지하는 컴포넌트 (윈도우 크기 체크용)
+export const WindowSizeProvider = ({ children }) => {
+  const [windowSize, setWindowSize] = React.useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 768, // 기본값 설정
+    height: typeof window !== 'undefined' ? window.innerHeight : 0,
+  });
+  
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // 초기 설정
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  return React.createContext(windowSize).Provider;
+};
+
+// 리치 텍스트 렌더링 컴포넌트
+export const RichText = ({ content, field = '알 수 없음' }) => {
+  const { darkMode } = useDarkMode();
+  const [windowSize, setWindowSize] = React.useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 768
+  });
+  
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth
+      });
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // 초기 설정
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  const isMdScreen = windowSize.width >= 768;
+  
   if (!content) return null;
   
-  // content가 문자열인지 확인 (이 부분이 추가됨)
+  // content가 문자열인지 확인
   if (typeof content !== 'string') {
     console.log(`문자열이 아닌 내용이 '${field}' 필드에서 전달됨:`, content);
     console.log('타입:', typeof content);
-    // 호출 스택 출력하여 어디서 호출되었는지 확인
     console.trace('호출 위치 추적');
     return String(content); // 문자열이 아닌 경우 문자열로 변환 시도
   }
@@ -149,14 +215,23 @@ export const renderRichText = (content, field = '알 수 없음') => {
   const cleanedContent = content
     .replace(/<size=[^>]*>([\s\S]*?)<\/size>/g, '$1');  // <size> 태그 제거
 
-  const parts = parseRichTextTags(cleanedContent);
-  return parts.map((part, index) => (
-    <span
-      key={index}
-      style={part.styles}
-      className="whitespace-pre-wrap "
-    >
-      {part.text}
-    </span>
-  ));
+  const parts = parseRichTextTags(cleanedContent, darkMode, isMdScreen);
+  return (
+    <>
+      {parts.map((part, index) => (
+        <span
+          key={index}
+          style={part.styles}
+          className="whitespace-pre-wrap"
+        >
+          {part.text}
+        </span>
+      ))}
+    </>
+  );
+};
+
+// 기존 함수를 유지하되 새로운 컴포넌트를 사용하도록 함
+export const renderRichText = (content, field = '알 수 없음') => {
+  return <RichText content={content} field={field} />;
 };

@@ -5,9 +5,12 @@ import personalityData from '../data/personalityData';
 import personalityList from '../data/personalityList';
 import handleGoBack from '../utill/handleGoBack';
 import { Undo2 } from 'lucide-react';
+import { isSpecialStoryId, getSpecialStoryInfo } from '../data/specialStoriesMap';
+import StorySelector from '../utill/StorySelector';
+import useDarkMode from '../hooks/useDarkmode';
 
-
-const PersonalityStoryList = ({ darkMode, personalityId }) => {
+const PersonalityStoryList = ({ personalityId }) => {
+  const { darkMode } = useDarkMode();
   const navigate = useNavigate();
   const location = useLocation();
   const scrollRef = useRef(new Map());
@@ -16,6 +19,8 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
   const [storyData, setStoryData] = useState(null);
   const [selectedStory, setSelectedStory] = useState(null);
   const [sortType, setSortType] = useState('idAsc'); // 기본 정렬은 출시순(idAsc)으로 설정
+  const [showStorySelector, setShowStorySelector] = useState(false);
+  const [selectedSpecialStory, setSelectedSpecialStory] = useState(null);
 
   useEffect(() => {
     // 캐릭터 정보 가져오기
@@ -85,9 +90,29 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
     handleGoBack(navigate, location, scrollRef, null, null, {}, setStoryData, setSelectedStory);
   };
 
+  // 스토리 클릭 핸들러 - 특별한 스토리 처리 추가
   const handleStoryClick = (storyId) => {
-    // 스토리 상세 페이지로 이동 - /personality/:personalityId/story/:storyId 경로 사용
-    navigate(`/personality/${personalityId}/story/${storyId}`);
+    // 버튼이 비활성화된 경우 처리하지 않음
+    if (isBookButtonDisabled(stories.find(s => s.id === storyId), stories.findIndex(s => s.id === storyId))) {
+      return;
+    }
+    
+    // 특별한 스토리인지 확인
+    if (isSpecialStoryId(storyId)) {
+      // 특별한 스토리 정보 가져오기
+      const specialStory = getSpecialStoryInfo(storyId);
+      setSelectedSpecialStory(specialStory);
+      setShowStorySelector(true);
+    } else {
+      // 일반 스토리는 바로 이동
+      navigate(`/personality/${personalityId}/story/${storyId}`);
+    }
+  };
+
+  // 특별 스토리 선택 핸들러
+  const handleSpecialStorySelect = (selectedStoryId) => {
+    navigate(`/personality/${personalityId}/story/${selectedStoryId}`);
+    setShowStorySelector(false);
   };
 
   const handleQuotesClick = (storyId) => {
@@ -97,7 +122,7 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
 
   // 특정 상황에서 Book 버튼 비활성화 여부 확인 함수
   const isBookButtonDisabled = (story, index) => {
-    return index === 0 || story.title === "LCB 수감자";
+    return index === 0 || story?.title === "LCB 수감자";
   };
 
   if (!characterInfo) {
@@ -220,6 +245,18 @@ const PersonalityStoryList = ({ darkMode, personalityId }) => {
           </div>
         )}
       </div>
+
+      {/* 특별 스토리 선택 모달 */}
+      {showStorySelector && selectedSpecialStory && (
+        <StorySelector
+          stories={selectedSpecialStory.stories}
+          title={selectedSpecialStory.title}
+          onSelect={handleSpecialStorySelect}
+          onClose={() => setShowStorySelector(false)}
+          darkMode={darkMode}
+          isModal={true} // 모달 형태로 처리
+        />
+      )}
     </div>
   );
 };

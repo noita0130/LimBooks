@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import personalityList from '../data/personalityList';
+import useDarkMode from '../hooks/useDarkmode';
 
-const PersonalityPage = ({ darkMode }) => {
+const PersonalityPage = () => {
+    const { darkMode } = useDarkMode();
     const navigate = useNavigate();
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 

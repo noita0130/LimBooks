@@ -1,7 +1,8 @@
-// src/components/Footer.jsx
 import React from 'react';
+import useDarkMode from '../hooks/useDarkmode';
 
-const Footer = ({ darkMode }) => {
+const Footer = () => {
+  const { darkMode } = useDarkMode();
   return (
     <footer className={`footer px-2 md:px-4 py-4 md:py-8 ${darkMode ? "bg-neutral-800" : "bg-neutral-300"}`}>
       <div className="footer-container">

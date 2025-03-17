@@ -1,7 +1,9 @@
 import { Home, Book, BookOpen, Moon, Sun, MessageCircle, ChevronDown, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import useDarkMode from '../hooks/useDarkmode';
 
-const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location }) => {
+const NavigationBar = ({ handleNavigation, location }) => {
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const [isStoryMenuOpen, setIsStoryMenuOpen] = useState(false);
   const [closeTimeout, setCloseTimeout] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,7 +22,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
     }, 150); // 150ms 딜레이로 실수로 닫히는 것 방지
     setCloseTimeout(timeout);
   };
-  
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -35,7 +37,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
     handleNavigation(path);
     closeMobileMenu();
   };
-  
+
   // 컴포넌트 언마운트 시 타임아웃 정리
   useEffect(() => {
     return () => {
@@ -61,35 +63,35 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
             <button
               onClick={() => handleNavigation('/')}
               className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                ${location.pathname === '/' ? 
+                ${location.pathname === '/' ?
                   (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                   (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
             >
               <Home className="w-4 h-4 mr-2" />
               홈
             </button>
-            
+
             {/* Story 드롭다운 버튼 */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={handleStoryHover}
               onMouseLeave={handleStoryLeave}
             >
               <button
                 className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                  ${(location.pathname.startsWith('/main') || location.pathname.startsWith('/mini')) ? 
+                  ${(location.pathname.startsWith('/main') || location.pathname.startsWith('/mini')) ?
                     (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                     (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
               >
                 <Book className="w-4 h-4 mr-2" />
                 스토리
-                <ChevronDown 
-                  className={`w-3 h-3 ml-1 transform transition-transform duration-300 ease-in-out ${isStoryMenuOpen ? 'rotate-180' : ''}`} 
+                <ChevronDown
+                  className={`w-3 h-3 ml-1 transform transition-transform duration-300 ease-in-out ${isStoryMenuOpen ? 'rotate-180' : ''}`}
                 />
               </button>
-              
+
               {/* 드롭다운 메뉴 */}
-              <div 
+              <div
                 className={`absolute left-0 top-full mt-1 w-[106px] rounded-md shadow-lg z-10 overflow-hidden
                   transition-all duration-300 ease-in-out origin-top 
                   ${isStoryMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0 pointer-events-none'}
@@ -99,7 +101,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
                   <button
                     onClick={() => handleNavigation('/main')}
                     className={`block w-full text-left px-4 py-2 text-sm
-                      ${location.pathname.startsWith('/main') ? 
+                      ${location.pathname.startsWith('/main') ?
                         (darkMode ? 'bg-neutral-600 text-white' : 'bg-neutral-200 text-neutral-900') :
                         (darkMode ? 'text-neutral-200 hover:bg-neutral-600' : 'text-neutral-700 hover:bg-neutral-100')}`}
                   >
@@ -111,7 +113,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
                   <button
                     onClick={() => handleNavigation('/mini')}
                     className={`block w-full text-left px-4 py-2 text-sm
-                      ${location.pathname.startsWith('/mini') ? 
+                      ${location.pathname.startsWith('/mini') ?
                         (darkMode ? 'bg-neutral-600 text-white' : 'bg-neutral-200 text-neutral-900') :
                         (darkMode ? 'text-neutral-200 hover:bg-neutral-600' : 'text-neutral-700 hover:bg-neutral-100')}`}
                   >
@@ -123,11 +125,11 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
                 </div>
               </div>
             </div>
-            
+
             <button
               onClick={() => handleNavigation('/personality')}
               className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                ${location.pathname.startsWith('/personality') ? 
+                ${location.pathname.startsWith('/personality') ?
                   (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                   (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
             >
@@ -138,7 +140,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
             <button
               onClick={() => handleNavigation('/announcers')}
               className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                ${location.pathname.startsWith('/announcers') ? 
+                ${location.pathname.startsWith('/announcers') ?
                   (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                   (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
             >
@@ -155,7 +157,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
             >
               {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            
+
             {/* 모바일 햄버거 버튼 - 오른쪽 정렬 */}
             <button
               onClick={toggleMobileMenu}
@@ -171,19 +173,19 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
       </div>
 
       {/* 모바일 메뉴 */}
-<div 
-  className={`md:hidden overflow-hidden ${darkMode ? 'bg-neutral-800' : 'bg-white'} border-t ${darkMode ? 'border-neutral-700' : 'border-neutral-200'}`}
-  style={{
-    maxHeight: isMobileMenuOpen ? '24rem' : '0', // 96px = 24rem (max-h-96)
-    opacity: isMobileMenuOpen ? '1' : '0',
-    transition: 'max-height 300ms ease-in-out, opacity 300ms ease-in-out'
-  }}
->
+      <div
+        className={`md:hidden overflow-hidden ${darkMode ? 'bg-neutral-800' : 'bg-white'} border-t ${darkMode ? 'border-neutral-700' : 'border-neutral-200'}`}
+        style={{
+          maxHeight: isMobileMenuOpen ? '24rem' : '0', // 96px = 24rem (max-h-96)
+          opacity: isMobileMenuOpen ? '1' : '0',
+          transition: 'max-height 300ms ease-in-out, opacity 300ms ease-in-out'
+        }}
+      >
         <div className="px-2 pt-2 pb-3 space-y-1">
           <button
             onClick={() => handleMobileNavigation('/')}
             className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium
-              ${location.pathname === '/' ? 
+              ${location.pathname === '/' ?
                 (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                 (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
           >
@@ -192,10 +194,10 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
               홈
             </div>
           </button>
-          
+
           {/* 모바일 스토리 메뉴 - 드롭다운 없이 바로 표시 */}
           <div className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium
-            ${(location.pathname.startsWith('/main') || location.pathname.startsWith('/mini')) ? 
+            ${(location.pathname.startsWith('/main') || location.pathname.startsWith('/mini')) ?
               (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-200 text-neutral-900') :
               (darkMode ? 'text-neutral-400' : 'text-neutral-600')}`}
           >
@@ -204,11 +206,11 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
               스토리
             </div>
           </div>
-          
+
           <button
             onClick={() => handleMobileNavigation('/main')}
             className={`block w-full text-left pl-11 py-2 rounded-md text-base font-medium
-              ${location.pathname.startsWith('/main') ? 
+              ${location.pathname.startsWith('/main') ?
                 (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                 (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
           >
@@ -217,11 +219,11 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
               메인
             </div>
           </button>
-          
+
           <button
             onClick={() => handleMobileNavigation('/mini')}
             className={`block w-full text-left pl-11 py-2 rounded-md text-base font-medium
-              ${location.pathname.startsWith('/mini') ? 
+              ${location.pathname.startsWith('/mini') ?
                 (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                 (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
           >
@@ -230,11 +232,11 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
               미니
             </div>
           </button>
-          
+
           <button
             onClick={() => handleMobileNavigation('/personality')}
             className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium
-              ${location.pathname.startsWith('/personality') ? 
+              ${location.pathname.startsWith('/personality') ?
                 (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                 (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
           >
@@ -247,7 +249,7 @@ const NavigationBar = ({ darkMode, toggleDarkMode, handleNavigation, location })
           <button
             onClick={() => handleMobileNavigation('/announcers')}
             className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium
-              ${location.pathname.startsWith('/announcers') ? 
+              ${location.pathname.startsWith('/announcers') ?
                 (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                 (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
           >

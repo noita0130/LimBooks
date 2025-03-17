@@ -18,6 +18,7 @@ import ScrollContainer from '../utill/ScrollContainer';
 import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
 import { Helmet } from 'react-helmet';
 import loadChapterData from '../utill/loadChapterData';
+import useDarkMode from '../hooks/useDarkmode';
 import Footer from './footer';
 
 // 만들어 둔 컴포넌트 import
@@ -25,7 +26,6 @@ import PersonalityStoryContent from './PersonalityStoryContent';
 import PersonalityVoiceContent from './PersonalityVoiceContent';
 import AnnouncerContent from './AnnouncerContent';
 import AnnouncerPage from '../pages/AnnouncerPage';
-
 
 import {
   restoreScrollPosition,
@@ -47,30 +47,9 @@ const StoryReaderPage = () => {
   const [storyData, setStoryData] = useState(null);
   const [shouldRestoreScroll, setShouldRestoreScroll] = useState(false);
   const { stories, loading } = useStoryData(storyType);
+  const { darkMode } = useDarkMode();
 
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedDarkMode = localStorage.getItem('darkMode');
-    
-    // 저장된 값이 있으면 그 값을 사용, 없으면 기본값 true 사용
-    return savedDarkMode !== null ? JSON.parse(savedDarkMode) : true;
-  });
-
-  const toggleDarkMode = () => {
-    setDarkMode(prevMode => {
-      const newMode = !prevMode;
-      localStorage.setItem('darkMode', JSON.stringify(newMode));
-      return newMode;
-    });
-  };
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
-
+  
   // 일반 스토리 로딩 로직
   useEffect(() => {
     if (storyType && storyId && stories?.[storyType]) {
@@ -112,13 +91,9 @@ const StoryReaderPage = () => {
   };
 
   return (
-    <ScrollContainer darkMode={darkMode}>
-
-      <div className={`min-h-screen 
-      ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
+    <ScrollContainer>
+      <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
         <NavigationBar
-          darkMode={darkMode}
-          toggleDarkMode={toggleDarkMode}
           handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
           location={location}
         />
@@ -137,39 +112,38 @@ const StoryReaderPage = () => {
                   }
                 }}
               >
-                {(location.pathname === '/' || location.pathname === '' || location.pathname === '/LimBooks' || location.pathname === '/LimBooks/') && <MainPage darkMode={darkMode} />}
+                {(location.pathname === '/' || location.pathname === '' || location.pathname === '/LimBooks' || location.pathname === '/LimBooks/') && <MainPage />}
                 
                 {/* 인격 페이지 */}
                 {location.pathname === '/personality' && (
-                  <PersonalityPage darkMode={darkMode} />
+                  <PersonalityPage />
                 )}
                 
                 {/* 인격 목록 페이지 */}
                 {location.pathname.includes('/personality/') && location.pathname.split('/').length === 3 && (
                   <PersonalityStoryList
-                    darkMode={darkMode}
                     personalityId={location.pathname.split('/')[2]}
                   />
                 )}
                 
-                {/* 인격 스토리 콘텐츠 - PersonalityStoryContent 컴포넌트 사용 */}
+                {/* 인격 스토리 콘텐츠 - PersonalityStoryContent*/}
                 {isPersonalityStoryRoute() && (
-                  <PersonalityStoryContent darkMode={darkMode} />
+                  <PersonalityStoryContent />
                 )}
                 
-                {/* 인격 대사집 콘텐츠 - PersonalityVoiceContent 컴포넌트 사용 */}
+                {/* 인격 대사집 콘텐츠 - PersonalityVoiceContent*/}
                 {isPersonalityVoiceRoute() && (
-                  <PersonalityVoiceContent darkMode={darkMode} />
+                  <PersonalityVoiceContent />
                 )}
 
                 {/* 아나운서 페이지 */}
                 {location.pathname === '/announcers' && (
-                  <AnnouncerPage darkMode={darkMode} />
+                  <AnnouncerPage />
                 )}
                 
                 {/* 아나운서 대사 페이지 */}
                 {isAnnouncerRoute() && (
-                  <AnnouncerContent darkMode={darkMode} />
+                  <AnnouncerContent />
                 )}
 
                 
@@ -179,7 +153,6 @@ const StoryReaderPage = () => {
                   <StoryList
                     stories={stories}
                     storyType={storyType}
-                    darkMode={darkMode}
                     handleStoryClick={(story) => handleStoryClick(story, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
                     loading={loading}
                   />
@@ -189,7 +162,6 @@ const StoryReaderPage = () => {
                 {selectedStory && !chapterId && selectedStory.chapters.length >= 2 && (
                   <ChapterList
                     selectedStory={selectedStory}
-                    darkMode={darkMode}
                     handleChapterClick={(chapterId) => handleChapterClick(chapterId, storyType, selectedStory, navigate, location, scrollRef, setShouldRestoreScroll)}
                     handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
                     storyType={storyType}
@@ -200,7 +172,6 @@ const StoryReaderPage = () => {
                 {chapterId && storyData && (
                   <StoryContent
                     storyData={storyData}
-                    darkMode={darkMode}
                     handleGoBack={() => handleGoBack(navigate, location, scrollRef, setShouldRestoreScroll, storyType, stories, setStoryData, setSelectedStory)}
                     handleNavigation={(path) => handleNavigation(path, location, scrollRef, setShouldRestoreScroll, navigate)}
                     handleNextStory={() => navigateToNextStory(stories, selectedStory.id, storyType, navigate, location, scrollRef, setShouldRestoreScroll)}
@@ -215,7 +186,7 @@ const StoryReaderPage = () => {
             </AnimatePresence>
           </Suspense>
         </main>
-        <Footer darkMode={darkMode} />
+        <Footer />
       </div>
     </ScrollContainer>
   );

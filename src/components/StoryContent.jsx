@@ -1,11 +1,11 @@
 import { useRef, useEffect } from "react";
 import StoryDialog from "./StoryDialog";
 import { ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
+import useDarkMode from "../hooks/useDarkmode";
 
 
 const StoryContent = ({
     storyData,
-    darkMode,
     handleGoBack,
     handleNavigation,
     storyType,
@@ -13,7 +13,7 @@ const StoryContent = ({
     handleNextChapter,
     handlePreviousChapter
 }) => {
-    // location이 변경되어도 마지막 값을 유지하기 위해 useRef 사용
+    const { darkMode } = useDarkMode();
     const storyRef = useRef(selectedStory);
     const locationRef = useRef(window.location.pathname);
 

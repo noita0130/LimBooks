@@ -2,8 +2,11 @@
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import LoadingSpinner from '../utill/LoadingSpinner';
+import useDarkMode from '../hooks/useDarkmode'; // 추가
 
-const StoryList = ({ stories, storyType, darkMode, handleStoryClick, loading }) => {
+const StoryList = ({ stories, storyType, handleStoryClick, loading }) => {
+  const { darkMode } = useDarkMode();
+
   if (loading) {
     return <LoadingSpinner />;
   }
