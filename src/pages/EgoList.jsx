@@ -1,0 +1,280 @@
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { MessageCircle, BookOpen, ArrowUp, ArrowDown } from "lucide-react";
+import handleGoBack from '../utill/handleGoBack';
+import { Undo2 } from 'lucide-react';
+import { isSpecialStoryId, getSpecialStoryInfo } from '../data/specialStoriesMap';
+import StorySelector from '../utill/StorySelector';
+import useDarkMode from '../hooks/useDarkmode';
+import egoLoad from '../utill/EgoLoad'; // 새로 작성한 유틸리티 함수 import
+
+const EgoList = ({ personalityId }) => {
+  const { darkMode } = useDarkMode();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const scrollRef = useRef(new Map());
+  const [stories, setStories] = useState([]);
+  const [characterInfo, setCharacterInfo] = useState(null);
+  const [storyData, setStoryData] = useState(null);
+  const [selectedStory, setSelectedStory] = useState(null);
+  const [sortType, setSortType] = useState('idAsc'); // 기본 정렬은 출시순(idAsc)으로 설정
+  const [showStorySelector, setShowStorySelector] = useState(false);
+  const [selectedSpecialStory, setSelectedSpecialStory] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadEgoData = async () => {
+      setLoading(true);
+      try {
+        // egoLoad 함수를 사용하여 EGO 데이터 로드
+        const { egoList, personalityInfo } = egoLoad(personalityId);
+        
+        // 캐릭터 정보와 EGO 목록 설정
+        setCharacterInfo(personalityInfo);
+        setStories(egoList);
+      } catch (error) {
+        console.error("EGO 데이터 로드 중 오류 발생:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadEgoData();
+  }, [personalityId]);
+
+  // 정렬 함수 추가 - 토글 방식으로 변경
+  const handleSort = (type) => {
+    let newSortType;
+    let sortedEgo = [...stories];
+
+    // 현재 정렬 타입에 따라 다음 정렬 타입 결정
+    if (type === 'id') {
+      newSortType = sortType === 'idAsc' ? 'idDesc' : 'idAsc';
+    } else if (type === 'name') {
+      newSortType = sortType === 'nameAsc' ? 'nameDesc' : 'nameAsc';
+    }
+
+    // 새로운 정렬 타입에 따라 정렬
+    switch (newSortType) {
+      case 'nameAsc':
+        sortedEgo.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+        break;
+      case 'nameDesc':
+        sortedEgo.sort((a, b) => b.name.localeCompare(a.name, 'ko'));
+        break;
+      case 'idAsc': // 출시순 (ID 문자열 비교)
+        sortedEgo.sort((a, b) => {
+          const numA = parseInt(a.id.replace('KR_', ''));
+          const numB = parseInt(b.id.replace('KR_', ''));
+          return numA - numB;
+        });
+        break;
+      case 'idDesc': // 출시 역순 (ID 문자열 비교)
+        sortedEgo.sort((a, b) => {
+          const numA = parseInt(a.id.replace('KR_', ''));
+          const numB = parseInt(b.id.replace('KR_', ''));
+          return numB - numA;
+        });
+        break;
+    }
+
+    setStories(sortedEgo);
+    setSortType(newSortType);
+  };
+
+  // 수정된 handleBack 함수
+  const handleBack = () => {
+    // navigate(-1) 대신 handleGoBack 함수 사용
+    handleGoBack(navigate, location, scrollRef, null, null, {}, setStoryData, setSelectedStory);
+  };
+
+  // 스토리 클릭 핸들러 - 특별한 스토리 처리 추가
+  const handleStoryClick = (storyId) => {
+    // 버튼이 비활성화된 경우 처리하지 않음
+    if (isBookButtonDisabled(stories.find(s => s.id === storyId), stories.findIndex(s => s.id === storyId))) {
+      return;
+    }
+    
+    // 특별한 스토리인지 확인
+    if (isSpecialStoryId(storyId)) {
+      // 특별한 스토리 정보 가져오기
+      const specialStory = getSpecialStoryInfo(storyId);
+      setSelectedSpecialStory(specialStory);
+      setShowStorySelector(true);
+    } else {
+      // 일반 스토리는 바로 이동
+      navigate(`/personality/${personalityId}/story/${storyId}`);
+    }
+  };
+
+  // 특별 스토리 선택 핸들러
+  const handleSpecialStorySelect = (selectedStoryId) => {
+    navigate(`/personality/${personalityId}/story/${selectedStoryId}`);
+    setShowStorySelector(false);
+  };
+
+  const handleQuotesClick = (storyId) => {
+    // 대사집 페이지로 이동 - /personality/:personalityId/voice/:storyId 경로 사용
+    navigate(`/personality/${personalityId}/voice/${storyId}`);
+  };
+
+  // 특정 상황에서 Book 버튼 비활성화 여부 확인 함수
+  const isBookButtonDisabled = (story, index) => {
+    return index === 0 || story?.name === "LCB 수감자";
+  };
+
+  if (loading) {
+    return (
+      <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6 flex items-center justify-center`}>
+        <p>로딩 중...</p>
+      </div>
+    );
+  }
+
+  if (!characterInfo) {
+    return (
+      <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
+        <p>해당 인격체 정보를 찾을 수 없습니다.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`min-h-screen rounded-lg p-2 md:p-6
+    ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} `}>
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between mb-6">
+          {/* 왼쪽 그룹 */}
+          <div className="flex items-center">
+            <button
+              onClick={handleBack}
+              className={`px-4 py-2 rounded-md inline-flex items-center w-fit
+          ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'}`}
+            >
+              <Undo2 />
+            </button>
+            <h1 className="text-xl font-bold ml-3">{characterInfo.name}의 E.G.O 목록</h1>
+          </div>
+
+          {/* 오른쪽 그룹*/}
+          <div className="flex gap-2">
+            <button
+              onClick={() => handleSort('id')}
+              className={`px-3 py-2 rounded-md inline-flex items-center text-xs md:text-sm border-2
+          ${darkMode ? "bg-neutral-700 hover:bg-neutral-600" : "bg-neutral-200 hover:bg-neutral-300"}
+          ${sortType === 'idAsc' || sortType === 'idDesc' ? "" : "border-transparent"}`}
+            >
+              <span className="mr-1">출시순</span>
+              {sortType === 'idAsc' ? (
+                <ArrowDown className="w-3 h-3" />
+              ) : sortType === 'idDesc' ? (
+                <ArrowUp className="w-3 h-3" />
+              ) : (
+                <ArrowDown className="w-3 h-3" />
+              )}
+            </button>
+            <button
+              onClick={() => handleSort('name')}
+              className={`px-3 py-2 rounded-md inline-flex items-center text-xs md:text-sm border-2
+          ${darkMode ? "bg-neutral-700 hover:bg-neutral-600" : "bg-neutral-200 hover:bg-neutral-300"}
+          ${sortType === 'nameAsc' || sortType === 'nameDesc' ? "" : "border-transparent"}`}
+            >
+              <span className="mr-1">이름순</span>
+              {sortType === 'nameAsc' ? (
+                <ArrowDown className="w-3 h-3" />
+              ) : sortType === 'nameDesc' ? (
+                <ArrowUp className="w-3 h-3" />
+              ) : (
+                <ArrowDown className="w-3 h-3" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* 스토리 목록 컨텐츠 */}
+        {stories.length === 0 ? (
+          <div className={`p-6 rounded-lg ${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-md`}>
+            <p>이 수감자의 E.G.O 데이터가 없습니다.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {stories.map((story, index) => (
+              <div
+                key={index}
+                className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} rounded-lg shadow-md overflow-hidden h-full`}
+              >
+                <div className="flex h-full">
+                  <div className="w-1/3 overflow-hidden">
+                    <img
+                      src={story.image}
+                      alt={story.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="w-2/3 p-4 md:p-6 flex flex-col h-full">
+                    <div className="flex flex-col h-1/2">
+                      <h2 className="text-sm md:text-base lg:text-xl font-semibold">{story.name}</h2>
+                      <div className="mt-2">
+                        <span className={`inline-block px-2 py-1 text-xs rounded-full 
+                          ${story.rank === 'ZAYIN' ? 'bg-emerald-600 text-white' : 
+                          story.rank === 'TETH' ? 'bg-blue-600 text-white' : 
+                          story.rank === 'HE' ? 'bg-purple-600 text-white' : 
+                          story.rank === 'WAW' ? 'bg-amber-600 text-white' : 
+                          'bg-rose-600 text-white'}`}>
+                          {story.rank}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col h-1/2 justify-end">
+                      <div className="flex w-full">
+                        <button
+                          onClick={() => handleStoryClick(story.id)}
+                          disabled={isBookButtonDisabled(story, index)}
+                          className={`flex-1 mr-2 px-2 py-2 md:py-3 rounded-md flex items-center justify-center
+                          ${isBookButtonDisabled(story, index)
+                              ? 'bg-neutral-400 text-neutral-600 opacity-50'
+                              : darkMode
+                                ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
+                                : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
+                          }
+                        >
+                          <BookOpen className="w-3 h-3 md:w-5 md:h-5 mr-1" />
+                          <span className="text-xs md:text-sm">스토리</span>
+                        </button>
+                        <button
+                          onClick={() => handleQuotesClick(story.id)}
+                          className={`flex-1 px-2 py-2 md:py-3 rounded-md flex items-center justify-center
+                            ${darkMode
+                              ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
+                              : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
+                          }
+                        >
+                          <MessageCircle className="w-3 h-3 md:w-5 md:h-5 mr-1" />
+                          <span className="text-xs md:text-sm">대사</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* 특별 스토리 선택 모달 */}
+      {showStorySelector && selectedSpecialStory && (
+        <StorySelector
+          stories={selectedSpecialStory.stories}
+          title={selectedSpecialStory.title}
+          onSelect={handleSpecialStorySelect}
+          onClose={() => setShowStorySelector(false)}
+          darkMode={darkMode}
+          isModal={true} // 모달 형태로 처리
+        />
+      )}
+    </div>
+  );
+};
+
+export default EgoList;

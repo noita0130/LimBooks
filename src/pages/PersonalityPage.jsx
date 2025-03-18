@@ -51,46 +51,63 @@ const PersonalityPage = () => {
                 인격 스토리 / 대사집
             </div>
             {/* 그리드 레이아웃을 반응형으로 변경 */}
-            <div className="grid w-full max-w-[1000px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+            <div className="grid w-full max-w-[1000px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4"
+                style={{ gridAutoRows: 'min-content' }}>
                 {personalityList.map((character, index) => (
                     <div
                         key={index}
                         onClick={() => handleCardClick(character.id)}
                         className={`flex flex-col ${darkMode ? 'bg-neutral-800' : 'bg-neutral-200'} 
                         rounded-lg shadow-md p-2 items-center cursor-pointer
-                        transition-all duration-300 transform justify-between
-                        hover:scale-105 ease-in-out
+                        transform justify-between h-auto
+                        hover:scale-105 ease-in-out 
                         ${darkMode ? 'hover:bg-neutral-700' : 'hover:bg-neutral-300'}
                         ${expandedCard === character.id ? 'scale-100 hover:scale-105' : ''}`}
                         style={{ 
-                            height: expandedCard === character.id ? 'auto' : undefined,
                             minHeight: expandedCard === character.id ? 
-                                (isLargeScreen ? '120px' : '100px') : undefined,
-                            transition: 'transform 300ms, background-color 300ms'
+                                (isLargeScreen ? '120px' : '100px') : '',
+                            transition: 'transform 300ms, background-color 300ms',
+                            alignSelf: 'start'
                         }}
                     >
-                        {/* 이미지 컨테이너 - 확장 시 축소됨 */}
-                        <div 
-                            className={`relative w-full overflow-hidden rounded-lg mb-2 transition-all duration-300
-                            ${expandedCard === character.id ? 'aspect-[4/1.5] sm:aspect-[4/1.6] md:aspect-[4/1.5] lg:aspect-[2/1.6]' : 'aspect-[4/3] lg:aspect-[2/3]'}`}
-                        >
-                            <img
-                                src={isLargeScreen ? character.image : character.mobileImage}
-                                alt={character.name}
-                                className={`w-full rounded-lg transition-all duration-300 
-                                ${expandedCard === character.id ? 'h-auto' : ''}`}
-                            />
+                        {/* 이미지 컨테이너 - 반응형으로 중앙 정렬 조정 */}
+                        <div className='flex flex-col items-center w-full transition-transform duration-300'>
+                            <div 
+                                className={`relative w-full overflow-hidden rounded-lg mb-2`}
+                                style={{
+                                    transformOrigin: isLargeScreen ? 'top center' : 'center center',
+                                    aspectRatio: expandedCard === character.id 
+                                                  ? (isLargeScreen ? '2/1.6' : '4/1.5') 
+                                                  : (isLargeScreen ? '2/3' : '4/3'),
+                                    transition: 'aspect-ratio 300ms cubic-bezier(0.4, 0, 0.2, 1)'
+                                }}
+                            >
+                                <div className={`w-full h-full ${expandedCard === character.id && !isLargeScreen ? 'flex items-center justify-center' : ''}`}>
+                                    <img
+                                        src={isLargeScreen ? character.image : character.mobileImage}
+                                        alt={character.name}
+                                        className="rounded-lg object-cover w-full h-full transition-all duration-300"
+                                    />
+                                </div>
+                            </div>
+                            <span className={`mt-1 text-center font-medium ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
+                                {character.name}
+                            </span>
                         </div>
-                        <span className={`mt-1 text-center font-medium ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}`}>
-                            {character.name}
-                        </span>
 
                         {/* 확장 시 나타나는 버튼들 */}
                         <div 
-                            className={`w-full mt-2 flex flex-col gap-2 transition-all duration-300 overflow-hidden
+                            className={`w-full flex flex-col gap-2 transition-all duration-300
                             ${expandedCard === character.id 
-                                ? 'max-h-40 sm:max-h-32 md:max-h-28 lg:max-h-24 opacity-100' 
-                                : 'max-h-0 opacity-0 m-0 p-0'}`}
+                                ? 'max-h-40 opacity-100 mt-2' 
+                                : 'max-h-0 opacity-0 m-0 p-0 invisible'}`}
+                            style={{ 
+                                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                                transitionDelay: expandedCard === character.id ? '50ms' : '0ms',
+                                transition: expandedCard === character.id ? 
+                                    'all 300ms cubic-bezier(0.4, 0, 0.2, 1) 50ms' : 
+                                    'all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, visibility 0ms linear 300ms'
+                            }}
                         >
                             <button
                                 onClick={(e) => goToPersonality(e, character.id)}

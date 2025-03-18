@@ -25,6 +25,7 @@ import PersonalityStoryContent from './PersonalityStoryContent';
 import PersonalityVoiceContent from './PersonalityVoiceContent';
 import AnnouncerContent from './AnnouncerContent';
 import AnnouncerPage from '../pages/AnnouncerPage';
+import EgoList from '../pages/EgoList'; // EgoList 컴포넌트 추가 import
 
 import {
   restoreScrollPosition,
@@ -40,7 +41,7 @@ const StoryReaderPage = () => {
   const BASE_PATH = '/LimBooks';
   const navigate = useNavigate();
   const location = useLocation();
-  const { storyType, storyId, chapterId} = useParams();
+  const { storyType, storyId, chapterId, personalityId } = useParams();
   const scrollRef = useRef(new Map());
   const [selectedStory, setSelectedStory] = useState(null);
   const [storyData, setStoryData] = useState(null);
@@ -89,6 +90,12 @@ const StoryReaderPage = () => {
     return location.pathname.match(/\/announcers\/[^\/]+$/);
   };
 
+  // EGO 목록 경로 감지 함수 추가
+  const isEgoListRoute = () => {
+    // /ego/:personalityId 형태의 URL 패턴 확인
+    return location.pathname.match(/\/ego\/[^\/]+$/);
+  };
+
   return (
     <ScrollContainer>
       <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-900'}`}>
@@ -135,6 +142,13 @@ const StoryReaderPage = () => {
                   <PersonalityVoiceContent />
                 )}
 
+                {/* E.G.O 목록 페이지 추가 */}
+                {isEgoListRoute() && (
+                  <EgoList
+                    personalityId={location.pathname.split('/')[2]}
+                  />
+                )}
+
                 {/* 아나운서 페이지 */}
                 {location.pathname === '/announcers' && (
                   <AnnouncerPage />
@@ -144,8 +158,6 @@ const StoryReaderPage = () => {
                 {isAnnouncerRoute() && (
                   <AnnouncerContent />
                 )}
-
-                
                 
                 {/* 기존 메인/미니 스토리 리스트 */}
                 {(storyType === 'main' || storyType === 'mini') && !storyId && (

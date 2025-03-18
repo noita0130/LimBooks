@@ -18,6 +18,9 @@ const StoryReaderContent = () => {
           <Route path="/personality/:personalityId" element={<StoryReaderPage />} />
           <Route path="/personality/:personalityId/:contentType/:storyId" element={<StoryReaderPage />} />
 
+          {/* E.G.O 관련 경로 추가 */}
+          <Route path="/ego/:personalityId" element={<StoryReaderPage />} />
+
           {/* 아나운서 관련 경로 */}
           <Route path="/announcers" element={<StoryReaderPage />} />
           <Route path="/announcers/:announcerId" element={<StoryReaderPage />} />
