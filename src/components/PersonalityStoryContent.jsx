@@ -110,7 +110,7 @@ const PersonalityStoryContent = () => {
   }, [personalityId, storyId, isNavigating, loading]);
 
   const handleGoBack = () => {
-    navigate(`/personality/${personalityId}`);
+    navigate(`/sinner/personality/${personalityId}`);
   };
 
   // 다른 스토리 선택 처리
@@ -120,7 +120,7 @@ const PersonalityStoryContent = () => {
       setIsNavigating(true);
       // 약간의 지연 후 페이지 이동
       setTimeout(() => {
-        navigate(`/personality/${personalityId}/story/${selectedStoryId}`);
+        navigate(`/sinner/personality/${personalityId}/story/${selectedStoryId}`);
       }, 50);
     } else {
       setShowStorySelector(false);

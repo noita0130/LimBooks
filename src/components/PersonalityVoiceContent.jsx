@@ -70,7 +70,7 @@ const PersonalityVoiceContent = () => {
   }, [personalityId, storyId]);
 
   const handleGoBack = () => {
-    navigate(`/personality/${personalityId}`);
+    navigate(`/sinner/personality/${personalityId}`);
   };
 
   // 볼륨 조절 함수

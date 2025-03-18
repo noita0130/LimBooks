@@ -127,14 +127,14 @@ const NavigationBar = ({ handleNavigation, location }) => {
             </div>
 
             <button
-              onClick={() => handleNavigation('/personality')}
+              onClick={() => handleNavigation('/sinner')}
               className={`flex items-center px-3 py-2 rounded-md text-sm font-medium
-                ${location.pathname.startsWith('/personality') ?
+                ${location.pathname.startsWith('/sinner') ?
                   (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                   (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
             >
               <MessageCircle className="w-4 h-4 mr-2" />
-              인격
+              수감자
             </button>
 
             <button
@@ -234,15 +234,15 @@ const NavigationBar = ({ handleNavigation, location }) => {
           </button>
 
           <button
-            onClick={() => handleMobileNavigation('/personality')}
+            onClick={() => handleMobileNavigation('/sinner')}
             className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium
-              ${location.pathname.startsWith('/personality') ?
+              ${location.pathname.startsWith('/sinner') ?
                 (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                 (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
           >
             <div className="flex items-center">
               <MessageCircle className="w-5 h-5 mr-3" />
-              인격
+              수감자
             </div>
           </button>
 

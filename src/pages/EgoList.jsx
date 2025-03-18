@@ -103,19 +103,19 @@ const EgoList = ({ personalityId }) => {
       setShowStorySelector(true);
     } else {
       // 일반 스토리는 바로 이동
-      navigate(`/personality/${personalityId}/story/${storyId}`);
+      navigate(`/sinner/${personalityId}/story/${storyId}`);
     }
   };
 
   // 특별 스토리 선택 핸들러
   const handleSpecialStorySelect = (selectedStoryId) => {
-    navigate(`/personality/${personalityId}/story/${selectedStoryId}`);
+    navigate(`/sinner/${personalityId}/story/${selectedStoryId}`);
     setShowStorySelector(false);
   };
 
   const handleQuotesClick = (storyId) => {
     // 대사집 페이지로 이동 - /personality/:personalityId/voice/:storyId 경로 사용
-    navigate(`/personality/${personalityId}/voice/${storyId}`);
+    navigate(`/sinner/${personalityId}/voice/${storyId}`);
   };
 
   // 특정 상황에서 Book 버튼 비활성화 여부 확인 함수

@@ -36,13 +36,13 @@ const PersonalityPage = () => {
     // 인격 정보로 이동
     const goToPersonality = (e, personalityId) => {
         e.stopPropagation(); // 버블링 방지
-        navigate(`/personality/${personalityId}`);
+        navigate(`/sinner/personality/${personalityId}`);
     };
 
     // E.G.O 정보로 이동
     const goToEGO = (e, personalityId) => {
         e.stopPropagation(); // 버블링 방지
-        navigate(`/ego/${personalityId}`);
+        navigate(`/sinner/ego/${personalityId}`);
     };
 
     return (

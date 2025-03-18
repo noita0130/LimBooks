@@ -1,4 +1,4 @@
-import StoryReaderPage from "../components/StoryReaderPage";
+import StoryReaderPage from "./StoryReaderPage";
 import { Routes, Route } from 'react-router-dom';
 import Footer from '../components/footer';
 
@@ -14,12 +14,12 @@ const StoryReaderContent = () => {
           <Route path="/:storyType/:storyId/:chapterId" element={<StoryReaderPage />} />
 
           {/* 인격 관련 경로 */}
-          <Route path="/personality" element={<StoryReaderPage />} />
-          <Route path="/personality/:personalityId" element={<StoryReaderPage />} />
-          <Route path="/personality/:personalityId/:contentType/:storyId" element={<StoryReaderPage />} />
+          <Route path="/sinner" element={<StoryReaderPage />} />
+          <Route path="/sinner/personality/:personalityId" element={<StoryReaderPage />} />
+          <Route path="/sinner/personality/:personalityId/:contentType/:storyId" element={<StoryReaderPage />} />
 
           {/* E.G.O 관련 경로 추가 */}
-          <Route path="/ego/:personalityId" element={<StoryReaderPage />} />
+          <Route path="/sinner/ego/:personalityId" element={<StoryReaderPage />} />
 
           {/* 아나운서 관련 경로 */}
           <Route path="/announcers" element={<StoryReaderPage />} />

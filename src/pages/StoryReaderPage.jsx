@@ -2,30 +2,30 @@ import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { Routes, Route, useNavigate, useParams, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import Homepage from '../pages/Homepage';
-import MainPage from '../pages/MainPage';
+import Homepage from './Homepage';
+import MainPage from './MainPage';
 import useStoryData from '../hooks/useStoryData';
-import NavigationBar from './NavigationBar';
+import NavigationBar from '../components/NavigationBar';
 import StoryList from './StoryList';
-import ChapterList from './ChapterList';
-import StoryContent from './StoryContent';
-import StoryDialog from './StoryDialog';
+import ChapterList from '../components/ChapterList';
+import StoryContent from '../components/StoryContent';
+import StoryDialog from '../components/StoryDialog';
 import LoadingSpinner from '../utill/LoadingSpinner';
-import PersonalityPage from '../pages/PersonalityPage';
-import PersonalityStoryList from '../pages/PersonalityStoryList';
+import PersonalityPage from './PersonalityPage';
+import PersonalityStoryList from './PersonalityStoryList';
 import handleGoBack from '../utill/handleGoBack';
 import ScrollContainer from '../utill/ScrollContainer';
 import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
 import { Helmet } from 'react-helmet';
 import loadChapterData from '../utill/loadChapterData';
 import useDarkMode from '../hooks/useDarkmode';
-import Footer from './footer';
+import Footer from '../components/footer';
 
-import PersonalityStoryContent from './PersonalityStoryContent';
-import PersonalityVoiceContent from './PersonalityVoiceContent';
-import AnnouncerContent from './AnnouncerContent';
-import AnnouncerPage from '../pages/AnnouncerPage';
-import EgoList from '../pages/EgoList'; // EgoList 컴포넌트 추가 import
+import PersonalityStoryContent from '../components/PersonalityStoryContent';
+import PersonalityVoiceContent from '../components/PersonalityVoiceContent';
+import AnnouncerContent from '../components/AnnouncerContent';
+import AnnouncerPage from './AnnouncerPage';
+import EgoList from './EgoList'; // EgoList 컴포넌트 추가 import
 
 import {
   restoreScrollPosition,
@@ -49,7 +49,7 @@ const StoryReaderPage = () => {
   const { stories, loading } = useStoryData(storyType);
   const { darkMode } = useDarkMode();
 
-  
+
   // 일반 스토리 로딩 로직
   useEffect(() => {
     if (storyType && storyId && stories?.[storyType]) {
@@ -77,12 +77,12 @@ const StoryReaderPage = () => {
   // URL 패턴 감지 및 경로 설정 함수
   const isPersonalityStoryRoute = () => {
     // /personality/:personalityId/story/:storyId 형태의 URL 패턴 확인
-    return location.pathname.match(/\/personality\/[^\/]+\/story\/[^\/]+/);
+    return location.pathname.match(/\/sinner\/personality\/[^\/]+\/story\/[^\/]+/);
   };
 
   const isPersonalityVoiceRoute = () => {
     // /personality/:personalityId/voice/:storyId 형태의 URL 패턴 확인
-    return location.pathname.match(/\/personality\/[^\/]+\/voice\/[^\/]+/);
+    return location.pathname.match(/\/sinner\/personality\/[^\/]+\/voice\/[^\/]+/);
   };
 
   const isAnnouncerRoute = () => {
@@ -92,8 +92,8 @@ const StoryReaderPage = () => {
 
   // EGO 목록 경로 감지 함수 추가
   const isEgoListRoute = () => {
-    // /ego/:personalityId 형태의 URL 패턴 확인
-    return location.pathname.match(/\/ego\/[^\/]+$/);
+    // /sinner/ego/:personalityId 형태의 URL 패턴 확인
+    return location.pathname.match(/\/sinner\/ego\/[^\/]+$/);
   };
 
   return (
@@ -119,33 +119,32 @@ const StoryReaderPage = () => {
                 }}
               >
                 {(location.pathname === '/' || location.pathname === '' || location.pathname === '/LimBooks' || location.pathname === '/LimBooks/') && <MainPage />}
-                
+
                 {/* 인격 페이지 */}
-                {location.pathname === '/personality' && (
+                {location.pathname === '/sinner' && (
                   <PersonalityPage />
                 )}
-                
+
                 {/* 인격 목록 페이지 */}
-                {location.pathname.includes('/personality/') && location.pathname.split('/').length === 3 && (
+                {location.pathname.includes('/sinner/personality/') && location.pathname.split('/').length === 4 && (
                   <PersonalityStoryList
-                    personalityId={location.pathname.split('/')[2]}
+                    personalityId={location.pathname.split('/')[3]}
                   />
                 )}
-                
+
                 {/* 인격 스토리 콘텐츠 - PersonalityStoryContent*/}
                 {isPersonalityStoryRoute() && (
                   <PersonalityStoryContent />
                 )}
-                
+
                 {/* 인격 대사집 콘텐츠 - PersonalityVoiceContent*/}
                 {isPersonalityVoiceRoute() && (
                   <PersonalityVoiceContent />
                 )}
 
-                {/* E.G.O 목록 페이지 추가 */}
                 {isEgoListRoute() && (
                   <EgoList
-                    personalityId={location.pathname.split('/')[2]}
+                    personalityId={location.pathname.split('/')[3]}
                   />
                 )}
 
@@ -153,12 +152,12 @@ const StoryReaderPage = () => {
                 {location.pathname === '/announcers' && (
                   <AnnouncerPage />
                 )}
-                
+
                 {/* 아나운서 대사 페이지 */}
                 {isAnnouncerRoute() && (
                   <AnnouncerContent />
                 )}
-                
+
                 {/* 기존 메인/미니 스토리 리스트 */}
                 {(storyType === 'main' || storyType === 'mini') && !storyId && (
                   <StoryList
@@ -168,7 +167,7 @@ const StoryReaderPage = () => {
                     loading={loading}
                   />
                 )}
-                
+
                 {/* 챕터 리스트 */}
                 {selectedStory && !chapterId && selectedStory.chapters.length >= 2 && (
                   <ChapterList
@@ -178,7 +177,7 @@ const StoryReaderPage = () => {
                     storyType={storyType}
                   />
                 )}
-                
+
                 {/* 기존 스토리 컨텐츠 */}
                 {chapterId && storyData && (
                   <StoryContent
