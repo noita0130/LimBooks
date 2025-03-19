@@ -36,6 +36,17 @@ const EgoList = ({ personalityId }) => {
   const [selectedSpecialStory, setSelectedSpecialStory] = useState(null);
   const [loading, setLoading] = useState(true);
   const [expandedItemId, setExpandedItemId] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // 화면 크기 감지를 위한 이벤트 리스너
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // 오디오 플레이어 훅 사용
   const {
@@ -149,10 +160,10 @@ const EgoList = ({ personalityId }) => {
   } rounded-lg shadow-md overflow-hidden transition-all duration-200 cursor-pointer`;
   
   const getExpandedContentStyle = () => `mt-1 rounded-lg shadow-md overflow-hidden p-0 ${backgroundTransition}
-    ${darkMode ? 'bg-neutral-700' : 'bg-neutral-100'}`;
+    ${darkMode ? 'bg-neutral-800' : 'bg-neutral-100'}`;
   
   const getDialogItemStyle = () => `p-3 rounded-md ${backgroundTransition} ${
-    darkMode ? 'bg-neutral-600' : 'bg-white'
+    darkMode ? 'bg-neutral-700' : 'bg-white'
   }`;
   
   const getDialogTextStyle = () => `${textTransition} ${
@@ -180,19 +191,32 @@ const EgoList = ({ personalityId }) => {
     ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'}`}>
       <div className="w-full mx-auto">
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between mb-6">
-          {/* 왼쪽 그룹 */}
-          <div className="flex items-center">
-            <button
-              onClick={handleBack}
-              className={getBackButtonStyle()}
-              aria-label="돌아가기"
-            >
-              <Undo2 />
-            </button>
-            <h1 className={`text-lg sm:text-xl font-bold ml-3 ${getTextStyle(darkMode)}`}>{characterInfo.name}의 E.G.O 목록</h1>
+          {/* 왼쪽 그룹 - 뒤로가기 버튼, 제목 및 볼륨 컨트롤 */}
+          <div className="flex items-center justify-between w-full md:w-auto">
+            <div className="flex items-center">
+              <button
+                onClick={handleBack}
+                className={getBackButtonStyle()}
+                aria-label="돌아가기"
+              >
+                <Undo2 />
+              </button>
+              <h1 className={`text-lg sm:text-xl font-bold ml-3 ${getTextStyle(darkMode)}`}>{characterInfo.name}의 E.G.O 목록</h1>
+            </div>
+            
+            {/* 모바일에서만 볼륨 컨트롤이 여기에 표시됨 - 오른쪽 정렬 */}
+            {isMobile && (
+              <div className="ml-auto">
+                <VolumeControl 
+                  volume={volume} 
+                  onVolumeChange={handleVolumeChange} 
+                  darkMode={darkMode} 
+                />
+              </div>
+            )}
           </div>
 
-          {/* 오른쪽 그룹*/}
+          {/* 오른쪽 그룹 - PC에서만 볼륨 컨트롤이 여기에 표시됨 */}
           <div className="flex gap-2 items-center">
             <button
               onClick={() => handleSort('id')}
@@ -221,12 +245,14 @@ const EgoList = ({ personalityId }) => {
               )}
             </button>
 
-            {/* 볼륨 컨트롤 */}
-            <VolumeControl 
-              volume={volume} 
-              onVolumeChange={handleVolumeChange} 
-              darkMode={darkMode} 
-            />
+            {/* PC에서만 볼륨 컨트롤이 여기에 표시됨 */}
+            {!isMobile && (
+              <VolumeControl 
+                volume={volume} 
+                onVolumeChange={handleVolumeChange} 
+                darkMode={darkMode} 
+              />
+            )}
           </div>
         </div>
 

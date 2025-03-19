@@ -1,4 +1,4 @@
-// StoryReaderPage.jsx (수정된 버전)
+// StoryReaderPage.jsx (완전히 수정된 버전)
 import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -19,14 +19,14 @@ import loadChapterData from '../utill/loadChapterData';
 import useDarkMode from '../hooks/useDarkmode';
 import Footer from '../components/footer';
 
-// 컴포넌트 임포트 - lazy 컴포넌트는 일반 컴포넌트로 변경
+// 컴포넌트 임포트
 import PersonalityStoryContent from './PersonalityStoryContent';
 import PersonalityVoiceContent from './PersonalityVoiceContent';
 import AnnouncerContent from './AnnouncerContent';
-import AnnouncerPage from './AnnouncerPage'; // lazy 아닌 일반 컴포넌트로 사용
+import AnnouncerPage from './AnnouncerPage'; 
 import EgoList from './EgoList';
 
-// 새로운 애니메이션 컴포넌트 임포트
+// 애니메이션 컴포넌트 임포트
 import PageTransition from '../components/PageTransition';
 import { getPageBgStyle, getTextStyle } from '../components/TransitionStyles';
 
@@ -42,9 +42,9 @@ import {
 
 // 페이지 전환 애니메이션 속도 조정
 const pageTransitionVariants = {
-  initial: { opacity: 0, y: 15 },  // 시작 위치 줄임
+  initial: { opacity: 0, y: 15 },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -15 }     // 종료 위치 줄임
+  exit: { opacity: 0, y: -15 }
 };
 
 const StoryReaderPage = () => {
@@ -57,6 +57,17 @@ const StoryReaderPage = () => {
   const [shouldRestoreScroll, setShouldRestoreScroll] = useState(false);
   const { stories, loading } = useStoryData(storyType);
   const { darkMode } = useDarkMode();
+  
+  // 디버깅용 경로 추적
+  const [currentPath, setCurrentPath] = useState(location.pathname);
+  
+  useEffect(() => {
+    // 경로 변경 추적 (디버깅용)
+    if (currentPath !== location.pathname) {
+      console.log(`Route changed: ${currentPath} -> ${location.pathname}`);
+      setCurrentPath(location.pathname);
+    }
+  }, [location.pathname, currentPath]);
 
   // 일반 스토리 로딩 로직
   useEffect(() => {
@@ -92,6 +103,10 @@ const StoryReaderPage = () => {
 
   const isAnnouncerRoute = () => {
     return location.pathname.match(/\/announcers\/[^\/]+$/);
+  };
+  
+  const isAnnouncersListRoute = () => {
+    return location.pathname === '/announcers';
   };
 
   const isEgoListRoute = () => {
@@ -140,7 +155,7 @@ const StoryReaderPage = () => {
     }
 
     // 아나운서 페이지
-    if (location.pathname === '/announcers') {
+    if (isAnnouncersListRoute()) {
       return <AnnouncerPage />;
     }
 
@@ -207,7 +222,7 @@ const StoryReaderPage = () => {
           <Suspense fallback={<LoadingSpinner />}>
             <AnimatePresence mode="wait">
               <PageTransition
-                key={location.pathname}
+                key={location.pathname} // 모든 경로에 동일한 방식으로 key 적용
                 variants={pageTransitionVariants}
                 onAnimationComplete={handleAnimationComplete}
               >

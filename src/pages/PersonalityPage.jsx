@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { UserRound, Drama } from 'lucide-react';
+import { motion } from 'framer-motion'; // framer-motion 추가
 import personalityList from '../data/personalityList';
 import useDarkMode from '../hooks/useDarkmode';
 
@@ -46,16 +47,43 @@ const PersonalityPage = () => {
         navigate(`/sinner/ego/${personalityId}`);
     };
 
+    // 애니메이션 variants 설정
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.05
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: {
+                duration: 0.2
+            }
+        }
+    };
+
     return (
         <div className="w-full flex flex-col items-center justify-center p-4 md:p-12">
             <div className='py-2 text-2xl md:text-3xl font-semibold mb-6'>
                 인격 스토리 / 대사집
             </div>
-            {/* 그리드 레이아웃을 반응형으로 변경 */}
-            <div className="grid w-full max-w-[1000px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4"
-                style={{ gridAutoRows: 'min-content' }}>
+            {/* 그리드 레이아웃을 motion.div로 변경 */}
+            <motion.div 
+                className="grid w-full max-w-[1000px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4"
+                style={{ gridAutoRows: 'min-content' }}
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+            >
                 {personalityList.map((character, index) => (
-                    <div
+                    <motion.div
                         key={index}
                         onClick={() => handleCardClick(character.id)}
                         className={`flex flex-col ${darkMode ? 'bg-neutral-800' : 'bg-neutral-200'} 
@@ -70,6 +98,7 @@ const PersonalityPage = () => {
                             transition: 'transform 300ms, background-color 300ms',
                             alignSelf: 'start'
                         }}
+                        variants={itemVariants}
                     >
                         {/* 이미지 컨테이너 - 반응형으로 중앙 정렬 조정 */}
                         <div className='flex flex-col items-center w-full transition-transform duration-300'>
@@ -129,9 +158,9 @@ const PersonalityPage = () => {
                                 <Drama />E.G.O.
                             </button>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     );
 };

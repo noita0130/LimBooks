@@ -194,13 +194,18 @@ const NavigationBar = ({ handleNavigation, location }) => {
         </div>
       </div>
 
-      {/* 모바일 메뉴 */}
-      <div
-        className={`md:hidden overflow-hidden ${getBgStyle(darkMode)} border-t ${darkMode ? 'border-neutral-700' : 'border-neutral-200'}`}
+      {/* 모바일 메뉴 - 수정된 부분 */}
+      <div 
+        className={`md:hidden ${backgroundTransition} border-t transition-all duration-300 ease-in-out
+          ${darkMode ? 'border-neutral-700' : 'border-neutral-200'}`}
         style={{
-          maxHeight: isMobileMenuOpen ? '24rem' : '0', // 96px = 24rem (max-h-96)
+          maxHeight: isMobileMenuOpen ? '24rem' : '0',
           opacity: isMobileMenuOpen ? '1' : '0',
-          transition: 'max-height 300ms ease-in-out, opacity 300ms ease-in-out'
+          visibility: isMobileMenuOpen ? 'visible' : 'hidden',
+          overflow: 'hidden',
+          transformOrigin: 'top',
+          transform: isMobileMenuOpen ? 'scaleY(1)' : 'scaleY(0.95)',
+          transition: 'max-height 300ms ease-in-out, opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 0ms'
         }}
       >
         <div className="px-2 pt-2 pb-3 space-y-1">
@@ -215,7 +220,7 @@ const NavigationBar = ({ handleNavigation, location }) => {
           </button>
 
           {/* 모바일 스토리 메뉴 - 드롭다운 없이 바로 표시 */}
-          <div className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium
+          <div className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${buttonTransition}
             ${(location.pathname.startsWith('/main') || location.pathname.startsWith('/mini')) ?
               (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-200 text-neutral-900') :
               (darkMode ? 'text-neutral-400' : 'text-neutral-600')}`}

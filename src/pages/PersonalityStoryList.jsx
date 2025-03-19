@@ -131,7 +131,7 @@ const PersonalityStoryList = ({ personalityId }) => {
 
   // 특정 상황에서 Book 버튼 비활성화 여부 확인 함수
   const isBookButtonDisabled = (story, index) => {
-    return index === 0 || story?.title === "LCB 수감자";
+    return story?.title === "LCB 수감자";
   };
   
   // 버튼 스타일 함수
@@ -147,7 +147,7 @@ const PersonalityStoryList = ({ personalityId }) => {
     darkMode ? 'bg-neutral-800' : 'bg-white'
   } rounded-lg shadow-md overflow-hidden h-full`;
   
-  const getActionButtonStyle = (isDisabled) => `flex-1 ${isDisabled ? 'mr-0' : 'mr-2'} px-2 py-2 md:py-3 rounded-md flex items-center justify-center ${buttonTransition} ${
+  const getActionButtonStyle = (isDisabled) => `flex-1 ${isDisabled ? 'mr-2' : 'mr-2'} px-2 py-2 md:py-3 rounded-md flex items-center justify-center ${buttonTransition} ${
     isDisabled
       ? 'bg-neutral-400 text-neutral-600 opacity-50'
       : darkMode
