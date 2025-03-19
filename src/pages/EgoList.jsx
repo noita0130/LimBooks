@@ -1,3 +1,4 @@
+// components/EgoList.jsx (개선된 버전)
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { ArrowUp, ArrowDown, ChevronDown, ChevronUp, Undo2 } from "lucide-react";
@@ -12,6 +13,14 @@ import useAudioPlayer from '../hooks/useAudioPlayer';
 import VolumeControl from '../components/VolumeControl';
 import AudioButton from '../components/AudioButton';
 import { AUDIO_PATHS } from '../hooks/audioConfig';
+import { 
+  backgroundTransition, 
+  buttonTransition,
+  textTransition,
+  getBgStyle, 
+  getTextStyle, 
+  getSubTextStyle 
+} from '../components/TransitionStyles';
 
 const EgoList = ({ personalityId }) => {
   const { darkMode } = useDarkMode();
@@ -58,7 +67,7 @@ const EgoList = ({ personalityId }) => {
     loadEgoData();
   }, [personalityId]);
 
-  // 정렬 함수 추가 - 토글 방식으로 변경
+  // 정렬 함수
   const handleSort = (type) => {
     let newSortType;
     let sortedEgo = [...stories];
@@ -126,10 +135,33 @@ const EgoList = ({ personalityId }) => {
       handleStopAudio();
     }
   };
+  
+  // 스타일 함수
+  const getBackButtonStyle = () => `px-4 py-2 rounded-md ${buttonTransition} inline-flex items-center w-fit
+    ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'}`;
+  
+  const getSortButtonStyle = (isActive) => `px-3 py-2 rounded-md inline-flex items-center text-xs md:text-sm border-2 ${buttonTransition}
+    ${darkMode ? "bg-neutral-700 hover:bg-neutral-600" : "bg-neutral-200 hover:bg-neutral-300"}
+    ${isActive ? "" : "border-transparent"}`;
+  
+  const getCardStyle = () => `${backgroundTransition} ${
+    darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-100'
+  } rounded-lg shadow-md overflow-hidden transition-all duration-200 cursor-pointer`;
+  
+  const getExpandedContentStyle = () => `mt-1 rounded-lg shadow-md overflow-hidden p-0 ${backgroundTransition}
+    ${darkMode ? 'bg-neutral-700' : 'bg-neutral-100'}`;
+  
+  const getDialogItemStyle = () => `p-3 rounded-md ${backgroundTransition} ${
+    darkMode ? 'bg-neutral-600' : 'bg-white'
+  }`;
+  
+  const getDialogTextStyle = () => `${textTransition} ${
+    darkMode ? 'text-neutral-200' : 'text-neutral-800'
+  }`;
 
   if (loading) {
     return (
-      <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6 flex items-center justify-center`}>
+      <div className={`min-h-screen ${backgroundTransition} ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6 flex items-center justify-center`}>
         <p>로딩 중...</p>
       </div>
     );
@@ -137,36 +169,34 @@ const EgoList = ({ personalityId }) => {
 
   if (!characterInfo) {
     return (
-      <div className={`min-h-screen ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
+      <div className={`min-h-screen ${backgroundTransition} ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
         <p>해당 인격체 정보를 찾을 수 없습니다.</p>
       </div>
     );
   }
 
   return (
-    <div className={`min-h-screen rounded-lg p-2 md:p-6 max-w-screen-2xl mx-auto
-    ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} `}>
+    <div className={`min-h-screen rounded-lg p-2 md:p-6 max-w-screen-2xl mx-auto ${backgroundTransition}
+    ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'}`}>
       <div className="w-full mx-auto">
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between mb-6">
           {/* 왼쪽 그룹 */}
           <div className="flex items-center">
             <button
               onClick={handleBack}
-              className={`px-4 py-2 rounded-md inline-flex items-center w-fit
-          ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'}`}
+              className={getBackButtonStyle()}
+              aria-label="돌아가기"
             >
               <Undo2 />
             </button>
-            <h1 className="text-lg sm:text-xl font-bold ml-3">{characterInfo.name}의 E.G.O 목록</h1>
+            <h1 className={`text-lg sm:text-xl font-bold ml-3 ${getTextStyle(darkMode)}`}>{characterInfo.name}의 E.G.O 목록</h1>
           </div>
 
           {/* 오른쪽 그룹*/}
           <div className="flex gap-2 items-center">
             <button
               onClick={() => handleSort('id')}
-              className={`px-3 py-2 rounded-md inline-flex items-center text-xs md:text-sm border-2
-          ${darkMode ? "bg-neutral-700 hover:bg-neutral-600" : "bg-neutral-200 hover:bg-neutral-300"}
-          ${sortType === 'idAsc' || sortType === 'idDesc' ? "" : "border-transparent"}`}
+              className={getSortButtonStyle(sortType === 'idAsc' || sortType === 'idDesc')}
             >
               <span className="mr-1">출시순</span>
               {sortType === 'idAsc' ? (
@@ -179,9 +209,7 @@ const EgoList = ({ personalityId }) => {
             </button>
             <button
               onClick={() => handleSort('name')}
-              className={`px-3 py-2 rounded-md inline-flex items-center text-xs md:text-sm border-2
-          ${darkMode ? "bg-neutral-700 hover:bg-neutral-600" : "bg-neutral-200 hover:bg-neutral-300"}
-          ${sortType === 'nameAsc' || sortType === 'nameDesc' ? "" : "border-transparent"}`}
+              className={getSortButtonStyle(sortType === 'nameAsc' || sortType === 'nameDesc')}
             >
               <span className="mr-1">이름순</span>
               {sortType === 'nameAsc' ? (
@@ -204,8 +232,8 @@ const EgoList = ({ personalityId }) => {
 
         {/* 스토리 목록 컨텐츠 */}
         {stories.length === 0 ? (
-          <div className={`p-6 rounded-lg ${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-md`}>
-            <p>이 수감자의 E.G.O 데이터가 없습니다.</p>
+          <div className={`p-6 rounded-lg ${backgroundTransition} ${darkMode ? 'bg-neutral-800' : 'bg-white'} shadow-md`}>
+            <p className={getTextStyle(darkMode)}>이 수감자의 E.G.O 데이터가 없습니다.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -218,8 +246,7 @@ const EgoList = ({ personalityId }) => {
                   {/* 클릭 가능한 E.G.O 카드 */}
                   <button
                     onClick={() => handleItemClick(story.id)}
-                    className={`${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-100'} 
-                      rounded-lg shadow-md overflow-hidden transition-all duration-200 cursor-pointer`}
+                    className={getCardStyle()}
                   >
                     <div className="flex h-full">
                       {/* 이미지 컨테이너 - 고정 비율 설정 */}
@@ -233,13 +260,13 @@ const EgoList = ({ personalityId }) => {
 
                       <div className="w-3/4 md:w-4/5 p-3 md:p-6 flex flex-col justify-between text-left">
                         <div>
-                          <h2 className="text-sm md:text-lg lg:text-xl font-semibold">{story.name}</h2>
+                          <h2 className={`text-sm md:text-lg lg:text-xl font-semibold ${getTextStyle(darkMode)}`}>{story.name}</h2>
                         </div>
 
                         <div className="flex items-center justify-end mt-2 md:mt-4">
                           {expandedItemId === story.id ?
-                            <ChevronUp className="w-4 h-4 md:w-5 md:h-5" /> :
-                            <ChevronDown className="w-4 h-4 md:w-5 md:h-5" />
+                            <ChevronUp className={`w-4 h-4 md:w-5 md:h-5 ${getSubTextStyle(darkMode)}`} /> :
+                            <ChevronDown className={`w-4 h-4 md:w-5 md:h-5 ${getSubTextStyle(darkMode)}`} />
                           }
                         </div>
                       </div>
@@ -254,9 +281,7 @@ const EgoList = ({ personalityId }) => {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className={`mt-1 rounded-lg shadow-md overflow-hidden p-0
-                          ${darkMode ? 'bg-neutral-700' : 'bg-neutral-100'}
-                          md:col-span-2`}
+                        className={getExpandedContentStyle()}
                         layoutId={`content-${story.id}`}
                       >
                         <motion.div
@@ -265,7 +290,7 @@ const EgoList = ({ personalityId }) => {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                         >
-                          <h3 className="font-semibold mb-3 text-sm md:text-base">E.G.O 대사</h3>
+                          <h3 className={`font-semibold mb-3 text-sm md:text-base ${getTextStyle(darkMode)}`}>E.G.O 대사</h3>
                           <div className="space-y-3">
                             {egoInfoData.info.map((info, idx) => (
                               <motion.div
@@ -277,9 +302,9 @@ const EgoList = ({ personalityId }) => {
                                   delay: idx * 0.05,
                                   ease: "easeOut"
                                 }}
-                                className={`p-3 rounded-md ${darkMode ? 'bg-neutral-600' : 'bg-white'}`}
+                                className={getDialogItemStyle()}
                               >
-                                <div className="text-xs md:text-sm text-neutral-400 mb-2">{info.desc}</div>
+                                <div className={`text-xs md:text-sm ${getSubTextStyle(darkMode)} mb-2`}>{info.desc}</div>
                                 <div className="flex items-center">
                                   {/* 재생 버튼 */}
                                   <AudioButton
@@ -293,7 +318,7 @@ const EgoList = ({ personalityId }) => {
                                   />
 
                                   {/* 대사 내용 */}
-                                  <p className="flex-grow text-xs sm:text-sm md:text-base">{info.dlg}</p>
+                                  <p className={`flex-grow text-xs sm:text-sm md:text-base ${getDialogTextStyle()}`}>{info.dlg}</p>
                                 </div>
                               </motion.div>
                             ))}
