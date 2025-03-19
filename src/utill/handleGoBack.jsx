@@ -14,27 +14,27 @@ const handleGoBack = (navigate, location, scrollRef, setShouldRestoreScroll, sto
 
     let targetPath;
 
-    // 특수 케이스: /personality/:personalityId 또는 그 하위 경로들
-    if (pathSegments[0] === 'personality') {
+    // 특수 케이스: /sinner/:personalityId 또는 그 하위 경로들
+    if (pathSegments[0] === 'sinner') {
         switch (pathSegments.length) {
-            case 4:
-                // /personality/Yisang/story/KR_P10101 -> /personality/Yisang
-                if (pathSegments[2] === 'story' || pathSegments[2] === 'voice') {
-                    targetPath = `${BASE_PATH}/personality/${pathSegments[1]}`;
+            case 5:
+                // /sinner/personality/Yisang/story/KR_P10101 -> /sinner/Yisang
+                if (pathSegments[3] === 'story' || pathSegments[3] === 'voice') {
+                    targetPath = `${BASE_PATH}/sinner/personality/${pathSegments[2]}`;
                 } else {
-                    targetPath = `${BASE_PATH}/personality`;
+                    targetPath = `${BASE_PATH}/sinner`;
                 }
                 break;
             case 3:
-                // /personality/Yisang/story -> /personality/Yisang
-                targetPath = `${BASE_PATH}/personality/${pathSegments[1]}`;
+                // /sinner/personality/Yisang/ -> /sinner/personality
+                targetPath = `${BASE_PATH}/sinner`;
                 break;
             case 2:
-                // /personality/Yisang -> /personality
-                targetPath = `${BASE_PATH}/personality`;
+                // /sinner/Yisang -> /personality
+                targetPath = `${BASE_PATH}/sinner`;
                 break;
             default:
-                // /personality -> /
+                // /sinner -> /
                 targetPath = `${BASE_PATH}`;
                 break;
         }

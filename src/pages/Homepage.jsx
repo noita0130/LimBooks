@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-const Homepage = React.lazy(() => Promise.resolve({
-  default: () => (
+// lazy 컴포넌트가 아닌 일반 컴포넌트로 변경
+const Homepage = () => {
+  return (
     <div className="flex flex-col items-center justify-center min-h-screen py-12 bg-neutral-800">
       <div className="text-center max-w-2xl mx-auto px-4">
         <h1 className="text-5xl font-bold mb-6">
@@ -15,20 +16,20 @@ const Homepage = React.lazy(() => Promise.resolve({
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             to="/main"
-            className="px-6 py-3 bg-red-400 text-white rounded-lg hover:bg-red-500 transition-colors"
+            className="px-6 py-3 bg-red-400 text-white rounded-lg hover:bg-red-500 transition-colors duration-150"
           >
             메인 스토리
           </Link>
           <Link
             to="/mini"
-            className="px-6 py-3 bg-neutral-700 text-white rounded-lg hover:bg-neutral-900 transition-colors"
+            className="px-6 py-3 bg-neutral-700 text-white rounded-lg hover:bg-neutral-900 transition-colors duration-150"
           >
             미니 스토리
           </Link>
         </div>
       </div>
     </div>
-  )
-}));
+  );
+};
 
 export default Homepage;
