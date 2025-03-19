@@ -12,7 +12,7 @@ const egoData = {
                     desc: "E.G.O 발동",
                     dlg: "이상이 무엇이라 생각하시오."
                 },
-                {
+                /*{
                     id: "battle_upgrade_20101_1",
                     desc: "E.G.O 해방",
                     dlg: "새장을 깨고,"
@@ -21,7 +21,7 @@ const egoData = {
                     id: "battle_upgrade_20101_2",
                     desc: "E.G.O 해방",
                     dlg: "자유롭게."
-                },
+                },*/
             ]
         },
         {
@@ -860,7 +860,7 @@ const egoData = {
                     desc: "E.G.O 발동",
                     dlg: "모두가 너를 잊어도… 반드시 되찾을 거다."
                 },
-                {
+                /*{
                     id: "battle_overdrive_20701_1-1",
                     desc: "E.G.O 폭주 발동",
                     dlg: "너를… 나를 짓밟아 기어코 캐시와 떼어놓은 그 모든 것들을…"
@@ -874,7 +874,7 @@ const egoData = {
                     id: "battle_overdrive_20701_1-3",
                     desc: "E.G.O 폭주 발동",
                     dlg: "있는 힘껏 내려칠 거다."
-                }
+                }*/
             ]
         },
         {
@@ -1029,7 +1029,7 @@ const egoData = {
                     desc: "E.G.O 발동",
                     dlg: "내가 찾은 나만의 항해 방식…"
                 },
-                {
+                /*{
                     id: "battle_special_1",
                     desc: "E.G.O 발동",
                     dlg: "내가 모는 배가 좀 흔들릴 테니 다들 꽉 잡아!"
@@ -1038,7 +1038,7 @@ const egoData = {
                     id: "battle_special_2",
                     desc: "E.G.O 발동",
                     dlg: "바라고 있어, 내가 가고 싶은 방향."
-                }
+                }*/
             ]
         },
         {
