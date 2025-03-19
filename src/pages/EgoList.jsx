@@ -1,12 +1,17 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { MessageCircle, BookOpen, ArrowUp, ArrowDown } from "lucide-react";
+import { ArrowUp, ArrowDown, ChevronDown, ChevronUp, Undo2 } from "lucide-react";
 import handleGoBack from '../utill/handleGoBack';
-import { Undo2 } from 'lucide-react';
 import { isSpecialStoryId, getSpecialStoryInfo } from '../data/specialStoriesMap';
 import StorySelector from '../utill/StorySelector';
 import useDarkMode from '../hooks/useDarkmode';
-import egoLoad from '../utill/EgoLoad'; // 새로 작성한 유틸리티 함수 import
+import egoLoad from '../utill/EgoLoad';
+import egoData from '../data/egoData';
+import { motion, AnimatePresence } from 'framer-motion';
+import useAudioPlayer from '../hooks/useAudioPlayer';
+import VolumeControl from '../components/VolumeControl';
+import AudioButton from '../components/AudioButton';
+import { AUDIO_PATHS } from '../hooks/audioConfig';
 
 const EgoList = ({ personalityId }) => {
   const { darkMode } = useDarkMode();
@@ -17,10 +22,21 @@ const EgoList = ({ personalityId }) => {
   const [characterInfo, setCharacterInfo] = useState(null);
   const [storyData, setStoryData] = useState(null);
   const [selectedStory, setSelectedStory] = useState(null);
-  const [sortType, setSortType] = useState('idAsc'); // 기본 정렬은 출시순(idAsc)으로 설정
+  const [sortType, setSortType] = useState('idAsc');
   const [showStorySelector, setShowStorySelector] = useState(false);
   const [selectedSpecialStory, setSelectedSpecialStory] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [expandedItemId, setExpandedItemId] = useState(null);
+
+  // 오디오 플레이어 훅 사용
+  const {
+    playingId,
+    loadingId,
+    volume,
+    handlePlayAudio,
+    handleStopAudio,
+    handleVolumeChange
+  } = useAudioPlayer(AUDIO_PATHS.EGO);
 
   useEffect(() => {
     const loadEgoData = async () => {
@@ -28,7 +44,7 @@ const EgoList = ({ personalityId }) => {
       try {
         // egoLoad 함수를 사용하여 EGO 데이터 로드
         const { egoList, personalityInfo } = egoLoad(personalityId);
-        
+
         // 캐릭터 정보와 EGO 목록 설정
         setCharacterInfo(personalityInfo);
         setStories(egoList);
@@ -88,13 +104,14 @@ const EgoList = ({ personalityId }) => {
     handleGoBack(navigate, location, scrollRef, null, null, {}, setStoryData, setSelectedStory);
   };
 
-  // 스토리 클릭 핸들러 - 특별한 스토리 처리 추가
-  const handleStoryClick = (storyId) => {
-    // 버튼이 비활성화된 경우 처리하지 않음
-    if (isBookButtonDisabled(stories.find(s => s.id === storyId), stories.findIndex(s => s.id === storyId))) {
-      return;
-    }
-    
+  // 특별 스토리 선택 핸들러
+  const handleSpecialStorySelect = (selectedStoryId) => {
+    navigate(`/sinner/${personalityId}/story/${selectedStoryId}`);
+    setShowStorySelector(false);
+  };
+
+  // 스토리 항목 클릭 핸들러
+  const handleItemClick = (storyId) => {
     // 특별한 스토리인지 확인
     if (isSpecialStoryId(storyId)) {
       // 특별한 스토리 정보 가져오기
@@ -102,25 +119,12 @@ const EgoList = ({ personalityId }) => {
       setSelectedSpecialStory(specialStory);
       setShowStorySelector(true);
     } else {
-      // 일반 스토리는 바로 이동
-      navigate(`/sinner/${personalityId}/story/${storyId}`);
+      // 일반적인 경우 - 확장/축소 토글
+      setExpandedItemId(expandedItemId === storyId ? null : storyId);
+
+      // 재생 중인 오디오가 있다면 중지
+      handleStopAudio();
     }
-  };
-
-  // 특별 스토리 선택 핸들러
-  const handleSpecialStorySelect = (selectedStoryId) => {
-    navigate(`/sinner/${personalityId}/story/${selectedStoryId}`);
-    setShowStorySelector(false);
-  };
-
-  const handleQuotesClick = (storyId) => {
-    // 대사집 페이지로 이동 - /personality/:personalityId/voice/:storyId 경로 사용
-    navigate(`/sinner/${personalityId}/voice/${storyId}`);
-  };
-
-  // 특정 상황에서 Book 버튼 비활성화 여부 확인 함수
-  const isBookButtonDisabled = (story, index) => {
-    return index === 0 || story?.name === "LCB 수감자";
   };
 
   if (loading) {
@@ -140,9 +144,9 @@ const EgoList = ({ personalityId }) => {
   }
 
   return (
-    <div className={`min-h-screen rounded-lg p-2 md:p-6
+    <div className={`min-h-screen rounded-lg p-2 md:p-6 max-w-screen-2xl mx-auto
     ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} `}>
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full mx-auto">
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:items-center md:justify-between mb-6">
           {/* 왼쪽 그룹 */}
           <div className="flex items-center">
@@ -153,11 +157,11 @@ const EgoList = ({ personalityId }) => {
             >
               <Undo2 />
             </button>
-            <h1 className="text-xl font-bold ml-3">{characterInfo.name}의 E.G.O 목록</h1>
+            <h1 className="text-lg sm:text-xl font-bold ml-3">{characterInfo.name}의 E.G.O 목록</h1>
           </div>
 
           {/* 오른쪽 그룹*/}
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             <button
               onClick={() => handleSort('id')}
               className={`px-3 py-2 rounded-md inline-flex items-center text-xs md:text-sm border-2
@@ -188,6 +192,13 @@ const EgoList = ({ personalityId }) => {
                 <ArrowDown className="w-3 h-3" />
               )}
             </button>
+
+            {/* 볼륨 컨트롤 */}
+            <VolumeControl 
+              volume={volume} 
+              onVolumeChange={handleVolumeChange} 
+              darkMode={darkMode} 
+            />
           </div>
         </div>
 
@@ -198,66 +209,102 @@ const EgoList = ({ personalityId }) => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {stories.map((story, index) => (
-              <div
-                key={index}
-                className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} rounded-lg shadow-md overflow-hidden h-full`}
-              >
-                <div className="flex h-full">
-                  <div className="w-1/3 overflow-hidden">
-                    <img
-                      src={story.image}
-                      alt={story.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="w-2/3 p-4 md:p-6 flex flex-col h-full">
-                    <div className="flex flex-col h-1/2">
-                      <h2 className="text-sm md:text-base lg:text-xl font-semibold">{story.name}</h2>
-                      <div className="mt-2">
-                        <span className={`inline-block px-2 py-1 text-xs rounded-full 
-                          ${story.rank === 'ZAYIN' ? 'bg-emerald-600 text-white' : 
-                          story.rank === 'TETH' ? 'bg-blue-600 text-white' : 
-                          story.rank === 'HE' ? 'bg-purple-600 text-white' : 
-                          story.rank === 'WAW' ? 'bg-amber-600 text-white' : 
-                          'bg-rose-600 text-white'}`}>
-                          {story.rank}
-                        </span>
+            {stories.map((story, index) => {
+              // egoData에서 현재 E.G.O에 대한 정보 찾기
+              const egoInfoData = egoData[characterInfo.id]?.find(ego => ego.id === story.id);
+
+              return (
+                <div key={index} className="flex flex-col">
+                  {/* 클릭 가능한 E.G.O 카드 */}
+                  <button
+                    onClick={() => handleItemClick(story.id)}
+                    className={`${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-100'} 
+                      rounded-lg shadow-md overflow-hidden transition-all duration-200 cursor-pointer`}
+                  >
+                    <div className="flex h-full">
+                      {/* 이미지 컨테이너 - 고정 비율 설정 */}
+                      <div className="w-1/3 overflow-hidden">
+                        <img
+                          src={story.image}
+                          alt={story.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      <div className="w-3/4 md:w-4/5 p-3 md:p-6 flex flex-col justify-between text-left">
+                        <div>
+                          <h2 className="text-sm md:text-lg lg:text-xl font-semibold">{story.name}</h2>
+                        </div>
+
+                        <div className="flex items-center justify-end mt-2 md:mt-4">
+                          {expandedItemId === story.id ?
+                            <ChevronUp className="w-4 h-4 md:w-5 md:h-5" /> :
+                            <ChevronDown className="w-4 h-4 md:w-5 md:h-5" />
+                          }
+                        </div>
                       </div>
                     </div>
-                    <div className="flex flex-col h-1/2 justify-end">
-                      <div className="flex w-full">
-                        <button
-                          onClick={() => handleStoryClick(story.id)}
-                          disabled={isBookButtonDisabled(story, index)}
-                          className={`flex-1 mr-2 px-2 py-2 md:py-3 rounded-md flex items-center justify-center
-                          ${isBookButtonDisabled(story, index)
-                              ? 'bg-neutral-400 text-neutral-600 opacity-50'
-                              : darkMode
-                                ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
-                                : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
-                          }
+                  </button>
+
+                  {/* 확장된 콘텐츠 - E.G.O 대사 및 정보 */}
+                  <AnimatePresence mode="wait">
+                    {expandedItemId === story.id && egoInfoData && egoInfoData.info && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className={`mt-1 rounded-lg shadow-md overflow-hidden p-0
+                          ${darkMode ? 'bg-neutral-700' : 'bg-neutral-100'}
+                          md:col-span-2`}
+                        layoutId={`content-${story.id}`}
+                      >
+                        <motion.div
+                          className="p-4"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
                         >
-                          <BookOpen className="w-3 h-3 md:w-5 md:h-5 mr-1" />
-                          <span className="text-xs md:text-sm">스토리</span>
-                        </button>
-                        <button
-                          onClick={() => handleQuotesClick(story.id)}
-                          className={`flex-1 px-2 py-2 md:py-3 rounded-md flex items-center justify-center
-                            ${darkMode
-                              ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
-                              : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `
-                          }
-                        >
-                          <MessageCircle className="w-3 h-3 md:w-5 md:h-5 mr-1" />
-                          <span className="text-xs md:text-sm">대사</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                          <h3 className="font-semibold mb-3 text-sm md:text-base">E.G.O 대사</h3>
+                          <div className="space-y-3">
+                            {egoInfoData.info.map((info, idx) => (
+                              <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                  duration: 0.2,
+                                  delay: idx * 0.05,
+                                  ease: "easeOut"
+                                }}
+                                className={`p-3 rounded-md ${darkMode ? 'bg-neutral-600' : 'bg-white'}`}
+                              >
+                                <div className="text-xs md:text-sm text-neutral-400 mb-2">{info.desc}</div>
+                                <div className="flex items-center">
+                                  {/* 재생 버튼 */}
+                                  <AudioButton
+                                    id={info.id}
+                                    playingId={playingId}
+                                    loadingId={loadingId}
+                                    onPlay={handlePlayAudio}
+                                    onStop={handleStopAudio}
+                                    darkMode={darkMode}
+                                    className="mr-3 flex-shrink-0"
+                                  />
+
+                                  {/* 대사 내용 */}
+                                  <p className="flex-grow text-xs sm:text-sm md:text-base">{info.dlg}</p>
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>

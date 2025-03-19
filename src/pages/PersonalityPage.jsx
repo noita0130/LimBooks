@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { UserRound, Drama } from 'lucide-react';
 import personalityList from '../data/personalityList';
 import useDarkMode from '../hooks/useDarkmode';
 
@@ -60,11 +61,11 @@ const PersonalityPage = () => {
                         className={`flex flex-col ${darkMode ? 'bg-neutral-800' : 'bg-neutral-200'} 
                         rounded-lg shadow-md p-2 items-center cursor-pointer
                         transform justify-between h-auto
-                        hover:scale-105 ease-in-out 
+                        hover:scale-105 ease-in-out overflow-hidden
                         ${darkMode ? 'hover:bg-neutral-700' : 'hover:bg-neutral-300'}
                         ${expandedCard === character.id ? 'scale-100 hover:scale-105' : ''}`}
-                        style={{ 
-                            minHeight: expandedCard === character.id ? 
+                        style={{
+                            minHeight: expandedCard === character.id ?
                                 (isLargeScreen ? '120px' : '100px') : '',
                             transition: 'transform 300ms, background-color 300ms',
                             alignSelf: 'start'
@@ -72,13 +73,13 @@ const PersonalityPage = () => {
                     >
                         {/* 이미지 컨테이너 - 반응형으로 중앙 정렬 조정 */}
                         <div className='flex flex-col items-center w-full transition-transform duration-300'>
-                            <div 
+                            <div
                                 className={`relative w-full overflow-hidden rounded-lg mb-2`}
                                 style={{
                                     transformOrigin: isLargeScreen ? 'top center' : 'center center',
-                                    aspectRatio: expandedCard === character.id 
-                                                  ? (isLargeScreen ? '2/1.6' : '4/1.5') 
-                                                  : (isLargeScreen ? '2/3' : '4/3'),
+                                    aspectRatio: expandedCard === character.id
+                                        ? (isLargeScreen ? '2/1.6' : '4/1.5')
+                                        : (isLargeScreen ? '2/3' : '4/3'),
                                     transition: 'aspect-ratio 300ms cubic-bezier(0.4, 0, 0.2, 1)'
                                 }}
                             >
@@ -96,36 +97,36 @@ const PersonalityPage = () => {
                         </div>
 
                         {/* 확장 시 나타나는 버튼들 */}
-                        <div 
+                        <div
                             className={`w-full flex flex-col gap-2 transition-all duration-300
-                            ${expandedCard === character.id 
-                                ? 'max-h-40 opacity-100 mt-2' 
-                                : 'max-h-0 opacity-0 m-0 p-0 invisible'}`}
-                            style={{ 
+                            ${expandedCard === character.id
+                                    ? 'max-h-40 opacity-100 mt-2'
+                                    : 'max-h-0 opacity-0 m-0 p-0 invisible'}`}
+                            style={{
                                 transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
                                 transitionDelay: expandedCard === character.id ? '50ms' : '0ms',
-                                transition: expandedCard === character.id ? 
-                                    'all 300ms cubic-bezier(0.4, 0, 0.2, 1) 50ms' : 
+                                transition: expandedCard === character.id ?
+                                    'all 300ms cubic-bezier(0.4, 0, 0.2, 1) 50ms' :
                                     'all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, visibility 0ms linear 300ms'
                             }}
                         >
                             <button
                                 onClick={(e) => goToPersonality(e, character.id)}
-                                className={`w-full py-1 sm:py-1 md:py-1.5 lg:py-2 rounded-md text-sm font-medium transition-colors h-8 sm:h-8 md:h-9 lg:h-10
-                                ${darkMode 
-                                    ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                                    : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
+                                className={`flex justify-center border-1 w-full py-1 sm:py-1 md:py-1.5 lg:py-2 rounded-md text-sm font-medium transition-colors h-8 sm:h-8 md:h-9 lg:h-10
+                                    ${darkMode
+                                        ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
+                                        : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `}
                             >
-                                인격 보기
+                                <UserRound />인격
                             </button>
                             <button
                                 onClick={(e) => goToEGO(e, character.id)}
-                                className={`w-full py-1 sm:py-1 md:py-1.5 lg:py-2 rounded-md text-sm font-medium transition-colors h-8 sm:h-8 md:h-9 lg:h-10
-                                ${darkMode 
-                                    ? 'bg-red-600 hover:bg-red-700 text-white' 
-                                    : 'bg-red-500 hover:bg-red-600 text-white'}`}
+                                className={`flex justify-center border-1 w-full py-1 sm:py-1 md:py-1.5 lg:py-2 rounded-md text-sm font-medium transition-colors h-8 sm:h-8 md:h-9 lg:h-10
+                                    ${darkMode
+                                        ? 'bg-neutral-700 hover:bg-neutral-600 text-white'
+                                        : 'bg-neutral-200 hover:bg-neutral-300 text-neutral-900'} `}
                             >
-                                E.G.O 보기
+                                <Drama />E.G.O.
                             </button>
                         </div>
                     </div>

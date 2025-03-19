@@ -4,6 +4,7 @@ const egoData = {
             id: "KR_20101",
             name: "오감도",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20101_awaken_profile.png",
+            erosionImage: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20101_erosion_profile.png",
             rank: "ZAYIN",
             info: [
                 {
@@ -27,6 +28,7 @@ const egoData = {
             id: "KR_20102",
             name: "4번째 성냥불",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20102_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -45,6 +47,7 @@ const egoData = {
             id: "KR_20103",
             name: "소망석",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20103_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -63,6 +66,7 @@ const egoData = {
             id: "KR_20104",
             name: "차원찢개",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20104_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -81,6 +85,7 @@ const egoData = {
             id: "KR_20105",
             name: "여우비",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20105_awaken_profile.png",
+            erosionImage: "",
             rank: "WAW",
             info: [
                 {
@@ -99,6 +104,7 @@ const egoData = {
             id: "KR_20106",
             name: "지난 날",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20106_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -117,6 +123,7 @@ const egoData = {
             id: "KR_20107",
             name: "흉탄",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20107_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -137,6 +144,7 @@ const egoData = {
             id: "KR_20201",
             name: "표상방출기",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20201_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -150,6 +158,7 @@ const egoData = {
             id: "KR_20202",
             name: "물주머니",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20202_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -168,6 +177,7 @@ const egoData = {
             id: "KR_20203",
             name: "저주못",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20203_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -186,6 +196,7 @@ const egoData = {
             id: "KR_20204",
             name: "전봇대",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20204_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -204,6 +215,7 @@ const egoData = {
             id: "KR_20205",
             name: "9장 2절",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20205_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -222,6 +234,7 @@ const egoData = {
             id: "KR_20206",
             name: "영속",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20206_awaken_profile.png",
+            erosionImage: "",
             rank: "WAW",
             info: [
                 {
@@ -240,6 +253,7 @@ const egoData = {
             id: "KR_20207",
             name: "올가미",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20207_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -258,6 +272,7 @@ const egoData = {
             id: "KR_20208",
             name: "흉통",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20208_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -278,6 +293,7 @@ const egoData = {
             id: "KR_20301",
             name: "라 샹그레 데 산쵸",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20301_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -296,6 +312,7 @@ const egoData = {
             id: "KR_20302",
             name: "물주머니",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20302_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -314,6 +331,7 @@ const egoData = {
             id: "KR_20303",
             name: "전봇대",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20303_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -332,6 +350,7 @@ const egoData = {
             id: "KR_20304",
             name: "평생 스튜",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20304_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -350,6 +369,7 @@ const egoData = {
             id: "KR_20305",
             name: "소망석",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20305_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -368,6 +388,7 @@ const egoData = {
             id: "KR_20306",
             name: "전기울음",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20306_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -386,6 +407,7 @@ const egoData = {
             id: "KR_20307",
             name: "갈망 - 미르칼라",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20307_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -406,6 +428,7 @@ const egoData = {
             id: "KR_20401",
             name: "삼라염상",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20401_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -419,6 +442,7 @@ const egoData = {
             id: "KR_20402",
             name: "4번째 성냥불",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20402_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -437,6 +461,7 @@ const egoData = {
             id: "KR_20403",
             name: "적안",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20403_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -455,6 +480,7 @@ const egoData = {
             id: "KR_20404",
             name: "적안(開)",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20404_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -473,6 +499,7 @@ const egoData = {
             id: "KR_20405",
             name: "소다",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20405_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -496,6 +523,7 @@ const egoData = {
             id: "KR_20406",
             name: "맹목",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20406_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -514,6 +542,7 @@ const egoData = {
             id: "KR_20407",
             name: "경멸, 경외",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20407_awaken_profile.png",
+            erosionImage: "",
             rank: "WAW",
             info: [
                 {
@@ -532,6 +561,7 @@ const egoData = {
             id: "KR_20408",
             name: "흉통",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20408_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -552,6 +582,7 @@ const egoData = {
             id: "KR_20501",
             name: "타인의 사슬",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20501_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -565,6 +596,7 @@ const egoData = {
             id: "KR_20502",
             name: "나사빠진 일격",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20502_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -583,6 +615,7 @@ const egoData = {
             id: "KR_20503",
             name: "집행",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20503_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -601,6 +634,7 @@ const egoData = {
             id: "KR_20504",
             name: "카포테",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20504_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -619,6 +653,7 @@ const egoData = {
             id: "KR_20505",
             name: "후회",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20505_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -637,6 +672,7 @@ const egoData = {
             id: "KR_20506",
             name: "전기울음",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20506_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -655,6 +691,7 @@ const egoData = {
             id: "KR_20507",
             name: "갈망 - 미르칼라",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20507_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -675,6 +712,7 @@ const egoData = {
             id: "KR_20601",
             name: "허환경",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20601_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -688,6 +726,7 @@ const egoData = {
             id: "KR_20602",
             name: "분홍욕망",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20602_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -706,6 +745,7 @@ const egoData = {
             id: "KR_20603",
             name: "차원찢개",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20603_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -724,6 +764,7 @@ const egoData = {
             id: "KR_20604",
             name: "소다",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20604_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -742,6 +783,7 @@ const egoData = {
             id: "KR_20605",
             name: "들끓는 부식",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20605_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -760,6 +802,7 @@ const egoData = {
             id: "KR_20606",
             name: "낮은울음",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20606_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -778,6 +821,7 @@ const egoData = {
             id: "KR_20607",
             name: "올가미",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20607_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -798,6 +842,7 @@ const egoData = {
             id: "KR_20701",
             name: "시체자루",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20701_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -836,6 +881,7 @@ const egoData = {
             id: "KR_20702",
             name: "전봇대",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20702_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -854,6 +900,7 @@ const egoData = {
             id: "KR_20703",
             name: "AEDD",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20703_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -872,6 +919,7 @@ const egoData = {
             id: "KR_20704",
             name: "공즉시색",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20704_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -890,6 +938,7 @@ const egoData = {
             id: "KR_20705",
             name: "홀리데이",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20705_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -908,6 +957,7 @@ const egoData = {
             id: "KR_20706",
             name: "구속",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20706_awaken_profile.png",
+            erosionImage: "",
             rank: "WAW",
             info: [
                 {
@@ -926,6 +976,7 @@ const egoData = {
             id: "KR_20707",
             name: "흉탄",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20707_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -944,6 +995,7 @@ const egoData = {
             id: "KR_20708",
             name: "쏠린 관성",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20708_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -964,6 +1016,7 @@ const egoData = {
             id: "KR_20801",
             name: "작살박이",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20801_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -992,6 +1045,7 @@ const egoData = {
             id: "KR_20802",
             name: "분홍욕망",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20802_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1010,6 +1064,7 @@ const egoData = {
             id: "KR_20803",
             name: "홍염살",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20803_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1028,6 +1083,7 @@ const egoData = {
             id: "KR_20804",
             name: "카포테",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20804_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1046,6 +1102,7 @@ const egoData = {
             id: "KR_20805",
             name: "맹목",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20805_awaken_profile.png",
+            erosionImage: "",
             rank: "WAW",
             info: [
                 {
@@ -1064,6 +1121,7 @@ const egoData = {
             id: "KR_20806",
             name: "날갯짓",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20806_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
 
@@ -1084,6 +1142,7 @@ const egoData = {
             id: "KR_20807",
             name: "지난 날",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20807_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1102,6 +1161,7 @@ const egoData = {
             id: "KR_20808",
             name: "크리스마스 악몽",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20808_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1123,6 +1183,7 @@ const egoData = {
             id: "KR_20901",
             name: "던져지는 것",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20901_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -1136,6 +1197,7 @@ const egoData = {
             id: "KR_20902",
             name: "4번째 성냥불",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20902_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1154,6 +1216,7 @@ const egoData = {
             id: "KR_20903",
             name: "얼음다리",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20903_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1172,6 +1235,7 @@ const egoData = {
             id: "KR_20904",
             name: "들끓는 부식",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20904_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1190,6 +1254,7 @@ const egoData = {
             id: "KR_20905",
             name: "집행",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20905_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1208,6 +1273,7 @@ const egoData = {
             id: "KR_20906",
             name: "핏빛욕망",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20906_awaken_profile.png",
+            erosionImage: "",
             rank: "WAW",
             info: [
                 {
@@ -1226,6 +1292,7 @@ const egoData = {
             id: "KR_20907",
             name: "저주못",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20907_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1246,6 +1313,7 @@ const egoData = {
             id: "KR_21001",
             name: "지식나무의 가지",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21001_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -1259,6 +1327,7 @@ const egoData = {
             id: "KR_21002",
             name: "다가올날",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21002_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1277,6 +1346,7 @@ const egoData = {
             id: "KR_21003",
             name: "평생 스튜",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21003_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1295,6 +1365,7 @@ const egoData = {
             id: "KR_21004",
             name: "초롱",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21004_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1313,6 +1384,7 @@ const egoData = {
             id: "KR_21005",
             name: "9장 2절",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21005_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1331,6 +1403,7 @@ const egoData = {
             id: "KR_21006",
             name: "낮은울음",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21006_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -1349,6 +1422,7 @@ const egoData = {
             id: "KR_21007",
             name: "저주못",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21007_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1369,6 +1443,7 @@ const egoData = {
             id: "KR_21101",
             name: "토 파토스 마토스",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21101_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -1382,6 +1457,7 @@ const egoData = {
             id: "KR_21102",
             name: "검은줄기",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21102_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1400,6 +1476,7 @@ const egoData = {
             id: "KR_21103",
             name: "공즉시색",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21103_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1418,6 +1495,7 @@ const egoData = {
             id: "KR_21104",
             name: "여우비",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21104_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1436,6 +1514,7 @@ const egoData = {
             id: "KR_21105",
             name: "홀리데이",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21105_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1454,6 +1533,7 @@ const egoData = {
             id: "KR_21106",
             name: "구속",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21106_awaken_profile.png",
+            erosionImage: "",
             rank: "WAW",
             info: [
                 {
@@ -1472,6 +1552,7 @@ const egoData = {
             id: "KR_21107",
             name: "차원찢개",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21107_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1490,6 +1571,7 @@ const egoData = {
             id: "KR_21108",
             name: "마탄",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21108_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1570,6 +1652,7 @@ const egoData = {
             id: "KR_21201",
             name: "어느날 갑자기",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21201_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -1583,6 +1666,7 @@ const egoData = {
             id: "KR_21202",
             name: "눈속임",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21202_awaken_profile.png",
+            erosionImage: "",
             rank: "ZAYIN",
             info: [
                 {
@@ -1601,6 +1685,7 @@ const egoData = {
             id: "KR_21203",
             name: "초롱",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21203_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1619,6 +1704,7 @@ const egoData = {
             id: "KR_21204",
             name: "AEDD",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21204_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1637,6 +1723,7 @@ const egoData = {
             id: "KR_21205",
             name: "가시 화원",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21205_awaken_profile.png",
+            erosionImage: "",
             rank: "WAW",
             info: [
                 {
@@ -1655,6 +1742,7 @@ const egoData = {
             id: "KR_21206",
             name: "지난 날",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21206_awaken_profile.png",
+            erosionImage: "",
             rank: "TETH",
             info: [
                 {
@@ -1673,6 +1761,7 @@ const egoData = {
             id: "KR_21207",
             name: "엄숙한 애도",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21207_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {
@@ -1691,6 +1780,7 @@ const egoData = {
             id: "KR_21208",
             name: "크리스마스 악몽",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21208_awaken_profile.png",
+            erosionImage: "",
             rank: "HE",
             info: [
                 {

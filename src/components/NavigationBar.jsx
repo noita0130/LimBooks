@@ -1,4 +1,4 @@
-import { Home, Book, BookOpen, Moon, Sun, MessageCircle, ChevronDown, Menu, X } from "lucide-react";
+import { Home, Book, BookOpen, Moon, Sun, MessageCircle, ChevronDown, Menu, Mic, X, UserRound } from "lucide-react";
 import { useState, useEffect } from "react";
 import useDarkMode from '../hooks/useDarkmode';
 
@@ -133,7 +133,7 @@ const NavigationBar = ({ handleNavigation, location }) => {
                   (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                   (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
             >
-              <MessageCircle className="w-4 h-4 mr-2" />
+              <UserRound className="w-4 h-4 mr-2" />
               수감자
             </button>
 
@@ -144,7 +144,7 @@ const NavigationBar = ({ handleNavigation, location }) => {
                   (darkMode ? 'bg-neutral-700 text-white' : 'bg-neutral-900 text-white') :
                   (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
             >
-              <MessageCircle className="w-4 h-4 mr-2" />
+              <Mic className="w-4 h-4 mr-2" />
               아나운서
             </button>
           </div>
@@ -241,7 +241,7 @@ const NavigationBar = ({ handleNavigation, location }) => {
                 (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
           >
             <div className="flex items-center">
-              <MessageCircle className="w-5 h-5 mr-3" />
+              <UserRound className="w-5 h-5 mr-3" />
               수감자
             </div>
           </button>
@@ -254,7 +254,7 @@ const NavigationBar = ({ handleNavigation, location }) => {
                 (darkMode ? 'text-neutral-300 hover:bg-neutral-700' : 'text-neutral-700 hover:bg-neutral-200')}`}
           >
             <div className="flex items-center">
-              <MessageCircle className="w-5 h-5 mr-3" />
+              <Mic className="w-5 h-5 mr-3" />
               아나운서
             </div>
           </button>
