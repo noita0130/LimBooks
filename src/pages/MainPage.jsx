@@ -106,9 +106,9 @@ const MainPage = React.lazy(() => Promise.resolve({
             <p className={getSectionContentStyle()}>
               2025.03.20.<br />
               로슈 흑수 - 묘 추가<br />
-              오티스 흑수 - 묘 추가
-              7.5장 심야청소 스토리 추가
-              리카르도 아나운서 추가
+              오티스 흑수 - 묘 추가<br />
+              7.5장 심야청소 스토리 추가<br />
+              리카르도 아나운서 추가<br />
             </p>
           </div>
 
