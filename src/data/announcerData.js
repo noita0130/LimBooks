@@ -141,7 +141,7 @@ const announcerData = [
     }
     ,
     {
-        id: "KR_Announcer_brother_29",
+        id: "KR_Announcer_Ricardo_29",
         name: "리카르도",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Ricardo_announcer_0.png"
     }

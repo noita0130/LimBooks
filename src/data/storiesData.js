@@ -573,6 +573,32 @@ const storiesData = {
                 { id: "KR_E717B", title: "어느 연구원의 심상", subtitle: "던전보스 전투 전" },
                 { id: "KR_E717A", title: "어느 연구원의 심상", subtitle: "던전보스 전투 후" }
             ]
+        },
+        {
+            id: "sub_7.5.2",
+            title: "7.5 - 심야청소",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter7.5_NightSweep.png",
+            chapters: [
+                { id: "KR_E718B", title: "", subtitle: "7.5-18 전투 전" },
+                { id: "KR_E719B", title: "", subtitle: "7.5-19 전투 전" },
+                { id: "KR_E719A", title: "", subtitle: "7.5-19 전투 후" },
+                { id: "KR_E720B", title: "", subtitle: "7.5-20 전투 전" },
+                { id: "KR_E721B", title: "", subtitle: "7.5-21 전투 전" },
+                { id: "KR_E721A", title: "", subtitle: "7.5-21 전투 후" },
+                { id: "KR_E722B", title: "", subtitle: "7.5-22 전투 전" },
+                { id: "KR_E722A", title: "", subtitle: "7.5-22 전투 후" },
+                { id: "KR_E723B", title: "", subtitle: "7.5-23 전투 전" },
+                { id: "KR_E724B", title: "", subtitle: "7.5-24 전투 전" },
+                { id: "KR_E725B", title: "", subtitle: "7.5-25 전투 전" },
+                { id: "KR_E725A", title: "", subtitle: "7.5-25 전투 후" },
+                { id: "KR_E726B", title: "", subtitle: "7.5-26 전투 전" },
+                { id: "KR_E726I", title: "", subtitle: "7.5-26 전투 중 1" },
+                { id: "KR_E726I2", title: "", subtitle: "7.5-26 전투 중 2" },
+                { id: "KR_E726A", title: "", subtitle: "7.5-26 전투 후" },
+                { id: "KR_E727I", title: "", subtitle: "7.5-27 전투 중" },
+                { id: "KR_E727A", title: "", subtitle: "7.5-27 전투 후" },
+                { id: "KR_E728B", title: "", subtitle: "7.5-28 전투 전" }
+            ]
         }
     ],
     mini: [
@@ -684,10 +710,10 @@ const storiesData = {
                 { id: "KR_E071X", title: "제5회 발푸르기스의 밤", subtitle: "전투 후" },
             ]
         },
-        
-        
-        
-        
+
+
+
+
     ]
 };
 

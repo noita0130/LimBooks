@@ -301,11 +301,11 @@ const egoData = {
                     desc: "E.G.O 발동",
                     dlg: "달려라 로시난테! 정의는 승리한다!"
                 },
-                {
+               /* {
                     id: "battle_awaken_20301_2",
                     desc: "E.G.O 발동",
                     dlg: "달리자 로시난테! 꿈에 닿을 때까지 몇 번이고!"
-                },
+                },*/
             ]
         },
         {
@@ -1024,12 +1024,12 @@ const egoData = {
                     desc: "E.G.O 발동",
                     dlg: "그 자식은… 아직 살아있을 거야."
                 },
-                {
+                /*{
                     id: "battle_awaken_20801_2",
                     desc: "E.G.O 발동",
                     dlg: "내가 찾은 나만의 항해 방식…"
                 },
-                /*{
+                {
                     id: "battle_special_1",
                     desc: "E.G.O 발동",
                     dlg: "내가 모는 배가 좀 흔들릴 테니 다들 꽉 잡아!"
