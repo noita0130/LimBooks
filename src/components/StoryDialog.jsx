@@ -1,6 +1,6 @@
-// components/StoryDialog.jsx (개선된 버전)
+// components/StoryDialog.jsx (성능 최적화 버전)
 import { motion } from "framer-motion";
-import React from "react";
+import React, { memo } from "react";
 import { isImageUrl, renderRichText } from "../utill/textUtills";
 import useDarkMode from '../hooks/useDarkmode';
 import { 
@@ -9,6 +9,72 @@ import {
   getTextStyle, 
   getSubTextStyle
 } from './TransitionStyles';
+
+// 개별 다이얼로그 아이템 최적화를 위한 memoized 컴포넌트
+const DialogItem = memo(({ 
+  item, 
+  index, 
+  darkMode, 
+  previousPlace,
+  dialogVariants,
+  placeVariants,
+  getPlaceStyle,
+  getDialogStyle,
+  getNarrationStyle,
+  getMobileContainerStyle,
+  getSpeakerStyle
+}) => {
+  // 장소 변경 여부 확인
+  const isNewPlace = item.place && (previousPlace !== item.place);
+  
+  return (
+    <React.Fragment>
+      {/* place 정보가 있고, 이전 아이템과 다를 때만 표시 */}
+      {isNewPlace && (
+        <motion.div
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={placeVariants}
+          transition={{ duration: 0.2 }}  // 더 짧은 지연 시간
+          className={getPlaceStyle()}
+        >
+          장소 : {renderRichText(item.place, 'place')}
+        </motion.div>
+      )}
+
+      <motion.div
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={dialogVariants}
+        transition={{ duration: 0.15 }}  // 더 짧은 애니메이션
+        className={`flex flex-col md:flex-row items-start md:space-x-2 mb-3 md:mb-1
+          ${(item.model || item.teller) ? getMobileContainerStyle() : ''}`}
+      >
+        {/* model이나 teller가 있는 경우에만 화자 정보 표시 */}
+        {(item.model || item.teller) && (
+          <div className={getSpeakerStyle(item.teller)}>
+            {renderRichText(item.teller || item.model, item.teller ? 'teller' : 'model')}
+          </div>
+        )}
+
+        {/* 내용 표시 */}
+        <div className={`lg:mx-2 md:mx-0 ${item.model || item.teller ? getDialogStyle() : getNarrationStyle()}`}>
+          {(!item.type || item.type === 'text') && renderRichText(item.content, 'content')}
+          {item.type === 'image' && isImageUrl(item.content) && (
+            <img
+              src={item.content}
+              alt="Story content"
+              className="max-w-full h-auto rounded"
+              loading="lazy"  // 이미지 지연 로딩 추가
+            />
+          )}
+        </div>
+      </motion.div>
+    </React.Fragment>
+  );
+});
 
 const StoryDialog = ({ dataList }) => {
   const { darkMode } = useDarkMode();
@@ -41,67 +107,39 @@ const StoryDialog = ({ dataList }) => {
       : (teller?.length > 8 ? 'md:text-sm py-1 md:py-1.5' : 'md:text-base py-0.5 md:py-1')
     } ${darkMode ? 'text-neutral-400' : 'text-neutral-700'} font-semibold md:font-normal`;
 
-  // 애니메이션 변형 객체
+  // 애니메이션 변형 객체 - 더 작은 이동과 빠른 전환
   const placeVariants = {
-    initial: { opacity: 0, x: -20 },
+    initial: { opacity: 0, x: -10 },
     animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: 20 }
+    exit: { opacity: 0, x: 10 }
   };
 
   const dialogVariants = {
-    initial: { opacity: 0, x: -20 },
+    initial: { opacity: 0, x: -10 },
     animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: 20 }
+    exit: { opacity: 0, x: 10 }
   };
 
+  // React.useMemo로 렌더링 최적화
   return (
     <div className="space-y-1 font-NotoSerifKR mb-6 md:px-3 md:pr-6 lg:pr-10">
-      {dataList?.map((item, index) => (
-        <React.Fragment key={index}>
-          {/* place 정보가 있고, 이전 아이템과 다르거나 첫 아이템일 때만 표시 */}
-          {item.place && (index === 0 || item.place !== dataList[index - 1]?.place) && (
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={placeVariants}
-              transition={{ duration: 0.3, delay: index * 0.01 }}
-              className={getPlaceStyle()}
-            >
-              장소 : {renderRichText(item.place, 'place')}
-            </motion.div>
-          )}
-
-          <motion.div
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={dialogVariants}
-            transition={{ duration: 0.3, delay: index * 0.02 }}
-            className={`flex flex-col md:flex-row items-start md:space-x-2 mb-3 md:mb-1
-              ${(item.model || item.teller) ? getMobileContainerStyle() : ''}`}
-          >
-            {/* model이나 teller가 있는 경우에만 화자 정보 표시 */}
-            {(item.model || item.teller) && (
-              <div className={getSpeakerStyle(item.teller)}>
-                {renderRichText(item.teller || item.model, item.teller ? 'teller' : 'model')}
-              </div>
-            )}
-
-            {/* 내용 표시 */}
-            <div className={`lg:mx-2 md:mx-0 ${item.model || item.teller ? getDialogStyle() : getNarrationStyle()}`}>
-              {(!item.type || item.type === 'text') && renderRichText(item.content, 'content')}
-              {item.type === 'image' && isImageUrl(item.content) && (
-                <img
-                  src={item.content}
-                  alt="Story content"
-                  className="max-w-full h-auto rounded"
-                />
-              )}
-            </div>
-          </motion.div>
-        </React.Fragment>
-      ))}
+      {React.useMemo(() => 
+        dataList?.map((item, index) => (
+          <DialogItem
+            key={index}
+            item={item}
+            index={index}
+            darkMode={darkMode}
+            previousPlace={index > 0 ? dataList[index - 1]?.place : null}
+            dialogVariants={dialogVariants}
+            placeVariants={placeVariants}
+            getPlaceStyle={getPlaceStyle}
+            getDialogStyle={getDialogStyle}
+            getNarrationStyle={getNarrationStyle}
+            getMobileContainerStyle={getMobileContainerStyle}
+            getSpeakerStyle={getSpeakerStyle}
+          />
+        )), [dataList, darkMode])}
     </div>
   );
 };

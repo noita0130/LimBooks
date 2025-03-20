@@ -37,7 +37,9 @@ const PageTransition = ({
       animate="animate"
       exit="exit"
       variants={animationVariants}
-      transition={{ duration: 0.2 }}   // 애니메이션 속도 단축
+      transition={{ duration: 0.2,
+        ease: "easeOut"
+       }}   // 애니메이션 속도 단축
       className={className}
       onAnimationComplete={onAnimationComplete}
     >
