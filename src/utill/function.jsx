@@ -52,12 +52,12 @@ export const handleStoryClick = (story, storyType, navigate, location, scrollRef
   };
 
   export const handleChapterClick = (chapterId, storyType, selectedStory, navigate, location, scrollRef, setShouldRestoreScroll) => {
-    const currentScroll = window.scrollY;
-    setShouldRestoreScroll(false);
-    window.scrollTo(0, 0);
+    // 유효성 검사
+    if (!selectedStory || !chapterId) return;
+    scrollRef.current.set(location.pathname, window.scrollY);
     navigate(`${BASE_PATH}/${storyType}/${selectedStory.id}/${chapterId}`);
-    scrollRef.current.set(location.pathname, currentScroll);
-  };
+    window.scrollTo({ top: 0, behavior: 'auto' });
+};
 
 
 

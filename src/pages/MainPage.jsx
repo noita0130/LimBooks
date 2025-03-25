@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 import useDarkMode from '../hooks/useDarkmode';
+import {
+  backgroundTransition,
+  textTransition,
+  buttonTransition,
+  getBgStyle,
+  getTextStyle,
+  getSubTextStyle
+} from '../components/TransitionStyles';
+import { Home, Book, BookOpen, UserRound, Mic, Youtube, Twitter, MessageCircle } from "lucide-react";
 
 const MainPage = React.lazy(() => Promise.resolve({
   default: () => {
@@ -18,40 +27,128 @@ const MainPage = React.lazy(() => Promise.resolve({
         });
     }, []);
 
+    // 공통 카드 스타일링 함수
+    const getCardStyle = () => {
+      return `
+        ${getBgStyle(darkMode)} 
+        rounded-lg 
+        shadow-md 
+        p-3
+        md:p-6 
+        mb-6 
+        ${backgroundTransition}
+        ${darkMode ? 'border border-neutral-700' : 'border border-neutral-200'}
+      `;
+    };
+
+    // 섹션 제목 스타일링 함수
+    const getSectionTitleStyle = () => {
+      return `
+        text-center 
+        text-2xl 
+        font-bold 
+        mb-4 
+        ${getTextStyle(darkMode)}
+      `;
+    };
+
+    // 섹션 내용 스타일링 함수
+    const getSectionContentStyle = () => {
+      return `
+        text-center 
+        ${darkMode ? 'text-neutral-300' : 'text-neutral-700'}
+      `;
+    };
+
+    // 소셜 미디어 버튼 스타일
+    const getSocialButtonStyle = (color) => {
+      return `
+        w-full 
+        flex 
+        items-center 
+        justify-center 
+        p-3 
+        rounded-lg 
+        ${buttonTransition}
+        hover:opacity-80
+        focus:outline-none
+        focus:ring-2
+        ${darkMode ? 'bg-neutral-700 text-neutral-200 hover:bg-neutral-600' : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-200'}
+      `;
+    };
+
     return (
-      <div>
-        <div className={`my-10 py-4 `}>
-          <h1 className="text-center text-4xl font-bold mb-4">환영합니다</h1>
-          <p className={`text-center }`}>
-            림버스 컴퍼니의 스토리 리더 입니다<br />
-            <br />
-            최근 업데이트<br />
-            2025.03.16.
-            {/*deployTime*/}
-          </p>
+      <div className={`min-h-screen rounded-2xl ${getBgStyle(darkMode)} ${backgroundTransition} py-4 px-4`}>
+        {/* 유튜브 영상 섹션 */}
+        <div className={`${getCardStyle()} mb-8`}>
+          <div className="flex justify-center">
+            <div className="w-full max-w-3xl aspect-video">
+              <iframe width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/mUZTyRRgaNM?si=nM8Z3O4MmSKqLpAW"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              ></iframe>
+            </div>
+          </div>
         </div>
-        <div className={`my-10 py-4`}>
-          <div className="flex flex-col md:flex-row justify-center w-full gap-6">
-            <div className="w-full md:w-1/2 p-4">
-              <h1 className="text-center text-2xl font-bold mb-4">✅업데이트 목록</h1>
-              <p className="text-center">
-                1. 수감자 대사 음성재생기능 추가<br />
-                2. 메인스토리 검수 90%완료<br />
-                3. 아나운서 추가<br />
-                4. 다인 아나운서 색 추가 (노움제외)
-                
-              </p>
-            </div>
-            <div className="w-full md:w-1/2 p-4">
-              <h1 className="text-center text-2xl font-bold mb-4">🔨작업중인 사항</h1>
-              <p className="text-center">
-                1. 와히스 6장 전/후 대사변경<br />
-                2. 제뱌찌 플루드니차 대사추가<br />
-                3. 특수대사 (실장돈키, 선장마엘, 츠이스 등) 추가
-                4. 인격, 아나운서 수정
-                5. E.G.O. 대사 추가
-              </p>
-            </div>
+
+        {/* 업데이트 및 작업 중인 사항 섹션 */}
+        <div className="flex flex-col md:flex-row justify-center w-full gap-6">
+          <div className={`w-full md:w-1/2 ${getCardStyle()}`}>
+            <h2 className={getSectionTitleStyle()}>
+              <span className="mr-2">✅</span>
+              업데이트 목록
+            </h2>
+            <p className={getSectionContentStyle()}>
+              2025.03.20.<br />
+              로슈 흑수 - 묘 추가<br />
+              오티스 흑수 - 묘 추가<br />
+              7.5장 심야청소 스토리 추가<br />
+              리카르도 아나운서 추가<br />
+            </p>
+          </div>
+
+          <div className={`w-full md:w-1/2 ${getCardStyle()}`}>
+            <h2 className={getSectionTitleStyle()}>
+              <span className="mr-2">🔨</span>
+              작업중인 사항
+            </h2>
+            <p className={getSectionContentStyle()}>
+              제뱌찌 플루드니차 대사추가<br />
+              특수대사 추가<br />
+              스킬대사 추가<br />
+            </p>
+          </div>
+        </div>
+
+        {/* 공식 계정 섹션 */}
+        <div className={`${getCardStyle()} flex flex-col items-center`}>
+          <h2 className={getSectionTitleStyle()}>공식 계정</h2>
+          <div className="flex justify-center space-x-4 w-full max-w-md">
+            <a
+              href="https://www.youtube.com/@ProjectMoonOfficial"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-full max-w-[150px] ${getSocialButtonStyle()}`}
+            >
+              <div className="flex items-center justify-center w-full">
+                <Youtube className="w-8 h-8" />
+              </div>
+            </a>
+            <a
+              href="https://x.com/projmoonstudio?lang=ko"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-full max-w-[150px] ${getSocialButtonStyle()}`}
+            >
+              <div className="flex items-center justify-center w-full">
+                <Twitter className="w-8 h-8" />
+              </div>
+            </a>
           </div>
         </div>
       </div>
