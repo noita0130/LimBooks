@@ -166,6 +166,15 @@ const NavigationBar = ({ handleNavigation, location }) => {
               <Mic className="w-4 h-4 mr-2" />
               아나운서
             </button>
+
+            <button
+              onClick={() => handleNavigation('/EGOgift')}
+              className={getNavButtonStyle(location.pathname.startsWith('/announcers'))}
+            >
+              <Mic className="w-4 h-4 mr-2" />
+              E.G.O 기프트
+            </button>
+
           </div>
 
           {/* 다크모드 버튼 */}

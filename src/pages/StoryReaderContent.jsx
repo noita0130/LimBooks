@@ -24,6 +24,8 @@ const StoryReaderContent = () => {
           {/* 아나운서 관련 경로 */}
           <Route path="/announcers" element={<StoryReaderPage />} />
           <Route path="/announcers/:announcerId" element={<StoryReaderPage />} />
+
+          <Route path="/EGOgift" element={<StoryReaderPage/> } />
         </Routes>
       </div>
     </>

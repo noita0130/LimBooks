@@ -9,28 +9,28 @@ import NavigationBar from '../components/NavigationBar';
 import StoryList from './StoryList';
 import ChapterList from './ChapterList';
 import StoryContent from './StoryContent';
-import LoadingSpinner from '../utill/LoadingSpinner';
 import PersonalityPage from './PersonalityPage';
 import PersonalityStoryList from './PersonalityStoryList';
-import handleGoBack from '../utill/handleGoBack';
-import ScrollContainer from '../utill/ScrollContainer';
-import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
-import loadChapterData from '../utill/loadChapterData';
-import useDarkMode from '../hooks/useDarkmode';
-import Footer from '../components/footer';
-
-// 컴포넌트 임포트
+import EgogiftPage from './EgogiftPage';
 import PersonalityStoryContent from './PersonalityStoryContent';
 import PersonalityVoiceContent from './PersonalityVoiceContent';
 import AnnouncerContent from './AnnouncerContent';
 import AnnouncerPage from './AnnouncerPage'; 
 import EgoList from './EgoList';
 
-// 애니메이션 컴포넌트 임포트
+// 컴포넌트 임포트
 import PageTransition from '../components/PageTransition';
 import { getPageBgStyle, getTextStyle } from '../components/TransitionStyles';
+import Footer from '../components/footer';
 
 // 유틸리티 함수 임포트
+import LoadingSpinner from '../utill/LoadingSpinner';
+import handleGoBack from '../utill/handleGoBack';
+import ScrollContainer from '../utill/ScrollContainer';
+import { navigateToNextStory, navigateToPreviousStory } from '../utill/navigateStoryButton';
+import loadChapterData from '../utill/loadChapterData';
+import useDarkMode from '../hooks/useDarkmode';
+
 import {
   restoreScrollPosition,
   handleStoryClick,
@@ -101,6 +101,10 @@ const StoryReaderPage = () => {
     return location.pathname.match(/\/sinner\/personality\/[^\/]+\/voice\/[^\/]+/);
   };
 
+  const isEgoListRoute = () => {
+    return location.pathname.match(/\/sinner\/ego\/[^\/]+$/);
+  };
+
   const isAnnouncerRoute = () => {
     return location.pathname.match(/\/announcers\/[^\/]+$/);
   };
@@ -109,9 +113,11 @@ const StoryReaderPage = () => {
     return location.pathname === '/announcers';
   };
 
-  const isEgoListRoute = () => {
-    return location.pathname.match(/\/sinner\/ego\/[^\/]+$/);
-  };
+  const isEGOgiftRoute = () => {
+    return location.pathname === '/EGOgift'
+  }
+
+
 
   // 스크롤 위치 복원 핸들러
   const handleAnimationComplete = () => {
@@ -163,6 +169,13 @@ const StoryReaderPage = () => {
     if (isAnnouncerRoute()) {
       return <AnnouncerContent />;
     }
+
+    // 에고기프트
+    if (isEGOgiftRoute()){
+      return <EgogiftPage />
+    }
+
+
 
     // 메인/미니 스토리 목록
     if ((storyType === 'main' || storyType === 'mini') && !storyId) {

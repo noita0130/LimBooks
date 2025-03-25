@@ -181,7 +181,7 @@ const EgoList = ({ personalityId }) => {
   if (!characterInfo) {
     return (
       <div className={`min-h-screen ${backgroundTransition} ${darkMode ? 'bg-neutral-900 text-white' : 'bg-neutral-50 text-black'} p-6`}>
-        <p>해당 인격체 정보를 찾을 수 없습니다.</p>
+        <p>해당 정보를 찾을 수 없습니다.</p>
       </div>
     );
   }
