@@ -577,6 +577,11 @@ const personalityData = {
             id: "KR_P11011",
             title: "북부 제뱌찌 협회 3과",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11011_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11012",
+            title: "중지 작은 아우",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11012_gacksung_profile.png",
         }
     ],
     Outis: [
