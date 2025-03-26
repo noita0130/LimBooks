@@ -322,7 +322,7 @@ const egogiftData = {
             nameTranslations: {}
         }
     ],
-    Bleeding: [
+    Bleed: [
         {
             id: "",
             name: "녹슨 입마개",
@@ -1584,7 +1584,7 @@ const egogiftData = {
             nameTranslations: {}
         }
     ],
-    Breath: [
+    Breathe: [
         {
             id: "",
             name: "녹빛 겉날개",
