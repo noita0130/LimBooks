@@ -6,6 +6,12 @@ import DetailPanel from './DetailPanel';
 const MobileGiftCard = memo(({ gift, darkMode }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
+  // gift가 undefined인 경우 예외 처리
+  if (!gift) {
+    console.error('MobileGiftItem received undefined gift');
+    return null;
+  }
+
   const cardStyle = `${backgroundTransition} cursor-pointer 
     ${darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-100'} 
     rounded-lg shadow-md overflow-hidden w-full flex items-center mb-2`;

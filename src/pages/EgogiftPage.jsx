@@ -9,7 +9,7 @@ import SearchBar from '../components/Egogift/SearchBar';
 import CategorySelector from '../components/Egogift/CategorySelector';
 import DetailPanel from '../components/Egogift/DetailPanel';
 import DesktopGiftGrid from '../components/Egogift/DesktopGiftGrid';
-import MobileGiftCard from '../components/Egogift/MobileGiftCard';
+import MobileGiftList from '../components/Egogift/MobileGiftList';
 
 // 고정된 열 수를 계산하는 훅
 const useGridColumns = (isDetailOpen) => {
@@ -41,6 +41,7 @@ const EgogiftPage = () => {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [isLayoutTransitioning, setIsLayoutTransitioning] = useState(false);
 
   // 고정된 열 수 계산 (화면 크기와 상세 패널 상태에 따라)
   const gridColumns = useGridColumns(isDetailOpen);
@@ -115,8 +116,19 @@ const EgogiftPage = () => {
 
   // 이벤트 핸들러 메모이제이션
   const handleGiftClick = useCallback((gift) => {
+    // 레이아웃 전환 시작
+    setIsLayoutTransitioning(true);
     setSelectedGift(gift);
-    setIsDetailOpen(true);
+    
+    // 한 프레임 지연 후 DetailPanel 열기
+    requestAnimationFrame(() => {
+      setIsDetailOpen(true);
+      
+      // 전환 애니메이션이 완료된 후 레이아웃 전환 상태 해제
+      setTimeout(() => {
+        setIsLayoutTransitioning(false);
+      }, 500); // 애니메이션 지속 시간과 일치
+    });
   }, []);
 
   const toggleCategory = useCallback((category) => {
@@ -132,11 +144,16 @@ const EgogiftPage = () => {
   }, []);
 
   const closeDetail = useCallback(() => {
+    // 레이아웃 전환 시작
+    setIsLayoutTransitioning(true);
+    
     // 자연스러운 애니메이션을 위해 상태 변경의 타이밍 조절
     setIsDetailOpen(false);
-    // 약간의 지연 후에 선택된 선물 상태 초기화
+    
+    // 애니메이션이 완료된 후 선택된 선물 상태 초기화
     setTimeout(() => {
       setSelectedGift(null);
+      setIsLayoutTransitioning(false);
     }, 500); // transition-duration과 일치
   }, []);
 
@@ -148,8 +165,10 @@ const EgogiftPage = () => {
       gridTemplateColumns: `repeat(${gridColumns}, minmax(0, 1fr))`,
       justifyItems: 'center',
       transition: 'all 0.5s ease-in-out', // 그리드 자체에 트랜지션 적용
+      position: isLayoutTransitioning ? 'relative' : 'static', // 레이아웃 전환 시 상대 위치
+      opacity: isLayoutTransitioning ? 0.3 : 1, // 레이아웃 전환 시 투명도 조정
     };
-  }, [gridColumns]);
+  }, [gridColumns, isLayoutTransitioning]);
 
   // 메인 컨테이너 스타일 메모이제이션
   const containerStyle = useMemo(() => `min-h-screen rounded-lg p-4 md:p-6 ${backgroundTransition} 
@@ -158,6 +177,12 @@ const EgogiftPage = () => {
   // 제목 스타일 메모이제이션
   const titleStyle = useMemo(() => `text-xl font-bold mb-6 ${textTransition} 
     ${darkMode ? 'text-white' : 'text-black'}`, [darkMode]);
+
+  // 내용 컨테이너 스타일 - 애니메이션 중 최소 높이 유지
+  const contentContainerStyle = useMemo(() => {
+    const minHeight = isDetailOpen ? '40rem' : '30rem';
+    return `min-h-[${minHeight}] transition-all duration-500 ease-in-out`;
+  }, [isDetailOpen]);
 
   return (
     <div className={containerStyle}>
@@ -188,16 +213,20 @@ const EgogiftPage = () => {
             <LoadingSpinner />
           </div>
         ) : (
-          <>
-            {/* 모바일 화면에서는 리스트 형태로 표시 */}
-            {isSmallScreen ? (
-              <MobileGiftCard 
+          <div className={contentContainerStyle}>
+            {/* 화면 크기에 따라 다른 레이아웃 사용 */}
+            <div className={`${isSmallScreen ? 'block' : 'hidden'}`}>
+              {/* 모바일 화면에서는 리스트 형태로 표시 */}
+              <MobileGiftList 
                 gifts={filteredGifts} 
                 darkMode={darkMode} 
               />
-            ) : (
+            </div>
+            
+            <div className={`${!isSmallScreen ? 'block' : 'hidden'}`}>
+              {/* 데스크톱 화면: 그리드 레이아웃 */}
               <div className="flex flex-col md:flex-row gap-6">
-                {/* Desktop: Grid of EGO gifts - 상세 정보가 열려있으면 화면 왼쪽에 표시, 아니면 전체 너비 사용 */}
+                {/* 그리드 및 디테일 패널 컨테이너 - 애니메이션 중 최소 높이 유지 */}
                 <div className={`${isDetailOpen ? 'md:w-1/2' : 'w-full'} transition-all duration-500 ease-in-out`}>
                   <DesktopGiftGrid 
                     gifts={filteredGifts}
@@ -217,8 +246,8 @@ const EgogiftPage = () => {
                   />
                 )}
               </div>
-            )}
-          </>
+            </div>
+          </div>
         )}
       </div>
     </div>
