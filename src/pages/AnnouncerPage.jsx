@@ -36,7 +36,7 @@ const AnnouncerPage = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.05
+                staggerChildren: 0.02
             }
         }
     };
