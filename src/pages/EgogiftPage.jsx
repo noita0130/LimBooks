@@ -9,7 +9,7 @@ import SearchBar from '../components/Egogift/SearchBar';
 import CategorySelector from '../components/Egogift/CategorySelector';
 import DetailPanel from '../components/Egogift/DetailPanel';
 import DesktopGiftGrid from '../components/Egogift/DesktopGiftGrid';
-import MobileGiftCard from '../components/Egogift/MobileGiftCard';
+import MobileGiftList from '../components/Egogift/MobileGiftList';
 
 // 고정된 열 수를 계산하는 훅
 const useGridColumns = (isDetailOpen) => {
@@ -191,7 +191,7 @@ const EgogiftPage = () => {
           <>
             {/* 모바일 화면에서는 리스트 형태로 표시 */}
             {isSmallScreen ? (
-              <MobileGiftCard 
+              <MobileGiftList 
                 gifts={filteredGifts} 
                 darkMode={darkMode} 
               />

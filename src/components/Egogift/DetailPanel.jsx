@@ -28,7 +28,7 @@ const LevelButton = ({ level, isActive, onClick, darkMode }) => {
 };
 
 const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
-  const [activeLevel, setActiveLevel] = useState('기본');
+  const [activeLevel, setActiveLevel] = useState('기본 효과');
   
   const detailCardStyle = `${backgroundTransition}
     ${darkMode ? 'bg-neutral-800' : 'bg-white'}
@@ -36,27 +36,64 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
 
   // 현재 레벨에 따른 효과 데이터
   const getCurrentEffectData = () => {
-    if (activeLevel === '기본') {
-      return { formula: gift.effectBase, condition: '' };
+    if (!gift.effects || gift.effects.length === 0) {
+      return { formula: '', condition: '' };
     }
     
-    if (gift.effects) {
-      const effect = gift.effects.find(e => e.level === activeLevel);
-      if (effect) {
-        return { formula: effect.formula, condition: effect.condition || '' };
-      }
+    const effect = gift.effects.find(e => e.level === activeLevel);
+    if (!effect) {
+      return { formula: '', condition: '' };
     }
     
-    return { formula: '', condition: '' };
+    return { 
+      formula: effect.formula || '', 
+      condition: effect.condition || '' 
+    };
   };
 
   const effectData = getCurrentEffectData();
 
+  // 효과 베이스를 템플릿 변수로 변환
+  const formatEffectBase = () => {
+    if (!gift.effectBase) return '';
+    
+    let formattedText = gift.effectBase;
+    
+    // 템플릿 변수 치환
+    if (effectData.formula) {
+      formattedText = formattedText.replace('{{formula}}', 
+        `<span class="${getFormulaColorClass()}">${effectData.formula}</span>`);
+    }
+    
+    if (effectData.condition) {
+      formattedText = formattedText.replace('{{condition}}', 
+        `<span class="${getConditionColorClass()}">${effectData.condition}</span>`);
+    }
+    
+    return formattedText;
+  };
+
   // 레벨에 따른 효과 색상
   const getLevelColorClass = () => {
-    if (activeLevel === '기본') return darkMode ? 'text-blue-300' : 'text-blue-800';
+    if (activeLevel === '기본 효과') return darkMode ? 'text-#f0cc2e' : 'text-#f0cc2e';
     if (activeLevel === '+') return darkMode ? 'text-green-300' : 'text-green-800';
     if (activeLevel === '++') return darkMode ? 'text-purple-300' : 'text-purple-800';
+    return '';
+  };
+
+  // 수식에 대한 색상 클래스
+  const getFormulaColorClass = () => {
+    if (activeLevel === '기본 효과') return darkMode ? 'text-blue-300 font-bold' : 'text-blue-800 font-bold';
+    if (activeLevel === '+') return darkMode ? 'text-green-300 font-bold' : 'text-green-800 font-bold';
+    if (activeLevel === '++') return darkMode ? 'text-purple-300 font-bold' : 'text-purple-800 font-bold';
+    return '';
+  };
+
+  // 조건에 대한 색상 클래스
+  const getConditionColorClass = () => {
+    if (activeLevel === '기본 효과') return darkMode ? 'text-blue-300 font-bold' : 'text-blue-800 font-bold';
+    if (activeLevel === '+') return darkMode ? 'text-green-300 font-bold' : 'text-green-800 font-bold';
+    if (activeLevel === '++') return darkMode ? 'text-purple-300 font-bold' : 'text-purple-800 font-bold';
     return '';
   };
 
@@ -89,7 +126,7 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
           <div className="flex flex-col sm:flex-row mb-4">
             <div className="w-32 h-32 overflow-hidden mr-4 mb-4 sm:mb-0">
               <img
-                src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/egogift/${gift.id}.webp`}
+                src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/egogift/square/${gift.id}.webp`}
                 alt={gift.name}
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -99,19 +136,19 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
             </div>
 
             <div>
-              <p className="mb-1"><span className="font-semibold">관련 이상:</span> {gift.relatedAbnormality || '없음'}</p>
+              <p className="mb-1"><span className="font-semibold">관련 환상체:</span> {gift.relatedAbnormality || '없음'}</p>
               <p className="mb-1"><span className="font-semibold">등급:</span> {gift.grade}</p>
               <p className="mb-1"><span className="font-semibold">첫 등장:</span> {gift.firstAppearance}</p>
-              <p className="mb-1"><span className="font-semibold">강화 가능:</span> {gift.upgrade === 'yes' ? '예' : '아니오'}</p>
+              <p className="mb-1"><span className="font-semibold">강화 가능:</span> {gift.upgrade === 'yes' ? '가능' : '불가'}</p>
             </div>
           </div>
 
           {/* 효과 레벨 선택 버튼 */}
           <div className="flex mt-4 mb-2">
             <LevelButton 
-              level="기본" 
-              isActive={activeLevel === '기본'}
-              onClick={() => setActiveLevel('기본')}
+              level="기본 효과" 
+              isActive={activeLevel === '기본 효과'}
+              onClick={() => setActiveLevel('기본 효과')}
               darkMode={darkMode}
             />
             
@@ -140,11 +177,18 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
             <p className={`mb-2 font-semibold ${getLevelColorClass()}`}>
               {activeLevel} 효과:
             </p>
-            {effectData.formula && <p className="mb-2">{effectData.formula}</p>}
-            {effectData.condition && (
-              <p className="mt-2 text-sm italic">
+            
+            {/* HTML을 직접 삽입하는 대신 dangerouslySetInnerHTML 사용 */}
+            <div 
+              className="mb-2"
+              dangerouslySetInnerHTML={{ __html: formatEffectBase() }}
+            />
+            
+            {/* 조건이 템플릿에 포함되지 않은 경우에만 별도 표시 */}
+            {effectData.condition && !gift.effectBase.includes('{{condition}}') && (
+              <p className="mt-2 text-sm">
                 <span className="font-semibold">조건: </span>
-                {effectData.condition}
+                <span className={getConditionColorClass()}>{effectData.condition}</span>
               </p>
             )}
           </div>

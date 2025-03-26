@@ -23,7 +23,7 @@ const MobileGiftCard = memo(({ gift, darkMode }) => {
       <div onClick={toggleExpand} className={cardStyle}>
         <div className="h-16 w-16 overflow-hidden">
           <img
-            src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/egogift/${gift.id}.webp`}
+            src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/egogift/square/${gift.id}.webp`}
             alt={gift.name}
             className="w-full h-full object-cover"
             onError={(e) => {

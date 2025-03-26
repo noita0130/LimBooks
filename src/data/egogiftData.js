@@ -12,7 +12,7 @@
 const egogiftData = {
     Burn: [
         {
-            id: "",
+            id: "9101",
             name: "융해된 파라핀",
             upgrade: "yes",
             relatedAbnormality: "살갗 예언자",
@@ -32,15 +32,10 @@ const egogiftData = {
                     level: "++",
                     formula: "(남은 코인 수+1)"
                 }
-            ],
-            nameTranslations: {
-                ko: "융해된 파라핀",
-                en: "Melted Paraffin",
-                ja: "融解したパラフィン"
-            }
+            ]
         },
         {
-            id: "",
+            id: "9003",
             name: "재에서 재로",
             upgrade: "yes",
             relatedAbnormality: "밀려오는 재",
@@ -63,15 +58,10 @@ const egogiftData = {
                     formula: "3",
                     condition: "적 전체(환상체일 경우, 모든 부위)"
                 }
-            ],
-            nameTranslations: {
-                ko: "재에서 재로",
-                en: "Ashes to Ashes",
-                ja: "灰はいは灰はいに"
-            }
+            ]
         },
         {
-            id: "",
+            id: "9087",
             name: "타오르는 지성",
             upgrade: "yes",
             relatedAbnormality: "불명",
@@ -94,355 +84,319 @@ const egogiftData = {
                     formula: "2",
                     condition: "셋"
                 }
-            ],
-            nameTranslations: {
-                ko: "타오르는 지성",
-                en: "Burning Intellect",
-                ja: "燃もえ上あがる知ち性"
-            }
+            ]
         },
         {
-            id: "",
+            id: "9102",
             name: "편광",
-            upgrade: "",
+            upgrade: "no",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9103",
             name: "울화통",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9034",
             name: "일점타격논리회로",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9009",
             name: "작열우모",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9001",
             name: "지옥나비의 꿈",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
-            name: " 만년 동안 끓는 솥",
+            id: "9155",
+            name: " 만 년 동안 끓는 솥",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9156",
             name: " 만년 화롯불",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9071",
             name: "그을린 원판",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9053",
             name: "먼지에서 먼지로",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9104",
             name: "불빛꽃",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9701",
             name: " 뜨거운 육즙 다리살",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9776",
             name: " 잔불",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9774",
             name: " 재점화 플러그",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9772",
             name: " 점화 장갑",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9157",
             name: " 요리 비법 전서",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9045",
             name: "불꽃의 편린",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9105",
             name: "업화 조각",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9756",
             name: " 부화하지 않은 불씨",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9088",
             name: "진혼",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9158",
             name: " 훔쳐온 불꽃",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         }
     ],
     Bleed: [
         {
-            id: "",
+            id: "9089",
             name: "녹슨 입마개",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9008",
             name: "늘어붙은 쇠말뚝",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9106",
             name: "억류된 찬송",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9107",
             name: "옭아맨 타래",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9108",
             name: "경외심",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9159",
             name: "밀라르카",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9005",
             name: "상처붙이",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9029",
             name: "작고 나쁠 인형",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9020",
             name: "흰 목화",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9413",
             name: "못과 망치의 책",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
-            id: "",
+            id: "9415",
             name: "불결함",
             upgrade: "",
             relatedAbnormality: "",
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -452,8 +406,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -463,8 +416,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -474,8 +426,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -485,8 +436,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -496,8 +446,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -507,8 +456,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -518,8 +466,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -529,8 +476,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -540,8 +486,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -551,8 +496,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -562,8 +506,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -573,8 +516,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -584,8 +526,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -595,8 +536,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -606,8 +546,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -617,8 +556,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -628,8 +566,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -639,8 +576,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         }
     ],
     Vibration: [
@@ -652,8 +588,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -663,8 +598,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -674,8 +608,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -685,8 +618,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -696,8 +628,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -707,8 +638,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -718,8 +648,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -729,8 +658,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -740,8 +668,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -751,8 +678,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -762,8 +688,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -773,8 +698,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -784,8 +708,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -795,8 +718,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -806,8 +728,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -817,8 +738,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -828,8 +748,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -839,8 +758,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -850,8 +768,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -861,8 +778,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -872,8 +788,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -883,8 +798,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -894,8 +808,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -905,8 +818,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -916,8 +828,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -927,8 +838,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -938,8 +848,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -949,8 +858,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -960,8 +868,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -971,8 +878,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         }
     ],
     Rupture: [
@@ -984,8 +890,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -995,8 +900,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1006,8 +910,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1017,8 +920,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1028,8 +930,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1039,8 +940,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1050,8 +950,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1061,8 +960,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1072,8 +970,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1083,8 +980,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1094,8 +990,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1105,8 +1000,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1116,8 +1010,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1127,8 +1020,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1138,8 +1030,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1149,8 +1040,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1160,8 +1050,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1171,8 +1060,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1182,8 +1070,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1193,8 +1080,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1204,8 +1090,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1215,8 +1100,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1226,8 +1110,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1237,8 +1120,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1248,8 +1130,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1259,8 +1140,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1270,8 +1150,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1281,8 +1160,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1292,8 +1170,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         }
     ],
     Sinking: [
@@ -1305,8 +1182,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1316,8 +1192,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1327,8 +1202,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1338,8 +1212,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1349,8 +1222,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1360,8 +1232,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1371,8 +1242,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1382,8 +1252,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1393,8 +1262,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1404,8 +1272,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1415,8 +1282,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1426,8 +1292,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1437,8 +1302,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1448,8 +1312,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1459,8 +1322,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1470,8 +1332,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1481,8 +1342,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1492,8 +1352,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1503,8 +1362,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1514,8 +1372,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1525,8 +1382,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1536,8 +1392,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1547,8 +1402,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1558,8 +1412,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1569,8 +1422,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1580,8 +1432,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         }
     ],
     Breathe: [
@@ -1593,8 +1444,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1604,8 +1454,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1615,8 +1464,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1626,8 +1474,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1637,8 +1484,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1648,8 +1494,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1659,8 +1504,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1670,8 +1514,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1681,8 +1524,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1692,8 +1534,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1703,8 +1544,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1714,8 +1554,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1725,8 +1564,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1736,8 +1574,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1747,8 +1584,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1758,8 +1594,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1769,8 +1604,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1780,8 +1614,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1791,8 +1624,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1802,8 +1634,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1813,8 +1644,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1824,8 +1654,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1835,8 +1664,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1846,8 +1674,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1857,8 +1684,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1868,8 +1694,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1879,8 +1704,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         },
         {
             id: "",
@@ -1890,8 +1714,7 @@ const egogiftData = {
             grade: "",
             firstAppearance: "",
             effectBase: "",
-            effects: [],
-            nameTranslations: {}
+            effects: []
         }
     ],
     Charge: [
@@ -1916,12 +1739,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -1944,12 +1762,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -1972,12 +1785,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2000,12 +1808,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2028,12 +1831,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2056,12 +1854,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2084,12 +1877,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2112,12 +1900,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2140,12 +1923,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2168,12 +1946,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2196,12 +1969,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2224,12 +1992,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2252,12 +2015,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2280,12 +2038,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2308,12 +2061,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2336,12 +2084,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2364,12 +2107,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2392,12 +2130,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2420,12 +2153,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2448,12 +2176,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2476,12 +2199,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2504,12 +2222,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2532,12 +2245,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2560,12 +2268,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2588,12 +2291,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2616,12 +2314,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2644,12 +2337,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2672,12 +2360,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         }
 
     ],
@@ -2703,12 +2386,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2731,12 +2409,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2759,12 +2432,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2787,12 +2455,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2815,12 +2478,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2843,12 +2501,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2871,12 +2524,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2899,12 +2547,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2927,12 +2570,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2955,12 +2593,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -2983,12 +2616,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3011,12 +2639,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3039,12 +2662,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3067,12 +2685,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3095,12 +2708,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3123,12 +2731,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3151,12 +2754,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3179,12 +2777,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3207,12 +2800,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         }
 
     ],
@@ -3239,12 +2827,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3267,12 +2850,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3295,12 +2873,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3323,12 +2896,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3351,12 +2919,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3379,12 +2942,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3407,12 +2965,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3435,12 +2988,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3463,12 +3011,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3491,12 +3034,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3519,12 +3057,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3547,12 +3080,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3575,12 +3103,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         }
     ],
     Strike: [
@@ -3606,12 +3129,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3634,12 +3152,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3662,12 +3175,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3690,12 +3198,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3718,12 +3221,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3746,12 +3244,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3774,12 +3267,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3802,12 +3290,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3830,12 +3313,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3858,12 +3336,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3886,12 +3359,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3914,12 +3382,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3942,12 +3405,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -3970,12 +3428,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         }
 
     ],
@@ -4001,12 +3454,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4029,12 +3477,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4057,12 +3500,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4085,12 +3523,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4113,12 +3546,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4141,12 +3569,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4169,12 +3592,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4197,12 +3615,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4225,12 +3638,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4253,12 +3661,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4281,12 +3684,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4309,12 +3707,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4337,12 +3730,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4365,12 +3753,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4393,12 +3776,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4421,12 +3799,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4449,12 +3822,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4477,12 +3845,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4505,12 +3868,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4533,12 +3891,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4561,12 +3914,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4589,12 +3937,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4617,12 +3960,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4645,12 +3983,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4673,12 +4006,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4701,12 +4029,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4729,12 +4052,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4757,12 +4075,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4785,12 +4098,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4813,12 +4121,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4841,12 +4144,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4869,12 +4167,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4897,12 +4190,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4925,12 +4213,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4953,12 +4236,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -4981,12 +4259,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5009,12 +4282,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5037,12 +4305,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5065,12 +4328,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5093,12 +4351,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5121,12 +4374,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5149,12 +4397,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5177,12 +4420,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5205,12 +4443,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5233,12 +4466,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5261,12 +4489,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5289,12 +4512,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5317,12 +4535,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5345,12 +4558,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5373,12 +4581,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5401,12 +4604,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5429,12 +4627,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5457,12 +4650,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5485,12 +4673,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5513,12 +4696,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5541,12 +4719,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5569,12 +4742,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5597,12 +4765,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5625,12 +4788,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5653,12 +4811,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5681,12 +4834,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5709,12 +4857,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5737,12 +4880,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5765,12 +4903,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5793,12 +4926,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5821,12 +4949,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5849,12 +4972,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5877,12 +4995,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5905,12 +5018,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5933,12 +5041,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5961,12 +5064,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -5989,12 +5087,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6017,12 +5110,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6045,12 +5133,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6073,12 +5156,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6101,12 +5179,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6129,12 +5202,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6157,12 +5225,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6185,12 +5248,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6213,12 +5271,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6241,12 +5294,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6269,12 +5317,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6297,12 +5340,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6325,12 +5363,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6353,12 +5386,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6381,12 +5409,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         },
         {
             id: "",
@@ -6409,12 +5432,7 @@ const egogiftData = {
                     level: "",
                     formula: ""
                 }
-            ],
-            nameTranslations: {
-                ko: "",
-                en: "",
-                ja: ""
-            }
+            ]
         }
 
     ]
