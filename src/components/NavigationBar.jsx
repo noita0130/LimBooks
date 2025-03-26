@@ -1,5 +1,5 @@
 // components/NavigationBar.jsx (개선된 버전)
-import { Home, Book, BookOpen, Moon, Sun, MessageCircle, ChevronDown, Menu, Mic, X, UserRound } from "lucide-react";
+import { Home, Book, BookOpen, Moon, Sun, MessageCircle, ChevronDown, Menu, Mic, X, UserRound, Gift } from "lucide-react";
 import { useState, useEffect } from "react";
 import useDarkMode from '../hooks/useDarkmode';
 import { 
@@ -92,6 +92,8 @@ const NavigationBar = ({ handleNavigation, location }) => {
   return (
     <nav className={`${getBgStyle(darkMode)} shadow-lg ${backgroundTransition}`}>
       <div className="max-w-6xl mx-auto px-4">
+
+        {/* 데스크탑 메뉴 */}
         <div className="flex justify-between items-center h-16">
           {/* 로고 */}
           <div className="flex-shrink-0 font-bold text-xl">
@@ -169,12 +171,11 @@ const NavigationBar = ({ handleNavigation, location }) => {
 
             <button
               onClick={() => handleNavigation('/EGOgift')}
-              className={getNavButtonStyle(location.pathname.startsWith('/announcers'))}
+              className={getNavButtonStyle(location.pathname.startsWith('/EGOgift'))}
             >
-              <Mic className="w-4 h-4 mr-2" />
+              <Gift className="w-4 h-4 mr-2" />
               E.G.O 기프트
             </button>
-
           </div>
 
           {/* 다크모드 버튼 */}
@@ -277,6 +278,16 @@ const NavigationBar = ({ handleNavigation, location }) => {
             <div className="flex items-center">
               <Mic className="w-5 h-5 mr-3" />
               아나운서
+            </div>
+          </button>
+
+          <button
+            onClick={() => handleMobileNavigation('/EGOgift')}
+            className={getMobileItemStyle(location.pathname.startsWith('/EGOgift'))}
+          >
+            <div className="flex items-center">
+              <Gift className="w-5 h-5 mr-3" />
+              E.G.O 기프트
             </div>
           </button>
         </div>
