@@ -21,7 +21,7 @@ const egogiftData = {
             effectBase: "화상 위력, 화상 횟수, 특수 화상을 부여하는 스킬로 합 승리 시, {{formula}}만큼 대상 적에게 화상 위력 부여",
             effects: [
                 {
-                    level: "기본 효과",
+                    level: "기본",
                     formula: "(남은 코인 수/2)"
                 },
                 {
@@ -44,7 +44,7 @@ const egogiftData = {
             effectBase: "전투 시작 시 {{condition}}에게 화상 위력 {{formula}} 부여",
             effects: [
                 {
-                    level: "기본 효과",
+                    level: "기본",
                     formula: "2",
                     condition: "모든 적(환상체일 경우, 모든 부위)이 화상에 걸린 경우, 적 전체(환상체일 경우, 모든 부위)"
                 },
@@ -70,7 +70,7 @@ const egogiftData = {
             effectBase: "화상 효과로 적을 처치하였다면 다음 턴 시작 시, 화상 위력을 부여하는 스킬을 보유한 아군 인격 {{condition}}이 피해량 증가 {{formula}} 얻음",
             effects: [
                 {
-                    level: "기본 효과",
+                    level: "기본",
                     formula: "1",
                     condition: "둘"
                 },
@@ -111,7 +111,7 @@ const egogiftData = {
             name: "일점타격논리회로",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "2",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -121,7 +121,7 @@ const egogiftData = {
             name: "작열우모",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "2",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -131,7 +131,7 @@ const egogiftData = {
             name: "지옥나비의 꿈",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "2",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -141,7 +141,7 @@ const egogiftData = {
             name: " 만 년 동안 끓는 솥",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "2",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -151,7 +151,7 @@ const egogiftData = {
             name: " 만년 화롯불",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "2",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -161,7 +161,7 @@ const egogiftData = {
             name: "그을린 원판",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "3",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -171,7 +171,7 @@ const egogiftData = {
             name: "먼지에서 먼지로",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "3",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -181,7 +181,7 @@ const egogiftData = {
             name: "불빛꽃",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "3",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -191,7 +191,7 @@ const egogiftData = {
             name: " 뜨거운 육즙 다리살",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "3",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -201,7 +201,7 @@ const egogiftData = {
             name: " 잔불",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "3",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -211,7 +211,7 @@ const egogiftData = {
             name: " 재점화 플러그",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "3",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -221,7 +221,7 @@ const egogiftData = {
             name: " 점화 장갑",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "3",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -231,7 +231,7 @@ const egogiftData = {
             name: " 요리 비법 전서",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "3",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -241,7 +241,7 @@ const egogiftData = {
             name: "불꽃의 편린",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "4",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -251,7 +251,7 @@ const egogiftData = {
             name: "업화 조각",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "4",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -261,7 +261,7 @@ const egogiftData = {
             name: " 부화하지 않은 불씨",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "4",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -271,7 +271,7 @@ const egogiftData = {
             name: "진혼",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "4",
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -281,7 +281,7 @@ const egogiftData = {
             name: " 훔쳐온 불꽃",
             upgrade: "",
             relatedAbnormality: "",
-            grade: "",
+            grade: "4",
             firstAppearance: "",
             effectBase: "",
             effects: []

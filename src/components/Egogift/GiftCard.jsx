@@ -31,7 +31,7 @@ const GiftCard = memo(({ gift, onClick, darkMode, isSmallScreen }) => {
           {gift.grade && (
             <div className="absolute top-2 left-1/2 transform -translate-x-10 w-6 h-6 z-10 rounded-full overflow-hidden">
               <img 
-                src={`/icons/rank/${gift.grade}.png`} 
+                src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/rank_${gift.grade}.webp`} 
                 alt={`Rank ${gift.grade}`}
                 className="w-full h-full object-contain"
                 onError={(e) => {
@@ -64,7 +64,7 @@ const GiftCard = memo(({ gift, onClick, darkMode, isSmallScreen }) => {
             }}
           />
         </div>
-        <div className="px-2 pb-2 flex-1 flex items-center justify-center">
+        <div className="p-2 flex-1 flex items-center justify-center">
           <p className={`text-xs leading-tight break-words text-center ${textTransition} 
                       ${darkMode ? 'text-white' : 'text-black'}`}>
             {gift.name}

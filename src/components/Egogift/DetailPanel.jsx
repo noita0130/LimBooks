@@ -12,19 +12,10 @@ const getGroupType = (gift, egogiftData) => {
       break;
     }
   }
-  return groupType; // toLowerCase 제거
+  return groupType; // 원본 영어 그대로 반환
 };
 
 const LevelButton = ({ level, isActive, onClick, darkMode }) => {
-  // 레벨에 따른 색상
-  const getLevelColor = () => {
-    if (level === '기본 효과') return darkMode ? 'bg-blue-800' : 'bg-blue-200';
-    if (level === '+') return darkMode ? 'bg-green-800' : 'bg-green-200';
-    if (level === '++') return darkMode ? 'bg-purple-800' : 'bg-purple-200';
-    return '';
-  };
-  
-  const activeColor = getLevelColor();
   const inactiveColor = darkMode 
     ? 'bg-neutral-700 text-neutral-300' 
     : 'bg-neutral-200 text-neutral-600';
@@ -33,15 +24,15 @@ const LevelButton = ({ level, isActive, onClick, darkMode }) => {
     <button
       onClick={onClick}
       className={`px-3 py-1 rounded-md mr-2 text-sm transition-all duration-300 
-        ${isActive ? `${activeColor} font-bold` : inactiveColor}`}
+        ${isActive ? `${darkMode ? 'bg-neutral-600' : 'bg-neutral-400'} font-bold` : inactiveColor}`}
     >
       {level}
     </button>
   );
 };
 
-const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
-  const [activeLevel, setActiveLevel] = useState('기본 효과');
+const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
+  const [activeLevel, setActiveLevel] = useState('기본');
   
   const detailCardStyle = `${backgroundTransition}
     ${darkMode ? 'bg-neutral-800' : 'bg-white'}
@@ -78,45 +69,27 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
     // 템플릿 변수 치환
     if (effectData.formula) {
       formattedText = formattedText.replace('{{formula}}', 
-        `<span class="${getFormulaColorClass()}">${effectData.formula}</span>`);
+        `<span class="${getColorClass()}">${effectData.formula}</span>`);
     }
     
     if (effectData.condition) {
       formattedText = formattedText.replace('{{condition}}', 
-        `<span class="${getConditionColorClass()}">${effectData.condition}</span>`);
+        `<span class="${getColorClass()}">${effectData.condition}</span>`);
     }
     
     return formattedText;
   };
 
-  // 레벨에 따른 효과 색상
-  const getLevelColorClass = () => {
-    if (activeLevel === '기본 효과') return darkMode ? 'text-blue-300' : 'text-blue-800';
-    if (activeLevel === '+') return darkMode ? 'text-green-300' : 'text-green-800';
-    if (activeLevel === '++') return darkMode ? 'text-purple-300' : 'text-purple-800';
-    return '';
-  };
-
   // 수식에 대한 색상 클래스
-  const getFormulaColorClass = () => {
-    if (activeLevel === '기본 효과') return darkMode ? 'text-blue-300 font-bold' : 'text-blue-800 font-bold';
-    if (activeLevel === '+') return darkMode ? 'text-green-300 font-bold' : 'text-green-800 font-bold';
-    if (activeLevel === '++') return darkMode ? 'text-purple-300 font-bold' : 'text-purple-800 font-bold';
-    return '';
+  const getColorClass = () => {
+    return darkMode ? 'text-yellow-400 font-bold' : 'text-yellow-600 font-bold'
   };
 
-  // 조건에 대한 색상 클래스
-  const getConditionColorClass = () => {
-    if (activeLevel === '기본 효과') return darkMode ? 'text-blue-300 font-bold' : 'text-blue-800 font-bold';
-    if (activeLevel === '+') return darkMode ? 'text-green-300 font-bold' : 'text-green-800 font-bold';
-    if (activeLevel === '++') return darkMode ? 'text-purple-300 font-bold' : 'text-purple-800 font-bold';
-    return '';
-  };
 
   // 모바일 버전과 데스크톱 버전 구분
   const panelClass = isSmallScreen 
     ? 'w-full py-4' // 모바일에서는 전체 너비
-    : 'h-min md:w-1/2 transition-all duration-300'; // 데스크톱에서는 절반 너비
+    : 'h-full'; // 데스크톱에서는 부모 요소에서 너비 제어
 
   return (
     <div className={panelClass}>
@@ -126,16 +99,6 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
             ${darkMode ? 'text-white' : 'text-black'}`}>
             {gift.name}
           </h2>
-
-          <button
-            onClick={onClose}
-            className={`p-2 rounded-full ${buttonTransition} 
-              ${darkMode ? 'bg-neutral-700 hover:bg-neutral-600' : 'bg-neutral-200 hover:bg-neutral-300'}`}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </button>
         </div>
 
         <div className="flex flex-col h-full">
@@ -152,9 +115,9 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
               
               {/* 랭크 표시 (왼쪽 상단) - 이미지 컨테이너 내부에 위치 */}
               {gift.grade && (
-                <div className="absolute top-1 left-1 w-6 h-6 z-10 rounded-full overflow-hidden">
+                <div className="absolute top-1 left-1 w-8 h-8 z-16 rounded-full overflow-hidden">
                   <img 
-                    src={`/icons/rank/${gift.grade}.png`} 
+                    src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/rank_${gift.grade}.webp`} 
                     alt={`Rank ${gift.grade}`}
                     className="w-full h-full object-contain"
                     onError={(e) => {
@@ -166,7 +129,7 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
 
               {/* 그룹 표시 (오른쪽 하단) - 이미지 컨테이너 내부에 위치 */}
               {groupType && (
-                <div className="absolute bottom-1 right-1 w-6 h-6 z-10 rounded-full overflow-hidden">
+                <div className="absolute bottom-1 right-1 w-8 h-8 z-10 rounded-full overflow-hidden">
                   <img 
                     src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${groupType}.webp`}
                     alt={groupType}
@@ -190,9 +153,9 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
           {/* 효과 레벨 선택 버튼 */}
           <div className="flex mt-4 mb-2">
             <LevelButton 
-              level="기본 효과" 
-              isActive={activeLevel === '기본 효과'}
-              onClick={() => setActiveLevel('기본 효과')}
+              level="기본" 
+              isActive={activeLevel === '기본'}
+              onClick={() => setActiveLevel('기본')}
               darkMode={darkMode}
             />
             
@@ -218,7 +181,7 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
           {/* 효과 정보 */}
           <div className="mt-2 p-3 rounded-md border border-opacity-20 
                         border-gray-400 transition-all duration-300">
-            <p className={`mb-2 font-semibold ${getLevelColorClass()}`}>
+            <p className={`mb-2 font-semibold ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}>
               {activeLevel} 효과:
             </p>
             

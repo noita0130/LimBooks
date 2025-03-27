@@ -12,7 +12,7 @@ import DesktopGiftGrid from '../components/Egogift/DesktopGiftGrid';
 import MobileGiftList from '../components/Egogift/MobileGiftList';
 
 // 고정된 열 수를 계산하는 훅
-const useGridColumns = (isDetailOpen) => {
+const useGridColumns = () => {
   const [columns, setColumns] = useState(6); // 기본값
   const { isSmallScreen, screenWidth } = useScreenSize();
 
@@ -20,14 +20,14 @@ const useGridColumns = (isDetailOpen) => {
     const handleResize = () => {
       const width = screenWidth;
       if (width < 640) setColumns(3);
-      else if (width < 768) setColumns(isDetailOpen ? 3 : 4);
-      else if (width < 1024) setColumns(isDetailOpen ? 4 : 6);
-      else setColumns(isDetailOpen ? 5 : 8);
+      else if (width < 768) setColumns(3);
+      else if (width < 1024) setColumns(4);
+      else setColumns(5);
     };
 
     // 초기 설정
     handleResize();
-  }, [isDetailOpen, screenWidth, isSmallScreen]);
+  }, [screenWidth, isSmallScreen]);
 
   return columns;
 };
@@ -38,7 +38,6 @@ const EgogiftPage = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedGift, setSelectedGift] = useState(null);
   const [filteredGifts, setFilteredGifts] = useState([]);
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
@@ -47,8 +46,8 @@ const EgogiftPage = () => {
     window.egogiftData = egogiftData;
   }, []);
 
-  // 고정된 열 수 계산 (화면 크기와 상세 패널 상태에 따라)
-  const gridColumns = useGridColumns(isDetailOpen);
+  // 고정된 열 수 계산
+  const gridColumns = useGridColumns();
 
   // 카테고리 버튼 레이블 매핑 - 메모이제이션
   const categoryLabels = useMemo(() => ({
@@ -112,6 +111,12 @@ const EgogiftPage = () => {
     // 약간의 지연을 두고 필터링 결과를 적용 (UI 렌더링 최적화)
     const timer = setTimeout(() => {
       setFilteredGifts(gifts);
+      // 첫 번째 아이템을 기본 선택
+      if (gifts.length > 0 && !selectedGift) {
+        setSelectedGift(gifts[0]);
+      } else if (gifts.length === 0) {
+        setSelectedGift(null);
+      }
       setIsLoading(false); // 필터링 완료 후 로딩 상태 해제
     }, 300);
     
@@ -121,7 +126,6 @@ const EgogiftPage = () => {
   // 이벤트 핸들러 메모이제이션
   const handleGiftClick = useCallback((gift) => {
     setSelectedGift(gift);
-    setIsDetailOpen(true);
   }, []);
 
   const toggleCategory = useCallback((category) => {
@@ -136,15 +140,6 @@ const EgogiftPage = () => {
     });
   }, []);
 
-  const closeDetail = useCallback(() => {
-    // 자연스러운 애니메이션을 위해 상태 변경의 타이밍 조절
-    setIsDetailOpen(false);
-    // 약간의 지연 후에 선택된 선물 상태 초기화
-    setTimeout(() => {
-      setSelectedGift(null);
-    }, 500); // transition-duration과 일치
-  }, []);
-
   // 그리드 레이아웃 스타일 메모이제이션 - 고정 열 개수 사용
   const gridStyle = useMemo(() => {
     return {
@@ -152,7 +147,6 @@ const EgogiftPage = () => {
       gap: '0.5rem',
       gridTemplateColumns: `repeat(${gridColumns}, minmax(0, 1fr))`,
       justifyItems: 'center',
-      transition: 'all 0.5s ease-in-out', // 그리드 자체에 트랜지션 적용
     };
   }, [gridColumns]);
 
@@ -201,9 +195,9 @@ const EgogiftPage = () => {
                 darkMode={darkMode} 
               />
             ) : (
-              <div className="flex flex-col md:flex-row gap-6">
-                {/* Desktop: Grid of EGO gifts - 수정: 고정 높이 및 스크롤 가능한 컨테이너 */}
-                <div className={`${isDetailOpen ? 'md:w-1/2' : 'w-full'} transition-all duration-500 ease-in-out`}>
+              <div className="flex flex-row gap-6">
+                {/* Desktop: Grid of EGO gifts - 3/5 너비로 설정 */}
+                <div className="w-3/5">
                   <DesktopGiftGrid 
                     gifts={filteredGifts}
                     gridStyle={gridStyle}
@@ -212,15 +206,23 @@ const EgogiftPage = () => {
                   />
                 </div>
 
-                {/* Desktop: Details panel - 상세 정보가 열려있을 때만 표시 */}
-                {isDetailOpen && selectedGift && (
-                  <DetailPanel
-                    gift={selectedGift}
-                    darkMode={darkMode}
-                    onClose={closeDetail}
-                    isSmallScreen={false}
-                  />
-                )}
+                {/* Desktop: Details panel - 항상 표시, 2/5 너비로 설정 */}
+                <div className="w-2/5">
+                  {selectedGift ? (
+                    <DetailPanel
+                      gift={selectedGift}
+                      darkMode={darkMode}
+                      isSmallScreen={false}
+                    />
+                  ) : (
+                    <div className={`${darkMode ? 'bg-neutral-800' : 'bg-white'} 
+                      rounded-lg shadow-md h-full p-4 flex items-center justify-center`}>
+                      <p className={`text-center ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                        선택된 EGO 선물이 없습니다
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </>

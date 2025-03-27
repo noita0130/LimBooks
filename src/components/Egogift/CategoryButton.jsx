@@ -18,14 +18,17 @@ const CategoryButton = memo(({ category, label, isActive, onClick, darkMode }) =
       onClick={() => onClick(category)}
       className={buttonStyle}
     >
-      <img 
-        src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${category}.webp`} 
-        alt={`${category} icon`}
-        className="w-4 h-4 object-contain"
-        onError={(e) => {
-          e.target.src = `https://placehold.co/16x16/gray/white?text=${category.charAt(0).toUpperCase()}`;
-        }}
-      />
+      {category != "General" && (
+        <img
+          src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${category}.webp`}
+          alt={`${category} icon`}
+          className="w-4 h-4 object-contain"
+          onError={(e) => {
+            e.target.src = `https://placehold.co/16x16/gray/white?text=${category.charAt(0).toUpperCase()}`;
+          }}
+        />
+      )}
+
       {label}
     </button>
   );
