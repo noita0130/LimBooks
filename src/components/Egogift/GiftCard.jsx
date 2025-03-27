@@ -29,7 +29,7 @@ const GiftCard = memo(({ gift, onClick, darkMode, isSmallScreen }) => {
         <div className="h-20 w-full flex justify-center overflow-hidden pt-2 relative">
           {/* 랭크 표시 (이미지의 왼쪽 상단) */}
           {gift.grade && (
-            <div className="absolute top-2 left-1/2 transform -translate-x-10 w-6 h-6 z-10 rounded-full overflow-hidden">
+            <div className="absolute top-2 left-1/2 transform -translate-x-10 w-6 h-6 z-10 overflow-hidden">
               <img 
                 src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/rank_${gift.grade}.webp`} 
                 alt={`Rank ${gift.grade}`}
@@ -43,7 +43,7 @@ const GiftCard = memo(({ gift, onClick, darkMode, isSmallScreen }) => {
 
           {/* 그룹 표시 (이미지의 오른쪽 하단) */}
           {groupType && (
-            <div className="absolute bottom-0 left-1/2 transform translate-x-4 w-6 h-6 z-10 rounded-full overflow-hidden">
+            <div className="absolute bottom-0 left-1/2 transform translate-x-4 w-6 h-6 z-10 overflow-hidden">
               <img 
                 src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${groupType}.webp`}
                 alt={groupType}

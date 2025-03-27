@@ -1,12 +1,15 @@
 /**
  * 키워드
  * @param {group} Burn - 화상
- * @param {group} Laceration - 출혈
+ * @param {group} Bleed - 출혈
  * @param {group} Vibration - 진동
- * @param {group} Burst - 파열
+ * @param {group} Rupture - 파열
  * @param {group} Sinking - 침잠
- * @param {group} Breath - 호흡
- * @param {group} Combustion - 충전
+ * @param {group} Breathe - 호흡
+ * @param {group} Charge - 충전
+ * @param {group} Slash - 참격
+ * @param {group} Pierce - 관통
+ * @param {group} Strike - 타격
  * @param {group} Public - 공용
  */
 const egogiftData = {
@@ -89,179 +92,290 @@ const egogiftData = {
         {
             id: "9102",
             name: "편광",
-            upgrade: "no",
-            relatedAbnormality: "",
-            grade: "",
-            firstAppearance: "",
-            effectBase: "",
-            effects: []
+            upgrade: "yes",
+            relatedAbnormality: "불명",
+            grade: 1,
+            firstAppearance: "폭풍의 거울 (거울 던전 4)",
+            effectBase: "아군이 대상보다 정신력이 {{condition}} 이상 높을 경우, 화상 위력 또는 화상 횟수 또는 특수 화상을 부여하는 스킬로 입히는 피해량 {{formula}}%",
+            effects: [
+                {
+                    level: "기본",
+                    formula: "+7.5",
+                    condition: "30"
+                },
+                {
+                    level: "+",
+                    formula: "+12.5",
+                    condition: "25"
+                },
+                {
+                    level: "++",
+                    formula: "+20",
+                    condition: "15"
+                }
+            ]
         },
         {
             id: "9103",
             name: "울화통",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "",
-            firstAppearance: "",
-            effectBase: "",
-            effects: []
+            upgrade: "yes",
+            relatedAbnormality: "놋쇠황소",
+            grade: 2,
+            firstAppearance: "폭풍의 거울 (거울 던전 4)",
+            effectBase: "[편성 {{condition}} 인격 전용 효과] 화상 또는 특수 화상에 걸린 적에게 스킬 효과로 화상 또는 특수 화상을 부여할 경우, 다음 턴에 신속 1 얻음. (스킬 당 1회, 턴당 최대 2회) 신속을 이미 보유한 경우, 효과가 강화되어 신속 {{formula}}, 공격 레벨 증가 2{{formula2}} 얻음 (스킬 당 1회, 턴당 최대 2회)",
+            effects: [
+                {
+                    level: "기본",
+                    formula: "1",
+                    formula2: "",
+                    condition: "1번, 2번"
+                },
+                {
+                    level: "+",
+                    formula: "2",
+                    formula2: "",
+                    condition: "1번, 2번, 3번"
+                },
+                {
+                    level: "++",
+                    formula: "2",
+                    formula2: ", 피해량 증가 2",
+                    condition: "1번, 2번, 3번"
+                }
+            ]
         },
         {
             id: "9034",
             name: "일점타격논리회로",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "2",
-            firstAppearance: "",
-            effectBase: "",
+            upgrade: "no",
+            relatedAbnormality: "kqe-1j-23",
+            grade: 2,
+            firstAppearance: "시작의 거울 (거울 던전 1)",
+            effectBase: "화상 위력 또는 특수 화상을 부여하는 스킬 또는 질투 속성 스킬을 사용하여 적에게 적중 시, 대상에게 해당 스킬의 코인 수 절반만큼 추가로 화상 위력 부여.(소수는 올림하여 계산)",
             effects: []
         },
         {
             id: "9009",
             name: "작열우모",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "2",
-            firstAppearance: "",
-            effectBase: "",
-            effects: []
+            upgrade: "yes",
+            relatedAbnormality: "살갗 예언자",
+            grade: 2,
+            firstAppearance: "시작의 거울 (거울 던전 1)",
+            effectBase: "화상 위력 또는 특수 화상을 부여하는 스킬 또는 색욕 속성의 스킬을 사용하여 대상에게 적중 시, 대상에게 화상 위력 {{formula}} 부여. 턴 시작 시 화상 20 이상을 보유한 적의 경우, 화상이 {{formula2}}배로 증가",
+            effects: [
+                {
+                    level: "기본",
+                    formula: "3",
+                    formula2: "2"
+                },
+                {
+                    level: "+",
+                    formula: "4",
+                    formula2: "2"
+                },
+                {
+                    level: "++",
+                    formula: "4",
+                    formula2: "2.5"
+                }
+            ]
         },
         {
             id: "9001",
             name: "지옥나비의 꿈",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "2",
-            firstAppearance: "",
-            effectBase: "",
-            effects: []
+            upgrade: "yes",
+            relatedAbnormality: "홍염나방",
+            grade: 2,
+            firstAppearance: "시작의 거울 (거울 던전 1)",
+            effectBase: "화상 또는 특수 화상에 걸린 적에게 스킬 효과로 화상 위력 또는 특수 화상을 부여할 경우, 모든 적에게 화상 위력 {{formula}} 무작위로 나누어 부여. 분노 {{condition}} 공명을 발동하였다면 전투 시작 시, 모든 적에게 화상 위력 {{formula2}} 무작위로 나누어 부여",
+            effects: [
+                {
+                    level: "기본",
+                    formula: "3",
+                    formula2: "5",
+                    condition: "완전"
+                },
+                {
+                    level: "+",
+                    formula: "4",
+                    formula2: "6",
+                    condition: "완전"
+                },
+                {
+                    level: "++",
+                    formula: "5",
+                    formula2: "8",
+                    condition: ""
+                }
+            ]
         },
         {
             id: "9155",
-            name: " 만 년 동안 끓는 솥",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "2",
-            firstAppearance: "",
-            effectBase: "",
+            name: "만년 동안 끓는 솥",
+            upgrade: "no",
+            relatedAbnormality: "바질리스프크",
+            grade: 2,
+            firstAppearance: "꿈결의 거울 (거울 던전 5)",
+            effectBase: "화상 위력, 화상 횟수 또는 특수 화상을 부여하는 스킬의 합 위력 +1",
             effects: []
         },
         {
             id: "9156",
-            name: " 만년 화롯불",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "2",
-            firstAppearance: "",
-            effectBase: "",
+            name: "만년 화롯불",
+            upgrade: "no",
+            relatedAbnormality: "바질리스프크",
+            grade: 2,
+            firstAppearance: "꿈결의 거울 (거울 던전 5)",
+            effectBase: "턴 종료 시, 화상 횟수를 3 이상 보유한 적이 화상을 1회 더 발동함 (화상 횟수 1 감소)",
             effects: []
         },
         {
             id: "9071",
-            name: "그을린 원판",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "3",
-            firstAppearance: "",
-            effectBase: "",
+            name: "그을린 원반",
+            upgrade: "no",
+            relatedAbnormality: "불명",
+            grade: 3,
+            firstAppearance: "거울의 거울 (거울 던전 2)",
+            effectBase: "화상 상태인 적이 사망하였을 경우(환상체일 경우, 본체 사망 시), 남은 화상 위력 수치의 절반만큼을 다음 턴 시작 시 화상 위력 수치가 제일 적은 적 중 하나에게 부여. 턴 시작 시 화상 상태인 적에게 이번 턴 동안 공격 레벨 감소 4 부여",
             effects: []
         },
         {
             id: "9053",
             name: "먼지에서 먼지로",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "3",
-            firstAppearance: "",
-            effectBase: "",
-            effects: []
+            upgrade: "yes",
+            relatedAbnormality: "불명",
+            grade: 3,
+            firstAppearance: "거울의 거울 (거울 던전 2)",
+            effectBase: "스테이지 시작 시, 모든 적(환상체일 경우, 무작위 부위 하나)에게 화상 위력 {{formula}}, 화상 횟수 {{formula2}} 부여. 나태 {{condition}} 공명을 발동하였다면 전투 시작 시, 모든 적(환상체일 경우, 무작위 부위 하나)에게 화상 위력 {{formula3}}, 화상 횟수 {{formula4}} 부여",
+            effects: [
+                {
+                    level: "기본",
+                    formula: "5",
+                    formula2: "3",
+                    formula3: "3",
+                    formula4: "2",
+                    condition: "완전"
+                },
+                {
+                    level: "+",
+                    formula: "6",
+                    formula2: "3",
+                    formula3: "4",
+                    formula4: "2",
+                    condition: "완전"
+                },
+                {
+                    level: "++",
+                    formula: "8",
+                    formula2: "3",
+                    formula3: "4",
+                    formula4: "3",
+                    condition: ""
+                }
+            ]
         },
         {
             id: "9104",
             name: "불빛꽃",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "3",
-            firstAppearance: "",
-            effectBase: "",
+            upgrade: "no",
+            relatedAbnormality: "홍염나방",
+            grade: 3,
+            firstAppearance: "폭풍의 거울 (거울 던전 4)",
+            effectBase: "[편성 1번, 2번 인격 전용 효과] 아군이 적을 공격할 때 대상의 남은 체력이 최대 체력의 (보유한 화상 위력)% 이하일 경우 (환상체일 경우, 본체 체력으로 계산), 화상 위력 또는 화상 횟수 또는 특수 화상을 부여하는 공격 스킬로 입히는 피해량 +50%",
             effects: []
         },
         {
-            id: "9701",
-            name: " 뜨거운 육즙 다리살",
-            upgrade: "",
+            id: "1052",
+            name: "뜨거운 육즙 다리살",
+            upgrade: "no",
             relatedAbnormality: "",
-            grade: "3",
+            grade: 3,
             firstAppearance: "",
             effectBase: "",
             effects: []
         },
         {
             id: "9776",
-            name: " 잔불",
-            upgrade: "",
+            name: "잔불",
+            upgrade: "no",
             relatedAbnormality: "",
-            grade: "3",
+            grade: 3,
             firstAppearance: "",
             effectBase: "",
             effects: []
         },
         {
             id: "9774",
-            name: " 재점화 플러그",
-            upgrade: "",
+            name: "재점화 플러그",
+            upgrade: "no",
             relatedAbnormality: "",
-            grade: "3",
+            grade: 3,
             firstAppearance: "",
             effectBase: "",
             effects: []
         },
         {
             id: "9772",
-            name: " 점화 장갑",
-            upgrade: "",
+            name: "점화 장갑",
+            upgrade: "no",
             relatedAbnormality: "",
-            grade: "3",
+            grade: 3,
             firstAppearance: "",
             effectBase: "",
             effects: []
         },
         {
             id: "9157",
-            name: " 요리 비법 전서",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "3",
-            firstAppearance: "",
-            effectBase: "",
+            name: "요리 비법 전서",
+            upgrade: "no",
+            relatedAbnormality: "캐릭터: 봉이 아빠",
+            grade: 3,
+            firstAppearance: "꿈결의 거울 (거울 던전 5)",
+            effectBase: "스테이지 시작 시, 화상 위력, 화상 횟수 또는 특수 화상을 부여하는 공격 스킬을 보유한 인격이 5인 이상일 때 발동 (E.G.O 스킬 제외, 출격 인원을 기준으로 함) 화상 위력, 화상 횟수 또는 특수 화상을 부여하는 스킬의 최종 위력 +1 화상 위력, 화상 횟수 또는 특수 화상을 부여하는 스킬로 합 승리 시, (남은 코인 수/2+1)만큼 대상 적에게 화상 위력을 부여",
             effects: []
         },
         {
             id: "9045",
             name: "불꽃의 편린",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "4",
-            firstAppearance: "",
-            effectBase: "",
-            effects: []
+            upgrade: "yes",
+            relatedAbnormality: "불명",
+            grade: 4,
+            firstAppearance: "거울의 거울 (거울 던전 2)",
+            effectBase: "턴 종료 시, 화상 상태인 적에게 대상이 보유한 화상 횟수의 절반만큼을 소모하여 (화상 위력 × 소모한 화상 횟수 × {{formula}})만큼 추가 분노 피해를 입힘. 불꽃의 편린 효과로 소모한 화상 횟수의 절반만큼, 다음 턴 동안 대상의 방어 레벨 감소 (최대 {{condition}})",
+            effects: [
+                {
+                    level: "기본",
+                    formula: "1",
+                    condition: "3"
+                },
+                {
+                    level: "+",
+                    formula: "1.5",
+                    condition: "5"
+                },
+                {
+                    level: "++",
+                    formula: "2",
+                    condition: "8"
+                }
+            ]
         },
         {
             id: "9105",
             name: "업화 조각",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "4",
-            firstAppearance: "",
-            effectBase: "",
+            upgrade: "no",
+            relatedAbnormality: "불명",
+            grade: 4,
+            firstAppearance: "폭풍의 거울 (거울 던전 4)",
+            effectBase: "화상 위력, 화상 횟수 또는 특수 화상을 부여하는 E.G.O 스킬 사용시 발동. 소모하는 (분노 E.G.O 자원 +나머지 E.G.O 자원의 합/3)만큼 최종 위력이 증가, 피해량 +50% 분노 속성 E.G.O 스킬의 경우, 효과가 강화되어 공격 시작 전에 화상 횟수를 추가로 부여(ZAYIN의 경우 2, 등급이 오를수록 +1)하고 피해량 +(공격 가중치/공격 대상 수×20)%",
             effects: []
         },
         {
             id: "9756",
-            name: " 부화하지 않은 불씨",
-            upgrade: "",
+            name: "부화하지 않은 불씨",
+            upgrade: "no",
             relatedAbnormality: "",
-            grade: "4",
+            grade: 4,
             firstAppearance: "",
             effectBase: "",
             effects: []
@@ -269,21 +383,21 @@ const egogiftData = {
         {
             id: "9088",
             name: "진혼",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "4",
-            firstAppearance: "",
-            effectBase: "",
+            upgrade: "no",
+            relatedAbnormality: "불명",
+            grade: 4,
+            firstAppearance: "호수의 거울 (거울 던전 3)",
+            effectBase: "스테이지 시작 시, 화상 위력, 화상 횟수 또는 특수 화상을 부여하는 공격 스킬을 보유한 인격이 5인 이상일 때 발동. (E.G.O 스킬 제외, 출격 인원을 기준으로 함) 웨이브 첫 번째 턴 시작 시, 모든 적(환상체일 경우, 모든 부위)에게 화상 횟수 3을 부여하고 화상 위력 15를 무작위로 나누어 부여. 화상 위력, 화상 횟수 또는 특수 화상을 부여하는 스킬의 최종 위력 +1, 코인 위력 +1, 화상 위력 부여 값 +1, 화상 횟수 부여 값 +1. 화상 위력, 화상 횟수 또는 특수 화상을 부여하는 스킬로 합 승리 시, (남은 코인 수 + 1)만큼 대상 적에게 화상 위력을 부여",
             effects: []
         },
         {
             id: "9158",
-            name: " 훔쳐온 불꽃",
-            upgrade: "",
-            relatedAbnormality: "",
-            grade: "4",
-            firstAppearance: "",
-            effectBase: "",
+            name: "훔쳐온 불꽃",
+            upgrade: "no",
+            relatedAbnormality: "불명",
+            grade: 4,
+            firstAppearance: "꿈결의 거울 (거울 던전 5)",
+            effectBase: "스테이지 시작 시, 화상 위력, 화상 횟수 또는 특수 화상을 부여하는 공격 스킬을 보유한 인격이 5인 이상일 때 발동 (E.G.O 스킬 제외, 출격 인원을 기준으로 함). 스킬(E.G.O 스킬 포함) 적중 시 대상의 화상 횟수가 3 이상이면, 대상의 화상을 1회 발동함. (화상 횟수 1 감소, 스킬당 1회 발동) 턴 종료 시, 화상 횟수를 3 이상 보유한 적이 화상을 1회 더 발동함. (화상 횟수 1 감소) 화상 상태인 적이 사망하였을 경우(환상체일 경우, 본체 사망 시), 남은 화상 위력 수치만큼을 다음 턴 시작 시 화상 위력 수치가 제일 적은 적 중 하나에게 부여. 턴 종료 시 화상 상태인 적에게 이번 턴 동안 공격 레벨 감소 4 부여. 화상을 보유한 적이 사망하였을 경우, 다음 턴 시작 시, 화상 부여 스킬을 보유한 아군 (사망한 적의 화상 위력/15)명이 피해량 증가 2 얻음 (턴 당 1회 발동)",
             effects: []
         }
     ],
@@ -399,7 +513,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9704",
+            id: "1055",
             name: "오염된 실과 바늘",
             upgrade: "",
             relatedAbnormality: "",
@@ -469,7 +583,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9714",
+            id: "2029",
             name: "조각난 칼날",
             upgrade: "",
             relatedAbnormality: "",
@@ -691,7 +805,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9725",
+            id: "2040",
             name: "녹슨 시계침",
             upgrade: "",
             relatedAbnormality: "",
@@ -701,7 +815,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9722",
+            id: "2037",
             name: "빛바랜 시계 케이스",
             upgrade: "",
             relatedAbnormality: "",
@@ -711,7 +825,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9724",
+            id: "2039",
             name: "에칭 시계침",
             upgrade: "",
             relatedAbnormality: "",
@@ -721,7 +835,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9721",
+            id: "2036",
             name: "은빛 시계 케이스",
             upgrade: "",
             relatedAbnormality: "",
@@ -771,7 +885,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9726",
+            id: "2041",
             name: "낙수의 잔",
             upgrade: "",
             relatedAbnormality: "",
@@ -841,7 +955,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9729",
+            id: "2044",
             name: "회중시계: 타입 E",
             upgrade: "",
             relatedAbnormality: "",
@@ -851,7 +965,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9728",
+            id: "2043",
             name: "회중시계: 타입 L",
             upgrade: "",
             relatedAbnormality: "",
@@ -861,7 +975,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9731",
+            id: "2046",
             name: "회중시계: 타입 P",
             upgrade: "",
             relatedAbnormality: "",
@@ -871,7 +985,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9730",
+            id: "2045",
             name: "회중시계: 타입 Y",
             upgrade: "",
             relatedAbnormality: "",
@@ -1003,7 +1117,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9403",
+            id: "1005",
             name: "흑단 브로치",
             upgrade: "",
             relatedAbnormality: "",
@@ -1063,7 +1177,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "9702",
+            id: "1053",
             name: "목이 뻑뻑 가슴살",
             upgrade: "",
             relatedAbnormality: "",
@@ -1447,7 +1561,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9127",
             name: "데블스 셰어",
             upgrade: "",
             relatedAbnormality: "",
@@ -1457,7 +1571,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9097",
             name: "장식된 편자",
             upgrade: "",
             relatedAbnormality: "",
@@ -1467,7 +1581,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9063",
             name: "추억의 펜던트",
             upgrade: "",
             relatedAbnormality: "",
@@ -1477,7 +1591,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9709",
             name: "털방울 모자",
             upgrade: "",
             relatedAbnormality: "",
@@ -1487,7 +1601,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9129",
             name: "낡은 목각 인형",
             upgrade: "",
             relatedAbnormality: "",
@@ -1497,7 +1611,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9066",
             name: "네뷸라이저",
             upgrade: "",
             relatedAbnormality: "",
@@ -1507,7 +1621,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9051",
             name: "돌무덤",
             upgrade: "",
             relatedAbnormality: "",
@@ -1517,7 +1631,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9046",
             name: "물부리",
             upgrade: "",
             relatedAbnormality: "",
@@ -1527,7 +1641,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9177",
             name: "어느 날의 기억",
             upgrade: "",
             relatedAbnormality: "",
@@ -1537,7 +1651,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9178",
             name: "엔젤스 컷",
             upgrade: "",
             relatedAbnormality: "",
@@ -1547,7 +1661,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9710",
             name: "거대한 선물 보따리",
             upgrade: "",
             relatedAbnormality: "",
@@ -1557,7 +1671,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9770",
             name: "톱니 파편",
             upgrade: "",
             relatedAbnormality: "",
@@ -1567,7 +1681,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9429",
             name: "작살 의족",
             upgrade: "",
             relatedAbnormality: "",
@@ -1577,7 +1691,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9056",
             name: "네잎클로버",
             upgrade: "",
             relatedAbnormality: "",
@@ -1587,7 +1701,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9130",
             name: "미련",
             upgrade: "",
             relatedAbnormality: "",
@@ -1597,7 +1711,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9073",
             name: "엔도르핀 키트",
             upgrade: "",
             relatedAbnormality: "",
@@ -1607,7 +1721,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9771",
             name: "근접 전술 교본",
             upgrade: "",
             relatedAbnormality: "",
@@ -1617,7 +1731,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "2030",
             name: "부서진 칼날",
             upgrade: "",
             relatedAbnormality: "",
@@ -1627,7 +1741,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9179",
             name: "추억",
             upgrade: "",
             relatedAbnormality: "",
@@ -1637,7 +1751,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9131",
             name: "교만 조각",
             upgrade: "",
             relatedAbnormality: "",
@@ -1647,7 +1761,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9070",
             name: "명경지수",
             upgrade: "",
             relatedAbnormality: "",
@@ -1657,7 +1771,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "2034",
             name: "해진 삿갓",
             upgrade: "",
             relatedAbnormality: "",
@@ -1667,7 +1781,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9428",
             name: "고래의 심장",
             upgrade: "",
             relatedAbnormality: "",
@@ -1677,7 +1791,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9098",
             name: "복주머니",
             upgrade: "",
             relatedAbnormality: "",
@@ -1687,7 +1801,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9180",
             name: "캐스크 스피리츠",
             upgrade: "",
             relatedAbnormality: "",
@@ -1697,7 +1811,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9711",
             name: "기쁜 봉제인형",
             upgrade: "",
             relatedAbnormality: "",
@@ -1707,7 +1821,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9430",
             name: "앞을 비추는 가스등",
             upgrade: "",
             relatedAbnormality: "",
@@ -1742,7 +1856,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9069",
             name: "손목 보호대",
             upgrade: "",
             relatedAbnormality: "",
@@ -1765,7 +1879,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9062",
             name: "이력서",
             upgrade: "",
             relatedAbnormality: "",
@@ -1788,7 +1902,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9133",
             name: "제한 풀린 제세동기",
             upgrade: "",
             relatedAbnormality: "",
@@ -1811,7 +1925,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9182",
             name: "1B 타입 팔각 볼트",
             upgrade: "",
             relatedAbnormality: "",
@@ -1834,7 +1948,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9043",
             name: "사원증",
             upgrade: "",
             relatedAbnormality: "",
@@ -1857,7 +1971,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9134",
             name: "순찰용 손전등",
             upgrade: "",
             relatedAbnormality: "",
@@ -1880,7 +1994,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9057",
             name: "야간투시경",
             upgrade: "",
             relatedAbnormality: "",
@@ -1903,7 +2017,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9052",
             name: "휴대용 전지 소켓",
             upgrade: "",
             relatedAbnormality: "",
@@ -1926,7 +2040,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9181",
             name: "미니어처 전봇대",
             upgrade: "",
             relatedAbnormality: "",
@@ -1949,7 +2063,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9736",
             name: "생체 발전형 배터리",
             upgrade: "",
             relatedAbnormality: "",
@@ -1972,7 +2086,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9737",
             name: "심장 리액트 모듈",
             upgrade: "",
             relatedAbnormality: "",
@@ -1995,7 +2109,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9738",
             name: "의체관절 서보모터",
             upgrade: "",
             relatedAbnormality: "",
@@ -2018,7 +2132,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9745",
             name: "어긋난 트랜지스터",
             upgrade: "",
             relatedAbnormality: "",
@@ -2041,7 +2155,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9135",
             name: "모조발전기",
             upgrade: "",
             relatedAbnormality: "",
@@ -2064,7 +2178,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9099",
             name: "물리 간섭 보호장",
             upgrade: "",
             relatedAbnormality: "",
@@ -2087,7 +2201,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9072",
             name: "피뢰침",
             upgrade: "",
             relatedAbnormality: "",
@@ -2110,7 +2224,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9735",
             name: "휴대용 역장 배터리",
             upgrade: "",
             relatedAbnormality: "",
@@ -2133,7 +2247,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9734",
             name: "E식 차원 단검",
             upgrade: "",
             relatedAbnormality: "",
@@ -2156,7 +2270,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9183",
             name: "인슐레이터",
             upgrade: "",
             relatedAbnormality: "",
@@ -2179,7 +2293,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9136",
             name: "마찰 조각",
             upgrade: "",
             relatedAbnormality: "",
@@ -2202,7 +2316,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9075",
             name: "충전식 장갑",
             upgrade: "",
             relatedAbnormality: "",
@@ -2225,7 +2339,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9100",
             name: "제 1종 영구기관",
             upgrade: "",
             relatedAbnormality: "",
@@ -2248,7 +2362,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9184",
             name: "제 5종 영구기관",
             upgrade: "",
             relatedAbnormality: "",
@@ -2271,7 +2385,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9741",
             name: "과충전된 배터리",
             upgrade: "",
             relatedAbnormality: "",
@@ -2294,7 +2408,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9742",
             name: "영구동력 서보모터",
             upgrade: "",
             relatedAbnormality: "",
@@ -2317,7 +2431,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9740",
             name: "자율 작동식 관절",
             upgrade: "",
             relatedAbnormality: "",
@@ -2340,7 +2454,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9743",
             name: "하츠 파워드 쥬얼",
             upgrade: "",
             relatedAbnormality: "",
@@ -2389,7 +2503,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9137",
             name: "수술용 메스",
             upgrade: "",
             relatedAbnormality: "",
@@ -2412,7 +2526,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9138",
             name: "위장된 화평",
             upgrade: "",
             relatedAbnormality: "",
@@ -2435,7 +2549,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9140",
             name: "결의",
             upgrade: "",
             relatedAbnormality: "",
@@ -2458,7 +2572,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9032",
             name: "꿈을 꾸는 전기양",
             upgrade: "",
             relatedAbnormality: "",
@@ -2481,7 +2595,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9139",
             name: "재단용 가위",
             upgrade: "",
             relatedAbnormality: "",
@@ -2504,7 +2618,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9194",
             name: "짧은 케인 소드",
             upgrade: "",
             relatedAbnormality: "",
@@ -2527,7 +2641,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9195",
             name: "구름무늬 호리병",
             upgrade: "",
             relatedAbnormality: "",
@@ -2550,7 +2664,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9141",
             name: "선고의 순간",
             upgrade: "",
             relatedAbnormality: "",
@@ -2596,7 +2710,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "2028",
             name: "녹슨 칼자루",
             upgrade: "",
             relatedAbnormality: "",
@@ -2619,7 +2733,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "2031",
             name: "붉은 색술",
             upgrade: "",
             relatedAbnormality: "",
@@ -2642,7 +2756,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9196",
             name: "깨어진 대검",
             upgrade: "",
             relatedAbnormality: "",
@@ -2665,7 +2779,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9142",
             name: "잘려나간 기억",
             upgrade: "",
             relatedAbnormality: "",
@@ -2688,7 +2802,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "2035",
             name: "낡은 도포",
             upgrade: "",
             relatedAbnormality: "",
@@ -2711,7 +2825,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9785",
             name: "떼구름",
             upgrade: "",
             relatedAbnormality: "",
@@ -2734,7 +2848,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "2033",
             name: "부동",
             upgrade: "",
             relatedAbnormality: "",
@@ -2757,7 +2871,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "2032",
             name: "장관",
             upgrade: "",
             relatedAbnormality: "",
@@ -2780,7 +2894,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9784",
             name: "탁마",
             upgrade: "",
             relatedAbnormality: "",
@@ -2829,7 +2943,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9019",
             name: "끈적거리는 진액",
             upgrade: "",
             relatedAbnormality: "",
@@ -2852,7 +2966,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9143",
             name: "목공용 대못",
             upgrade: "",
             relatedAbnormality: "",
@@ -2875,7 +2989,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9030",
             name: "수집하는 해골",
             upgrade: "",
             relatedAbnormality: "",
@@ -2898,7 +3012,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9198",
             name: "증명의 깃털",
             upgrade: "",
             relatedAbnormality: "",
@@ -2921,7 +3035,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9145",
             name: "찢어진 밴돌리어",
             upgrade: "",
             relatedAbnormality: "",
@@ -2944,7 +3058,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9144",
             name: "축복이었던",
             upgrade: "",
             relatedAbnormality: "",
@@ -2967,7 +3081,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9146",
             name: "벼려진 가지",
             upgrade: "",
             relatedAbnormality: "",
@@ -2990,7 +3104,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9199",
             name: "튿어진 소매",
             upgrade: "",
             relatedAbnormality: "",
@@ -3013,7 +3127,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9768",
             name: "평등",
             upgrade: "",
             relatedAbnormality: "",
@@ -3036,7 +3150,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9767",
             name: "흑염 파이프",
             upgrade: "",
             relatedAbnormality: "",
@@ -3059,7 +3173,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9147",
             name: "구멍난 기억",
             upgrade: "",
             relatedAbnormality: "",
@@ -3082,7 +3196,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9200",
             name: "듀엘교본 3권",
             upgrade: "",
             relatedAbnormality: "",
@@ -3131,7 +3245,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9201",
             name: "차원분리수거함",
             upgrade: "",
             relatedAbnormality: "",
@@ -3154,7 +3268,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9027",
             name: "가장 낮은 별",
             upgrade: "",
             relatedAbnormality: "",
@@ -3177,7 +3291,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9150",
             name: "시간 굴레",
             upgrade: "",
             relatedAbnormality: "",
@@ -3200,7 +3314,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9149",
             name: "압박 붕대",
             upgrade: "",
             relatedAbnormality: "",
@@ -3223,7 +3337,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9012",
             name: "오늘의 표정",
             upgrade: "",
             relatedAbnormality: "",
@@ -3246,7 +3360,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9202",
             name: "포켓 암기 노트",
             upgrade: "",
             relatedAbnormality: "",
@@ -3292,7 +3406,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9151",
             name: "굳게 쥔 상",
             upgrade: "",
             relatedAbnormality: "",
@@ -3315,7 +3429,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9203",
             name: "차원지각변환체",
             upgrade: "",
             relatedAbnormality: "",
@@ -3361,7 +3475,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9152",
             name: "바스라진 기억",
             upgrade: "",
             relatedAbnormality: "",
@@ -3384,7 +3498,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9204",
             name: "앙갚음 장부",
             upgrade: "",
             relatedAbnormality: "",
@@ -3456,7 +3570,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9040",
             name: "내일의 운세",
             upgrade: "",
             relatedAbnormality: "",
@@ -3479,7 +3593,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9192",
             name: "덧붙인 반창고",
             upgrade: "",
             relatedAbnormality: "",
@@ -3502,7 +3616,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9017",
             name: "문자 석판",
             upgrade: "",
             relatedAbnormality: "",

@@ -44,17 +44,47 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
   // 현재 레벨에 따른 효과 데이터
   const getCurrentEffectData = () => {
     if (!gift.effects || gift.effects.length === 0) {
-      return { formula: '', condition: '' };
+      return { 
+        formula: '', 
+        formula2: '', 
+        formula3: '', 
+        formula4: '', 
+        formula5: '', 
+        formula6: '', 
+        formula7: '', 
+        condition: '', 
+        condition2: '', 
+        condition3: '' 
+      };
     }
     
     const effect = gift.effects.find(e => e.level === activeLevel);
     if (!effect) {
-      return { formula: '', condition: '' };
+      return { 
+        formula: '', 
+        formula2: '', 
+        formula3: '', 
+        formula4: '', 
+        formula5: '', 
+        formula6: '', 
+        formula7: '', 
+        condition: '', 
+        condition2: '', 
+        condition3: '' 
+      };
     }
     
     return { 
       formula: effect.formula || '', 
-      condition: effect.condition || '' 
+      formula2: effect.formula2 || '',
+      formula3: effect.formula3 || '',
+      formula4: effect.formula4 || '',
+      formula5: effect.formula5 || '',
+      formula6: effect.formula6 || '',
+      formula7: effect.formula7 || '',
+      condition: effect.condition || '',
+      condition2: effect.condition2 || '',
+      condition3: effect.condition3 || ''
     };
   };
 
@@ -66,15 +96,28 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
     
     let formattedText = gift.effectBase;
     
-    // 템플릿 변수 치환
-    if (effectData.formula) {
-      formattedText = formattedText.replace('{{formula}}', 
-        `<span class="${getColorClass()}">${effectData.formula}</span>`);
+    // 템플릿 변수 치환 (formula 1-7)
+    for (let i = 1; i <= 7; i++) {
+      const formulaKey = i === 1 ? 'formula' : `formula${i}`;
+      if (effectData[formulaKey]) {
+        const placeholder = `{{${formulaKey}}}`;
+        if (formattedText.includes(placeholder)) {
+          formattedText = formattedText.replace(placeholder, 
+            `<span class="${getColorClass()}">${effectData[formulaKey]}</span>`);
+        }
+      }
     }
     
-    if (effectData.condition) {
-      formattedText = formattedText.replace('{{condition}}', 
-        `<span class="${getColorClass()}">${effectData.condition}</span>`);
+    // 템플릿 변수 치환 (condition 1-3)
+    for (let i = 1; i <= 3; i++) {
+      const conditionKey = i === 1 ? 'condition' : `condition${i}`;
+      if (effectData[conditionKey]) {
+        const placeholder = `{{${conditionKey}}}`;
+        if (formattedText.includes(placeholder)) {
+          formattedText = formattedText.replace(placeholder, 
+            `<span class="${getColorClass()}">${effectData[conditionKey]}</span>`);
+        }
+      }
     }
     
     return formattedText;
@@ -85,6 +128,10 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
     return darkMode ? 'text-yellow-400 font-bold' : 'text-yellow-600 font-bold'
   };
 
+  // 조건에 대한 색상 클래스
+  const getConditionColorClass = () => {
+    return darkMode ? 'text-green-400' : 'text-green-600';
+  };
 
   // 모바일 버전과 데스크톱 버전 구분
   const panelClass = isSmallScreen 
@@ -115,7 +162,7 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
               
               {/* 랭크 표시 (왼쪽 상단) - 이미지 컨테이너 내부에 위치 */}
               {gift.grade && (
-                <div className="absolute top-1 left-1 w-8 h-8 z-16 rounded-full overflow-hidden">
+                <div className="absolute top-1 left-1 w-8 h-8 z-16 overflow-hidden">
                   <img 
                     src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/rank_${gift.grade}.webp`} 
                     alt={`Rank ${gift.grade}`}
@@ -129,7 +176,7 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
 
               {/* 그룹 표시 (오른쪽 하단) - 이미지 컨테이너 내부에 위치 */}
               {groupType && (
-                <div className="absolute bottom-1 right-1 w-8 h-8 z-10 rounded-full overflow-hidden">
+                <div className="absolute bottom-1 right-1 w-8 h-8 z-10 overflow-hidden">
                   <img 
                     src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${groupType}.webp`}
                     alt={groupType}
@@ -191,11 +238,25 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
               dangerouslySetInnerHTML={{ __html: formatEffectBase() }}
             />
             
-            {/* 조건이 템플릿에 포함되지 않은 경우에만 별도 표시 */}
+            {/* 템플릿에 포함되지 않은 조건(condition)들을 별도 표시 */}
             {effectData.condition && !gift.effectBase.includes('{{condition}}') && (
               <p className="mt-2 text-sm">
                 <span className="font-semibold">조건: </span>
-                <span className={getConditionColorClass()}>{effectData.condition}</span>
+                <span className={getColorClass()}>{effectData.condition}</span>
+              </p>
+            )}
+            
+            {effectData.condition2 && !gift.effectBase.includes('{{condition2}}') && (
+              <p className="mt-1 text-sm">
+                <span className="font-semibold">조건 2: </span>
+                <span className={getColorClass()}>{effectData.condition2}</span>
+              </p>
+            )}
+            
+            {effectData.condition3 && !gift.effectBase.includes('{{condition3}}') && (
+              <p className="mt-1 text-sm">
+                <span className="font-semibold">조건 3: </span>
+                <span className={getColorClass()}>{effectData.condition3}</span>
               </p>
             )}
           </div>

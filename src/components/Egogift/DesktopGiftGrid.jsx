@@ -36,7 +36,7 @@ const DesktopGiftGrid = ({ gifts, gridStyle, handleGiftClick, darkMode }) => {
       <style>{scrollbarCSS}</style>
       
       <div 
-        className="overflow-y-auto max-h-[calc(100vh-220px)] custom-scrollbar" 
+        className="overflow-y-auto h-screen custom-scrollbar" 
         style={scrollbarStyle}
       >
         {gifts.length > 0 ? (
