@@ -13,7 +13,7 @@ const getGroupType = (gift, egogiftData) => {
       break;
     }
   }
-  return groupType.toLowerCase();
+  return groupType; // toLowerCase 제거 - 원본 영어 그대로 반환
 };
 
 const MobileGiftCard = memo(({ gift, darkMode }) => {
@@ -61,11 +61,11 @@ const MobileGiftCard = memo(({ gift, darkMode }) => {
             </div>
           )}
 
-          {/* 그룹 표시 (오른쪽 하단) */}
+          {/* 그룹 표시 (오른쪽 하단) - 원본 영어 경로 사용 */}
           {groupType && (
             <div className="absolute bottom-1 right-1 w-4 h-4 z-10 rounded-full overflow-hidden">
               <img 
-                src={`/icons/group/${groupType}.png`}
+                src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${groupType}.webp`}
                 alt={groupType}
                 className="w-full h-full object-contain"
                 onError={(e) => {

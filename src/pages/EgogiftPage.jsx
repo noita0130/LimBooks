@@ -168,7 +168,7 @@ const EgogiftPage = () => {
     <div className={containerStyle}>
       <div className="max-w-6xl mx-auto">
         <h1 className={titleStyle}>
-          EGO Gift List
+          E.G.O 기프트 목록
         </h1>
 
         {/* 검색 입력 필드 */}

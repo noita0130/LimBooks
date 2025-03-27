@@ -12,7 +12,7 @@ const getGroupType = (gift, egogiftData) => {
       break;
     }
   }
-  return groupType.toLowerCase();
+  return groupType; // toLowerCase 제거
 };
 
 const LevelButton = ({ level, isActive, onClick, darkMode }) => {
@@ -168,7 +168,7 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
               {groupType && (
                 <div className="absolute bottom-1 right-1 w-6 h-6 z-10 rounded-full overflow-hidden">
                   <img 
-                    src={`/icons/group/${groupType}.png`}
+                    src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${groupType}.webp`}
                     alt={groupType}
                     className="w-full h-full object-contain"
                     onError={(e) => {

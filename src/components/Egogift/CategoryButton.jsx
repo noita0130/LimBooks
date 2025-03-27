@@ -19,7 +19,7 @@ const CategoryButton = memo(({ category, label, isActive, onClick, darkMode }) =
       className={buttonStyle}
     >
       <img 
-        src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${category}.png`} 
+        src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${category}.webp`} 
         alt={`${category} icon`}
         className="w-4 h-4 object-contain"
         onError={(e) => {
