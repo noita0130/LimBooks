@@ -11,13 +11,21 @@ const CategoryButton = memo(({ category, label, isActive, onClick, darkMode }) =
       : isActive
         ? 'bg-neutral-300 text-black'
         : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-    }`;
+    } flex items-center gap-2`;
 
   return (
     <button
       onClick={() => onClick(category)}
       className={buttonStyle}
     >
+      <img 
+        src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${category}.png`} 
+        alt={`${category} icon`}
+        className="w-4 h-4 object-contain"
+        onError={(e) => {
+          e.target.src = `https://placehold.co/16x16/gray/white?text=${category.charAt(0).toUpperCase()}`;
+        }}
+      />
       {label}
     </button>
   );

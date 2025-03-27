@@ -3,6 +3,19 @@ import React, { memo, useState } from 'react';
 import { backgroundTransition, textTransition } from '../TransitionStyles';
 import DetailPanel from './DetailPanel';
 
+// 그룹 타입을 확인하는 헬퍼 함수
+const getGroupType = (gift, egogiftData) => {
+  // 어떤 그룹에 속하는지 확인
+  let groupType = '';
+  for (const [group, gifts] of Object.entries(egogiftData || {})) {
+    if (gifts && gifts.some(g => g.id === gift.id)) {
+      groupType = group;
+      break;
+    }
+  }
+  return groupType.toLowerCase();
+};
+
 const MobileGiftCard = memo(({ gift, darkMode }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
@@ -18,10 +31,13 @@ const MobileGiftCard = memo(({ gift, darkMode }) => {
     setIsExpanded(false);
   };
 
+  // 그룹 타입 가져오기
+  const groupType = getGroupType(gift, window.egogiftData);
+
   return (
     <>
       <div onClick={toggleExpand} className={cardStyle}>
-        <div className="h-16 w-16 overflow-hidden">
+        <div className="h-16 w-16 overflow-hidden relative">
           <img
             src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/egogift/square/${gift.id}.webp`}
             alt={gift.name}
@@ -30,6 +46,34 @@ const MobileGiftCard = memo(({ gift, darkMode }) => {
               e.target.src = 'https://placehold.co/100x100/gray/white?text=No+Image';
             }}
           />
+          
+          {/* 랭크 표시 (왼쪽 상단) */}
+          {gift.grade && (
+            <div className="absolute top-1 left-1 w-4 h-4 z-10 rounded-full overflow-hidden">
+              <img 
+                src={`/icons/rank/${gift.grade}.png`} 
+                alt={`Rank ${gift.grade}`}
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  e.target.src = `https://placehold.co/16x16/orange/white?text=${gift.grade}`;
+                }}
+              />
+            </div>
+          )}
+
+          {/* 그룹 표시 (오른쪽 하단) */}
+          {groupType && (
+            <div className="absolute bottom-1 right-1 w-4 h-4 z-10 rounded-full overflow-hidden">
+              <img 
+                src={`/icons/group/${groupType}.png`}
+                alt={groupType}
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  e.target.src = `https://placehold.co/16x16/blue/white?text=${groupType.charAt(0).toUpperCase()}`;
+                }}
+              />
+            </div>
+          )}
         </div>
         <div className="p-2 flex-1">
           <p className={`${textTransition} ${darkMode ? 'text-white' : 'text-black'}`}>

@@ -2,10 +2,23 @@
 import React, { memo, useState } from 'react';
 import { backgroundTransition, textTransition, buttonTransition } from '../TransitionStyles';
 
+// 그룹 타입을 확인하는 헬퍼 함수
+const getGroupType = (gift, egogiftData) => {
+  // 어떤 그룹에 속하는지 확인
+  let groupType = '';
+  for (const [group, gifts] of Object.entries(egogiftData || {})) {
+    if (gifts && gifts.some(g => g.id === gift.id)) {
+      groupType = group;
+      break;
+    }
+  }
+  return groupType.toLowerCase();
+};
+
 const LevelButton = ({ level, isActive, onClick, darkMode }) => {
   // 레벨에 따른 색상
   const getLevelColor = () => {
-    if (level === '기본') return darkMode ? 'bg-blue-800' : 'bg-blue-200';
+    if (level === '기본 효과') return darkMode ? 'bg-blue-800' : 'bg-blue-200';
     if (level === '+') return darkMode ? 'bg-green-800' : 'bg-green-200';
     if (level === '++') return darkMode ? 'bg-purple-800' : 'bg-purple-200';
     return '';
@@ -33,6 +46,9 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
   const detailCardStyle = `${backgroundTransition}
     ${darkMode ? 'bg-neutral-800' : 'bg-white'}
     rounded-lg shadow-md overflow-hidden h-full p-4`;
+
+  // 그룹 타입 가져오기
+  const groupType = getGroupType(gift, window.egogiftData);
 
   // 현재 레벨에 따른 효과 데이터
   const getCurrentEffectData = () => {
@@ -75,7 +91,7 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
 
   // 레벨에 따른 효과 색상
   const getLevelColorClass = () => {
-    if (activeLevel === '기본 효과') return darkMode ? 'text-#f0cc2e' : 'text-#f0cc2e';
+    if (activeLevel === '기본 효과') return darkMode ? 'text-blue-300' : 'text-blue-800';
     if (activeLevel === '+') return darkMode ? 'text-green-300' : 'text-green-800';
     if (activeLevel === '++') return darkMode ? 'text-purple-300' : 'text-purple-800';
     return '';
@@ -124,7 +140,7 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
 
         <div className="flex flex-col h-full">
           <div className="flex flex-col sm:flex-row mb-4">
-            <div className="w-32 h-32 overflow-hidden mr-4 mb-4 sm:mb-0">
+            <div className="w-32 h-32 overflow-hidden mr-4 mb-4 sm:mb-0 relative">
               <img
                 src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/egogift/square/${gift.id}.webp`}
                 alt={gift.name}
@@ -133,6 +149,34 @@ const DetailPanel = memo(({ gift, darkMode, onClose, isSmallScreen }) => {
                   e.target.src = 'https://placehold.co/100x100/gray/white?text=No+Image';
                 }}
               />
+              
+              {/* 랭크 표시 (왼쪽 상단) - 이미지 컨테이너 내부에 위치 */}
+              {gift.grade && (
+                <div className="absolute top-1 left-1 w-6 h-6 z-10 rounded-full overflow-hidden">
+                  <img 
+                    src={`/icons/rank/${gift.grade}.png`} 
+                    alt={`Rank ${gift.grade}`}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.src = `https://placehold.co/24x24/orange/white?text=${gift.grade}`;
+                    }}
+                  />
+                </div>
+              )}
+
+              {/* 그룹 표시 (오른쪽 하단) - 이미지 컨테이너 내부에 위치 */}
+              {groupType && (
+                <div className="absolute bottom-1 right-1 w-6 h-6 z-10 rounded-full overflow-hidden">
+                  <img 
+                    src={`/icons/group/${groupType}.png`}
+                    alt={groupType}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.src = `https://placehold.co/24x24/blue/white?text=${groupType.charAt(0).toUpperCase()}`;
+                    }}
+                  />
+                </div>
+              )}
             </div>
 
             <div>

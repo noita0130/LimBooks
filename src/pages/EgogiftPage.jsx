@@ -42,6 +42,11 @@ const EgogiftPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
+  // 전역 window 객체에 egogiftData 저장 (컴포넌트에서 사용할 수 있도록)
+  useEffect(() => {
+    window.egogiftData = egogiftData;
+  }, []);
+
   // 고정된 열 수 계산 (화면 크기와 상세 패널 상태에 따라)
   const gridColumns = useGridColumns(isDetailOpen);
 
@@ -197,7 +202,7 @@ const EgogiftPage = () => {
               />
             ) : (
               <div className="flex flex-col md:flex-row gap-6">
-                {/* Desktop: Grid of EGO gifts - 상세 정보가 열려있으면 화면 왼쪽에 표시, 아니면 전체 너비 사용 */}
+                {/* Desktop: Grid of EGO gifts - 수정: 고정 높이 및 스크롤 가능한 컨테이너 */}
                 <div className={`${isDetailOpen ? 'md:w-1/2' : 'w-full'} transition-all duration-500 ease-in-out`}>
                   <DesktopGiftGrid 
                     gifts={filteredGifts}
