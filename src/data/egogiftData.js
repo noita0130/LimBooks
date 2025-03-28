@@ -246,7 +246,7 @@ const egogiftData = {
             relatedAbnormality: "불명",
             grade: 3,
             firstAppearance: "거울의 거울 (거울 던전 2)",
-            effectBase: "스테이지 시작 시, 모든 적(환상체일 경우, 무작위 부위 하나)에게 화상 위력 {{formula}}, 화상 횟수 {{formula2}} 부여. 나태 {{condition}} 공명을 발동하였다면 전투 시작 시, 모든 적(환상체일 경우, 무작위 부위 하나)에게 화상 위력 {{formula3}}, 화상 횟수 {{formula4}} 부여",
+            effectBase: "스테이지 시작 시, 모든 적(환상체일 경우, 무작위 부위 하나)에게 화상 위력 {{formula}}, 화상 횟수 {{formula2}} 부여. 나태 {{condition}}을 발동하였다면 전투 시작 시, 모든 적(환상체일 경우, 무작위 부위 하나)에게 화상 위력 {{formula3}}, 화상 횟수 {{formula4}} 부여",
             effects: [
                 {
                     level: "기본",
@@ -254,7 +254,7 @@ const egogiftData = {
                     formula2: "3",
                     formula3: "3",
                     formula4: "2",
-                    condition: "완전"
+                    condition: "완전 공명"
                 },
                 {
                     level: "+",
@@ -262,7 +262,7 @@ const egogiftData = {
                     formula2: "3",
                     formula3: "4",
                     formula4: "2",
-                    condition: "완전"
+                    condition: "완전 공명"
                 },
                 {
                     level: "++",
@@ -270,7 +270,7 @@ const egogiftData = {
                     formula2: "3",
                     formula3: "4",
                     formula4: "3",
-                    condition: ""
+                    condition: "공명"
                 }
             ]
         },
@@ -1097,7 +1097,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9787",
             name: "괴문자 부적",
             upgrade: "",
             relatedAbnormality: "",
@@ -1107,7 +1107,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9788",
             name: "묘각",
             upgrade: "",
             relatedAbnormality: "",
@@ -1187,7 +1187,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9790",
             name: "새겨넣어진 괴문자",
             upgrade: "",
             relatedAbnormality: "",
@@ -1267,7 +1267,7 @@ const egogiftData = {
             effects: []
         },
         {
-            id: "",
+            id: "9793",
             name: "이전칠자",
             upgrade: "",
             relatedAbnormality: "",
@@ -2687,7 +2687,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9791",
             name: "그림자 삿갓",
             upgrade: "",
             relatedAbnormality: "",
@@ -3383,7 +3383,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9786",
             name: "강화 문신 - 중지",
             upgrade: "",
             relatedAbnormality: "",
@@ -3452,7 +3452,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9789",
             name: "의리 사슬",
             upgrade: "",
             relatedAbnormality: "",
@@ -3521,7 +3521,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9792",
             name: "영속하는 인연 사슬",
             upgrade: "",
             relatedAbnormality: "",
@@ -3639,7 +3639,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9010",
             name: "블러디 가젯",
             upgrade: "",
             relatedAbnormality: "",
@@ -3662,7 +3662,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9035",
             name: "저주 인형",
             upgrade: "",
             relatedAbnormality: "",
@@ -3685,7 +3685,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9021",
             name: "쪽빛 지포라이터",
             upgrade: "",
             relatedAbnormality: "",
@@ -3708,7 +3708,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9028",
             name: "편견",
             upgrade: "",
             relatedAbnormality: "",
@@ -3731,7 +3731,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9004",
             name: "혈액 포집팩",
             upgrade: "",
             relatedAbnormality: "",
@@ -3754,7 +3754,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9732",
             name: "일반석 할인 바우처",
             upgrade: "",
             relatedAbnormality: "",
@@ -3777,7 +3777,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9759",
             name: "불 꺼진 랜턴",
             upgrade: "",
             relatedAbnormality: "",
@@ -3800,7 +3800,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9762",
             name: "포장용 상자",
             upgrade: "",
             relatedAbnormality: "",
@@ -3823,7 +3823,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9078",
             name: "게걸스러운 망치",
             upgrade: "",
             relatedAbnormality: "",
@@ -3846,7 +3846,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9015",
             name: "고혈",
             upgrade: "",
             relatedAbnormality: "",
@@ -3869,7 +3869,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9039",
             name: "귀로",
             upgrade: "",
             relatedAbnormality: "",
@@ -3892,7 +3892,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9026",
             name: "대기만성형 타투",
             upgrade: "",
             relatedAbnormality: "",
@@ -3915,7 +3915,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9185",
             name: "리베이트 토큰",
             upgrade: "",
             relatedAbnormality: "",
@@ -3938,7 +3938,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9080",
             name: "생존의 이정표",
             upgrade: "",
             relatedAbnormality: "",
@@ -3961,7 +3961,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9186",
             name: "신상품 팜플렛",
             upgrade: "",
             relatedAbnormality: "",
@@ -3984,7 +3984,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9153",
             name: "오라클",
             upgrade: "",
             relatedAbnormality: "",
@@ -4007,7 +4007,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9007",
             name: "주홍 나방떼",
             upgrade: "",
             relatedAbnormality: "",
@@ -4030,7 +4030,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9077",
             name: "진통제",
             upgrade: "",
             relatedAbnormality: "",
@@ -4053,7 +4053,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9025",
             name: "잿빛 코트",
             upgrade: "",
             relatedAbnormality: "",
@@ -4076,7 +4076,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9036",
             name: "카르밀라",
             upgrade: "",
             relatedAbnormality: "",
@@ -4099,7 +4099,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9006",
             name: "커피와 종이학",
             upgrade: "",
             relatedAbnormality: "",
@@ -4122,7 +4122,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9187",
             name: "특별 카탈로그",
             upgrade: "",
             relatedAbnormality: "",
@@ -4145,7 +4145,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9037",
             name: "플라스크 속의 아이",
             upgrade: "",
             relatedAbnormality: "",
@@ -4168,7 +4168,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9079",
             name: "황금색 항아리",
             upgrade: "",
             relatedAbnormality: "",
@@ -4191,7 +4191,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "2027",
             name: "검은 장부",
             upgrade: "",
             relatedAbnormality: "",
@@ -4214,7 +4214,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9739",
             name: "결정화된 혈액",
             upgrade: "",
             relatedAbnormality: "",
@@ -4237,7 +4237,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "2038",
             name: "경고장",
             upgrade: "",
             relatedAbnormality: "",
@@ -4260,7 +4260,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9408",
             name: "귀신 들린 신발",
             upgrade: "",
             relatedAbnormality: "",
@@ -4283,7 +4283,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9707",
             name: "반짝이는 폐품",
             upgrade: "",
             relatedAbnormality: "",
@@ -4306,7 +4306,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9769",
             name: "신속한 지휘",
             upgrade: "",
             relatedAbnormality: "",
@@ -4329,7 +4329,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9733",
             name: "아이스크림 통조림",
             upgrade: "",
             relatedAbnormality: "",
@@ -4352,7 +4352,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9407",
             name: "오더메이드",
             upgrade: "",
             relatedAbnormality: "",
@@ -4375,7 +4375,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "1034",
             name: "핏빛 갈기",
             upgrade: "",
             relatedAbnormality: "",
@@ -4398,7 +4398,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9755",
             name: "경멸의 시선의 경멸",
             upgrade: "",
             relatedAbnormality: "",
@@ -4421,7 +4421,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9423",
             name: "깨진 안경",
             upgrade: "",
             relatedAbnormality: "",
@@ -4444,7 +4444,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9757",
             name: "대양전 접지 플러그",
             upgrade: "",
             relatedAbnormality: "",
@@ -4467,7 +4467,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9427",
             name: "마을을 지킬 작살",
             upgrade: "",
             relatedAbnormality: "",
@@ -4490,7 +4490,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9439",
             name: "먹어치우는 큐브",
             upgrade: "",
             relatedAbnormality: "",
@@ -4513,7 +4513,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9753",
             name: "메트로놈",
             upgrade: "",
             relatedAbnormality: "",
@@ -4536,7 +4536,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9751",
             name: "뱀 허물",
             upgrade: "",
             relatedAbnormality: "",
@@ -4559,7 +4559,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9435",
             name: "버틀러식 포박술",
             upgrade: "",
             relatedAbnormality: "",
@@ -4582,7 +4582,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9760",
             name: "불 꺼진 촛대",
             upgrade: "",
             relatedAbnormality: "",
@@ -4605,7 +4605,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9154",
             name: "강요된 무게",
             upgrade: "",
             relatedAbnormality: "",
@@ -4628,7 +4628,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9014",
             name: "녹슨 기념 주화",
             upgrade: "",
             relatedAbnormality: "",
@@ -4651,7 +4651,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9058",
             name: "디스크 파편",
             upgrade: "",
             relatedAbnormality: "",
@@ -4674,7 +4674,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9189",
             name: "리뉴얼 굿즈",
             upgrade: "",
             relatedAbnormality: "",
@@ -4697,7 +4697,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9188",
             name: "사전 예약 할인권",
             upgrade: "",
             relatedAbnormality: "",
@@ -4720,7 +4720,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9068",
             name: "성대한 환대",
             upgrade: "",
             relatedAbnormality: "",
@@ -4743,7 +4743,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9011",
             name: "여우비",
             upgrade: "",
             relatedAbnormality: "",
@@ -4766,7 +4766,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9190",
             name: "체험형 플랜 가이드",
             upgrade: "",
             relatedAbnormality: "",
@@ -4789,7 +4789,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9067",
             name: "특별 계약",
             upgrade: "",
             relatedAbnormality: "",
@@ -4812,7 +4812,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9191",
             name: "프레스티지 카드",
             upgrade: "",
             relatedAbnormality: "",
@@ -4835,7 +4835,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9038",
             name: "환상 사냥",
             upgrade: "",
             relatedAbnormality: "",
@@ -4858,7 +4858,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9022",
             name: "환상통",
             upgrade: "",
             relatedAbnormality: "",
@@ -4881,7 +4881,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9076",
             name: "휴대용 구급상자",
             upgrade: "",
             relatedAbnormality: "",
@@ -4904,7 +4904,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9749",
             name: "가시나무 관",
             upgrade: "",
             relatedAbnormality: "",
@@ -4927,7 +4927,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9748",
             name: "고초",
             upgrade: "",
             relatedAbnormality: "",
@@ -4950,7 +4950,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "1056",
             name: "날카로운 실과 바늘",
             upgrade: "",
             relatedAbnormality: "",
@@ -4973,7 +4973,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9420",
             name: "만화경",
             upgrade: "",
             relatedAbnormality: "",
@@ -4996,7 +4996,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9766",
             name: "묵시적 계약 갱신",
             upgrade: "",
             relatedAbnormality: "",
@@ -5019,7 +5019,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9419",
             name: "생강꽃 가지",
             upgrade: "",
             relatedAbnormality: "",
@@ -5042,7 +5042,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "2042",
             name: "선불 시간 영수증",
             upgrade: "",
             relatedAbnormality: "",
@@ -5065,7 +5065,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9711",
             name: "슬픈 봉제인형",
             upgrade: "",
             relatedAbnormality: "",
@@ -5088,7 +5088,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9779",
             name: "작전 승인 카드",
             upgrade: "",
             relatedAbnormality: "",
@@ -5111,7 +5111,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9794",
             name: "찰랑이는 연료통",
             upgrade: "",
             relatedAbnormality: "",
@@ -5134,7 +5134,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9433",
             name: "치프 버틀러의 비급서",
             upgrade: "",
             relatedAbnormality: "",
@@ -5157,7 +5157,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "1054",
             name: "탱고 닭양념장",
             upgrade: "",
             relatedAbnormality: "",
@@ -5180,7 +5180,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9778",
             name: "통상 작전용 장비",
             upgrade: "",
             relatedAbnormality: "",
@@ -5203,7 +5203,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9782",
             name: "낡은 칼자루",
             upgrade: "",
             relatedAbnormality: "",
@@ -5226,7 +5226,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9431",
             name: "부서진 바이올린",
             upgrade: "",
             relatedAbnormality: "",
@@ -5249,7 +5249,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9781",
             name: "원목 술잔",
             upgrade: "",
             relatedAbnormality: "",
@@ -5272,7 +5272,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9763",
             name: "포장용 끈",
             upgrade: "",
             relatedAbnormality: "",
@@ -5295,7 +5295,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9761",
             name: "그림자 괴물",
             upgrade: "",
             relatedAbnormality: "",
@@ -5318,7 +5318,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9081",
             name: "믿음",
             upgrade: "",
             relatedAbnormality: "",
@@ -5341,7 +5341,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9085",
             name: "비밀 유지 서약서",
             upgrade: "",
             relatedAbnormality: "",
@@ -5364,7 +5364,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9084",
             name: "오래된 조각상",
             upgrade: "",
             relatedAbnormality: "",
@@ -5387,7 +5387,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9082",
             name: "인연 조각",
             upgrade: "",
             relatedAbnormality: "",
@@ -5410,7 +5410,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9752",
             name: "거짓 광배",
             upgrade: "",
             relatedAbnormality: "",
@@ -5433,7 +5433,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9754",
             name: "굴레",
             upgrade: "",
             relatedAbnormality: "",
@@ -5456,7 +5456,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9758",
             name: "왕의 잔재",
             upgrade: "",
             relatedAbnormality: "",
@@ -5479,7 +5479,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9780",
             name: "고위험 작전용 장비",
             upgrade: "",
             relatedAbnormality: "",
@@ -5502,7 +5502,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9764",
             name: "선물",
             upgrade: "",
             relatedAbnormality: "",
@@ -5525,7 +5525,7 @@ const egogiftData = {
             ]
         },
         {
-            id: "",
+            id: "9083",
             name: "달의 기억",
             upgrade: "",
             relatedAbnormality: "",

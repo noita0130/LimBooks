@@ -111,9 +111,15 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
     // 템플릿 변수 치환 (condition 1-3)
     for (let i = 1; i <= 3; i++) {
       const conditionKey = i === 1 ? 'condition' : `condition${i}`;
-      if (effectData[conditionKey]) {
-        const placeholder = `{{${conditionKey}}}`;
-        if (formattedText.includes(placeholder)) {
+      const placeholder = `{{${conditionKey}}}`;
+      
+      // condition이 undefined, null 또는 빈 문자열인 경우 플레이스홀더 제거
+      if (formattedText.includes(placeholder)) {
+        if (effectData[conditionKey] === undefined || effectData[conditionKey] === null || effectData[conditionKey] === '') {
+          // 플레이스홀더가 포함된 부분 제거 또는 다른 텍스트로 대체
+          formattedText = formattedText.replace(placeholder, '');
+        } else {
+          // 값이 있는 경우 정상적으로 대체
           formattedText = formattedText.replace(placeholder, 
             `<span class="${getColorClass()}">${effectData[conditionKey]}</span>`);
         }
@@ -260,14 +266,6 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
               </p>
             )}
           </div>
-
-          {gift.nameTranslations && (
-            <div className="mt-4">
-              <p className="font-semibold mb-1">이름 번역:</p>
-              <p>영어: {gift.nameTranslations.en}</p>
-              <p>일본어: {gift.nameTranslations.ja}</p>
-            </div>
-          )}
         </div>
       </div>
     </div>

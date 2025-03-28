@@ -51,7 +51,7 @@ const MobileGiftCard = memo(({ gift, darkMode }) => {
           {gift.grade && (
             <div className="absolute top-1 left-1 w-4 h-4 z-10 overflow-hidden">
               <img 
-                src={`/icons/rank/${gift.grade}.png`} 
+                src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/rank_${gift.grade}.webp`} 
                 alt={`Rank ${gift.grade}`}
                 className="w-full h-full object-contain"
                 onError={(e) => {
@@ -75,12 +75,9 @@ const MobileGiftCard = memo(({ gift, darkMode }) => {
             </div>
           )}
         </div>
-        <div className="p-2 flex-1">
+        <div className="p-2 text-sm flex-1">
           <p className={`${textTransition} ${darkMode ? 'text-white' : 'text-black'}`}>
             {gift.name}
-          </p>
-          <p className={`text-xs ${textTransition} ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            {gift.grade}
           </p>
         </div>
         <div className="pr-2">
