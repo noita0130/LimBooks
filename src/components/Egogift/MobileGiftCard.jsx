@@ -62,7 +62,7 @@ const MobileGiftCard = memo(({ gift, darkMode }) => {
           )}
 
           {/* 그룹 표시 (오른쪽 하단) - 원본 영어 경로 사용 */}
-          {groupType && (
+          {groupType != "General" && (
             <div className="absolute bottom-1 right-1 w-4 h-4 z-10 overflow-hidden">
               <img 
                 src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${groupType}.webp`}

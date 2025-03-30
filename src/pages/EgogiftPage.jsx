@@ -79,8 +79,6 @@ const EgogiftPage = () => {
 
   // 선택된 카테고리와 검색어에 따라 필터링된 아이템 업데이트
   useEffect(() => {
-    setIsLoading(true); // 필터링 시작 시 로딩 상태로 변경
-    
     let gifts = [];
 
     if (selectedCategories.length === 0) {
@@ -108,19 +106,14 @@ const EgogiftPage = () => {
       });
     }
 
-    // 약간의 지연을 두고 필터링 결과를 적용 (UI 렌더링 최적화)
-    const timer = setTimeout(() => {
-      setFilteredGifts(gifts);
-      // 첫 번째 아이템을 기본 선택
-      if (gifts.length > 0 && !selectedGift) {
-        setSelectedGift(gifts[0]);
-      } else if (gifts.length === 0) {
-        setSelectedGift(null);
-      }
-      setIsLoading(false); // 필터링 완료 후 로딩 상태 해제
-    }, 300);
+    setFilteredGifts(gifts);
+    // 첫 번째 아이템을 기본 선택 - 현재 선택된 아이템이 없을 때만 설정
+    if (gifts.length > 0 && selectedGift === null) {
+      setSelectedGift(gifts[0]);
+    } else if (gifts.length === 0) {
+      setSelectedGift(null);
+    }
     
-    return () => clearTimeout(timer);
   }, [selectedCategories, searchQuery]);
 
   // 이벤트 핸들러 메모이제이션

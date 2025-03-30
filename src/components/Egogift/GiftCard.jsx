@@ -42,7 +42,7 @@ const GiftCard = memo(({ gift, onClick, darkMode, isSmallScreen }) => {
           )}
 
           {/* 그룹 표시 (이미지의 오른쪽 하단) */}
-          {groupType && (
+          {groupType != "General" && (
             <div className="absolute bottom-0 left-1/2 transform translate-x-4 w-6 h-6 z-10 overflow-hidden">
               <img 
                 src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${groupType}.webp`}

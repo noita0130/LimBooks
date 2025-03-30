@@ -1,5 +1,5 @@
 // components/DetailPanel.jsx
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { backgroundTransition, textTransition, buttonTransition } from '../TransitionStyles';
 
 // 그룹 타입을 확인하는 헬퍼 함수
@@ -15,24 +15,113 @@ const getGroupType = (gift, egogiftData) => {
   return groupType; // 원본 영어 그대로 반환
 };
 
+// 수정된 LevelButton 컴포넌트
 const LevelButton = ({ level, isActive, onClick, darkMode }) => {
-  const inactiveColor = darkMode 
-    ? 'bg-neutral-700 text-neutral-300' 
-    : 'bg-neutral-200 text-neutral-600';
-  
   return (
     <button
       onClick={onClick}
-      className={`px-3 py-1 rounded-md mr-2 text-sm transition-all duration-300 
-        ${isActive ? `${darkMode ? 'bg-neutral-600' : 'bg-neutral-400'} font-bold` : inactiveColor}`}
+      className={`px-3 py-1 rounded-md mr-2 text-sm ${buttonTransition}
+        ${isActive 
+          ? `${darkMode ? 'bg-neutral-600' : 'bg-neutral-400'} font-bold ${darkMode ? 'text-white' : 'text-black'}` 
+          : `${darkMode ? 'bg-neutral-700' : 'bg-neutral-200'} ${darkMode ? 'text-neutral-300' : 'text-neutral-600'}`}`}
     >
       {level}
     </button>
   );
 };
 
+// 커스텀 EffectText 컴포넌트
+const EffectText = ({ effectBase, effectData, darkMode }) => {
+  if (!effectBase) return null;
+  
+  // 강조할 텍스트의 색상 클래스
+  const getColorClass = () => {
+    return darkMode ? 'text-yellow-400 font-bold' : 'text-yellow-600 font-bold';
+  };
+
+  // 효과 텍스트 파싱 및 렌더링하는 함수
+  const renderEffectText = () => {
+    // 줄바꿈으로 텍스트 분리
+    const lines = effectBase.split('\n');
+    
+    return lines.map((line, lineIndex) => {
+      // 템플릿 변수를 찾아서 처리
+      let segments = [];
+      let lastIndex = 0;
+      let match;
+      
+      // 정규표현식으로 모든 템플릿 변수 매칭 ({{formula1}}, {{condition1}} 등)
+      const regex = /{{(formula|condition)([1-7])}}/g;
+      
+      while ((match = regex.exec(line)) !== null) {
+        const fullMatch = match[0]; // 예: {{formula1}}
+        const type = match[1];     // 예: formula
+        const num = match[2];      // 예: 1
+        const key = `${type}${num}`;
+        const value = effectData[key];
+        
+        // 템플릿 변수 이전의 일반 텍스트 추가
+        if (match.index > lastIndex) {
+          segments.push({
+            type: 'text',
+            content: line.substring(lastIndex, match.index)
+          });
+        }
+        
+        // 템플릿 변수에 해당하는 값이 있으면 추가
+        if (value !== undefined && value !== null && value !== '') {
+          segments.push({
+            type: 'highlight',
+            content: value
+          });
+        }
+        
+        lastIndex = match.index + fullMatch.length;
+      }
+      
+      // 마지막 템플릿 변수 이후의 텍스트 추가
+      if (lastIndex < line.length) {
+        segments.push({
+          type: 'text',
+          content: line.substring(lastIndex)
+        });
+      }
+      
+      // 세그먼트 렌더링
+      const renderedSegments = segments.map((segment, index) => {
+        if (segment.type === 'highlight') {
+          return (
+            <span key={index} className={getColorClass()}>
+              {segment.content}
+            </span>
+          );
+        }
+        return <span key={index}>{segment.content}</span>;
+      });
+      
+      // 각 줄마다 div로 감싸서 줄바꿈 효과
+      return (
+        <div key={lineIndex} className="mb-1">
+          {renderedSegments.length > 0 ? renderedSegments : <br />}
+        </div>
+      );
+    });
+  };
+
+  return (
+    <div className={`${textTransition} ${darkMode ? 'text-white' : 'text-black'}`}>
+      {renderEffectText()}
+    </div>
+  );
+};
+
 const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
   const [activeLevel, setActiveLevel] = useState('기본');
+  
+  // gift가 변경될 때마다 activeLevel을 '기본'으로 리셋
+  useEffect(() => {
+    setActiveLevel('기본');
+  }, [gift]);
   
   const detailCardStyle = `${backgroundTransition}
     ${darkMode ? 'bg-neutral-800' : 'bg-white'}
@@ -45,14 +134,14 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
   const getCurrentEffectData = () => {
     if (!gift.effects || gift.effects.length === 0) {
       return { 
-        formula: '', 
+        formula1: '', 
         formula2: '', 
         formula3: '', 
         formula4: '', 
         formula5: '', 
         formula6: '', 
         formula7: '', 
-        condition: '', 
+        condition1: '', 
         condition2: '', 
         condition3: '' 
       };
@@ -61,83 +150,34 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
     const effect = gift.effects.find(e => e.level === activeLevel);
     if (!effect) {
       return { 
-        formula: '', 
+        formula1: '', 
         formula2: '', 
         formula3: '', 
         formula4: '', 
         formula5: '', 
         formula6: '', 
         formula7: '', 
-        condition: '', 
+        condition1: '', 
         condition2: '', 
         condition3: '' 
       };
     }
     
     return { 
-      formula: effect.formula || '', 
+      formula1: effect.formula1 || '', 
       formula2: effect.formula2 || '',
       formula3: effect.formula3 || '',
       formula4: effect.formula4 || '',
       formula5: effect.formula5 || '',
       formula6: effect.formula6 || '',
       formula7: effect.formula7 || '',
-      condition: effect.condition || '',
+      condition1: effect.condition1 || '',
       condition2: effect.condition2 || '',
       condition3: effect.condition3 || ''
     };
   };
 
   const effectData = getCurrentEffectData();
-
-  // 효과 베이스를 템플릿 변수로 변환
-  const formatEffectBase = () => {
-    if (!gift.effectBase) return '';
-    
-    let formattedText = gift.effectBase;
-    
-    // 템플릿 변수 치환 (formula 1-7)
-    for (let i = 1; i <= 7; i++) {
-      const formulaKey = i === 1 ? 'formula' : `formula${i}`;
-      if (effectData[formulaKey]) {
-        const placeholder = `{{${formulaKey}}}`;
-        if (formattedText.includes(placeholder)) {
-          formattedText = formattedText.replace(placeholder, 
-            `<span class="${getColorClass()}">${effectData[formulaKey]}</span>`);
-        }
-      }
-    }
-    
-    // 템플릿 변수 치환 (condition 1-3)
-    for (let i = 1; i <= 3; i++) {
-      const conditionKey = i === 1 ? 'condition' : `condition${i}`;
-      const placeholder = `{{${conditionKey}}}`;
-      
-      // condition이 undefined, null 또는 빈 문자열인 경우 플레이스홀더 제거
-      if (formattedText.includes(placeholder)) {
-        if (effectData[conditionKey] === undefined || effectData[conditionKey] === null || effectData[conditionKey] === '') {
-          // 플레이스홀더가 포함된 부분 제거 또는 다른 텍스트로 대체
-          formattedText = formattedText.replace(placeholder, '');
-        } else {
-          // 값이 있는 경우 정상적으로 대체
-          formattedText = formattedText.replace(placeholder, 
-            `<span class="${getColorClass()}">${effectData[conditionKey]}</span>`);
-        }
-      }
-    }
-    
-    return formattedText;
-  };
-
-  // 수식에 대한 색상 클래스
-  const getColorClass = () => {
-    return darkMode ? 'text-yellow-400 font-bold' : 'text-yellow-600 font-bold'
-  };
-
-  // 조건에 대한 색상 클래스
-  const getConditionColorClass = () => {
-    return darkMode ? 'text-green-400' : 'text-green-600';
-  };
 
   // 모바일 버전과 데스크톱 버전 구분
   const panelClass = isSmallScreen 
@@ -181,7 +221,7 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
               )}
 
               {/* 그룹 표시 (오른쪽 하단) - 이미지 컨테이너 내부에 위치 */}
-              {groupType && (
+              {groupType != "General" && (
                 <div className="absolute bottom-1 right-1 w-8 h-8 z-10 overflow-hidden">
                   <img 
                     src={`https://raw.githubusercontent.com/noita0130/LimBooksImg/master/Keyword/${groupType}.webp`}
@@ -196,10 +236,18 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
             </div>
 
             <div>
-              <p className="mb-1"><span className="font-semibold">관련 환상체:</span> {gift.relatedAbnormality || '없음'}</p>
-              <p className="mb-1"><span className="font-semibold">등급:</span> {gift.grade}</p>
-              <p className="mb-1"><span className="font-semibold">첫 등장:</span> {gift.firstAppearance}</p>
-              <p className="mb-1"><span className="font-semibold">강화 가능:</span> {gift.upgrade === 'yes' ? '가능' : '불가'}</p>
+              <p className={`mb-1 ${textTransition} ${darkMode ? 'text-white' : 'text-black'}`}>
+                <span className="font-semibold">관련 환상체:</span> {gift.relatedAbnormality || '없음'}
+              </p>
+              <p className={`mb-1 ${textTransition} ${darkMode ? 'text-white' : 'text-black'}`}>
+                <span className="font-semibold">등급:</span> {gift.grade}
+              </p>
+              <p className={`mb-1 ${textTransition} ${darkMode ? 'text-white' : 'text-black'}`}>
+                <span className="font-semibold">첫 등장:</span> {gift.firstAppearance}
+              </p>
+              <p className={`mb-1 ${textTransition} ${darkMode ? 'text-white' : 'text-black'}`}>
+                <span className="font-semibold">강화:</span> {gift.upgrade === 'yes' ? '가능' : '불가'}
+              </p>
             </div>
           </div>
 
@@ -232,39 +280,18 @@ const DetailPanel = memo(({ gift, darkMode, isSmallScreen }) => {
           </div>
 
           {/* 효과 정보 */}
-          <div className="mt-2 p-3 rounded-md border border-opacity-20 
-                        border-gray-400 transition-all duration-300">
-            <p className={`mb-2 font-semibold ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}>
+          <div className={`mt-2 p-3 rounded-md border border-opacity-20 
+                        border-gray-400 ${backgroundTransition} ${darkMode ? 'bg-neutral-900' : 'bg-neutral-50'}`}>
+            <p className={`mb-2 font-semibold ${textTransition} ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}>
               {activeLevel} 효과:
             </p>
             
-            {/* HTML을 직접 삽입하는 대신 dangerouslySetInnerHTML 사용 */}
-            <div 
-              className="mb-2"
-              dangerouslySetInnerHTML={{ __html: formatEffectBase() }}
+            {/* 기존 dangerouslySetInnerHTML 대신 새로운 EffectText 컴포넌트 사용 */}
+            <EffectText 
+              effectBase={gift.effectBase} 
+              effectData={effectData} 
+              darkMode={darkMode} 
             />
-            
-            {/* 템플릿에 포함되지 않은 조건(condition)들을 별도 표시 */}
-            {effectData.condition && !gift.effectBase.includes('{{condition}}') && (
-              <p className="mt-2 text-sm">
-                <span className="font-semibold">조건: </span>
-                <span className={getColorClass()}>{effectData.condition}</span>
-              </p>
-            )}
-            
-            {effectData.condition2 && !gift.effectBase.includes('{{condition2}}') && (
-              <p className="mt-1 text-sm">
-                <span className="font-semibold">조건 2: </span>
-                <span className={getColorClass()}>{effectData.condition2}</span>
-              </p>
-            )}
-            
-            {effectData.condition3 && !gift.effectBase.includes('{{condition3}}') && (
-              <p className="mt-1 text-sm">
-                <span className="font-semibold">조건 3: </span>
-                <span className={getColorClass()}>{effectData.condition3}</span>
-              </p>
-            )}
           </div>
         </div>
       </div>
