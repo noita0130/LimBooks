@@ -104,11 +104,9 @@ const MainPage = React.lazy(() => Promise.resolve({
               업데이트 목록
             </h2>
             <p className={getSectionContentStyle()}>
-              2025.03.20.<br />
-              로슈 흑수 - 묘 추가<br />
-              오티스 흑수 - 묘 추가<br />
-              7.5장 심야청소 스토리 추가<br />
-              리카르도 아나운서 추가<br />
+              2025.04.03.<br />
+              오티스 흑수 - 묘 수정<br />
+              중지 싱클레어 추가<br />
             </p>
           </div>
 
@@ -118,9 +116,7 @@ const MainPage = React.lazy(() => Promise.resolve({
               작업중인 사항
             </h2>
             <p className={getSectionContentStyle()}>
-              제뱌찌 플루드니차 대사추가<br />
-              특수대사 추가<br />
-              스킬대사 추가<br />
+              대사관련 수정
             </p>
           </div>
         </div>
