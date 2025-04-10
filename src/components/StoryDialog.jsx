@@ -36,7 +36,7 @@ const DialogItem = memo(({
           animate="animate"
           exit="exit"
           variants={placeVariants}
-          transition={{ duration: 0.2 }}  // 더 짧은 지연 시간
+          transition={{ duration: 0.15 }}  // 더 짧은 지연 시간
           className={getPlaceStyle()}
         >
           장소 : {renderRichText(item.place, 'place')}

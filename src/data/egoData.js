@@ -1306,6 +1306,25 @@ const egoData = {
                     dlg: "자, 로쟈. 직접 고통을 안겨주는 거야. 후훗, 짠!"
                 }
             ]
+        },
+        {
+            id: "KR_20908",
+            name: "??",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20908_awaken_profile.png",
+            erosionImage: "",
+            rank: "??",
+            info: [
+                {
+                    id: "battle_awaken_20908_1",
+                    desc: "E.G.O 발동",
+                    dlg: ""
+                },
+                {
+                    id: "battle_erosion_20908_1",
+                    desc: "E.G.O 침식",
+                    dlg: ""
+                }
+            ]
         }
     ],
     Sinclair: [
