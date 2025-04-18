@@ -1309,20 +1309,20 @@ const egoData = {
         },
         {
             id: "KR_20908",
-            name: "??",
+            name: "지정재판",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20908_awaken_profile.png",
             erosionImage: "",
-            rank: "??",
+            rank: "WAW",
             info: [
                 {
                     id: "battle_awaken_20908_1",
                     desc: "E.G.O 발동",
-                    dlg: ""
+                    dlg: "매달고, 불태우거라. 끝끝내 뼛조각 하나 남지 않도록."
                 },
                 {
                     id: "battle_erosion_20908_1",
                     desc: "E.G.O 침식",
-                    dlg: ""
+                    dlg: "너일까? 아니면... 너? 누가 더 기품있게 타오를지... 후후후... 궁금하네?"
                 }
             ]
         }
