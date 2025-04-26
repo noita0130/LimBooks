@@ -344,6 +344,11 @@ const personalityData = {
             id: "KR_P10611",
             title: "마침표 사무소 대표",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10611_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10612",
+            title: "R사 제 4무리 순록팀",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10612_gacksung_profile.png",
         }
     ],
     Heathcliff: [
