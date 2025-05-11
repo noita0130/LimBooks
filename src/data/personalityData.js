@@ -525,6 +525,11 @@ const personalityData = {
             id: "KR_P10911",
             title: "라만차랜드 공주",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10911_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10912",
+            title: "흑수 - 사",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10912_gacksung_profile.png",
         }
     ],
     Sinclair: [
@@ -707,6 +712,11 @@ const personalityData = {
             id: "KR_P11211",
             title: "불주먹 사무소 생존자",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11211_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11212",
+            title: "흑수 - 사",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11212_gacksung_profile.png",
         }
     ]
 };
