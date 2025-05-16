@@ -116,6 +116,11 @@ const personalityData = {
             id: "KR_P10211",
             title: "LCE E.G.O::홍염살",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10211_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10212",
+            title: "흑수 - 묘 필두",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10212_gacksung_profile.png",
         }
     ],
     Donqui: [

@@ -599,6 +599,34 @@ const storiesData = {
                 { id: "KR_E727A", title: "뒷골목의 밤", subtitle: "7.5-25 전투 후" },
                 { id: "KR_E728B", title: "동맹", subtitle: "7.5-26 전투 전" }
             ]
+        },
+        {
+            id: "main_8",
+            title: "8 - 바라볼 수 밖에 없는",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter8_before.png",
+            chapters: [
+                { id: "KR_S801B", title: "귀향", subtitle: "8-1 전투 전" },
+                { id: "KR_S801A", title: "귀향", subtitle: "8-1 전투 후" },
+                { id: "KR_S802B", title: "타종", subtitle: "8-2 전투 전" },
+                { id: "KR_S803B", title: "방해", subtitle: "8-3 전투 전" },
+                { id: "KR_S805B", title: "꽃잎", subtitle: "8-4 전투 전" },
+                { id: "KR_S806B", title: "가보옥", subtitle: "8-6 전투 전" },
+                { id: "KR_S807B", title: "설보차", subtitle: "8-7 전투 전" },
+                { id: "KR_S808B", title: "이홍원", subtitle: "8-8 전투 전" },
+                { id: "KR_S809A", title: "연무장", subtitle: "8-9 전투 후 " },
+                { id: "KR_S810B", title: "불로불사", subtitle: "8-10 전투 전" },
+                { id: "KR_S811B", title: "N사", subtitle: "8-11 전투 전" },
+                { id: "KR_S812A", title: "엄지", subtitle: "8-12 전투 후" },
+                { id: "KR_S813B", title: "참가선언", subtitle: "8-13 전투 전" },
+                { id: "KR_S814B", title: "가시춘", subtitle: "8-14 전투 전" },
+                { id: "KR_S815B", title: "침입자", subtitle: "8-15 전투 전" },
+                { id: "KR_S817I", title: "야습2", subtitle: "8-17 전투 중1 " },
+                { id: "KR_S817I2", title: "야습2", subtitle: "8-17 전투 중2 " },
+                { id: "KR_S817A", title: "야습2", subtitle: "8-17 전투 후 " },
+                { id: "KR_S818B", title: "습인", subtitle: "8-18 전투 전" },
+                { id: "KR_S819B", title: "임대옥", subtitle: "8-19 전투 전" },
+                
+            ]
         }
     ],
     mini: [
