@@ -421,6 +421,25 @@ const egoData = {
                     dlg: "우리의 목마름을 너희는 몰라! 너희의 피라도 한껏 머금고… 더… 더 붉게 피어날 거야!"
                 }
             ]
+        },
+        {
+            id: "KR_20308",
+            name: "홍적",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20308_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+                    id: "battle_awaken_20308_1",
+                    desc: "E.G.O 발동",
+                    dlg: "후훗! 이 수많은 소원들 중… 그대가 이루고 싶은 소원은 무엇인가!"
+                },
+                {
+                    id: "battle_erosion_20308_1",
+                    desc: "E.G.O 침식 발동",
+                    dlg: "후우… 소망, 욕망, 그 모든 번뇌를 부수고…! 그대를 해방하겠네!"
+                }
+            ]
         }
     ],
     Ryoshu: [
@@ -1173,6 +1192,26 @@ const egoData = {
                     id: "battle_erosion_20808_1",
                     desc: "E.G.O 침식",
                     dlg: "호기심은 나쁜 거야… 넘치면, 어둠에게 잡아먹히거든!"
+                }
+            ]
+
+        },
+        {
+            id: "KR_20809",
+            name: "크리스마스 악몽",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20809_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+                    id: "battle_awaken_20809_1",
+                    desc: "E.G.O 발동",
+                    dlg: "무량무변. 믿음을. 되새겼다면. 어리석은 의문은 품지 말았어야지!"
+                },
+                {
+                    id: "battle_erosion_20809_1",
+                    desc: "E.G.O 침식",
+                    dlg: "의심 끊고. 믿음 새겨. 그저 맹목적으로… 기도해."
                 }
             ]
 
