@@ -80,12 +80,14 @@ const MainPage = React.lazy(() => Promise.resolve({
     return (
       <div className={`min-h-screen rounded-2xl ${getBgStyle(darkMode)} ${backgroundTransition} py-4 px-4`}>
         {/* 유튜브 영상 섹션 */}
-        <div className={`${getCardStyle()} mb-8`}>
+        <div className={`${getBgStyle(darkMode)} rounded-lg shadow-md p-1 md:p-6 mb-6 
+        ${backgroundTransition}
+        ${darkMode ? 'border border-neutral-700' : 'border border-neutral-200'} mb-8`}>
           <div className="flex justify-center">
             <div className=" w-full max-w-3xl aspect-video">
               <iframe width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/oTjnRyf289s?si=Co-Ia2M6uiH3XA6Y"
+              src="https://www.youtube.com/embed/Q8aayN94mAE?si=kG2OLow4sSV04OTW" 
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -104,10 +106,9 @@ const MainPage = React.lazy(() => Promise.resolve({
               업데이트 목록
             </h2>
             <p className={getSectionContentStyle()}>
-              2025.05.17.<br />
-              8장 상편 업데이트<br />
-              흑수 - 사 로쟈 추가<br />
-              흑수 - 사 그레고르 추가
+              2025.05.23.<br />
+              8장 중편 업데이트<br />
+              흑수 - 묘 필두 파우스트 추가 <br />
             </p>
           </div>
 
