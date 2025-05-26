@@ -1,4 +1,4 @@
-// components/EgoList.jsx (개선된 버전)
+// components/EgoList.jsx (이미지 및 레이아웃 개선)
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { ArrowUp, ArrowDown, ChevronDown, ChevronUp, Undo2 } from "lucide-react";
@@ -157,7 +157,7 @@ const EgoList = ({ personalityId }) => {
   
   const getCardStyle = () => `${backgroundTransition} ${
     darkMode ? 'bg-neutral-800 hover:bg-neutral-700' : 'bg-white hover:bg-neutral-100'
-  } rounded-lg shadow-md overflow-hidden transition-all duration-200 cursor-pointer`;
+  } rounded-lg shadow-md overflow-hidden transition-all duration-200 cursor-pointer h-24 sm:h-22 md:h-28`;
   
   const getExpandedContentStyle = () => `mt-1 rounded-lg shadow-md overflow-hidden p-0 ${backgroundTransition}
     ${darkMode ? 'bg-neutral-800' : 'bg-neutral-100'}`;
@@ -262,7 +262,7 @@ const EgoList = ({ personalityId }) => {
             <p className={getTextStyle(darkMode)}>이 수감자의 E.G.O 데이터가 없습니다.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {stories.map((story, index) => {
               // egoData에서 현재 E.G.O에 대한 정보 찾기
               const egoInfoData = egoData[characterInfo.id]?.find(ego => ego.id === story.id);
@@ -275,8 +275,8 @@ const EgoList = ({ personalityId }) => {
                     className={getCardStyle()}
                   >
                     <div className="flex h-full">
-                      {/* 이미지 컨테이너 - 고정 비율 설정 */}
-                      <div className="w-1/3 overflow-hidden">
+                      {/* 이미지 컨테이너 - 정사각형 + 고정 크기 설정 */}
+                      <div className="aspect-square h-full flex-shrink-0">
                         <img
                           src={story.image}
                           alt={story.name}
@@ -284,12 +284,12 @@ const EgoList = ({ personalityId }) => {
                         />
                       </div>
 
-                      <div className="w-3/4 md:w-4/5 p-3 md:p-6 flex flex-col justify-between text-left">
+                      <div className="flex-grow p-3 md:p-4 flex flex-col justify-between text-left">
                         <div>
                           <h2 className={`text-sm md:text-lg lg:text-xl font-semibold ${getTextStyle(darkMode)}`}>{story.name}</h2>
                         </div>
 
-                        <div className="flex items-center justify-end mt-2 md:mt-4">
+                        <div className="flex items-center justify-end mt-2">
                           {expandedItemId === story.id ?
                             <ChevronUp className={`w-4 h-4 md:w-5 md:h-5 ${getSubTextStyle(darkMode)}`} /> :
                             <ChevronDown className={`w-4 h-4 md:w-5 md:h-5 ${getSubTextStyle(darkMode)}`} />
@@ -316,7 +316,6 @@ const EgoList = ({ personalityId }) => {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                         >
-                          <h3 className={`font-semibold mb-3 text-sm md:text-base ${getTextStyle(darkMode)}`}>E.G.O 대사</h3>
                           <div className="space-y-3">
                             {egoInfoData.info.map((info, idx) => (
                               <motion.div

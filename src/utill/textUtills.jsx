@@ -31,6 +31,8 @@ export const parseRichTextTags = (text, isDarkMode, isMdScreen) => {
   // 텍스트 정리 - 지원하지 않는 태그 제거
   // <size=XX> 태그 제거
   text = text.replace(/<size=[^>]*>([\s\S]*?)<\/size>/g, '$1');
+  // <i> 태그 제거
+  text = text.replace(/<i>([\s\S]*?)<\/i>/g, '$1');
   
   // 최종 파싱할 텍스트 준비
   const parts = [];
@@ -107,48 +109,7 @@ export const parseRichTextTags = (text, isDarkMode, isMdScreen) => {
     });
   }
 
-  // 이탤릭 태그 처리
-  const processedParts = [];
-  parts.forEach(part => {
-    const italicRegex = /<i>([\s\S]*?)<\/i>/g;
-    let italicMatch;
-    let italicText = part.text;
-    let italicLastIndex = 0;
-    let hasItalicMatches = false;
-
-    while ((italicMatch = italicRegex.exec(italicText)) !== null) {
-      hasItalicMatches = true;
-      // 이탤릭 태그 이전 텍스트 추가
-      if (italicMatch.index > italicLastIndex) {
-        processedParts.push({
-          text: italicText.substring(italicLastIndex, italicMatch.index),
-          styles: { ...part.styles }
-        });
-      }
-
-      // 이탤릭 스타일 적용 텍스트 추가
-      processedParts.push({
-        text: italicMatch[1],
-        styles: { ...part.styles, fontStyle: 'italic' }
-      });
-
-      italicLastIndex = italicMatch.index + italicMatch[0].length;
-    }
-
-    // 처리된 이탤릭이 없거나 남은 텍스트가 있는 경우
-    if (!hasItalicMatches || italicLastIndex < italicText.length) {
-      if (!hasItalicMatches) {
-        processedParts.push(part);
-      } else if (italicLastIndex < italicText.length) {
-        processedParts.push({
-          text: italicText.substring(italicLastIndex),
-          styles: { ...part.styles }
-        });
-      }
-    }
-  });
-
-  return processedParts.length > 0 ? processedParts : [{ text, styles: {} }];
+  return parts.length > 0 ? parts : [{ text, styles: {} }];
 };
 
 // 화면 크기를 감지하는 컴포넌트 (윈도우 크기 체크용)
@@ -213,7 +174,8 @@ export const RichText = ({ content, field = '알 수 없음' }) => {
 
   // 미지원 태그 정리 (파싱 전에 먼저 처리)
   const cleanedContent = content
-    .replace(/<size=[^>]*>([\s\S]*?)<\/size>/g, '$1');  // <size> 태그 제거
+    .replace(/<size=[^>]*>([\s\S]*?)<\/size>/g, '$1')  // <size> 태그 제거
+    .replace(/<i>([\s\S]*?)<\/i>/g, '$1'); // <i> 태그 제거
 
   const parts = parseRichTextTags(cleanedContent, darkMode, isMdScreen);
   return (

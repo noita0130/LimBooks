@@ -116,6 +116,11 @@ const personalityData = {
             id: "KR_P10211",
             title: "LCE E.G.O::홍염살",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10211_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10212",
+            title: "흑수 - 묘 필두",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10212_gacksung_profile.png",
         }
     ],
     Donqui: [
@@ -344,6 +349,11 @@ const personalityData = {
             id: "KR_P10611",
             title: "마침표 사무소 대표",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10611_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10612",
+            title: "R사 제 4무리 순록팀",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10612_gacksung_profile.png",
         }
     ],
     Heathcliff: [
@@ -520,6 +530,11 @@ const personalityData = {
             id: "KR_P10911",
             title: "라만차랜드 공주",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10911_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10912",
+            title: "흑수 - 사",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10912_gacksung_profile.png",
         }
     ],
     Sinclair: [
@@ -577,6 +592,11 @@ const personalityData = {
             id: "KR_P11011",
             title: "북부 제뱌찌 협회 3과",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11011_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11012",
+            title: "중지 작은 아우",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11012_gacksung_profile.png",
         }
     ],
     Outis: [
@@ -697,6 +717,11 @@ const personalityData = {
             id: "KR_P11211",
             title: "불주먹 사무소 생존자",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11211_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11212",
+            title: "흑수 - 사",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11212_gacksung_profile.png",
         }
     ]
 };

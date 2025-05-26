@@ -421,6 +421,25 @@ const egoData = {
                     dlg: "우리의 목마름을 너희는 몰라! 너희의 피라도 한껏 머금고… 더… 더 붉게 피어날 거야!"
                 }
             ]
+        },
+        {
+            id: "KR_20308",
+            name: "홍적",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20308_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+                    id: "battle_awaken_20308_1",
+                    desc: "E.G.O 발동",
+                    dlg: "후훗! 이 수많은 소원들 중… 그대가 이루고 싶은 소원은 무엇인가!"
+                },
+                {
+                    id: "battle_erosion_20308_1",
+                    desc: "E.G.O 침식 발동",
+                    dlg: "후우… 소망, 욕망, 그 모든 번뇌를 부수고…! 그대를 해방하겠네!"
+                }
+            ]
         }
     ],
     Ryoshu: [
@@ -1176,6 +1195,26 @@ const egoData = {
                 }
             ]
 
+        },
+        {
+            id: "KR_20809",
+            name: "크리스마스 악몽",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20809_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+                    id: "battle_awaken_20809_1",
+                    desc: "E.G.O 발동",
+                    dlg: "무량무변. 믿음을. 되새겼다면. 어리석은 의문은 품지 말았어야지!"
+                },
+                {
+                    id: "battle_erosion_20809_1",
+                    desc: "E.G.O 침식",
+                    dlg: "의심 끊고. 믿음 새겨. 그저 맹목적으로… 기도해."
+                }
+            ]
+
         }
     ],
     Rodion: [
@@ -1304,6 +1343,25 @@ const egoData = {
                     id: "battle_erosion_20907_1",
                     desc: "E.G.O 침식",
                     dlg: "자, 로쟈. 직접 고통을 안겨주는 거야. 후훗, 짠!"
+                }
+            ]
+        },
+        {
+            id: "KR_20908",
+            name: "지정재판",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20908_awaken_profile.png",
+            erosionImage: "",
+            rank: "WAW",
+            info: [
+                {
+                    id: "battle_awaken_20908_1",
+                    desc: "E.G.O 발동",
+                    dlg: "매달고, 불태우거라. 끝끝내 뼛조각 하나 남지 않도록."
+                },
+                {
+                    id: "battle_erosion_20908_1",
+                    desc: "E.G.O 침식",
+                    dlg: "너일까? 아니면... 너? 누가 더 기품있게 타오를지... 후후후... 궁금하네?"
                 }
             ]
         }

@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Undo2, List } from 'lucide-react';
 import StoryDialog from '../components/StoryDialog';
 import LoadPersonalityStory from '../utill/LoadPersonalityStory';
@@ -26,6 +26,9 @@ const PersonalityStoryContent = () => {
   const [specialStoryInfo, setSpecialStoryInfo] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
+  
+  // 초기 로드 감지 ref 추가
+  const initialLoadRef = useRef(true);
 
   // 특별한 스토리 ID인지 확인
   useEffect(() => {
@@ -103,8 +106,15 @@ const PersonalityStoryContent = () => {
 
     // 네비게이팅 중이 아닐 때만 데이터 로드 (즉시 로드 방지)
     if (!isNavigating) {
-      // 페이지 최상단으로 스크롤
-      window.scrollTo(0, 0);
+      // 최초 로드 시에만 스크롤을 최상단으로 이동
+      if (initialLoadRef.current) {
+        window.scrollTo(0, 0);
+        initialLoadRef.current = false;
+      } else if (isNavigating) {
+        // 의도적인 네비게이션 시에만 스크롤 이동
+        window.scrollTo(0, 0);
+      }
+      
       fetchData();
     }
   }, [personalityId, storyId, isNavigating, loading]);

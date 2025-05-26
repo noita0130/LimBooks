@@ -82,10 +82,10 @@ const MainPage = React.lazy(() => Promise.resolve({
         {/* 유튜브 영상 섹션 */}
         <div className={`${getCardStyle()} mb-8`}>
           <div className="flex justify-center">
-            <div className="w-full max-w-3xl aspect-video">
+            <div className=" w-full max-w-3xl aspect-video">
               <iframe width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/mUZTyRRgaNM?si=nM8Z3O4MmSKqLpAW"
+              src="https://www.youtube.com/embed/oTjnRyf289s?si=Co-Ia2M6uiH3XA6Y"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -104,11 +104,10 @@ const MainPage = React.lazy(() => Promise.resolve({
               업데이트 목록
             </h2>
             <p className={getSectionContentStyle()}>
-              2025.03.20.<br />
-              로슈 흑수 - 묘 추가<br />
-              오티스 흑수 - 묘 추가<br />
-              7.5장 심야청소 스토리 추가<br />
-              리카르도 아나운서 추가<br />
+              2025.05.17.<br />
+              8장 상편 업데이트<br />
+              흑수 - 사 로쟈 추가<br />
+              흑수 - 사 그레고르 추가
             </p>
           </div>
 
@@ -118,9 +117,8 @@ const MainPage = React.lazy(() => Promise.resolve({
               작업중인 사항
             </h2>
             <p className={getSectionContentStyle()}>
-              제뱌찌 플루드니차 대사추가<br />
-              특수대사 추가<br />
-              스킬대사 추가<br />
+              스토리 Img<br/>
+              기타
             </p>
           </div>
         </div>
