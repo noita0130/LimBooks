@@ -106,20 +106,21 @@ const MainPage = React.lazy(() => Promise.resolve({
               업데이트 목록
             </h2>
             <p className={getSectionContentStyle()}>
-              2025.05.23.<br />
-              8장 중편 업데이트<br />
-              흑수 - 묘 필두 파우스트 추가 <br />
+              2025.05.29.<br />
+              8장 하편 업데이트<br />
+              홍루 아나운서 추가 <br />
+              자공/자로 아나운서 추가 <br />
             </p>
           </div>
 
           <div className={`w-full md:w-1/2 ${getCardStyle()}`}>
             <h2 className={getSectionTitleStyle()}>
               <span className="mr-2">🔨</span>
-              작업중인 사항
+              작업중/예정인 사항
             </h2>
             <p className={getSectionContentStyle()}>
               스토리 Img<br/>
-              기타
+              대사관련
             </p>
           </div>
         </div>
