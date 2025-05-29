@@ -854,6 +854,25 @@ const egoData = {
                     dlg: "하핫! 잡았다~! 주제도 모르고 도망치면… 이렇게 되는 거죠."
                 }
             ]
+        },
+        {
+            id: "KR_20608",
+            name: "오혈읍루",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20608_awaken_profile.png",
+            erosionImage: "",
+            rank: "ALEPH",
+            info: [
+                {
+                    id: "battle_awaken_20608_2",
+                    desc: "E.G.O 발동",
+                    dlg: "상념으로 맑은 하늘 가리고. 이 한몸 바쳐 땅으로 모든 피 쏟아 내리리."
+                },
+                {
+                    id: "battle_erosion_20608_1",
+                    desc: "E.G.O 침식",
+                    dlg: "더럽혀진 몸은 오를 하늘 조차 없다시니… 악하다는 모든 것들아! 나와 영원토록 머물자꾸나!"
+                }
+            ]
         }
     ],
     Heathcliff: [
@@ -1494,6 +1513,25 @@ const egoData = {
                     dlg: "찢었으니! 이제 꿰메야지! 히히… 이리와!"
                 }
             ]
+        },
+        {
+            id: "KR_21008",
+            name: "오혈읍루",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21008_awaken_profile.png",
+            erosionImage: "",
+            rank: "ALEPH",
+            info: [
+                {
+                    id: "battle_awaken_21008_1",
+                    desc: "E.G.O 발동",
+                    dlg: "더는 하늘에 오르지 못한다해도… 당신을 품으려, 끝없이 아래로."
+                },
+                {
+                    id: "battle_erosion_21008_1",
+                    desc: "E.G.O 침식",
+                    dlg: "당신의 죄는… 이 땅에서 벌할 수 없으니. 눈을 감고, 하늘께서 명하신 형벌을."
+                }
+            ]
         }
     ],
     Outis: [
@@ -1634,72 +1672,72 @@ const egoData = {
             info: [
                 {
                     id: "battle_awaken_21108_1",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 (마탄 1)",
                     dlg: "역시 네놈 말대로 어떤 사람이라도 맞출 수 있는 마법의 탄환이로군."
                 },
                 {
                     id: "battle_awaken_21108_2",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 (마탄 2)",
                     dlg: "내 탄환이 향하는 곳은 언제나 같다. 필연적으로. 조금의 우연도 없이."
                 },
                 {
                     id: "battle_awaken_21108_3",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 (마탄 3)",
                     dlg: "여기까지 쏜 이상, 돌아갈 수 없는 거다. 방아쇠를 당겨 도착할 곳이 지옥 뿐이라 해도."
                 },
                 {
                     id: "battle_awaken_21108_4",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 (마탄 4)",
                     dlg: "내게 자비를 구하지 마라. 내 앞에는 무엇도 남지 않을 테니."
                 },
                 {
                     id: "battle_awaken_21108_5",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 (마탄 5)",
                     dlg: "흔들리는 일 따위 없이. 가로 막는 모든 것을 침묵시키고, 지평선을 따라 나아가라."
                 },
                 {
                     id: "battle_awaken_21108_6",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 (마탄 6)",
                     dlg: "낙망한 마음은 검게 타올라 사라지지도 않는군. 그저 시리도록 범람할 뿐."
                 },
                 {
                     id: "battle_awaken_21108_7",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 (마탄 7)",
                     dlg: "바란 것이 절망이었다 해도, 탄환이 향할 곳은… 정해져 있지!"
                 },
                 {
                     id: "battle_erosion_21108_1",
-                    desc: "E.G.O 침식 발동",
+                    desc: "E.G.O 침식 발동 (마탄 1)",
                     dlg: "쏘아진 것은 어떤 사람이라도 맞출 수 있는 마법의 탄환이었지."
                 },
                 {
                     id: "battle_erosion_21108_2",
-                    desc: "E.G.O 침식 발동",
+                    desc: "E.G.O 침식 발동  (마탄 2)",
                     dlg: "운명을 받아들여라. 이 탄환이 빗나가는 일은 없을테니."
                 },
                 {
                     id: "battle_erosion_21108_3",
-                    desc: "E.G.O 침식 발동",
+                    desc: "E.G.O 침식 발동  (마탄 3)",
                     dlg: "이 탄환이 있다면, 무엇이든 할 수 있을 것만 같았지."
                 },
                 {
                     id: "battle_erosion_21108_4",
-                    desc: "E.G.O 침식 발동",
+                    desc: "E.G.O 침식 발동 (마탄 4)",
                     dlg: "정의도, 악의도 없이, 그저 내키는 대로 쏘아댈 뿐."
                 },
                 {
                     id: "battle_erosion_21108_5",
-                    desc: "E.G.O 침식 발동",
+                    desc: "E.G.O 침식 발동  (마탄 5)",
                     dlg: "변하는 일 따위 없이. 수평선을 따라 모두 꿰뚫어라."
                 },
                 {
                     id: "battle_erosion_21108_6",
-                    desc: "E.G.O 침식 발동",
+                    desc: "E.G.O 침식 발동  (마탄 6)",
                     dlg: "마침내, 나는 이 지옥에 홀로 남겠군."
                 },
                 {
                     id: "battle_erosion_21108_7",
-                    desc: "E.G.O 침식 발동",
+                    desc: "E.G.O 침식 발동  (마탄 7)",
                     dlg: "내게 나아갈 의지가 없다 해도, 탄환은… 앞으로 나아간다. 영원히."
                 }
             ]

@@ -138,12 +138,21 @@ const announcerData = [
         id: "KR_Announcer_Vergilius_28",
         name: "베르길리우스",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Vergilius_announcer_0.png"
-    }
-    ,
+    },
     {
         id: "KR_Announcer_Ricardo_29",
         name: "리카르도",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Ricardo_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_ZigongZilu_30",
+        name: "자로/자공",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/ZigongRabbit_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Honglu_31",
+        name: "홍루",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/HongLu_announcer_0.png"
     }
 ];
 
