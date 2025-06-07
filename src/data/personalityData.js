@@ -473,6 +473,11 @@ const personalityData = {
             id: "KR_P10811",
             title: "흑운회 부조장",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10811_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10812",
+            title: "가주 후보",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10812_gacksung_profile.png",
         }
     ],
     Rodion: [

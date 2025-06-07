@@ -106,10 +106,8 @@ const MainPage = React.lazy(() => Promise.resolve({
               업데이트 목록
             </h2>
             <p className={getSectionContentStyle()}>
-              2025.05.29.<br />
-              8장 하편 업데이트<br />
-              홍루 아나운서 추가 <br />
-              자공/자로 아나운서 추가 <br />
+              2025.06.07.<br />
+              가주 후보 이스마엘 추가<br />
             </p>
           </div>
 
