@@ -292,6 +292,11 @@ const personalityData = {
             id: "KR_P10511",
             title: "서부 섕크 협회 3과",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10511_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10512",
+            title: "동부 엄지 카포 IIII",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10512_gacksung_profile.png",
         }
     ],
     Honglu: [
@@ -602,6 +607,11 @@ const personalityData = {
             id: "KR_P11012",
             title: "중지 작은 아우",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11012_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11013",
+            title: "동부 엄지 솔다토 II",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11013_gacksung_profile.png",
         }
     ],
     Outis: [

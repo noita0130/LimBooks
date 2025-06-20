@@ -87,7 +87,7 @@ const MainPage = React.lazy(() => Promise.resolve({
             <div className=" w-full max-w-3xl aspect-video">
               <iframe width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/988V0rCkwc4?si=zp2AyMSnwJa09mkX" 
+              src="https://www.youtube.com/embed/wbu2viInM3w?si=CSynj9eBE9nzFIO7" 
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -106,8 +106,9 @@ const MainPage = React.lazy(() => Promise.resolve({
               업데이트 목록
             </h2>
             <p className={getSectionContentStyle()}>
-              2025.06.07.<br />
-              가주 후보 이스마엘 추가<br />
+              2025.06.20.<br />
+              동부 엄지 카포 IIII 뫼르소 추가<br />
+              동부 엄지 솔다토 II 싱클레어 추가<br />
             </p>
           </div>
 
@@ -118,6 +119,7 @@ const MainPage = React.lazy(() => Promise.resolve({
             </h2>
             <p className={getSectionContentStyle()}>
               스토리 Img<br/>
+              최신인격 보이스 추가
               대사관련
             </p>
           </div>
