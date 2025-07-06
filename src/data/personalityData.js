@@ -59,6 +59,11 @@ const personalityData = {
             id: "KR_P10112",
             title: "남부 리우 협회 3과",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10112_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10113",
+            title: "N사 E.G.O::흉탄",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10113_gacksung_profile.png",
         }
     ],
     Faust: [
