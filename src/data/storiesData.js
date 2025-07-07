@@ -665,6 +665,7 @@ const storiesData = {
                 { id: "KR_S830A", title: "마음", subtitle: "8-30 전투 후" },
                 { id: "KR_S831B", title: "일시적 휴전", subtitle: "8-31 전투 후" },
                 { id: "KR_S832B", title: "불로불사", subtitle: "8-32 전투 전" },
+                { id: "KR_S833B", title: "희로애락", subtitle: "8-33 전투 전" },
                 { id: "KR_S833I1", title: "희로애락", subtitle: "8-33 전투 중 1" },
                 { id: "KR_S833I2", title: "희로애락", subtitle: "8-33 전투 중 2" },
                 { id: "KR_S833I3", title: "희로애락", subtitle: "8-33 전투 중 3" },

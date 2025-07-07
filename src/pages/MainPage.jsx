@@ -107,7 +107,9 @@ const MainPage = React.lazy(() => Promise.resolve({
             </h2>
             <p className={getSectionContentStyle()}>
               2025.07.06.<br />
-              N사 E.G.O::흉탄 추가<br />
+              N사 E.G.O::흉탄 추가<br /><br />
+              2025.07.07.<br />
+              8장 스토리누락 수정<br />
             </p>
           </div>
 
