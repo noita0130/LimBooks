@@ -153,7 +153,18 @@ const announcerData = [
         id: "KR_Announcer_Honglu_31",
         name: "홍루",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/HongLu_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Magical_32",
+        name: "마법소녀(증오의 여왕)",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/MagicianGirl_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Tiphereth_33",
+        name: "티페리트",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Tiphereth_announcer.png"
     }
+    
 ];
 
 export default announcerData;

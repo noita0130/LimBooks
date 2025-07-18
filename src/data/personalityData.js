@@ -183,6 +183,11 @@ const personalityData = {
             id: "KR_P10311",
             title: "동부 섕크 협회 3과",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10311_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10312",
+            title: "로보토미 E.G.O::사랑과 증오의 이름으로",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10312_gacksung_profile.png",
         }
     ],
     Ryoshu: [
@@ -550,6 +555,11 @@ const personalityData = {
             id: "KR_P10912",
             title: "흑수 - 사",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10912_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10913",
+            title: "로보토미 E.G.O::눈물로 벼려낸 검",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10913_gacksung_profile.png",
         }
     ],
     Sinclair: [

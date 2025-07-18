@@ -301,11 +301,11 @@ const egoData = {
                     desc: "E.G.O 발동",
                     dlg: "달려라 로시난테! 정의는 승리한다!"
                 },
-               /* {
-                    id: "battle_awaken_20301_2",
-                    desc: "E.G.O 발동",
-                    dlg: "달리자 로시난테! 꿈에 닿을 때까지 몇 번이고!"
-                },*/
+                /* {
+                     id: "battle_awaken_20301_2",
+                     desc: "E.G.O 발동",
+                     dlg: "달리자 로시난테! 꿈에 닿을 때까지 몇 번이고!"
+                 },*/
             ]
         },
         {
@@ -438,6 +438,75 @@ const egoData = {
                     id: "battle_erosion_20308_1",
                     desc: "E.G.O 침식 발동",
                     dlg: "후우… 소망, 욕망, 그 모든 번뇌를 부수고…! 그대를 해방하겠네!"
+                }
+            ]
+        },
+        {
+            id: "KR_20309",
+            name: "사랑과 증오의 이름으로",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20309_awaken_profile.png",
+            erosionImage: "",
+            rank: "WAW",
+            info: [
+                {
+                    id: "battle_awaken_20309_2",
+                    desc: "E.G.O 발동 1",
+                    dlg: "정의보다도 푸른 자여, 사랑보다 붉은 자여"
+                },
+                {
+                    id: "battle_awaken_20309_3",
+                    desc: "E.G.O 발동 2",
+                    dlg: "운명 속에 파묻힌 그대의 이름을 걸고"
+                },
+                {
+                    id: "battle_awaken_20309_4",
+                    desc: "E.G.O 발동 3",
+                    dlg: "나 여기서 빛에 맹세한다"
+                },
+                {
+                    id: "battle_awaken_20309_5",
+                    desc: "E.G.O 발동 4",
+                    dlg: "우리 앞을 막는 증오스런 존재들에게"
+                },
+                {
+                    id: "battle_awaken_20309_6",
+                    desc: "E.G.O 발동 5",
+                    dlg: "나와 그대의 힘을 합쳐 위대한 사랑의 힘을 보여줄 것을…"
+                },
+                {
+                    id: "battle_awaken_20309_1",
+                    desc: "E.G.O 발동 6",
+                    dlg: "아르카나 슬레이브!"
+                },
+                {
+                    id: "battle_erosion_20309_1",
+                    desc: "E.G.O 침식 발동 1",
+                    dlg: "내 앞을 막는 증오스러운 존재여…"
+                },
+                {
+                    id: "battle_erosion_20309_2",
+                    desc: "E.G.O 침식 발동 2",
+                    dlg: "큭… 선도, 악도 아닌 사라져야 마땅할 것이여…"
+                },
+                {
+                    id: "battle_erosion_20309_3",
+                    desc: "E.G.O 침식 발동 3",
+                    dlg: "위대한 사랑의 힘을…"
+                },
+                {
+                    id: "battle_erosion_20309_4",
+                    desc: "E.G.O 침식 발동 4",
+                    dlg: "하. 이런 게 무슨 소용이야."
+                },
+                {
+                    id: "battle_erosion_20309_5",
+                    desc: "E.G.O 침식 발동 5",
+                    dlg: "누군가는 악당이 되어야 하는 거야. 그게 너고."
+                },
+                {
+                    id: "battle_erosion_20309_6",
+                    desc: "E.G.O 침식 발동 6",
+                    dlg: "난 선택받았어… 너희랑은 달라, 다르다고!!!"
                 }
             ]
         }
