@@ -170,7 +170,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                   className="relative inline-block group w-[100px] h-auto"
                 >
                   <img
-                    src="./dantesoop.png"
+                    src={`${import.meta.env.BASE_URL}dantesoop.png`}
                     alt="단빵숲 로고"
                     className="block w-full h-auto"
                   />
@@ -180,7 +180,6 @@ const MainPage = React.lazy(() => Promise.resolve({
                 </p>
               </div>
             </div>
-
             {/* 공식 계정 섹션 */}
             <div className={`flex-1 ${getCardStyle()}`}>
               <h2 className={`text-center text-lg md:text-xl font-bold mb-3 ${getTextStyle(darkMode)}`}>
