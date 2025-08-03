@@ -141,7 +141,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 <div className="w-full max-w-3xl aspect-video">
                   <iframe width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/rJy_MchSCpM?si=8SQaJPVy2z_MLHFB"
+                    src="https://www.youtube.com/embed/uluFO-7TZWY?si=Np7522rIZDS3QQGB"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -240,6 +240,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 업데이트 목록
               </h2>
               <p className={`text-left ${getSectionContentStyle()}`}>
+                2025.08.03.  T사 오티스 추가<br />
                 2025.07.18.  제 6회 발푸밤 인격 및 에고 추가<br />
                 2025.07.07.  8장 스토리누락 수정<br />
                 2025.07.06.  N사 E.G.O::흉탄 추가<br />

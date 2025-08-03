@@ -793,7 +793,27 @@ const egoData = {
                     dlg: "턱없이 부족해! 이걸로는 타는 목마름을… 둑을… 터트려! 뿌리를 꽂아넣어!!!"
                 }
             ]
-        }
+        },
+        {
+            id: "KR_20508",
+            name: "분쇄될 과거",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20508_awaken_profile.png",
+            erosionImage: "",
+            rank: "WAW",
+            info: [
+                {
+                    id: "battle_awaken_20508_1",
+                    desc: "E.G.O 발동",
+                    dlg: "증기 압축 피스톤 압력 제한 해제, 관측 완료된 시간 벡터 계산 완료…\n축적된 과거 변형, 모먼트값 유지… 발사."
+                },
+                {
+                    id: "battle_erosion_20508_1",
+                    desc: "E.G.O 침식",
+                    dlg: "압축, 압축. 증기 역류 무시… 무시 불가. 과거 침식, 기억 침식.\n사용자에게 시간 역류, 크윽… 이해… 불가…"
+                }
+            ]
+        },
+
     ],
     Honglu: [
         {
