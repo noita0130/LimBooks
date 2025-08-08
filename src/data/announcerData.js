@@ -162,7 +162,17 @@ const announcerData = [
     {
         id: "KR_Announcer_Tiphereth_33",
         name: "티페리트",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Tiphereth_announcer.png"
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Tiphereth_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Hubert_34",
+        name: "허버트",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Hubert_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_DetectiveTrio_35",
+        name: "임시 T사 특별수사관들",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/3Detectives_announcer_0.png"
     }
     
 ];
