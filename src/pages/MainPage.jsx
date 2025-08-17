@@ -240,6 +240,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 업데이트 목록
               </h2>
               <p className={`text-left ${getSectionContentStyle()}`}>
+                2025.08.17.  홍원군주 홍루 추가<br />
                 2025.08.03.  T사 오티스 추가<br />
                 2025.07.18.  제 6회 발푸밤 인격 및 에고 추가<br />
                 2025.07.07.  8장 스토리누락 수정<br />
