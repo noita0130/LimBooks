@@ -369,6 +369,11 @@ const personalityData = {
             id: "KR_P10612",
             title: "R사 제 4무리 순록팀",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10612_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10613",
+            title: "홍원 군주",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10613_gacksung_profile.png",
         }
     ],
     Heathcliff: [
