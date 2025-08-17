@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://noita0130.github.io/LimBooks/sitemap.xml
