@@ -220,7 +220,7 @@ Please change the parent <Route path="${w}"> to <Route path="${w==="/"?"*":`${w}
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const NT=[["path",{d:"M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17",key:"1q2vi4"}],["path",{d:"m10 15 5-3-5-3z",key:"1jp15x"}]],CT=St("Youtube",NT),MT=Yr.lazy(()=>Promise.resolve({default:()=>{const{darkMode:i}=de(),[o,s]=D.useState("로딩 중...");D.useEffect(()=>{a(()=>import("./updateDeployTime-Cgq4dG9c.js").then(m=>m.u),[]).then(m=>{s(m.DEPLOY_TIME)}).catch(m=>{console.error("배포 시간을 불러오는데 실패했습니다:",m),s("정보 없음")})},[]);const l=()=>`
+ */const NT=[["path",{d:"M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17",key:"1q2vi4"}],["path",{d:"m10 15 5-3-5-3z",key:"1jp15x"}]],CT=St("Youtube",NT),MT=Yr.lazy(()=>Promise.resolve({default:()=>{const{darkMode:i}=de(),[o,s]=D.useState("로딩 중...");D.useEffect(()=>{a(()=>import("./updateDeployTime-JvYn4Ik-.js").then(m=>m.u),[]).then(m=>{s(m.DEPLOY_TIME)}).catch(m=>{console.error("배포 시간을 불러오는데 실패했습니다:",m),s("정보 없음")})},[]);const l=()=>`
         ${sn(i)} 
         rounded-xl 
         shadow-lg 
