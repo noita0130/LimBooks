@@ -173,6 +173,11 @@ const announcerData = [
         id: "KR_Announcer_DetectiveTrio_35",
         name: "임시 T사 특별수사관들",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/3Detectives_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_XichunWei_36",
+        name: "가시춘/웨이",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/XiChunWhey_announcer_0.png"
     }
     
 ];

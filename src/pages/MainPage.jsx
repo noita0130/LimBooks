@@ -141,7 +141,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 <div className="w-full max-w-3xl aspect-video">
                   <iframe width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/5JnZTjwwcJ0?si=MMHZ7N-pDyue6ziB"
+                    src="https://www.youtube.com/embed/nduQuBD9Ayw?si=iuXg3Qp1sTmP3aR2"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -237,14 +237,13 @@ const MainPage = React.lazy(() => Promise.resolve({
             <div className={`mb-4 ${getCardStyle()}`}>
               <h2 className={getSectionTitleStyle()}>
                 <span className="mr-2">✅</span>
-                업데이트 목록
+                공지사항
               </h2>
               <p className={`text-left ${getSectionContentStyle()}`}>
-                2025.08.17.  홍원군주 홍루 추가<br />
-                2025.08.03.  T사 오티스 추가<br />
-                2025.07.18.  제 6회 발푸밤 인격 및 에고 추가<br />
-                2025.07.07.  8장 스토리누락 수정<br />
-                2025.07.06.  N사 E.G.O::흉탄 추가<br />
+                가시춘/웨이 아나운서 보이스 추가예정<br />
+                흑수 이상 보이스 추가예정<br />
+                흑수 싱클 보이스 추가예정<br />
+                
                 
 
               </p>

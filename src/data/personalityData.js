@@ -64,6 +64,11 @@ const personalityData = {
             id: "KR_P10113",
             title: "N사 E.G.O::흉탄",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10113_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10114",
+            title: "흑수 - 오 필두",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10114_gacksung_profile.png",
         }
     ],
     Faust: [
@@ -632,6 +637,11 @@ const personalityData = {
             id: "KR_P11013",
             title: "동부 엄지 솔다토 II",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11013_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11014",
+            title: "흑수 - 유",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11014_gacksung_profile.png",
         }
     ],
     Outis: [

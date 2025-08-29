@@ -683,6 +683,80 @@ const storiesData = {
 
 
             ]
+        },
+        {
+            id: "sub_8.5.1",
+            title: "8.5 - 절차탁춘",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter8.5_Cultivation.png",
+            chapters: [
+                { id: "KR_E801B", title: "가주의 증명", subtitle: "8.5-1 전투 전" },
+                { id: "KR_E802B", title: "12명의 선생님", subtitle: "8.5-2 전투 전" },
+                { id: "KR_E803B", title: "또 한 명의 학생", subtitle: "8.5-3 전투 전" },
+
+                { id: "KR_ES000B", title: "30일간의 수업", subtitle: "8.5-4 전투 전" },
+
+                { id: "KR_ES011B", title: "30일간의 수업", subtitle: "이상의 수업 1" },
+                { id: "KR_ES011A", title: "30일간의 수업", subtitle: "이상의 수업 2" },
+
+                { id: "KR_ES013B", title: "30일간의 수업", subtitle: "돈키호테의 수업 1" },
+                { id: "KR_ES013A", title: "30일간의 수업", subtitle: "돈키호테의 수업 2" },
+                
+                { id: "KR_ES012B", title: "30일간의 수업", subtitle: "파우스트의 수업 1" },
+                { id: "KR_ES012A", title: "30일간의 수업", subtitle: "파우스트의 수업 2" },
+                
+                { id: "KR_ES040B", title: "30일간의 수업", subtitle: "그레고르의 수업 1" },
+                { id: "KR_ES040A", title: "30일간의 수업", subtitle: "그레고르의 수업 2" },
+
+                { id: "KR_ES050B", title: "30일간의 수업", subtitle: "홍루의 수업 1" },
+                { id: "KR_ES050A", title: "30일간의 수업", subtitle: "홍루의 수업 2" },
+                
+                { id: "KR_ES060B", title: "30일간의 수업", subtitle: "자공 웨이" },
+                
+                { id: "KR_ES061B", title: "30일간의 수업", subtitle: "사화정 전투 전" },
+                { id: "KR_ES061A", title: "30일간의 수업", subtitle: "사화정 전투 후" },
+
+                { id: "KR_ES030B", title: "30일간의 수업", subtitle: "이스마엘의 수업 1" },
+                { id: "KR_ES030A", title: "30일간의 수업", subtitle: "이스마엘의 수업 2" },
+
+                { id: "KR_ES070B", title: "30일간의 수업", subtitle: "뫼르소의 수업" },
+                { id: "KR_ES090B", title: "30일간의 수업", subtitle: "오티스의 수업" },
+                
+                { id: "KR_ES120B", title: "30일간의 수업", subtitle: "사사정 전투 전" },
+                { id: "KR_ES120A", title: "30일간의 수업", subtitle: "사사정 전투 후" },
+                
+                { id: "KR_ES130B", title: "30일간의 수업", subtitle: "료슈의 수업 1" },
+                { id: "KR_ES130A", title: "30일간의 수업", subtitle: "료슈의 수업 2" },
+
+                { id: "KR_ES150B", title: "30일간의 수업", subtitle: "로쟈의 수업" },
+                
+                { id: "KR_ES180B", title: "30일간의 수업", subtitle: "왕청산 전투 전" },
+                { id: "KR_ES180A", title: "30일간의 수업", subtitle: "왕청산 전투 후" },
+
+                { id: "KR_ES190B", title: "30일간의 수업", subtitle: "히스의 수업 1" },
+                { id: "KR_ES210B", title: "30일간의 수업", subtitle: "외부강사의 수업 1" },
+                
+                { id: "KR_ES240B", title: "30일간의 수업", subtitle: "설반 전투 전" },
+                { id: "KR_ES240A", title: "30일간의 수업", subtitle: "설반 전투 후" },
+
+                { id: "KR_ES250B", title: "30일간의 수업", subtitle: "땡땡이" },
+                
+                { id: "KR_ES260B", title: "30일간의 수업", subtitle: "8.5-4 히스의 수업 2-1" },
+                { id: "KR_ES260A", title: "30일간의 수업", subtitle: "8.5-4 히스의 수업 2-2" },
+                { id: "KR_ES280A", title: "30일간의 수업", subtitle: "8.5-4 외부강사의 수업 2" },
+                { id: "KR_ES290B", title: "30일간의 수업", subtitle: "8.5-4 마음의 소리함" },
+                { id: "KR_ES300A", title: "30일간의 수업", subtitle: "8.5-4 마지막 날" },
+
+                { id: "KR_E805B", title: "최종 시험", subtitle: "8.5-5 전투 전" },
+                { id: "KR_E806B", title: "가주 구출 작전", subtitle: "8.5-6 전투 전" },
+                { id: "KR_E808A", title: "필두", subtitle: "8.5-8 전투 전" },
+                { id: "KR_E808B", title: "필두", subtitle: "8.5-8 전투 후" },
+                { id: "KR_E809B", title: "스승", subtitle: "8.5-9 전투 전" },
+                { id: "KR_E811B", title: "청출어람", subtitle: "8.5-11 전투 전" },
+                { id: "KR_E811I1", title: "청출어람", subtitle: "8.5-11 전투 중" },
+                { id: "KR_E811A", title: "청출어람", subtitle: "8.5-11 전투 후" },
+                { id: "KR_E812B", title: "증명", subtitle: "8.5-12 전투 전" },
+                
+            ]
         }
     ],
     mini: [
