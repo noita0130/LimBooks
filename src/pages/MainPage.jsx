@@ -240,6 +240,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 공지사항
               </h2>
               <p className={`text-left ${getSectionContentStyle()}`}>
+                8.5장 절차탁춘 화자 수정예정 <br />
                 가시춘/웨이 아나운서 보이스 추가예정<br />
                 흑수 이상 보이스 추가예정<br />
                 흑수 싱클 보이스 추가예정<br />
