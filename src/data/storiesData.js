@@ -757,6 +757,33 @@ const storiesData = {
                 { id: "KR_E812B", title: "증명", subtitle: "8.5-12 전투 전" },
                 
             ]
+        },
+        {
+            id: "sub_8.5.2",
+            title: "8.5-EX - 선의의 순례",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter8.5_Pilgrimage.png",
+            chapters: [
+                { id: "KR_PC01B", title: "낯선 바다", subtitle: "LC-PC-1 전투 전" },
+                { id: "KR_PC01A", title: "낯선 바다", subtitle: "LC-PC-1 전투 후" },
+                { id: "KR_PC02B", title: "죽은 등대의 마을", subtitle: "LC-PC-2 전투 전" },
+                { id: "KR_PC03B", title: "테라", subtitle: "LC-PC-3 전투 후" },
+                { id: "KR_PC04B", title: "마사스호", subtitle: "LC-PC-4 전투 전" },
+                { id: "KR_PC05A", title: "작은 파도", subtitle: "LC-PC-5 전투 후" },
+                { id: "KR_PC06B", title: "재판관", subtitle: "LC-PC-6 전투 전" },
+                { id: "KR_PC07B", title: "돌아가는 시계", subtitle: "LC-PC-7 전투 전" },
+                { id: "KR_PC07A", title: "돌아가는 시계", subtitle: "LC-PC-7 전투 후" },
+                { id: "KR_PC08B", title: "삼자 협의", subtitle: "LC-PC-8 전투 전" },
+                { id: "KR_PC09B", title: "등대 탈환 작전", subtitle: "LC-PC-9 전투 전" },
+                { id: "KR_PC11B", title: "동화 속의 기사", subtitle: "LC-PC-11 전투 전" },
+                { id: "KR_PC11A", title: "동화 속의 기사", subtitle: "LC-PC-11 전투 후" },
+                { id: "KR_PC12B", title: "로도스 아일랜드", subtitle: "LC-PC-12 전투 전" },
+                { id: "KR_PC12A", title: "로도스 아일랜드", subtitle: "LC-PC-12 전투 후" },
+                { id: "KR_PC13B", title: "도시의 빛", subtitle: "LC-PC-13 전투 전" },
+                { id: "KR_PC14B", title: "선의의 순례", subtitle: "LC-PC-14 전투 전" },
+                { id: "KR_PC14I", title: "선의의 순례", subtitle: "LC-PC-14 전투 중" },
+                { id: "KR_PC14A", title: "선의의 순례", subtitle: "LC-PC-14 전투 후" },
+                
+            ]
         }
     ],
     mini: [

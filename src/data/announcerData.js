@@ -178,6 +178,11 @@ const announcerData = [
         id: "KR_Announcer_XichunWei_36",
         name: "가시춘/웨이",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/XiChunWhey_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Amiya_37",
+        name: "아미야",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Amiya_announcer_0.png"
     }
     
 ];

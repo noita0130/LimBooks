@@ -286,6 +286,25 @@ const egoData = {
                     dlg: "깊게, 들이쉬는 겁니다… 그것이 마지막 호흡이 될테니까."
                 }
             ]
+        },
+        {
+            id: "KR_20209",
+            name: "명령:용해",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20209_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+                    id: "battle_awaken_20209_1",
+                    desc: "E.G.O 발동",
+                    dlg: "아득한 여정. 멈추지 않는 시대에서 희망과 미래를 찾아. 스스로 답을 구하시길."
+                },
+                {
+                    id: "battle_erosion_20209_1",
+                    desc: "E.G.O 침식",
+                    dlg: "멜트다운 명령 실행. 먼지 위를 걸어, 고독을 쥐고, 아스라이 먼 미래로 나아가라."
+                }
+            ]
         }
     ],
     Donqui: [
@@ -825,8 +844,13 @@ const egoData = {
             info: [
                 {
                     id: "battle_awaken_20601_1",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 1",
                     dlg: "환상의 세계로 들어가 보죠."
+                },
+                {
+                    id: "battle_awaken_20601_2",
+                    desc: "E.G.O 발동 2",
+                    dlg: "모든 무상무정 씻어내봐야 부질없다 해도. 기꺼이, 저 풍진 세상으로."
                 }
             ]
         },
@@ -960,6 +984,25 @@ const egoData = {
                     id: "battle_erosion_20608_1",
                     desc: "E.G.O 침식",
                     dlg: "더럽혀진 몸은 오를 하늘 조차 없다시니… 악하다는 모든 것들아! 나와 영원토록 머물자꾸나!"
+                }
+            ]
+        },
+        {
+            id: "KR_20609",
+            name: "영작오[宁作吾]",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20609_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+                    id: "battle_erosion_20609_1",
+                    desc: "E.G.O 침식",
+                    dlg: "숨결 하나에 푸르른 창공 허물어지니."
+                },
+                {
+                    id: "battle_erosion_20609_2",
+                    desc: "E.G.O 침식",
+                    dlg: "하나 된 잔향이 만종을 울릴지어다!"
                 }
             ]
         }
@@ -1321,6 +1364,28 @@ const egoData = {
                     desc: "E.G.O 침식",
                     dlg: "의심 끊고. 믿음 새겨. 그저 맹목적으로… 기도해."
                 }
+            ]
+
+        },
+        {
+            id: "KR_20810",
+            name: "파도의 만가",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20810_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+
+                    id: "battle_awaken_20810_1",
+                    desc: "E.G.O 발동",
+                    dlg: "한눈팔지 마세요. 메마른 당신에게… 파도는 반드시 밀려올 테니!"
+                },
+                {
+                    id: "battle_erosion_20810_1",
+                    desc: "E.G.O 침식",
+                    dlg: "길고 긴 어둠에서 올라와, 뒤엉킨 악몽과 함께 너의 바다로!"
+                }
+
             ]
 
         }
@@ -1977,6 +2042,60 @@ const egoData = {
                     id: "battle_erosion_21208_1",
                     desc: "E.G.O 침식",
                     dlg: "두려움, 공포, 불안. 어두운 침대 밑에는… 괴물이 살고 있지!!"
+                }
+            ]
+        },
+        {
+            id: "KR_21209",
+            name: "눈부시지 않은 영광",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/21209_awaken_profile.png",
+            erosionImage: "",
+            rank: "WAW",
+            info: [
+                {
+                    id: "battle_awaken_21209_1",
+                    desc: "E.G.O 발동 1",
+                    dlg: "눈부시지 않다고 두려워하진 말아."
+                },
+                {
+                    id: "battle_awaken_21209_2",
+                    desc: "E.G.O 발동 2",
+                    dlg: "이 검은!"
+                },
+                {
+                    id: "battle_awaken_21209_3",
+                    desc: "E.G.O 발동 3",
+                    dlg: "이 명예는!"
+                },
+                {
+                    id: "battle_awaken_21209_4",
+                    desc: "E.G.O 발동 4",
+                    dlg: "이 영광은!"
+                },
+                {
+                    id: "battle_awaken_21209_5",
+                    desc: "E.G.O 발동 5",
+                    dlg: "…빛바래지 않을 테니."
+                },
+                {
+                    id: "battle_erosion_21209_1",
+                    desc: "E.G.O 침식 1",
+                    dlg: "그리워할 가치 없는 이 시대에,"
+                },
+                {
+                    id: "battle_erosion_21209_2",
+                    desc: "E.G.O 침식 2",
+                    dlg: "꿈에,"
+                },
+                {
+                    id: "battle_erosion_21209_3",
+                    desc: "E.G.O 침식 3",
+                    dlg: "허명에."
+                },
+                {
+                    id: "battle_erosion_21209_4",
+                    desc: "E.G.O 침식 4",
+                    dlg: "빛이 난들 눈이 부시진 않겠지…"
                 }
             ]
         }

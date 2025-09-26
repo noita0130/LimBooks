@@ -141,7 +141,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 <div className="w-full max-w-3xl aspect-video">
                   <iframe width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/nduQuBD9Ayw?si=iuXg3Qp1sTmP3aR2"
+                    src="https://www.youtube.com/embed/O3s8Ejek1r4?si=OTUxuB5BvIk8-P00"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -241,9 +241,11 @@ const MainPage = React.lazy(() => Promise.resolve({
               </h2>
               <p className={`text-left ${getSectionContentStyle()}`}>
                 8.5장 절차탁춘 화자 수정예정 <br />
+                8.5-ex장 선의의 순례 화자 수정예정 <br />
                 가시춘/웨이 아나운서 보이스 추가예정<br />
                 흑수 이상 보이스 추가예정<br />
                 흑수 싱클 보이스 추가예정<br />
+                아미야 아나운서 보이스 추가예정<br />
                 
                 
 
