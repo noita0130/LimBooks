@@ -250,6 +250,11 @@ const personalityData = {
             id: "KR_P10411",
             title: "흑수 - 묘",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10411_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10412",
+            title: "N사 E.G.O::경멸, 경외",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10412_gacksung_profile.png",
         }
     ],
     Meursault: [
