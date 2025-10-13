@@ -131,6 +131,11 @@ const personalityData = {
             id: "KR_P10212",
             title: "흑수 - 묘 필두",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10212_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10213",
+            title: "흑수 - 동부 시 협회 3과",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10213_gacksung_profile.png",
         }
     ],
     Donqui: [
