@@ -141,7 +141,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 <div className="w-full max-w-3xl aspect-video">
                   <iframe width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/O3s8Ejek1r4?si=OTUxuB5BvIk8-P00"
+                    src="https://www.youtube.com/embed/OBX7O675uW4?si=Qk0N2Qw-1FV1uihG"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

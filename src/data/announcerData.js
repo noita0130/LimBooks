@@ -183,6 +183,11 @@ const announcerData = [
         id: "KR_Announcer_Amiya_37",
         name: "아미야",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Amiya_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_WarpAnnouncer_38",
+        name: "W사 워프 열차 방송",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
     }
     
 ];
