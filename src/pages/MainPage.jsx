@@ -141,7 +141,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 <div className="w-full max-w-3xl aspect-video">
                   <iframe width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/OBX7O675uW4?si=Qk0N2Qw-1FV1uihG"
+                    src="https://www.youtube.com/embed/atuaEYl4iQw?si=g2xLC431zT4BhN9-"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -240,9 +240,12 @@ const MainPage = React.lazy(() => Promise.resolve({
                 공지사항
               </h2>
               <p className={`text-left ${getSectionContentStyle()}`}>
-                시협회 파우스트 보이스 추가예정<br />
-                
-                
+                인격 보이스 추가예정<br />
+
+                안녕하세요 림북스 운영자입니다.<br />
+                현재 졸업논문 기간으로 인해 업데이트가 잠시 중단된 상태입니다.<br />
+                그로인해 업데이트가 지연되고 있는 점 양해 부탁드립니다.<br />
+                감사합니다.
 
               </p>
             </div>

@@ -198,6 +198,11 @@ const personalityData = {
             id: "KR_P10312",
             title: "로보토미 E.G.O::사랑과 증오의 이름으로",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10312_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10313",
+            title: "흑수 - 미",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10313_gacksung_profile.png",
         }
     ],
     Ryoshu: [
@@ -322,6 +327,11 @@ const personalityData = {
             id: "KR_P10512",
             title: "동부 엄지 카포 IIII",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10512_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10513",
+            title: "라만차랜드 왕자",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10513_gacksung_profile.png",
         }
     ],
     Honglu: [
@@ -451,6 +461,16 @@ const personalityData = {
             id: "KR_P10712",
             title: "흑운회 와카슈",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10712_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10713",
+            title: "W사 4등급 정리요원 - CCA",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10713_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10714",
+            title: "흑수 - 유 필두",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10714_gacksung_profile.png",
         }
     ],
     Ishmael: [
@@ -513,6 +533,11 @@ const personalityData = {
             id: "KR_P10812",
             title: "가주 후보",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10812_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10813",
+            title: "정사무소 대표",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10813_gacksung_profile.png",
         }
     ],
     Rodion: [
