@@ -136,6 +136,11 @@ const personalityData = {
             id: "KR_P10213",
             title: "흑수 - 동부 시 협회 3과",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10213_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10214",
+            title: "검지 수행자: [쪽지]",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10214_gacksung_profile.png",
         }
     ],
     Donqui: [
@@ -265,6 +270,11 @@ const personalityData = {
             id: "KR_P10412",
             title: "N사 E.G.O::경멸, 경외",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10412_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10413",
+            title: "홍원 방랑무사",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10413_gacksung_profile.png",
         }
     ],
     Meursault: [
@@ -605,6 +615,11 @@ const personalityData = {
             id: "KR_P10913",
             title: "로보토미 E.G.O::눈물로 벼려낸 검",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10913_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10914",
+            title: "R사 제 4무리 순록팀",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10914_gacksung_profile.png",
         }
     ],
     Sinclair: [
@@ -744,6 +759,11 @@ const personalityData = {
             id: "KR_P11113",
             title: "T사 3등급 강력징수직 직원",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11113_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11114",
+            title: "LCA 우제트 선봉 3팀 팀장",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11114_gacksung_profile.png",
         }
         
     ],
@@ -807,6 +827,11 @@ const personalityData = {
             id: "KR_P11212",
             title: "흑수 - 사",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11212_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11213",
+            title: "밤의 송곳 카피타노",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11213_gacksung_profile.png",
         }
     ]
 };

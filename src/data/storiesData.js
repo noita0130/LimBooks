@@ -784,6 +784,28 @@ const storiesData = {
                 { id: "KR_PC14A", title: "선의의 순례", subtitle: "LC-PC-14 전투 후" },
                 
             ]
+        },
+        {
+            id: "main_9",
+            title: "9 - 끊어지지 않는",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9_before.png",
+            chapters: [
+                { id: "KR_S901B", title: "암중 습격", subtitle: "9-1 전투 전" },
+                { id: "KR_S902B", title: "거미줄", subtitle: "9-2 전투 전" },
+                { id: "KR_S903I", title: "교본", subtitle: "9-3 전투 중" },
+                { id: "KR_S903A", title: "교본", subtitle: "9-3 전투 후" },
+                { id: "KR_S904B", title: "난도질 당한 기억", subtitle: "9-4 전투 전" },
+                { id: "KR_S907B", title: "나선의 역설", subtitle: "9-7 전투 전" },
+                { id: "KR_S908B", title: "현혹", subtitle: "9-8 전투 전" },
+                { id: "KR_S9011B", title: "인연 얽힘", subtitle: "9-11 전투 전" },
+                { id: "KR_S9012B", title: "목적 추론", subtitle: "9-12 전투 전" },
+                { id: "KR_S9013B", title: "아수라장", subtitle: "9-13 전투 전" },
+                { id: "KR_S9015B", title: "분홍빛 욕망", subtitle: "9-14 전투 전" },
+                { id: "KR_S9016B", title: "손가락", subtitle: "9-16 전투 전" },
+                { id: "KR_S9017B", title: "아비", subtitle: "9-17 전투 전" },
+                { id: "KR_S9018B", title: "담배와 아비", subtitle: "9-18 전투 전" },
+                { id: "KR_S9018A", title: "담배와 아비", subtitle: "9-18 전투 후" },
+            ]
         }
     ],
     mini: [
