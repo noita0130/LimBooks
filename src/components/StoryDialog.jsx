@@ -39,7 +39,9 @@ const DialogItem = memo(({
           transition={{ duration: 0.15 }}  // 더 짧은 지연 시간
           className={getPlaceStyle()}
         >
-          장소 : {renderRichText(item.place, 'place')}
+          {item.place !== -1 && (
+            <>장소 : {renderRichText(item.place, 'place')}</>
+    )}
         </motion.div>
       )}
 
