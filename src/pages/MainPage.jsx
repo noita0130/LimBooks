@@ -240,11 +240,12 @@ const MainPage = React.lazy(() => Promise.resolve({
                 공지사항
               </h2>
               <p className={`text-left ${getSectionContentStyle()}`}>
-                최신 업데이트 : 2026.01.05<br />
-                스토리가 표시되지 않는 오류 수정<br /><br />
-
+                최신 업데이트 : 2026.01.11<br />
+                9장 스토리 중편 업데이트<br /><br />
 
                 인격 보이스 추가예정<br /><br />
+                검지 돈키 스토리 업뎃예정
+                뇌횡 아나운서 추가예정
 
                 안녕하세요 림북스 운영자입니다.<br />
                 현재 졸업논문 기간으로 인해 업데이트가 지연되고 있는 점 양해 부탁드립니다.<br />
