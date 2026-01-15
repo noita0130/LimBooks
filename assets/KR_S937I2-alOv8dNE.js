@@ -1,0 +1,1 @@
+const t=[{id:0,model:"9장소드다침",teller:"무전기",content:"알리사 씨! 지금 앞으로 가면…!"},{id:1,model:"약지아비",content:"……."}],e={dataList:t};export{t as dataList,e as default};

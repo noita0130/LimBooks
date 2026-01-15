@@ -1,2 +1,2 @@
 // 이 파일은 자동 생성됩니다. 수정하지 마세요.
-export const DEPLOY_TIME = "2026. 01. 11. 22:29:15";
+export const DEPLOY_TIME = "2026. 01. 15. 18:59:59";
