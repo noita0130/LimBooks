@@ -821,6 +821,48 @@ const storiesData = {
                 { id: "KR_S929A", title: "선명한 하나", subtitle: "9-33 전투 후" },
                 { id: "KR_S930B", title: "집으로", subtitle: "9-34 전투 전" },
                 { id: "KR_S931B", title: "금고", subtitle: "9-35 전투 전" },
+
+                { id: "KR_S936B", title: "제목 수정예정", subtitle: "1" },
+
+                { id: "KR_S937B", title: "제목 수정예정", subtitle: "2" },
+                { id: "KR_S937I1", title: "제목 수정예정", subtitle: "3" },
+                { id: "KR_S937I2", title: "제목 수정예정", subtitle: "4" },
+
+                { id: "KR_S938B", title: "제목 수정예정", subtitle: "5" },
+                { id: "KR_S939B", title: "제목 수정예정", subtitle: "6" },
+                { id: "KR_S940B", title: "제목 수정예정", subtitle: "7" },
+
+                { id: "KR_S941B", title: "제목 수정예정", subtitle: "8" },
+                { id: "KR_S941A", title: "제목 수정예정", subtitle: "9" },
+
+                { id: "KR_S942B", title: "제목 수정예정", subtitle: "10" },
+                { id: "KR_S942A", title: "제목 수정예정", subtitle: "11" },
+
+                { id: "KR_S943B", title: "제목 수정예정", subtitle: "12" },
+                { id: "KR_S943I1", title: "제목 수정예정", subtitle: "13" },
+                { id: "KR_S943I2", title: "제목 수정예정", subtitle: "14" },
+                { id: "KR_S943A", title: "제목 수정예정", subtitle: "15" },
+
+                { id: "KR_S944I1", title: "제목 수정예정", subtitle: "16" },
+
+                { id: "KR_S945B", title: "제목 수정예정", subtitle: "17" },
+                { id: "KR_S945A", title: "제목 수정예정", subtitle: "18" },
+
+                { id: "KR_S946B", title: "제목 수정예정", subtitle: "19" },
+                { id: "KR_S947B", title: "제목 수정예정", subtitle: "20" },
+
+                { id: "KR_S948B", title: "제목 수정예정", subtitle: "21" },
+                { id: "KR_S948A", title: "제목 수정예정", subtitle: "22" },
+
+                { id: "KR_S949B", title: "제목 수정예정", subtitle: "23" },
+                { id: "KR_S949A", title: "제목 수정예정", subtitle: "24" },
+
+                { id: "KR_S950B", title: "제목 수정예정", subtitle: "25" },
+                { id: "KR_S950I1", title: "제목 수정예정", subtitle: "26" },
+                { id: "KR_S950I2", title: "제목 수정예정", subtitle: "27" },
+                { id: "KR_S950A", title: "제목 수정예정", subtitle: "28" },
+
+                { id: "KR_S951B", title: "제목 수정예정", subtitle: "29" }
             ]
         }
     ],
