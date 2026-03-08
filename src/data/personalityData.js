@@ -69,7 +69,12 @@ const personalityData = {
             id: "KR_P10114",
             title: "흑수 - 오 필두",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10114_gacksung_profile.png",
-        }
+        },
+        {
+            id: "KR_P10114",
+            title: "거미집 검지 아비",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10115_gacksung_profile.png",
+        },
     ],
     Faust: [
         {
@@ -208,6 +213,11 @@ const personalityData = {
             id: "KR_P10313",
             title: "흑수 - 미",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10313_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10313",
+            title: "검지 대행자 - 개화 E.G.O::대행",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10314_gacksung_profile.png",
         }
     ],
     Ryoshu: [
@@ -275,6 +285,11 @@ const personalityData = {
             id: "KR_P10413",
             title: "홍원 방랑무사",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10413_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10413",
+            title: "로보토미 E.G.O::잔향 · 외로움",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10414_gacksung_profile.png",
         }
     ],
     Meursault: [
@@ -342,6 +357,11 @@ const personalityData = {
             id: "KR_P10513",
             title: "라만차랜드 왕자",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10513_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10513",
+            title: "로보토미 E.G.O::호넷 [변조]",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10514_gacksung_profile.png",
         }
     ],
     Honglu: [
@@ -548,6 +568,11 @@ const personalityData = {
             id: "KR_P10813",
             title: "정사무소 대표",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10813_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10813",
+            title: "거미집 중지 제자",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10814_gacksung_profile.png",
         }
     ],
     Rodion: [
@@ -692,6 +717,11 @@ const personalityData = {
             id: "KR_P11014",
             title: "흑수 - 유",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11014_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11014",
+            title: "거미집 소지 제자",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11015_gacksung_profile.png",
         }
     ],
     Outis: [
@@ -832,6 +862,11 @@ const personalityData = {
             id: "KR_P11213",
             title: "밤의 송곳 카피타노",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11213_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11213",
+            title: "로보토미 E.G.O::램프",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11214_gacksung_profile.png",
         }
     ]
 };

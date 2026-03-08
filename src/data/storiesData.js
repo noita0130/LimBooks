@@ -822,47 +822,47 @@ const storiesData = {
                 { id: "KR_S930B", title: "집으로", subtitle: "9-34 전투 전" },
                 { id: "KR_S931B", title: "금고", subtitle: "9-35 전투 전" },
 
-                { id: "KR_S936B", title: "제목 수정예정", subtitle: "1" },
+                { id: "KR_S936B", title: "거미집 태우기", subtitle: "9-35 전투 전" },
 
-                { id: "KR_S937B", title: "제목 수정예정", subtitle: "2" },
-                { id: "KR_S937I1", title: "제목 수정예정", subtitle: "3" },
-                { id: "KR_S937I2", title: "제목 수정예정", subtitle: "4" },
+                { id: "KR_S937B", title: "약지", subtitle: "9-37 전투 전" },
+                { id: "KR_S937I1", title: "약지", subtitle: "9-37 전투 중 1" },
+                { id: "KR_S937I2", title: "약지", subtitle: "9-37 전투 중 2" },
 
-                { id: "KR_S938B", title: "제목 수정예정", subtitle: "5" },
-                { id: "KR_S939B", title: "제목 수정예정", subtitle: "6" },
-                { id: "KR_S940B", title: "제목 수정예정", subtitle: "7" },
+                { id: "KR_S938B", title: "중지", subtitle: "9-38 전투 전" },
+                { id: "KR_S939B", title: "검지", subtitle: "9-39 전투 전" },
+                { id: "KR_S940B", title: "소지", subtitle: "9-40 전투 전" },
 
-                { id: "KR_S941B", title: "제목 수정예정", subtitle: "8" },
-                { id: "KR_S941A", title: "제목 수정예정", subtitle: "9" },
+                { id: "KR_S941B", title: "아라야", subtitle: "9-41 전투 전" },
+                { id: "KR_S941A", title: "아라야", subtitle: "9-41 전투 후" },
 
-                { id: "KR_S942B", title: "제목 수정예정", subtitle: "10" },
-                { id: "KR_S942A", title: "제목 수정예정", subtitle: "11" },
+                { id: "KR_S942B", title: "티켓", subtitle: "9-42 전투 전" },
+                { id: "KR_S942A", title: "티켓", subtitle: "9-42 전투 후" },
 
-                { id: "KR_S943B", title: "제목 수정예정", subtitle: "12" },
-                { id: "KR_S943I1", title: "제목 수정예정", subtitle: "13" },
-                { id: "KR_S943I2", title: "제목 수정예정", subtitle: "14" },
-                { id: "KR_S943A", title: "제목 수정예정", subtitle: "15" },
+                { id: "KR_S943B", title: "부화", subtitle: "9-43 전투 전" },
+                { id: "KR_S943I1", title: "부화", subtitle: "9-43 전투 중 1" },
+                { id: "KR_S943I2", title: "부화", subtitle: "9-43 전투 중 2" },
+                { id: "KR_S943A", title: "부화", subtitle: "9-43 전투 후" },
 
-                { id: "KR_S944I1", title: "제목 수정예정", subtitle: "16" },
+                { id: "KR_S944I1", title: "가족", subtitle: "9-44 전투 중 1" },
 
-                { id: "KR_S945B", title: "제목 수정예정", subtitle: "17" },
-                { id: "KR_S945A", title: "제목 수정예정", subtitle: "18" },
+                { id: "KR_S945B", title: "어느 날 갑자기", subtitle: "9-45 전투 전" },
+                { id: "KR_S945A", title: "어느 날 갑자기", subtitle: "9-45 전투 후" },
 
-                { id: "KR_S946B", title: "제목 수정예정", subtitle: "19" },
-                { id: "KR_S947B", title: "제목 수정예정", subtitle: "20" },
+                { id: "KR_S946B", title: "기다림", subtitle: "9-46 전투 전" },
+                { id: "KR_S947B", title: "연민", subtitle: "9-47 전투 전" },
 
-                { id: "KR_S948B", title: "제목 수정예정", subtitle: "21" },
-                { id: "KR_S948A", title: "제목 수정예정", subtitle: "22" },
+                { id: "KR_S948B", title: "시간얽힘", subtitle: "9-48 전투 전" },
+                { id: "KR_S948A", title: "시간얽힘", subtitle: "9-48 전투 후" },
 
-                { id: "KR_S949B", title: "제목 수정예정", subtitle: "23" },
-                { id: "KR_S949A", title: "제목 수정예정", subtitle: "24" },
+                { id: "KR_S949B", title: "무아", subtitle: "9-49 전투 전" },
+                { id: "KR_S949A", title: "무아", subtitle: "9-49 전투 후" },
 
-                { id: "KR_S950B", title: "제목 수정예정", subtitle: "25" },
-                { id: "KR_S950I1", title: "제목 수정예정", subtitle: "26" },
-                { id: "KR_S950I2", title: "제목 수정예정", subtitle: "27" },
-                { id: "KR_S950A", title: "제목 수정예정", subtitle: "28" },
+                { id: "KR_S950B", title: "거미줄", subtitle: "9-50 전투 전" },
+                { id: "KR_S950I1", title: "거미줄", subtitle: "9-50 전투 중 1" },
+                { id: "KR_S950I2", title: "거미줄", subtitle: "9-50 전투 중 2" },
+                { id: "KR_S950A", title: "거미줄", subtitle: "9-50 전투 후" },
 
-                { id: "KR_S951B", title: "제목 수정예정", subtitle: "29" }
+                { id: "KR_S951B", title: "삼세인과", subtitle: "9-51 전투 전" }
             ]
         }
     ],
