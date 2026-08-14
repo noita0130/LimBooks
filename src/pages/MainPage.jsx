@@ -141,7 +141,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 <div className="w-full max-w-3xl aspect-video">
                   <iframe width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/kBidytD71ZQ?si=WDA2lR8zfvMz-Vcx"
+                    src="https://www.youtube.com/embed/mGJJuEI52EU?si=iPrkLz79nX1dc9oN"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -240,14 +240,13 @@ const MainPage = React.lazy(() => Promise.resolve({
                 공지사항
               </h2>
               <p className={`text-left ${getSectionContentStyle()}`}>
-                최신 업데이트 : 2026.03.08<br />
-                
-                9장 스토리 하편 업데이트<br />
-                9장 스토리데이터 수정예정 (화자 등)<br /><br />
+                최신 업데이트 : 2026.08.15<br />
+                9.5장 타래엮기<br />
+                9.5장 경험기억<br />
+                업데이트 완료<br />
 
-                인격 보이스 추가예정<br /><br />
-                스토리보이스 추가예정
-                아나운서 보이스 추가예정
+                W워프열차 아나운서 이후 음성 업데이트 예정<br />
+                9.5장 기억경험 수정 예정<br />
 
               </p>
             </div>

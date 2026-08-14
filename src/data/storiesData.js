@@ -868,7 +868,7 @@ const storiesData = {
         {
             id: "sub_9.5.1",
             title: "9.5 - 타래엮기",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9.5",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9.5_TwiningThreads.png",
             chapters: [
                 { id: "KR_E901B", title: "장례식", subtitle: "9.5-1 전투 전" },
                 { id: "KR_E902B", title: "생존자", subtitle: "9.5-2 전투 전" },
@@ -899,7 +899,7 @@ const storiesData = {
         {
             id: "sub_9.5.2",
             title: "9.5 - 경험기억",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9.5",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9.5_RecordMemory.png",
             chapters: [
                 { id: "KR_E915B", title: "면담", subtitle: "9.5-15 전투 전" },
                 { id: "KR_E916B", title: "합류", subtitle: "9.5-16 전투 전" },
@@ -1040,7 +1040,7 @@ const storiesData = {
         {
             id: "mini_8_1",
             title: "제6회 발푸르기스의 밤",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E081X.png",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E080X.png",
             chapters: [
                 { id: "KR_E080X", title: "제6회 발푸르기스의 밤", subtitle: "전투 전" },
                 { id: "KR_E081X", title: "제6회 발푸르기스의 밤", subtitle: "전투 후" },
@@ -1050,7 +1050,7 @@ const storiesData = {
         {
             id: "mini_9_1",
             title: "제8회 발푸르기스의 밤",
-            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E091X.png",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E090X.png",
             chapters: [
                 { id: "KR_E090X", title: "제8회 발푸르기스의 밤", subtitle: "전투 전" },
                 { id: "KR_E091X", title: "제8회 발푸르기스의 밤", subtitle: "전투 후" },

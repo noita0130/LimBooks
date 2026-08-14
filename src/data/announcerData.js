@@ -191,78 +191,78 @@ const announcerData = [
     },
     {
         id: "KR_Announcer_Gebura_39",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "게부라",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Gebura_announcer _0.png"
     },
     {
         id: "KR_Announcer_Leiheng_40",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "뇌횡",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/LeiHeng_announcer_0.png"
     },
     {
         id: "KR_Announcer_PinkyChibi_41",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "아라야",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/PinkyChibi_announcer_0.png"
     },
     {
         id: "KR_Announcer_Ryoshu_42",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "료슈",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Ryoshu_announcer_0.png"
     },
     {
         id: "KR_Announcer_AngelaLoR_43",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "앤젤라(로보토미 AI)",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Angela_announcer_0.png"
     },
     {
         id: "KR_Announcer_Chesed_44",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "헤세드",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Chesed_announcer_0.png"
     },
     {
         id: "KR_Announcer_LCE_45",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "LCE 연구팀",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/LCE_announcer_0.png"
     },
     {
         id: "KR_Announcer_Kira_46",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "키라",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Kira_announcer_0.png"
     },
     {
         id: "KR_Announcer_Sweepers_47",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "8구 청소부들",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Sweepers_announcer_0.png"
     },
     {
         id: "KR_Announcer_Sweepers_48",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "8구 청소부들[통역]",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Sweepers_announcer_1.png"
     },
     {
         id: "KR_Announcer_SatgatAengdu_49",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "김삿갓/앵두",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/LCDBlade_announcer_0.png"
     },
     {
         id: "KR_Announcer_Binah_50",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "비나",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Binah_announcer_0.png"
     },
     {
         id: "KR_Announcer_MatthiasKira_51",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "마티아스/키라",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Middle_announcer.png"
     },
     {
         id: "KR_Announcer_ValencinaLucio_52",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "발렌치나/루치오",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/Thumb_announcer_0.png"
     },
     {
         id: "KR_Announcer_Hohenheim_90001",
-        name: "",
-        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+        name: "칼리스토/알비나",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/none_announcer_0.png"
     }
     
 ];
