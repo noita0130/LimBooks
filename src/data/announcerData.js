@@ -188,6 +188,81 @@ const announcerData = [
         id: "KR_Announcer_WarpAnnouncer_38",
         name: "W사 워프 열차 방송",
         image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Gebura_39",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Leiheng_40",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_PinkyChibi_41",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Ryoshu_42",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_AngelaLoR_43",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Chesed_44",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_LCE_45",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Kira_46",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Sweepers_47",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Sweepers_48",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_SatgatAengdu_49",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Binah_50",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_MatthiasKira_51",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_ValencinaLucio_52",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
+    },
+    {
+        id: "KR_Announcer_Hohenheim_90001",
+        name: "",
+        image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/announcer/square/WCorp_announcer_0.png"
     }
     
 ];

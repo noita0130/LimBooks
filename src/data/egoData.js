@@ -147,46 +147,100 @@ const egoData = {
             info: [
                 {
                     id: "battle_awaken_20108_1",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 1",
                     dlg: "지금을 쪼개어 일천(一千). 편린들에 비추어진 미래를 쪼개어 다시 이천(二千). 마침내 망그러진 과거는 깨어지겠소. 기어코 일순, 모든걸 그러모아… 삼천대천(三千大天)!"
                 },
                 {
                     id: "battle_awaken_20108_2",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 2",
                     dlg: "지금을 쪼개어 일천(一千)."
                 },
                 {
                     id: "battle_awaken_20108_3",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 3",
                     dlg: "편린들에 비추어진 미래를 쪼개어 다시 이천(二千)."
                 },
                 {
                     id: "battle_awaken_20108_4",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 4",
                     dlg: "마침내 망그러진 과거는 깨어지겠소."
                 },
                 {
                     id: "battle_awaken_20108_5",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 5",
                     dlg: "기어코 일순, 모든걸 그러모아… 삼천대천(三千大天)!"
                 },
                 {
                     id: "battle_erosion_20108_1",
-                    desc: "E.G.O 침식",
+                    desc: "E.G.O 침식 1",
                     dlg: "오백천만억 나유타 아승기의 세계가 다시금 물드리라."
                 },
                 {
                     id: "battle_erosion_20108_2",
-                    desc: "E.G.O 침식",
+                    desc: "E.G.O 침식 2",
                     dlg: "그안의 억겁 미래가 부수어져 티끌이 된 나를 방문하리라."
                 },
                 {
                     id: "battle_erosion_20108_3",
-                    desc: "E.G.O 침식",
+                    desc: "E.G.O 침식 3",
                     dlg: "가루된 나의 역사는 기어이! 흩어져 소멸… 하리라."
                 }
             ]
         },
+        {
+            id: "KR_20109",
+            name: "엄숙한 애도",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20109_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+                    "id": "battle_awaken_20109_1",
+                    "desc": "E.G.O 발동",
+                    "dlg": "초종. 부고를 전하겠소. 이 처참한 포화, 호접이 그대를 화장할지니! …그 후로 아무것도 남지 않으리."
+                },
+                {
+                    "id": "battle_awaken_20109_2",
+                    "desc": "E.G.O 발동",
+                    "dlg": "초종."
+                },
+                {
+                    "id": "battle_awaken_20109_3",
+                    "desc": "E.G.O 발동",
+                    "dlg": "부고를 전하겠소."
+                },
+                {
+                    "id": "battle_awaken_20109_4",
+                    "desc": "E.G.O 발동",
+                    "dlg": "이 처참한 포화, 호접이 그대를 화장할지니!"
+                },
+                {
+                    "id": "battle_awaken_20109_5",
+                    "desc": "E.G.O 발동",
+                    "dlg": "…그 후로 아무것도 남지 않으리."
+                },
+                {
+                    "id": "battle_erosion_20109_1",
+                    "desc": "E.G.O 침식",
+                    "dlg": "초종."
+                },
+                {
+                    "id": "battle_erosion_20109_2",
+                    "desc": "E.G.O 침식",
+                    "dlg": "원내의 일점과 원외의 일점이 호와 접하여,"
+                },
+                {
+                    "id": "battle_erosion_20109_3",
+                    "desc": "E.G.O 침식",
+                    "dlg": "마침내!"
+                },
+                {
+                    "id": "battle_erosion_20109_4",
+                    "desc": "E.G.O 침식",
+                    "dlg": "직선은 원을 안식케 하리라."
+                }
+            ]
+        }
     ],
     Faust: [
         {
@@ -352,6 +406,50 @@ const egoData = {
                     id: "battle_erosion_20209_1",
                     desc: "E.G.O 침식",
                     dlg: "멜트다운 명령 실행. 먼지 위를 걸어, 고독을 쥐고, 아스라이 먼 미래로 나아가라."
+                }
+            ]
+        },
+        {
+            id: "KR_20210",
+            name: "홍염살",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20210_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+                    "id": "battle_awaken_20210_1",
+                    "desc": "E.G.O 발동 1",
+                    "dlg": "불꽃으로 수놓은 이 별무리 속에 데려다 드릴 수는 없어도… 끌어안아 별빛으로 만들어드릴 수는 있답니다."
+                },
+                {
+                    "id": "battle_awaken_20210_2",
+                    "desc": "E.G.O 발동 2",
+                    "dlg": "불꽃으로 수놓은 이 별무리 속에 데려다 드릴 수는 없어도…"
+                },
+                {
+                    "id": "battle_awaken_20210_3",
+                    "desc": "E.G.O 발동 3",
+                    "dlg": "끌어안아 별빛으로 만들어드릴 수는 있답니다."
+                },
+                {
+                    "id": "battle_erosion_20210_1",
+                    "desc": "E.G.O 침식 1",
+                    "dlg": "일렁임에 닿을 때까지, 몇 번이고…! 함께, 타오르는 거야."
+                },
+                {
+                    "id": "battle_erosion_20210_2",
+                    "desc": "E.G.O 침식 2",
+                    "dlg": "일렁임에 닿을 때까지,"
+                },
+                {
+                    "id": "battle_erosion_20210_3",
+                    "desc": "E.G.O 침식 3",
+                    "dlg": "몇 번이고…!"
+                },
+                {
+                    "id": "battle_erosion_20210_4",
+                    "desc": "E.G.O 침식 4",
+                    "dlg": "함께, 타오르는 거야."
                 }
             ]
         }
@@ -577,6 +675,25 @@ const egoData = {
                     dlg: "난 선택받았어… 너희랑은 달라, 다르다고!!!"
                 }
             ]
+        },
+        {
+            id: "KR_20310",
+            name: "난 가위를낼게, 너는?",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20310_awaken_profile.png",
+            erosionImage: "",
+            rank: "ZAYIN",
+            info: [
+                {
+                    "id": "battle_awaken_20310_1",
+                    "desc": "E.G.O 발동",
+                    "dlg": "그대의 패배! 규칙은 규칙이니… 자, 그 팔 이리 내시게!"
+                },
+                {
+                    "id": "battle_erosion_20310_1",
+                    "desc": "E.G.O 침식 발동",
+                    "dlg": "친구다! 친구가 왔어! 자, 여기… 가, 가위를 꺼낼테니까…! 뭘 낼래?!"
+                }
+            ]
         }
     ],
     Ryoshu: [
@@ -660,12 +777,12 @@ const egoData = {
             info: [
                 {
                     id: "battle_awaken_20405_1",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 1",
                     dlg: "자, 다들 아가리 벌려. 안심하고 쳐마셔보라고, 후후."
                 },
                 {
                     id: "battle_awaken_20405_2",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 2",
                     dlg: "자, 다들 아가리 벌려."
                 },
                 {
@@ -741,47 +858,47 @@ const egoData = {
             info: [
                 {
                     id: "battle_awaken_20409_1",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 1",
                     dlg: "세 번 베어낸다. 과거를 천 번 단조하여 베어내고, 미래에서 천 번 거슬러 찢어 내고, 찰나의 일순. 다시 천 번을 끊어. 삼천대세계(三千大世界)."
                 },
                 {
                     id: "battle_awaken_20409_2",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 2",
                     dlg: "세 번 베어낸다."
                 },
                 {
                     id: "battle_awaken_20409_3",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 3",
                     dlg: "과거를 천 번 단조하여 베어내고,"
                 },
                 {
                     id: "battle_awaken_20409_4",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 4",
                     dlg: "미래에서 천 번 거슬러 찢어 내고,"
                 },
                 {
                     id: "battle_awaken_20409_5",
-                    desc: "E.G.O 발동",
+                    desc: "E.G.O 발동 5",
                     dlg: "찰나의 일순. 다시 천 번을 끊어. 삼천대세계(三千大世界)."
                 },
                 {
                     id: "battle_erosion_20409_1",
-                    desc: "E.G.O 침식",
+                    desc: "E.G.O 침식 1",
                     dlg: "성수의 미래를 파하고,"
                 },
                 {
                     id: "battle_erosion_20409_2",
-                    desc: "E.G.O 침식",
+                    desc: "E.G.O 침식 2",
                     dlg: "장엄한 과거에 머물렀으니."
                 },
                 {
                     id: "battle_erosion_20409_3",
-                    desc: "E.G.O 침식",
+                    desc: "E.G.O 침식 3",
                     dlg: "현겁의 일섬, 산산히 조각내어."
                 },
                 {
                     id: "battle_erosion_20409_4",
-                    desc: "E.G.O 침식",
+                    desc: "E.G.O 침식 4",
                     dlg: "삼천대세계(三千大世界)."
                 }
             ]
@@ -932,6 +1049,40 @@ const egoData = {
                     id: "battle_erosion_20508_1",
                     desc: "E.G.O 침식",
                     dlg: "압축, 압축. 증기 역류 무시… 무시 불가. 과거 침식, 기억 침식.\n사용자에게 시간 역류, 크윽… 이해… 불가…"
+                }
+            ]
+        },
+        {
+            id: "KR_20509",
+            name: "착영휘도",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20509_awaken_profile.png",
+            erosionImage: "",
+            rank: "HE",
+            info: [
+                {
+                    "id": "battle_awaken_20509_1",
+                    "desc": "E.G.O 발동 1",
+                    "dlg": "망월참항! 숨을 거두리라!"
+                },
+                {
+                    "id": "battle_awaken_20509_2",
+                    "desc": "E.G.O 발동 2",
+                    "dlg": "망월참항!"
+                },
+                {
+                    "id": "battle_awaken_20509_3",
+                    "desc": "E.G.O 발동 3",
+                    "dlg": "숨을 거두리라!"
+                },
+                {
+                    "id": "battle_erosion_20509_1",
+                    "desc": "E.G.O 침식 1",
+                    "dlg": ""
+                },
+                {
+                    "id": "battle_erosion_20509_2",
+                    "desc": "E.G.O 침식 2",
+                    "dlg": "참살!"
                 }
             ]
         },
@@ -1098,14 +1249,19 @@ const egoData = {
             rank: "HE",
             info: [
                 {
-                    id: "battle_erosion_20609_1",
-                    desc: "E.G.O 침식",
-                    dlg: "숨결 하나에 푸르른 창공 허물어지니."
+                    "id": "battle_awaken_20609_1",
+                    "desc": "E.G.O 발동 1",
+                    "dlg": "흐릿한 등화, 곱게 접은 종이에 번졌으니, 시구의 한 획, 용이 되어 빈 벼루에 남았구나."
                 },
                 {
-                    id: "battle_erosion_20609_2",
-                    desc: "E.G.O 침식",
-                    dlg: "하나 된 잔향이 만종을 울릴지어다!"
+                    "id": "battle_erosion_20609_1",
+                    "desc": "E.G.O 침식 1",
+                    "dlg": "숨결 하나에 푸르른 창공 허물어지니."
+                },
+                {
+                    "id": "battle_erosion_20609_2",
+                    "desc": "E.G.O 침식 2",
+                    "dlg": "하나 된 잔향이 만종을 울릴지어다!"
                 }
             ]
         }
@@ -1657,6 +1813,25 @@ const egoData = {
                     id: "battle_erosion_20908_1",
                     desc: "E.G.O 침식",
                     dlg: "너일까? 아니면... 너? 누가 더 기품있게 타오를지... 후후후... 궁금하네?"
+                }
+            ]
+        },
+        {
+            id: "KR_20909",
+            name: "지정재판",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/ego/profile/20909_awaken_profile.png",
+            erosionImage: "",
+            rank: "WAW",
+            info: [
+                {
+                    "id": "battle_awaken_20909_1",
+                    "desc": "E.G.O 발동",
+                    "dlg": "알아, 오느라 힘들었지? 여기서 잠깐 쉬어. 쳐다만 봐도 따스해질테니까."
+                },
+                {
+                    "id": "battle_erosion_20909_1",
+                    "desc": "E.G.O 침식",
+                    "dlg": "바빠보이네… 좀 쉬고 가라니까…? 이것 봐, 이 아이들이 너를 따라가고 싶어서… 이렇게 야단이잖아."
                 }
             ]
         }

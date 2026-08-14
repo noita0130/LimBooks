@@ -864,6 +864,68 @@ const storiesData = {
 
                 { id: "KR_S951B", title: "삼세인과", subtitle: "9-51 전투 전" }
             ]
+        },
+        {
+            id: "sub_9.5.1",
+            title: "9.5 - 타래엮기",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9.5",
+            chapters: [
+                { id: "KR_E901B", title: "장례식", subtitle: "9.5-1 전투 전" },
+                { id: "KR_E902B", title: "생존자", subtitle: "9.5-2 전투 전" },
+
+                { id: "KR_E903B", title: "웨이페어러", subtitle: "9.5-3 전투 전" },
+                { id: "KR_E903A", title: "웨이페어러", subtitle: "9.5-3 전투 후" },
+
+                { id: "KR_E904B", title: "유물과 표지", subtitle: "9.5-4 전투 전" },
+                { id: "KR_E905B", title: "렌케츠엔", subtitle: "9.5-5 전투 전" },
+
+                { id: "KR_E906B", title: "사루", subtitle: "9.5-6 전투 전" },
+                { id: "KR_E906A", title: "사루", subtitle: "9.5-6 전투 후" },
+
+                { id: "KR_E907B", title: "학교", subtitle: "9.5-7 전투 전" },
+                { id: "KR_E908B", title: "불행", subtitle: "9.5-8 전투 전" },
+                { id: "KR_E909B", title: "기억", subtitle: "9.5-9 전투 전" },
+
+                { id: "KR_E910B", title: "지하실", subtitle: "9.5-10 전투 전" },
+                { id: "KR_E910A", title: "지하실", subtitle: "9.5-10 전투 후" },
+
+                { id: "KR_E911A", title: "조용히 잊혀지는", subtitle: "9.5-11 전투 후" },
+
+                { id: "KR_E912B", title: "만단지예", subtitle: "9.5-12 전투 전" },
+                { id: "KR_E913B", title: "좋은 기억", subtitle: "9.5-13 전투 전" },
+                { id: "KR_E914B", title: "다음 목적지", subtitle: "9.5-14 전투 전" },
+            ]
+        },
+        {
+            id: "sub_9.5.2",
+            title: "9.5 - 경험기억",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9.5",
+            chapters: [
+                { id: "KR_E915B", title: "면담", subtitle: "9.5-15 전투 전" },
+                { id: "KR_E916B", title: "합류", subtitle: "9.5-16 전투 전" },
+                { id: "KR_E917B", title: "변곡점 찾기", subtitle: "9.5-17 전투 전" },
+
+                { id: "KR_E918B", title: "오해", subtitle: "9.5-18 전투 전" },
+                { id: "KR_E918A", title: "오해", subtitle: "9.5-18 전투 후" },
+
+                { id: "KR_E919B", title: "필름", subtitle: "9.5-19 전투 전" },
+                { id: "KR_E919A", title: "필름", subtitle: "9.5-19 전투 후" },
+
+                { id: "KR_E920B", title: "사진들", subtitle: "9.5-20 전투 전" },
+                { id: "KR_E921B", title: "통조림", subtitle: "9.5-21 전투 전" },
+                { id: "KR_E922B", title: "금기", subtitle: "9.5-22 전투 전" },
+
+                { id: "KR_E923B", title: "추적2", subtitle: "9.5-23 전투 전" },
+                { id: "KR_E923I", title: "추적2", subtitle: "9.5-23 전투 중" },
+
+                { id: "KR_E924B", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 1" },
+                { id: "KR_E925B", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 2" },
+                { id: "KR_E926B", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 3" },
+                { id: "KR_E926I", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 4" },
+                { id: "KR_E926A", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 5" },
+
+                { id: "KR_E927B", title: "피사체", subtitle: "9.5-26 전투 전" }
+            ]
         }
     ],
     mini: [
@@ -975,9 +1037,25 @@ const storiesData = {
                 { id: "KR_E071X", title: "제5회 발푸르기스의 밤", subtitle: "전투 후" },
             ]
         },
-
-
-
+        {
+            id: "mini_8_1",
+            title: "제6회 발푸르기스의 밤",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E081X.png",
+            chapters: [
+                { id: "KR_E080X", title: "제6회 발푸르기스의 밤", subtitle: "전투 전" },
+                { id: "KR_E081X", title: "제6회 발푸르기스의 밤", subtitle: "전투 후" },
+                { id: "KR_E082X", title: "제6회 발푸르기스의 밤", subtitle: "전투 후" },
+            ]
+        },
+        {
+            id: "mini_9_1",
+            title: "제8회 발푸르기스의 밤",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E091X.png",
+            chapters: [
+                { id: "KR_E090X", title: "제8회 발푸르기스의 밤", subtitle: "전투 전" },
+                { id: "KR_E091X", title: "제8회 발푸르기스의 밤", subtitle: "전투 후" },
+            ]
+        }
 
     ]
 };
