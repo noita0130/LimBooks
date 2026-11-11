@@ -36,7 +36,7 @@ const AnnouncerPage = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.02
+                staggerChildren: 0.01
             }
         }
     };
@@ -95,7 +95,7 @@ const AnnouncerPage = () => {
                                 className="w-full h-full rounded-lg object-cover transition-all duration-300"
                             />
                         </div>
-                        <span className={`mt-1 text-center font-medium ${textTransition} ${
+                        <span className={`mt-1 text-xs md:text-xs text-center font-medium ${textTransition} ${
                             darkMode ? 'text-neutral-300' : 'text-neutral-700'
                         }`}>
                             {announcer.name}

@@ -59,7 +59,27 @@ const personalityData = {
             id: "KR_P10112",
             title: "남부 리우 협회 3과",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10112_gacksung_profile.png",
-        }
+        },
+        {
+            id: "KR_P10113",
+            title: "N사 E.G.O::흉탄",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10113_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10114",
+            title: "흑수 - 오 필두",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10114_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10115",
+            title: "거미집 검지 아비",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10115_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10116",
+            title: "LCE E.G.O::차원찢개",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10116_gacksung_profile.png",
+        },
     ],
     Faust: [
         {
@@ -121,6 +141,26 @@ const personalityData = {
             id: "KR_P10212",
             title: "흑수 - 묘 필두",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10212_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10213",
+            title: "흑수 - 동부 시 협회 3과",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10213_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10214",
+            title: "검지 수행자: [쪽지]",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10214_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10215",
+            title: "거미집 약지 제자",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10215_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10216",
+            title: "새벽 사무소 해결사",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10216_gacksung_profile.png",
         }
     ],
     Donqui: [
@@ -178,6 +218,21 @@ const personalityData = {
             id: "KR_P10311",
             title: "동부 섕크 협회 3과",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10311_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10312",
+            title: "로보토미 E.G.O::사랑과 증오의 이름으로",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10312_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10313",
+            title: "흑수 - 미",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10313_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10313",
+            title: "검지 대행자 - 개화 E.G.O::대행",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10314_gacksung_profile.png",
         }
     ],
     Ryoshu: [
@@ -235,6 +290,26 @@ const personalityData = {
             id: "KR_P10411",
             title: "흑수 - 묘",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10411_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10412",
+            title: "N사 E.G.O::경멸, 경외",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10412_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10413",
+            title: "홍원 방랑무사",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10413_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10414",
+            title: "로보토미 E.G.O::잔향 · 외로움",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10414_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10415",
+            title: "거미집의 검",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10415_gacksung_profile.png",
         }
     ],
     Meursault: [
@@ -292,6 +367,26 @@ const personalityData = {
             id: "KR_P10511",
             title: "서부 섕크 협회 3과",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10511_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10512",
+            title: "동부 엄지 카포 IIII",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10512_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10513",
+            title: "라만차랜드 왕자",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10513_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10514",
+            title: "로보토미 E.G.O::호넷 [변조]",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10514_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10515",
+            title: "약지 야수파 스튜던트",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10515_gacksung_profile.png",
         }
     ],
     Honglu: [
@@ -354,6 +449,21 @@ const personalityData = {
             id: "KR_P10612",
             title: "R사 제 4무리 순록팀",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10612_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10613",
+            title: "홍원 군주",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10613_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10614",
+            title: "거미집 약지 아비",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10614_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10615",
+            title: "S사 추노꾼",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10615_gacksung_profile.png",
         }
     ],
     Heathcliff: [
@@ -416,6 +526,26 @@ const personalityData = {
             id: "KR_P10712",
             title: "흑운회 와카슈",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10712_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10713",
+            title: "W사 4등급 정리요원 - CCA",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10713_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10714",
+            title: "흑수 - 유 필두",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10714_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10715",
+            title: "중지 작은 형님",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10715_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10716",
+            title: "거미집 엄지 제자",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10716_gacksung_profile.png",
         }
     ],
     Ishmael: [
@@ -473,6 +603,26 @@ const personalityData = {
             id: "KR_P10811",
             title: "흑운회 부조장",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10811_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10812",
+            title: "가주 후보",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10812_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10813",
+            title: "정사무소 대표",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10813_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10814",
+            title: "거미집 중지 제자",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10814_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10815",
+            title: "LCD 현장추리팀",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10815_gacksung_profile.png",
         }
     ],
     Rodion: [
@@ -535,6 +685,26 @@ const personalityData = {
             id: "KR_P10912",
             title: "흑수 - 사",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10912_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10913",
+            title: "로보토미 E.G.O::눈물로 벼려낸 검",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10913_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10914",
+            title: "R사 제 4무리 순록팀",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10914_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10915",
+            title: "약지 야수파 도슨트",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10915_gacksung_profile.png",
+        },
+        {
+            id: "KR_P10916",
+            title: "거미집 엄지 아비",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/10916_gacksung_profile.png",
         }
     ],
     Sinclair: [
@@ -597,6 +767,21 @@ const personalityData = {
             id: "KR_P11012",
             title: "중지 작은 아우",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11012_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11013",
+            title: "동부 엄지 솔다토 II",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11013_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11014",
+            title: "흑수 - 유",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11014_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11015",
+            title: "거미집 소지 제자",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11015_gacksung_profile.png",
         }
     ],
     Outis: [
@@ -659,6 +844,21 @@ const personalityData = {
             id: "KR_P11112",
             title: "흑수 - 묘",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11112_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11113",
+            title: "T사 3등급 강력징수직 직원",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11113_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11114",
+            title: "LCA 우제트 선봉 3팀 팀장",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11114_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11115",
+            title: "거미집 중지 아비",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11115_gacksung_profile.png",
         }
         
     ],
@@ -722,6 +922,26 @@ const personalityData = {
             id: "KR_P11212",
             title: "흑수 - 사",
             image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11212_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11213",
+            title: "밤의 송곳 카피타노",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11213_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11214",
+            title: "로보토미 E.G.O::램프",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11214_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11215",
+            title: "LCE E.G.O::AEDD",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11215_gacksung_profile.png",
+        },
+        {
+            id: "KR_P11216",
+            title: "새벽 사무소 대표",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/fortrait/Normal/11216_gacksung_profile.png",
         }
     ]
 };

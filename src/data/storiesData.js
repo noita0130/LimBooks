@@ -652,6 +652,28 @@ const storiesData = {
                 { id: "KR_8D208B", title: "가주 심사 2차전", subtitle: "8-20 던전 보스 전투 전" },
                 { id: "KR_8D209I", title: "가주 심사 2차전", subtitle: "8-20 던전 보스 전투 중" },
                 { id: "KR_8D209A", title: "가주 심사 2차전", subtitle: "8-20 던전 보스 전투 후" },
+                { id: "KR_S821B", title: "홍원의 가주", subtitle: "8-21 전투 전" },
+                { id: "KR_S822B", title: "찰나의 공석", subtitle: "8-22 전투 전" },
+                { id: "KR_S823B", title: "타인의 정의", subtitle: "8-23 전투 전" },
+                { id: "KR_S824B", title: "도둑의 행동", subtitle: "8-24 전투 전" },
+                { id: "KR_S825A", title: "바꿔보려는 의지", subtitle: "8-25 전투 후" },
+                { id: "KR_S826B", title: "가당찮은 발상", subtitle: "8-26 전투 전" },
+                { id: "KR_S827A", title: "두번째 전장", subtitle: "8-27 전투 후" },
+                { id: "KR_S828B", title: "판단하지 않는 자들", subtitle: "8-28 전투 전" },
+                { id: "KR_S830B", title: "마음", subtitle: "8-30 전투 전" },
+                { id: "KR_S830I1", title: "마음", subtitle: "8-30 전투 중 1" },
+                { id: "KR_S830A", title: "마음", subtitle: "8-30 전투 후" },
+                { id: "KR_S831B", title: "일시적 휴전", subtitle: "8-31 전투 후" },
+                { id: "KR_S832B", title: "불로불사", subtitle: "8-32 전투 전" },
+                { id: "KR_S833B", title: "희로애락", subtitle: "8-33 전투 전" },
+                { id: "KR_S833I1", title: "희로애락", subtitle: "8-33 전투 중 1" },
+                { id: "KR_S833I2", title: "희로애락", subtitle: "8-33 전투 중 2" },
+                { id: "KR_S833I3", title: "희로애락", subtitle: "8-33 전투 중 3" },
+                { id: "KR_S833I4", title: "희로애락", subtitle: "8-33 전투 중 4" },
+                { id: "KR_S833I5", title: "희로애락", subtitle: "8-33 전투 중 5" },
+                { id: "KR_S833I6", title: "희로애락", subtitle: "8-33 전투 중 6 " },
+                { id: "KR_S833I7", title: "희로애락", subtitle: "8-33 전투 중 7" },
+                { id: "KR_S833A", title: "희로애락", subtitle: "8-33 전투 후" },
 
 
                 //{ id: "KR_S833I5", title: "가주 심사 2차전", subtitle: "8-20 던전 스토리 27" },
@@ -660,6 +682,249 @@ const storiesData = {
 
 
 
+            ]
+        },
+        {
+            id: "sub_8.5.1",
+            title: "8.5 - 절차탁춘",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter8.5_Cultivation.png",
+            chapters: [
+                { id: "KR_E801B", title: "가주의 증명", subtitle: "8.5-1 전투 전" },
+                { id: "KR_E802B", title: "12명의 선생님", subtitle: "8.5-2 전투 전" },
+                { id: "KR_E803B", title: "또 한 명의 학생", subtitle: "8.5-3 전투 전" },
+
+                { id: "KR_ES000B", title: "30일간의 수업", subtitle: "8.5-4 전투 전" },
+
+                { id: "KR_ES011B", title: "30일간의 수업", subtitle: "이상의 수업 1" },
+                { id: "KR_ES011A", title: "30일간의 수업", subtitle: "이상의 수업 2" },
+
+                { id: "KR_ES013B", title: "30일간의 수업", subtitle: "돈키호테의 수업 1" },
+                { id: "KR_ES013A", title: "30일간의 수업", subtitle: "돈키호테의 수업 2" },
+                
+                { id: "KR_ES012B", title: "30일간의 수업", subtitle: "파우스트의 수업 1" },
+                { id: "KR_ES012A", title: "30일간의 수업", subtitle: "파우스트의 수업 2" },
+                
+                { id: "KR_ES040B", title: "30일간의 수업", subtitle: "그레고르의 수업 1" },
+                { id: "KR_ES040A", title: "30일간의 수업", subtitle: "그레고르의 수업 2" },
+
+                { id: "KR_ES050B", title: "30일간의 수업", subtitle: "홍루의 수업 1" },
+                { id: "KR_ES050A", title: "30일간의 수업", subtitle: "홍루의 수업 2" },
+                
+                { id: "KR_ES060B", title: "30일간의 수업", subtitle: "자공 웨이" },
+                
+                { id: "KR_ES061B", title: "30일간의 수업", subtitle: "사화정 전투 전" },
+                { id: "KR_ES061A", title: "30일간의 수업", subtitle: "사화정 전투 후" },
+
+                { id: "KR_ES030B", title: "30일간의 수업", subtitle: "이스마엘의 수업 1" },
+                { id: "KR_ES030A", title: "30일간의 수업", subtitle: "이스마엘의 수업 2" },
+
+                { id: "KR_ES070B", title: "30일간의 수업", subtitle: "뫼르소의 수업" },
+                { id: "KR_ES090B", title: "30일간의 수업", subtitle: "오티스의 수업" },
+                
+                { id: "KR_ES120B", title: "30일간의 수업", subtitle: "사사정 전투 전" },
+                { id: "KR_ES120A", title: "30일간의 수업", subtitle: "사사정 전투 후" },
+                
+                { id: "KR_ES130B", title: "30일간의 수업", subtitle: "료슈의 수업 1" },
+                { id: "KR_ES130A", title: "30일간의 수업", subtitle: "료슈의 수업 2" },
+
+                { id: "KR_ES150B", title: "30일간의 수업", subtitle: "로쟈의 수업" },
+                
+                { id: "KR_ES180B", title: "30일간의 수업", subtitle: "왕청산 전투 전" },
+                { id: "KR_ES180A", title: "30일간의 수업", subtitle: "왕청산 전투 후" },
+
+                { id: "KR_ES190B", title: "30일간의 수업", subtitle: "히스의 수업 1" },
+                { id: "KR_ES210B", title: "30일간의 수업", subtitle: "외부강사의 수업 1" },
+                
+                { id: "KR_ES240B", title: "30일간의 수업", subtitle: "설반 전투 전" },
+                { id: "KR_ES240A", title: "30일간의 수업", subtitle: "설반 전투 후" },
+
+                { id: "KR_ES250B", title: "30일간의 수업", subtitle: "땡땡이" },
+                
+                { id: "KR_ES260B", title: "30일간의 수업", subtitle: "8.5-4 히스의 수업 2-1" },
+                { id: "KR_ES260A", title: "30일간의 수업", subtitle: "8.5-4 히스의 수업 2-2" },
+                { id: "KR_ES280A", title: "30일간의 수업", subtitle: "8.5-4 외부강사의 수업 2" },
+                { id: "KR_ES290B", title: "30일간의 수업", subtitle: "8.5-4 마음의 소리함" },
+                { id: "KR_ES300A", title: "30일간의 수업", subtitle: "8.5-4 마지막 날" },
+
+                { id: "KR_E805B", title: "최종 시험", subtitle: "8.5-5 전투 전" },
+                { id: "KR_E806B", title: "가주 구출 작전", subtitle: "8.5-6 전투 전" },
+                { id: "KR_E808A", title: "필두", subtitle: "8.5-8 전투 전" },
+                { id: "KR_E808B", title: "필두", subtitle: "8.5-8 전투 후" },
+                { id: "KR_E809B", title: "스승", subtitle: "8.5-9 전투 전" },
+                { id: "KR_E811B", title: "청출어람", subtitle: "8.5-11 전투 전" },
+                { id: "KR_E811I1", title: "청출어람", subtitle: "8.5-11 전투 중" },
+                { id: "KR_E811A", title: "청출어람", subtitle: "8.5-11 전투 후" },
+                { id: "KR_E812B", title: "증명", subtitle: "8.5-12 전투 전" },
+                
+            ]
+        },
+        {
+            id: "sub_8.5.2",
+            title: "8.5-EX - 선의의 순례",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter8.5_Pilgrimage.png",
+            chapters: [
+                { id: "KR_PC01B", title: "낯선 바다", subtitle: "LC-PC-1 전투 전" },
+                { id: "KR_PC01A", title: "낯선 바다", subtitle: "LC-PC-1 전투 후" },
+                { id: "KR_PC02B", title: "죽은 등대의 마을", subtitle: "LC-PC-2 전투 전" },
+                { id: "KR_PC03B", title: "테라", subtitle: "LC-PC-3 전투 후" },
+                { id: "KR_PC04B", title: "마사스호", subtitle: "LC-PC-4 전투 전" },
+                { id: "KR_PC05A", title: "작은 파도", subtitle: "LC-PC-5 전투 후" },
+                { id: "KR_PC06B", title: "재판관", subtitle: "LC-PC-6 전투 전" },
+                { id: "KR_PC07B", title: "돌아가는 시계", subtitle: "LC-PC-7 전투 전" },
+                { id: "KR_PC07A", title: "돌아가는 시계", subtitle: "LC-PC-7 전투 후" },
+                { id: "KR_PC08B", title: "삼자 협의", subtitle: "LC-PC-8 전투 전" },
+                { id: "KR_PC09B", title: "등대 탈환 작전", subtitle: "LC-PC-9 전투 전" },
+                { id: "KR_PC11B", title: "동화 속의 기사", subtitle: "LC-PC-11 전투 전" },
+                { id: "KR_PC11A", title: "동화 속의 기사", subtitle: "LC-PC-11 전투 후" },
+                { id: "KR_PC12B", title: "로도스 아일랜드", subtitle: "LC-PC-12 전투 전" },
+                { id: "KR_PC12A", title: "로도스 아일랜드", subtitle: "LC-PC-12 전투 후" },
+                { id: "KR_PC13B", title: "도시의 빛", subtitle: "LC-PC-13 전투 전" },
+                { id: "KR_PC14B", title: "선의의 순례", subtitle: "LC-PC-14 전투 전" },
+                { id: "KR_PC14I", title: "선의의 순례", subtitle: "LC-PC-14 전투 중" },
+                { id: "KR_PC14A", title: "선의의 순례", subtitle: "LC-PC-14 전투 후" },
+                
+            ]
+        },
+        {
+            id: "main_9",
+            title: "9 - 끊어지지 않는",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9_before.png",
+            chapters: [
+                { id: "KR_S901B", title: "암중 습격", subtitle: "9-1 전투 전" },
+                { id: "KR_S902B", title: "거미줄", subtitle: "9-2 전투 전" },
+                { id: "KR_S903I", title: "교본", subtitle: "9-3 전투 중" },
+                { id: "KR_S903A", title: "교본", subtitle: "9-3 전투 후" },
+                { id: "KR_S904B", title: "난도질 당한 기억", subtitle: "9-4 전투 전" },
+                { id: "KR_S907B", title: "나선의 역설", subtitle: "9-7 전투 전" },
+                { id: "KR_S908B", title: "현혹", subtitle: "9-8 전투 전" },
+                { id: "KR_S911B", title: "인연 얽힘", subtitle: "9-11 전투 전" },
+                { id: "KR_S912B", title: "목적 추론", subtitle: "9-12 전투 전" },
+                { id: "KR_S913B", title: "아수라장", subtitle: "9-13 전투 전" },
+                { id: "KR_S915B", title: "분홍빛 욕망", subtitle: "9-14 전투 전" },
+                { id: "KR_S916B", title: "손가락", subtitle: "9-16 전투 전" },
+                { id: "KR_S917B", title: "아비", subtitle: "9-17 전투 전" },
+                { id: "KR_S918B", title: "담배와 아비", subtitle: "9-18 전투 전" },
+                { id: "KR_S918A", title: "담배와 아비", subtitle: "9-18 전투 후" },
+                { id: "KR_S919B", title: "자식", subtitle: "9-19 전투 전" },
+                { id: "KR_S920B", title: "신입사원 ", subtitle: "9-21 전투 전" },
+                { id: "KR_S922B", title: "관객", subtitle: "9-23 전투 전" },
+                { id: "KR_S923B", title: "숨바꼭질", subtitle: "9-24 전투 전" },
+                { id: "KR_S924B", title: "충격지네", subtitle: "9-25 전투 전" },
+                { id: "KR_S925B", title: "계약", subtitle: "9-27 전투 전" },
+                { id: "KR_S926B", title: "지령의 뜻", subtitle: "9-30 전투 전" },
+                { id: "KR_S926I1", title: "지령의 뜻", subtitle: "9-30 전투 중 1" },
+                { id: "KR_S926I2", title: "지령의 뜻", subtitle: "9-30 전투 중 2" },
+                { id: "KR_S926A", title: "지령의 뜻", subtitle: "9-30 전투 후" },
+                { id: "KR_S927B", title: "머금은 목화", subtitle: "9-31 전투 전" },
+                { id: "KR_S928B", title: "아름다운 청색 빛", subtitle: "9-32 전투 전" },
+                { id: "KR_S929B", title: "선명한 하나", subtitle: "9-33 전투 전" },
+                { id: "KR_S929A", title: "선명한 하나", subtitle: "9-33 전투 후" },
+                { id: "KR_S930B", title: "집으로", subtitle: "9-34 전투 전" },
+                { id: "KR_S931B", title: "금고", subtitle: "9-35 전투 전" },
+
+                { id: "KR_S936B", title: "거미집 태우기", subtitle: "9-35 전투 전" },
+
+                { id: "KR_S937B", title: "약지", subtitle: "9-37 전투 전" },
+                { id: "KR_S937I1", title: "약지", subtitle: "9-37 전투 중 1" },
+                { id: "KR_S937I2", title: "약지", subtitle: "9-37 전투 중 2" },
+
+                { id: "KR_S938B", title: "중지", subtitle: "9-38 전투 전" },
+                { id: "KR_S939B", title: "검지", subtitle: "9-39 전투 전" },
+                { id: "KR_S940B", title: "소지", subtitle: "9-40 전투 전" },
+
+                { id: "KR_S941B", title: "아라야", subtitle: "9-41 전투 전" },
+                { id: "KR_S941A", title: "아라야", subtitle: "9-41 전투 후" },
+
+                { id: "KR_S942B", title: "티켓", subtitle: "9-42 전투 전" },
+                { id: "KR_S942A", title: "티켓", subtitle: "9-42 전투 후" },
+
+                { id: "KR_S943B", title: "부화", subtitle: "9-43 전투 전" },
+                { id: "KR_S943I1", title: "부화", subtitle: "9-43 전투 중 1" },
+                { id: "KR_S943I2", title: "부화", subtitle: "9-43 전투 중 2" },
+                { id: "KR_S943A", title: "부화", subtitle: "9-43 전투 후" },
+
+                { id: "KR_S944I1", title: "가족", subtitle: "9-44 전투 중 1" },
+
+                { id: "KR_S945B", title: "어느 날 갑자기", subtitle: "9-45 전투 전" },
+                { id: "KR_S945A", title: "어느 날 갑자기", subtitle: "9-45 전투 후" },
+
+                { id: "KR_S946B", title: "기다림", subtitle: "9-46 전투 전" },
+                { id: "KR_S947B", title: "연민", subtitle: "9-47 전투 전" },
+
+                { id: "KR_S948B", title: "시간얽힘", subtitle: "9-48 전투 전" },
+                { id: "KR_S948A", title: "시간얽힘", subtitle: "9-48 전투 후" },
+
+                { id: "KR_S949B", title: "무아", subtitle: "9-49 전투 전" },
+                { id: "KR_S949A", title: "무아", subtitle: "9-49 전투 후" },
+
+                { id: "KR_S950B", title: "거미줄", subtitle: "9-50 전투 전" },
+                { id: "KR_S950I1", title: "거미줄", subtitle: "9-50 전투 중 1" },
+                { id: "KR_S950I2", title: "거미줄", subtitle: "9-50 전투 중 2" },
+                { id: "KR_S950A", title: "거미줄", subtitle: "9-50 전투 후" },
+
+                { id: "KR_S951B", title: "삼세인과", subtitle: "9-51 전투 전" }
+            ]
+        },
+        {
+            id: "sub_9.5.1",
+            title: "9.5 - 타래엮기",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9.5_TwiningThreads.png",
+            chapters: [
+                { id: "KR_E901B", title: "장례식", subtitle: "9.5-1 전투 전" },
+                { id: "KR_E902B", title: "생존자", subtitle: "9.5-2 전투 전" },
+
+                { id: "KR_E903B", title: "웨이페어러", subtitle: "9.5-3 전투 전" },
+                { id: "KR_E903A", title: "웨이페어러", subtitle: "9.5-3 전투 후" },
+
+                { id: "KR_E904B", title: "유물과 표지", subtitle: "9.5-4 전투 전" },
+                { id: "KR_E905B", title: "렌케츠엔", subtitle: "9.5-5 전투 전" },
+
+                { id: "KR_E906B", title: "사루", subtitle: "9.5-6 전투 전" },
+                { id: "KR_E906A", title: "사루", subtitle: "9.5-6 전투 후" },
+
+                { id: "KR_E907B", title: "학교", subtitle: "9.5-7 전투 전" },
+                { id: "KR_E908B", title: "불행", subtitle: "9.5-8 전투 전" },
+                { id: "KR_E909B", title: "기억", subtitle: "9.5-9 전투 전" },
+
+                { id: "KR_E910B", title: "지하실", subtitle: "9.5-10 전투 전" },
+                { id: "KR_E910A", title: "지하실", subtitle: "9.5-10 전투 후" },
+
+                { id: "KR_E911A", title: "조용히 잊혀지는", subtitle: "9.5-11 전투 후" },
+
+                { id: "KR_E912B", title: "만단지예", subtitle: "9.5-12 전투 전" },
+                { id: "KR_E913B", title: "좋은 기억", subtitle: "9.5-13 전투 전" },
+                { id: "KR_E914B", title: "다음 목적지", subtitle: "9.5-14 전투 전" },
+            ]
+        },
+        {
+            id: "sub_9.5.2",
+            title: "9.5 - 경험기억",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/chapter9.5_RecordMemory.png",
+            chapters: [
+                { id: "KR_E915B", title: "면담", subtitle: "9.5-15 전투 전" },
+                { id: "KR_E916B", title: "합류", subtitle: "9.5-16 전투 전" },
+                { id: "KR_E917B", title: "변곡점 찾기", subtitle: "9.5-17 전투 전" },
+
+                { id: "KR_E918B", title: "오해", subtitle: "9.5-18 전투 전" },
+                { id: "KR_E918A", title: "오해", subtitle: "9.5-18 전투 후" },
+
+                { id: "KR_E919B", title: "필름", subtitle: "9.5-19 전투 전" },
+                { id: "KR_E919A", title: "필름", subtitle: "9.5-19 전투 후" },
+
+                { id: "KR_E920B", title: "사진들", subtitle: "9.5-20 전투 전" },
+                { id: "KR_E921B", title: "통조림", subtitle: "9.5-21 전투 전" },
+                { id: "KR_E922B", title: "금기", subtitle: "9.5-22 전투 전" },
+
+                { id: "KR_E923B", title: "추적2", subtitle: "9.5-23 전투 전" },
+                { id: "KR_E923I", title: "추적2", subtitle: "9.5-23 전투 중" },
+
+                { id: "KR_E924B", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 1" },
+                { id: "KR_E925B", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 2" },
+                { id: "KR_E926B", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 3" },
+                { id: "KR_E926I", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 4" },
+                { id: "KR_E926A", title: "???의 심상", subtitle: "9.5 스토리 던전 내부 5" },
+
+                { id: "KR_E927B", title: "피사체", subtitle: "9.5-26 전투 전" }
             ]
         }
     ],
@@ -772,9 +1037,25 @@ const storiesData = {
                 { id: "KR_E071X", title: "제5회 발푸르기스의 밤", subtitle: "전투 후" },
             ]
         },
-
-
-
+        {
+            id: "mini_8_1",
+            title: "제6회 발푸르기스의 밤",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E080X.png",
+            chapters: [
+                { id: "KR_E080X", title: "제6회 발푸르기스의 밤", subtitle: "전투 전" },
+                { id: "KR_E081X", title: "제6회 발푸르기스의 밤", subtitle: "전투 후" },
+                { id: "KR_E082X", title: "제6회 발푸르기스의 밤", subtitle: "전투 후" },
+            ]
+        },
+        {
+            id: "mini_9_1",
+            title: "제8회 발푸르기스의 밤",
+            image: "https://raw.githubusercontent.com/noita0130/LimBooksImg/master/chapterImg/story-id_E090X.png",
+            chapters: [
+                { id: "KR_E090X", title: "제8회 발푸르기스의 밤", subtitle: "전투 전" },
+                { id: "KR_E091X", title: "제8회 발푸르기스의 밤", subtitle: "전투 후" },
+            ]
+        }
 
     ]
 };
