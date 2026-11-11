@@ -141,7 +141,7 @@ const MainPage = React.lazy(() => Promise.resolve({
                 <div className="w-full max-w-3xl aspect-video">
                   <iframe width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/mGJJuEI52EU?si=iPrkLz79nX1dc9oN"
+                    src="https://www.youtube.com/embed/rd4UaXWUWUs?si=PZGMwqzc-FbAqZW-"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -241,12 +241,12 @@ const MainPage = React.lazy(() => Promise.resolve({
               </h2>
               <p className={`text-left ${getSectionContentStyle()}`}>
                 최신 업데이트 : 2026.08.15<br />
-                9.5장 타래엮기<br />
-                9.5장 경험기억<br />
-                업데이트 완료<br />
-
-                W워프열차 아나운서 이후 음성 업데이트 예정<br />
-                9.5장 기억경험 수정 예정<br />
+                2026.11.11 현재 10장 스토리 작업중이며,
+                <br /> 수만자에 달하는 쯔꾸르 내 스토리파일의 스토리 텍스트의 순서가 모두 섞여있어
+                <br /> 스토리 순서를 맞추는 작업이 필요합니다.
+                <br /> 이로 인해, 스토리 업데이트가 늦어지고있습니다.
+                <br /> 빠른 시일 내에 스토리 업데이트를 완료하도록 하겠습니다.
+                <br />감사합니다
 
               </p>
             </div>
